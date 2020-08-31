@@ -1,0 +1,110 @@
+code: ECBS 5146
+title: "Data Engineering 2: Different Shapes of Data"
+instructors:
+    -   name: Miklós Koren
+        bio: Miklós Koren is professor of economics at CEU, senior research fellow at the Institute of Economics, and research fellow of the Centre for Economic Policy Research. He is the founder of the Business Analytics MSc program and the CEU MicroData research group. His research focuses on how talent and technology jointly determine business success. Professor Koren has more than two decades of experience with data and coding. He is a certified Carpentries Instructor.
+        email: korenm@ceu.edu    
+        office: N13 213 (Budapest)
+    -   name: László Salló
+        bio: Laszlo Sallo is an IT Manager with Software Engineering background. Over the past 20+ years, he participated in more than 150 international projects. Currently he is serving as Delivery Manager for EPAM Systems, leading a data related project portfolio, combining his skills in Agile Project Management and Data Engineering.  Laszlo holds an M.S. in Business Analytics from Central European University (2016). He is instructor of CEU since 2016. 
+        email: ""     
+        office: ""
+credits:
+    us: 2
+    ects: 4
+module: Data Engineering
+drop: Course can be dropped free of charge 24 hours after the first session. After this date drop is possible until the course is halfway over (late drop fee applies). No changes are allowed past that date. 
+term: Fall 2020-2021
+level: 
+    - Master's
+prerequisites:
+    - Data Engineering 1
+description:
+    content: In Data Engineering 2 we deep dive in advanced topics relevant for Data Analysts, we go beyond the tabular format and discover different shapes of data and the tools supporting these shapes. By the end of the course we aim to build all these new technologies in a comprehensive analytical pipeline.  
+    relevance: In Data Engineering 1 we introduced SQL and the related technologies such as Relational Database Management Systems and classical Data Warehouse architectures.  
+learning_outcomes:
+    - Understand the tradeoffs of data architectures 
+    - Work with different data formats and files 
+    - Model advanced data structures 
+    - Have broad understanding on choosing the right technical solution within the 1000s of technologies available these days 
+    - Build a data pipeline for analytics
+learning_areas:
+    - type: Critical thinking
+      outcomes:
+        - Evaluate and compare different data analytics tools and technologies.
+        - Separate important from unimportant features of analytics problems.
+    - type: Quantitative reasoning
+      outcomes:
+        - Create logical models for relational data.
+        - Understand and apply database normalization.
+        - Classify search algorithms according to algorithmic complexity.
+        - Express the algorithmic complexity of simple algorithms written in pseudocode.
+        - Compare different data structures.
+    - type: Technology skills
+      outcomes:
+        - Create and query SQL databases.
+        - Load and save flat files in different serialization formats with different character encodings.
+    - type: Interpersonal communication skills
+      outcomes:
+        - Convey technical concepts verbally.
+        - Collaborate with others on technical tasks.
+        - Communicate design decisions with block diagrams.
+    - type: Management knowledge and skills
+      outcomes:
+        - Build analytical systems§ with many components.
+        - Organize work components effectively.
+        - Meet deadlines.
+    - type: Cultural sensitivity and diversity
+      outcomes:
+        - Work together with students of different backgrounds.
+    - type: Ethics and social responsibility
+      outcomes:
+        - Understand ethical and legal constraints of acquiring and processing data.
+        - Apply good practices of data protection.
+readings:
+    required:
+        - None of the books below are required in their entirety. The relevant chapters will be highlighted for each section.
+    recommended:
+        - "Martin Kleppmann (2017). Designing Data-Intensive Applications - The Big Ideas Behind Reliable, Scalable, and Maintainable Systems  Sebastopol, CA : Oreilly & Associates Inc (https://dataintensive.net/buy.html)"
+        - "Sadalage, Fowler (2013). NoSQL Distilled: A Brief Guide to the Emerging World of Polyglot Persistence Addison-Wesley Professional"
+        - "Silberschatz, Kotz and Sudarshan (2011). Database System Concepts, 6th Edition. Chapters 7.1-7.3."
+teaching_methods:
+    - The course will involve a mix of theoretical presentations and practice. There will no separate practical seminar, almost every course scheduled has practice incorporated in the class session. 
+assessments:
+    -   description: Questionnaire as Exam
+        weight: 40
+    -   description: Take-home Assignment
+        weight: 20
+    -   description: Final Project
+        weight: 40
+technical_requirements:
+    - Personal laptop computer with administrative privileges to install open source software.
+    - "Operating system: Windows 10+ or Mac OS X 10.8+, or Linux 2.6.18+"
+    - Latest Chrome browser
+    - KNIME Analytics Platform (https://www.knime.com/downloads/download-knime)
+    - Internet access. 
+outline:
+    -   session: 1
+        topic: Data architecture tradeoffs
+        reading: Kleppmann (2017), Chapter 1. Fowler, Martin (2015). "DataLake [blog post]" https://martinfowler.com/bliki/DataLake.html 
+    -   session: 2
+        topic: The new tools, polyglot persistence, NoSQL practice
+        reading: 
+    -   session: 3
+        topic: Data structures, NoSQL practice
+        reading: Skerritt, Brandon (2019). "All You Need to Know About Big O Notation [blog post]" https://skerritt.blog/big-o/
+    -   session: 4
+        topic: NoSQL practice
+        reading: 
+    -   session: 5
+        topic: Advanced data modeling, data pipelines, Knime practice
+        reading: Silberschatz, Kotz and Sudarshan (2011). Chapters 7.1-7.3.
+    -   session: 6
+        topic: Knime practice
+        reading: 
+    -   session: 7
+        topic: Data serialization for ease of sharing, bash practice
+        reading: Kleppmann (2017), Chapter 4. 
+    -   session: 8
+        topic: Final quiz, term project preparation
+        reading: 
