@@ -10,7 +10,7 @@
 carpentry: "cp"
 
 # Overall title for pages.
-title: "ECBS 5148 Data Architecture for Analysts"
+title: "ECBS 5146 Different Shapes of Data"
 
 # Life cycle stage of the lesson
 # possible values: "pre-alpha", "alpha", "beta", "stable"
