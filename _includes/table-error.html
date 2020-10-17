@@ -1,0 +1,17 @@
+#### {{ table_caption }}
+<table>
+    <thead>
+    {% for column in table_data[0] %}
+        {% unless column[0]=="error" %}<td>{{ column[0] }}</td>{% endunless %}
+    {% endfor %}
+    </thead>
+    <tbody>
+    {% for row in table_data %}
+        <tr>
+        {% for cell in row %}
+            {% unless cell[0]=="error"%}<td>{% if row.error %}<font color="red">{{ cell[1] }}</font>{% else %}{{ cell[1] }}{% endif %}</td>{% endunless %}
+        {% endfor %}
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>

@@ -1,0 +1,24 @@
+name,description,purpose,documentation_url,download_url,tutorial_url,type,requirement,use
+SQLite,"SQLite is an in-process library that implements a self-contained, serverless, zero-configuration, transactional SQL database engine.",Practice SQL queries,https://sqlite.org/index.html,https://sqlite.org/download.html,https://sqlzoo.net/wiki/SQL_Tutorial,tool,,1
+OpenRefine,"A free, open source, powerful tool for working with messy data",Practice Entity Resolution,http://openrefine.org/,http://openrefine.org/download.html,http://thomaspadilla.org/dataprep/,tool,,1
+Neo4j,Graph database,,https://neo4j.com/,https://neo4j.com/sandbox-v2/?ref=hcard,https://neo4j.com/graphacademy/online-training/introduction-to-neo4j/,tool,,
+wget,,Download data from the web,,,,tool,,1
+bash,"Bash is the shell, or command language interpreter, for the GNU operating system. ",Automate tasks we do often,,https://git-scm.com/download/win,https://www.gnu.org/savannah-checkouts/gnu/bash/manual/bash.html,technology,,1
+jq,jq is a lightweight and flexible command-line JSON processor.,Read and process JSON data in the command line,https://stedolan.github.io/jq/,https://stedolan.github.io/jq/download/,"https://stedolan.github.io/jq/tutorial/, https://cameronnokes.com/blog/working-with-json-in-bash-using-jq/",tool,,1
+GraphQL,A query language for your API,,https://graphql.org/,,https://graphql.org/learn/,technology,,
+dplyr,"dplyr is a grammar of data manipulation, providing a consistent set of verbs that help you solve the most common data manipulation challenges",,https://dplyr.tidyverse.org/,,https://r4ds.had.co.nz/transform.html,tool,,
+UML,Universal Modeling Language,,,,,technology,,
+CSV,Comma Separated Values,"Store data in human readable, portable form",https://en.wikipedia.org/wiki/Comma-separated_values,,,technology,,1
+Data Package,,Codify metadata and resource description,https://frictionlessdata.io/specs/data-package/,,,technology,,1
+Data Curator,"Data Curator is a simple desktop CSV editor to help describe, validate and share usable open data",,https://theodi.org.au/data-curator/,https://github.com/ODIQueensland/data-curator/releases,,tool,,
+bead,Command-line tool to package data and code together,,,https://github.com/ceumicrodata/bead/releases,,tool,python,
+csvkit,"csvkit is a suite of command-line tools for converting to and working with CSV, the king of tabular file formats",Work with .csv files in the command line,https://csvkit.readthedocs.io/en/latest/,,,tool,python,
+python,,,,,,technology,,
+API,,,,,,technology,,
+RegEx,,,,,,technology,,
+JSON,JSON (JavaScript Object Notation) is a lightweight data-interchange format.,Store structure data with less boilerplate,https://www.json.org/,,,technology,,1
+Markdown,,,,,,technology,,
+datasette,,Browse and explore data in SQLite database,https://datasette.readthedocs.io/en/stable/index.html,https://datasette.readthedocs.io/en/stable/installation.html,,tool,,
+YAML,,Store structured data in human readable format,https://en.wikipedia.org/wiki/YAML,,,technology,,1
+mermaid,js library to display diagrams,Create flow charts and other diagrams from simple text syntax,https://mermaidjs.github.io/#/,,,tool,,1
+structurizr,Create architectural diagrams with 4 different zoom levels in the cloud,,https://structurizr.com/,,,tool,,

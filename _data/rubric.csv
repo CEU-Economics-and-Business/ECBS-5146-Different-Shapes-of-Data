@@ -1,0 +1,39 @@
+topic,outcome
+Architecture,Separate important from unimportant features.
+Architecture,Represent a mental model visually.
+Architecture,Create diagrams with Mermaid or other tool.
+Architecture,Create concept map of data products.
+Architecture,Identify key trade-offs in data architecture.
+Modeling,Recognize tidy data. 
+Modeling,Create logical model for simple relational data and represent it with Entity-Relation Diagrams.
+Modeling,Create and query a simple database in SQLite or other RDBMS.
+Modeling,Understand and apply normal forms 1-3 to simple relational data.
+Modeling,Model many-to-one relationships.
+Modeling,Model many-to-many relations through a link table.
+Structures,Classify search algorithms according to algorithmic complexity.
+Structures,Build a binary tree from simple ordered data.
+Structures,Express the algorithmic complexity of simple algorithms.
+Structures,Compare different data structures.
+Structures,Contrast worst-case and average algorithmic complexities.
+Structures,Understand Big-O notation.
+Serialization,Understand character encodings and Unicode points.
+Serialization,Load and save text file with different character encodings.
+Serialization,"Compare popular serialization formats fixed width, CSV, JSON, XML, YAML, JSONlines, Parquet."
+Serialization,Explain the tradeoffs in data serialization.
+Serialization,Use head and wc to explore data stored in text files.
+Serialization,Explore JSON files with jq or other tool.
+Quality,Use string functions in OpenRefine or other tool to normalize text data.
+Quality,Explore data in OpenRefine or other tool with facets and filters.
+Quality,Use OpenRefine or other tool to split and reshape data.
+Quality,Use simple regular expressions to exract numerical information from textual data.
+Quality,"Save, edit and replay changes in OpenRefine on different datasets."
+Quality,Reshape data long from variable name patterns.
+Integration,Compare different methods of Entity Resolution.
+Integration,Normalize strings referring to people and corporations using regular expressions.
+Integration,Apply Levenshtein and other fuzzy distance metrics.
+Integration,"Recognize and apply standards most often used for identifiers (ISO-3166, ISO-8601)."
+Integration,Understand basic robots.txt structure.
+Integration,"Use wget, curl or other programmatic tool to download data from the web."
+Integration,Use for loops to automate data transformations.
+Integration,Create conversion tables to respect architectural boundaries of data.
+Integration,Create a Data Package to share data and metadata together.

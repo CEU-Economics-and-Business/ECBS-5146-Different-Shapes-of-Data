@@ -1,0 +1,76 @@
+<me going_to="St Ives">
+    <wife id=1>
+        <sack id=1>
+            <cat id=1>
+                <kit id=1>
+                </kit>
+                <kit id=2>
+                </kit>
+                ...
+            </cat>
+            <cat id=2>
+                <kit id=8>
+                </kit>
+                <kit id=9>
+                </kit>
+                ...
+            </cat>
+            ...
+        </sack>
+        <sack id=2>
+            <cat id=8>
+                <kit id=50>
+                </kit>
+                <kit id=51>
+                </kit>
+                ...
+            </cat>
+            <cat id=9>
+                <kit id=57>
+                </kit>
+                <kit id=58>
+                </kit>
+                ...
+            </cat>
+            ...
+        </sack>
+        ...
+    </wife>
+    <wife id=2>
+        <sack id=8>
+            <cat id=50>
+                <kit id=344>
+                </kit>
+                <kit id=345>
+                </kit>
+                ...
+            </cat>
+            <cat id=51>
+                <kit id=351>
+                </kit>
+                <kit id=352>
+                </kit>
+                ...
+            </cat>
+            ...
+        </sack>
+        <sack id=9>
+            <cat id=57>
+                <kit id=393>
+                </kit>
+                <kit id=394>
+                </kit>
+                ...
+            </cat>
+            <cat id=48>
+                <kit id=400>
+                </kit>
+                <kit id=401>
+                </kit>
+                ...
+            </cat>
+            ...
+        </sack>
+        ...
+    </wife>
+</me>
