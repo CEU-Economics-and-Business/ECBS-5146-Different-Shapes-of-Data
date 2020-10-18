@@ -1,23 +1,4 @@
 ---
-title: "KNIME"
-teaching:0 
-exercises: 120
-questions:
-- How the data science landscape looks like in regard to tools?
-- How to implement an end-to-end data analytics workflow?
-
-objectives:
-- Introducing KNIME as data analytics tool
-- Basic exercises with KNIME
-- End-to-end (from data acquisition to visualization) practice exercise
-
-keypoints:
-- As analyst, you might want to use an end-to-end data analytics tool (with integration of multiple data sources, data pipelines, advanced analytics etc)
-- As analyst, rapid prototyping of your data analytics workflow, opposed to using a programing language (R,Python etc), might be a valuable asset
-
----
-
----
 title: "Command Line Exercises"
 teaching: 10
 exercises: 60
