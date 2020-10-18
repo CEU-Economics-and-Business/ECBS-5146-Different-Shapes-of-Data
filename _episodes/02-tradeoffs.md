@@ -1,25 +1,27 @@
-# Chapter 1 - Data Architectural Tradeoffs - Overview
-
-**Teaching**: 90 min
+---
+title: "Data Architectural Tradeoffs"
+teaching: 70
+exercises: 30
+questions:
+- ""
+objectives:
+- Understand the issues around the classical Data Warehouse architecture
+- Understand the limitation of RDBMDs
+- Understand the social, economical and technological changes after 2010 and the radical changes induced in the data world
+- Understand the role of opens source in data world
+- Understand distributed systems
+- Understand cloud-based systems
+- Practice creation of a RDBMS in AWS
+keypoints:
+- As analyst, you need to understand the architectural challenges of data ecosystems, so that later you can choose the right environment for your analytics. 
+- As analyst, you need to setup a central cloud based RDBMS so that you can perform your work in a team setup. 
+---
 
 **Problem statement**
 1. As analyst, you need to understand the architectural challenges of data ecosystems, so that later you can choose the right environment for your analytics. 
 
 2. As analyst, you need to setup a central cloud based RDBMS so that you can perform your work in a team setup. 
 
-
-**Objectives**
-* Understanding the issues around the classical Data Warehouse architecture
-* Understanding the limitation of RDBMDs
-* Understanding the social, economical and technological changes after 2010 and the radical changes induced in the data world
-* Understanding the role of opens source in data world
-* Understanding distributed systems
-* Understanding cloud-based systems
-* Practice creation of a RDBMS in AWS
-
-
-
-<br/><br/><br/>
 
 ## Data architectural tradeoffs from engineering perspective
 
@@ -34,7 +36,7 @@ Getting insights in AWS cloud, has to major goals:
 * Introducing cloud in practice, helps students to understand the next lecture
 
 
-[Tutorial](/DSD1//AWS/)
+[Tutorial](https://github.com/salacika/DE2DSD/tree/main/DSD1/AWS)
 
 ## Homework
 
