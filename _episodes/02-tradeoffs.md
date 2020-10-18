@@ -22,7 +22,7 @@ keypoints:
 
 ## Data architectural tradeoffs from engineering perspective
 
-[Lecture](https://github.com/salacika/DE2DSD/blob/main/DSD1/1.pptx)
+[Lecture](https://github.com/salacika/DE2DSD/blob/main/tradeoffs/tradeoffs.pptx)
 
 
 ## Installing MySQL in AWS
