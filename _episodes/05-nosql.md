@@ -55,6 +55,8 @@ https://redis-py.readthedocs.io/en/latest/index.html
 
 https://redis.io/commands#
 
+<br>
+
 #### Exercise interface: http://ceudsd.net (Apache Zeppelin)
 
 Username/Password will be distributed during class. Ask on Slack if you haven't got one. 
