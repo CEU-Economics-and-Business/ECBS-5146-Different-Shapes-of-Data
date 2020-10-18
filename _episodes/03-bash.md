@@ -6,9 +6,9 @@ questions:
 - What tool a data analyst can use to modify the content of a large data file?
 
 objectives:
-- basic understanding of Linux bash
-- practice of viewing/editing/modifying a large csv file
-- quick intro to Linux scripts
+- Basic understanding of Linux bash
+- Practice of viewing/editing/modifying a large csv file
+- Quick intro to Linux scripts
 
 keypoints:
 - As analyst, Linux bash can be a handy tool to work with large data files 
