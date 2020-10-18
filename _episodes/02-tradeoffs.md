@@ -34,6 +34,7 @@ Getting insights in AWS cloud, has to major goals:
 
 [Tutorial](https://github.com/salacika/DE2DSD/tree/main/DSD1/AWS)
 
+<br><br>
 
 > ## Homework (Optional, no need to submit)
 > 
