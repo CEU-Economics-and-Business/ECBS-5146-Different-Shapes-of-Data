@@ -20,19 +20,19 @@ keypoints:
 
 
 
-<br/><br/><br/>
+<br/><br/>
 
 ## Prerequisite: Installing KNIME Analytics Platform (Not the server part!)
 
 
-Download KNIME for (Window/Linux/Mac) from here: https://www.knime.com/downloads/download-knime
+Download KNIME for (Window/Linux/Mac) from here: (https://www.knime.com/downloads/download-knime)
 
 Please make sure the intallation is valid and the application starts properly!
 
 If you need further help check the "KNIME Beginner's Luck" book uploaded on Moodle or ask help on Slack!
 
 
-<br/><br/>
+<br/>
 
 ## Prerequisite: Self preparation at home
 * Read "KNIME Beginner's Luck" book uploaded on Moodle from 18 to 54. 
@@ -40,7 +40,7 @@ If you need further help check the "KNIME Beginner's Luck" book uploaded on Mood
 * Check the content of all 4 KNIME related books uploaded on Moodle
 
 
-<br/><br/><br/>
+<br/><br
 
 ## Introducing KNIME
 
@@ -66,13 +66,12 @@ If you need further help check the "KNIME Beginner's Luck" book uploaded on Mood
 
 <br/><br/>
 
-## End-to-end example
+>## End-to-end example
+> [Source file 1](https://github.com/salacika/DE2DSD/tree/main/knime/source_birdstrikes_small.csv)
+> [Source file 2](https://github.com/salacika/DE2DSD/tree/main/knime/source_us_state_bounding_boxes.csv)
+> [Tutorial](https://github.com/salacika/DE2DSD/tree/main/knime/seminar_script.docx)
+> [End result](https://github.com/salacika/DE2DSD/tree/main/knime/ceu.knwf)
+{: .challenge}
 
-[Source file 1](https://github.com/salacika/DE2DSD/tree/main/knime/source_birdstrikes_small.csv)
-
-[Source file 2](https://github.com/salacika/DE2DSD/tree/main/knime/source_us_state_bounding_boxes.csv)
-
-[Tutorial](https://github.com/salacika/DE2DSD/tree/main/knime/seminar_script.docx)
-
-[End result](https://github.com/salacika/DE2DSD/tree/main/knime/ceu.knwf)
+<br/><br/>
 
