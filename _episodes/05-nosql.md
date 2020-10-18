@@ -498,6 +498,7 @@ In Neo4J the SELECT is called MATCH. One of the simplest query is selecting 25 O
 MATCH (n:Officer) 
 RETURN n LIMIT 25
 ```
+{: .language-cypher}
 
 [In SQL would be something like this:
 `SELECT * FROM Officer AS n LIMIT 5`]
@@ -507,6 +508,8 @@ Same SELECT but instead of node the node name is returned:
 MATCH (n:Entity) 
 RETURN n.name LIMIT 25
 ```
+{: .language-cypher}
+
 [In SQL would be something like this:
 `SELECT name FROM Entity AS n LIMIT 25`]
 
@@ -517,6 +520,7 @@ MATCH (o:Officer)
 WHERE o.countries CONTAINS 'Hungary'
 RETURN o
 ```
+{: .language-cypher}
 
 [In SQL would be something like this:
 `SELECT o.countries FROM Officer AS o WHERE o.countries LIKE '%Hungary%'`]
@@ -548,6 +552,7 @@ MATCH (o)-[r]-(c:Entity)
 RETURN o,r,c
 LIMIT 10
 ```
+{: .language-cypher}
 
 [In SQL would be something like this:
 `SELECT * 
@@ -564,7 +569,7 @@ WHERE o.countries CONTAINS 'Hungary'
 MATCH (o)-[r]-(c:Entity)
 RETURN o,r,c
 ```
-
+{: .language-cypher}
 
 A variation of the previous one, but here the link type is specified:
 ```
@@ -573,6 +578,7 @@ WHERE o.countries CONTAINS 'Hungary'
 MATCH (o)-[r:DIRECTOR_OF]-(c:Entity)
 RETURN o,r,c
 ```
+{: .language-cypher}
 
 Find the Officers called "aliyev" and Entities related to them:
 ```
@@ -581,6 +587,8 @@ WHERE toLower(o.name) CONTAINS "aliyev"
 MATCH (o)-[r]-(c:Entity)
 RETURN o,r,c
 ```
+{: .language-cypher}
+
 ####  Count
 
 Which country has the most addresses 
@@ -590,6 +598,7 @@ RETURN n.countries, count(*)
 ORDER BY count(*) DESC
 LIMIT 10
 ```
+{: .language-cypher}
 
 > ## NEO4J Exercise 5 
 > List the name and number connections of the top 10 most connected Officers from Bulgaria. Who is the no1.
@@ -606,6 +615,7 @@ Return all node labels
 MATCH (n)
 RETURN DISTINCT labels(n) 
 ```
+{: .language-cypher}
 
 Same as before, but using "WITH" 
 ```
@@ -613,6 +623,7 @@ MATCH (n)
 WITH labels(n) AS type
 RETURN DISTINCT type
 ```
+{: .language-cypher}
 
 Show the average degree by node type:
 ```
@@ -620,6 +631,7 @@ MATCH (n)
 WITH labels(n) AS type, size( (n)--() ) AS degree
 RETURN type, round(avg(degree)) AS avg
 ```
+{: .language-cypher}
 
 Calculate the degree and clustering_coefficient of a node:
 ```
