@@ -25,8 +25,6 @@ objectives:
 - Practice with Solr
 - Introducing Graph DBMS
 - Practice with Neo4J
-keypoints:
-- ""
 ---
 
 > ## Table of Content
