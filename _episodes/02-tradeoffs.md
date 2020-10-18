@@ -1,5 +1,5 @@
 ---
-title: "Data Architectural Tradeoffs"
+title: "Data Architecture Tradeoffs from Engineering Perspective"
 teaching: 70
 exercises: 30
 questions:
