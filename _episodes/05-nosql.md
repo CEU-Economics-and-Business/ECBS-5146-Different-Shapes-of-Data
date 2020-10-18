@@ -25,6 +25,14 @@ objectives:
 - Practice with Solr
 - Introducing Graph DBMS
 - Practice with Neo4J
+
+keypoints:
+- To go beyond tabular data, we need other technologies than RDBMS
+- NoSQL solutions build for high scalability, simplified consistency, finer control over availability could be a solution to persist different shapes of data
+- Hundreds, even thousands of NoSQL solution are available, the best way to orient ourselves in this jungle, is to learn the main families
+
+
+
 ---
 
 > ## Table of Content
