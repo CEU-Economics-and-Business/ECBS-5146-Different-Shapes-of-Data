@@ -68,9 +68,13 @@ If you need further help check the "KNIME Beginner's Luck" book uploaded on Mood
 
 >## End-to-end example
 > [Source file 1](https://github.com/salacika/DE2DSD/tree/main/knime/source_birdstrikes_small.csv)
+>
 > [Source file 2](https://github.com/salacika/DE2DSD/tree/main/knime/source_us_state_bounding_boxes.csv)
+>
 > [Tutorial](https://github.com/salacika/DE2DSD/tree/main/knime/seminar_script.docx)
+>
 > [End result](https://github.com/salacika/DE2DSD/tree/main/knime/ceu.knwf)
+>
 {: .challenge}
 
 <br/><br/>
