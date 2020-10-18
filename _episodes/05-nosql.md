@@ -1,11 +1,16 @@
 ---
-title: "NoSQL Overview"
-teaching: 270
-exercises: 
+title: "NoSQL"
+teaching: 100
+exercises: 160
 questions:
-- ""
+- What is polyglot persistence and how solves the data storge problems these days?
+- What are the common treats of NoSQL solutions?
+- How can a data analyst choose the appropriate data solution tailored to her/his task?
+
+
 objectives:
-- Understanding the polyglot data storage 
+- Understanding the polyglot persistence
+- Understanding eventual consistency
 - Understanding SQL VS NoSQL
 - Understanding NoSQL families 
 - Introducing Key-Value Stores
