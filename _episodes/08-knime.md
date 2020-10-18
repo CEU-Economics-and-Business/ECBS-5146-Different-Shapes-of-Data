@@ -32,7 +32,6 @@ Please make sure the intallation is valid and the application starts properly!
 If you need further help check the "KNIME Beginner's Luck" book uploaded on Moodle or ask help on Slack!
 
 
-<br/>
 
 ## Prerequisite: Self preparation at home
 * Read "KNIME Beginner's Luck" book uploaded on Moodle from 18 to 54. 
@@ -40,7 +39,7 @@ If you need further help check the "KNIME Beginner's Luck" book uploaded on Mood
 * Check the content of all 4 KNIME related books uploaded on Moodle
 
 
-<br/><br>
+<br/>
 
 ## Introducing KNIME
 
@@ -58,14 +57,14 @@ If you need further help check the "KNIME Beginner's Luck" book uploaded on Mood
 #### KNIME Nodes Classification 
 [Picture](https://github.com/salacika/DE2DSD/tree/main/knime/pictures/Picture2.png)
 
-<br/><br/>
+<br/>
 
 > ## Practice exercises
 >
 > @TODO
 {: .challenge}
 
-<br/><br/>
+<br/>
 
 >## End-to-end example
 > [Source file 1](https://github.com/salacika/DE2DSD/tree/main/knime/source_birdstrikes_small.csv)
