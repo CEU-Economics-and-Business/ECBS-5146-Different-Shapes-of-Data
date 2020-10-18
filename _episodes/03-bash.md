@@ -1,5 +1,6 @@
 ---
 title: "Command Line Exercises"
+teaching: 10
 exercises: 60
 questions:
 - What tool a data analyst can use to check the content of a large data file?
