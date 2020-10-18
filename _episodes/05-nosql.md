@@ -30,12 +30,16 @@ keypoints:
 ---
 
 > ## Table of Content
-
 > [Lecture](https://github.com/salacika/DE2DSD/blob/main/nosql/nosql.pptx)
+>
 > [REDIS](#redis)
+>
 > [INFLUX](#influx)
+>
 > [MONGO](#mongo)
+>
 > [SOLR](#solr)
+>
 > [NEO4J](#neo4j)
 {: .discussion}
   
