@@ -1,9 +1,12 @@
 ---
 title: "Data Architecture Tradeoffs"
-teaching: 70
+teaching: 60
 exercises: 30
 questions:
-- ""
+- Why 80% of classical Data Warehouse projects fails?
+- Why RDBMS is less trendy these days?
+- What are the expected characteristics of a data store these days?
+- What are the limitation of a classical RDBMS and how the "New tools" are solving these limitations?
 objectives:
 - Understand the issues around the classical Data Warehouse architecture
 - Understand the limitation of RDBMDs
@@ -27,7 +30,6 @@ keypoints:
 
 [Lecture](https://github.com/salacika/DE2DSD/blob/main/DSD1/1.pptx)
 
-## Homework
 
 ## Installing MySQL in AWS
 
