@@ -1,21 +1,23 @@
 ---
-title: "Command Line Exercises"
+title: "KNIME"
 teaching: 10
-exercises: 60
+exercises: 120
 questions:
-- What tool a data analyst can use to explore the content of a large data file? (e.g. a large CSV with hundreds of thousands of lines)
-- What tool a data analyst can use to modify the content of a large data file?
+- How the data science landscape looks like in regard to tools?
+- How to implement an end-to-end data analytics workflow?
 
 objectives:
-- Basic understanding of Linux bash
-- Practice of viewing/editing/modifying a large csv file
-- Quick intro to Linux scripts
+- Introducing KNIME as data analytics tool
+- Basic exercises with KNIME
+- End-to-end (from data acquisition to visualization) practice exercise
 
 keypoints:
-- As analyst, Linux bash can be a handy tool to work with large data files 
-- Some version of Linux bash can be used on any popular OS (Windows/Mac/Linux)
+- As analyst, you might want to use an end-to-end data analytics tool (with integration of multiple data sources, data pipelines, advanced analytics etc)
+- As analyst, rapid prototyping of your data analytics workflow, opposed to using a programing language (R,Python etc), might be a valuable asset
 
 ---
+
+
 
 
 <br/><br/><br/>
