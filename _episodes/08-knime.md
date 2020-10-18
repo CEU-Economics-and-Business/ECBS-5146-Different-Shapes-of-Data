@@ -25,7 +25,7 @@ keypoints:
 ## Prerequisite: Installing KNIME Analytics Platform (Not the server part!)
 
 
-Download KNIME for (Window/Linux/Mac) from here: (https://www.knime.com/downloads/download-knime)
+Download KNIME for (Window/Linux/Mac) from here: [https://www.knime.com/downloads/download-knime](https://www.knime.com/downloads/download-knime)
 
 Please make sure the intallation is valid and the application starts properly!
 
@@ -40,7 +40,7 @@ If you need further help check the "KNIME Beginner's Luck" book uploaded on Mood
 * Check the content of all 4 KNIME related books uploaded on Moodle
 
 
-<br/><br
+<br/><br>
 
 ## Introducing KNIME
 
