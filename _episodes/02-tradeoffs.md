@@ -37,7 +37,7 @@ Getting insights in AWS cloud, has to major goals:
 ## Homework
 
 Replicate the "classicmodels" schema into your cloud instance using MySQL Workbench's migration wizzard.
-
+<br><br>
 
 
 
