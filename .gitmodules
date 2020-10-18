@@ -1,6 +1,6 @@
 [submodule "DE2DSD"]
 	path = DE2DSD
-	url = git@github.com:salacika/DE2DSD.git
+	url = https://github.com/salacika/DE2DSD.git
 [submodule "ceudsd"]
 	path = ceudsd
-	url = git@github.com:salacika/ceudsd.git
+	url = https://github.com/salacika/ceudsd.git
