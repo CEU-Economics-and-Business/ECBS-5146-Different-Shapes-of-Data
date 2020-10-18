@@ -20,12 +20,6 @@ keypoints:
 - As analyst, you need to setup a central cloud based RDBMS so that you can perform your work in a team setup. 
 ---
 
-**Problem statement**
-1. As analyst, you need to understand the architectural challenges of data ecosystems, so that later you can choose the right environment for your analytics. 
-
-2. As analyst, you need to setup a central cloud based RDBMS so that you can perform your work in a team setup. 
-
-
 ## Data architectural tradeoffs from engineering perspective
 
 [Lecture](https://github.com/salacika/DE2DSD/blob/main/DSD1/1.pptx)
