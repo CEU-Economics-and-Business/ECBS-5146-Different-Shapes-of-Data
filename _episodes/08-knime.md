@@ -39,7 +39,6 @@ If you need further help check the "KNIME Beginner's Luck" book uploaded on Mood
 * Check the content of all 4 KNIME related books uploaded on Moodle
 
 
-<br/>
 
 ## Introducing KNIME
 
