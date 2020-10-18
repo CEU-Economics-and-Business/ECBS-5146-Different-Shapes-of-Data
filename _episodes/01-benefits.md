@@ -1,5 +1,5 @@
 ---
-title: "Data Architecture for Reprodicuble Analysis"
+title: "Data Architecture for Reproducible Analysis"
 teaching: 70
 exercises: 55
 questions:
