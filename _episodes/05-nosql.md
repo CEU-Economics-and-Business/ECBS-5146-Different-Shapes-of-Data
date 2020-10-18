@@ -38,7 +38,7 @@ objectives:
 >
 > [Solr](#solr)
 >
-> [Neo4J](#neo4j)
+> [Neo4j](#neo4j)
 {: .discussion}
   
 
@@ -486,7 +486,7 @@ http://ceudsd.net:8081/solr/flightdelays/select?d=2&facet.field=DEST_CITY_str&fa
 
 <br/><br/><br/>
 <a name="neo4j"/>
-## NEO4J
+## Neo4j
 
 #### Links to help you
 
