@@ -3,7 +3,7 @@ title: "NoSQL"
 teaching: 100
 exercises: 160
 questions:
-- What is polyglot persistence and how solves the data storge problems these days?
+- What is polyglot persistence and how solves the data storge problems of the present days?
 - What are the common treats of NoSQL solutions?
 - How can a data analyst choose the appropriate data solution tailored to her/his task?
 
@@ -29,23 +29,16 @@ keypoints:
 - ""
 ---
 
-# Table of Content:
-
-[REDIS](#redis)
-
-[INFLUX](#influx)
-
-[MONGO](#mongo)
-
-[SOLR](#solr)
-
-[NEO4J](#neo4j)
-
-
-
+> ## Table of Content
+> [REDIS](#redis)
+> [INFLUX](#influx)
+> [MONGO](#mongo)
+> [SOLR](#solr)
+> [NEO4J](#neo4j)
+{: .discussion}
   
 
-<br/><br/><br/>
+<br/><br/>
 <a name="redis"/>
 ## REDIS
 
