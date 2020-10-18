@@ -34,10 +34,11 @@ Getting insights in AWS cloud, has to major goals:
 
 [Tutorial](https://github.com/salacika/DE2DSD/tree/main/DSD1/AWS)
 
-## Homework
 
-Replicate the "classicmodels" schema into your cloud instance using MySQL Workbench's migration wizzard.
-<br><br>
+> ## Homework (Optional, no need to submit)
+> 
+> * Replicate the "classicmodels" schema into your cloud instance using MySQL Workbench's migration wizzard.
+{: .challenge}
 
 
 
