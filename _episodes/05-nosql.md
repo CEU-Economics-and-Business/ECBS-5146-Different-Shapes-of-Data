@@ -1,30 +1,30 @@
-# Chapter 2/3/4 - NoSQL - Overview
+---
+title: "NoSQL Overview"
+teaching: 270
+exercises: 
+questions:
+- ""
+objectives:
+- Understanding the polyglot data storage 
+- Understanding SQL VS NoSQL
+- Understanding NoSQL families 
+- Introducing Key-Value Stores
+- Introducing Appache Zeppelin
+- Practice with Redis
+- Introducing Time Series DBMS 
+- Practice with InfluxDB
+- Introducing Document Stores
+- Practice with MongoDB
+- Introducing Column Stores
+- Introducing Search Engines
+- Practice with Solr
+- Introducing Graph DBMS
+- Practice with Neo4J
+keypoints:
+- ""
+---
 
-**Teaching**: 3*90 min
-
-
-**Objectives**
-* Understanding the polyglot data storage 
-* Understanding SQL VS NoSQL
-* Understanding NoSQL families 
-* Introducing Key-Value Stores
-* Introducing Appache Zeppelin
-* Practice with Redis
-* Introducing Time Series DBMS 
-* Practice with InfluxDB
-* Introducing Document Stores
-* Practice with MongoDB
-* Introducing Column Stores
-* Introducing Search Engines
-* Practice with Solr
-* Introducing Graph DBMS
-* Practice with Neo4J
-
-
-
-<br/><br/><br/>
-
-# Table Content:
+# Table of Content:
 
 [REDIS](#redis)
 
@@ -62,59 +62,75 @@ Username/Password will be distributed during class. Ask on Slack if you haven't 
 import redis
 r = redis.Redis(host='dsd-redis.4phq3b.ng.0001.euw1.cache.amazonaws.com', port=6379)
 ```
+{: .language-python}
 
 #### Set a value with a key
 ```
 r.set('foo', 'bar')
 ```
+{: .language-python}
 
 #### Get value by key
 ```
 r.get('foo')
 ```
+{: .language-python}
+
 #### Overwrite with expiration
 ```
 r.set('foo','bar2',ex=5)
 ```
+{: .language-python}
+
 #### Is it there?
 ```
 r.get('foo')
 ```
+{: .language-python}
 
 #### Set a number
 ```
 r.set("something", 10)
 r.get('something')
 ```
+{: .language-python}
 
 #### Increase number value
 ```
 r.incr("something")
 r.get('something')
 ```
+{: .language-python}
 
 #### Store multiple key-value
 ```
 r.mset({'one': 1, 'two': 2, 'three': 3})
 ```
+{: .language-python}
 
 #### Display all keys stored in DB
 ```
 r.keys()
 ```
+{: .language-python}
 
 #### Retrieve multiple values by key
 ```
 r.mget('one','three')
 ```
+{: .language-python}
+
 #### Delete a value by key
 ```
 r.delete('three')
 ```
+{: .language-python}
+
 #### Check the existence of a key
 ```
 r.exists('one')
 ```
+{: .language-python}
 
 
 <br/><br/><br/>
@@ -139,6 +155,7 @@ Let’s explore the databases in this Influx DBMS:
 ```
 SHOW DATABASES
 ```
+{: .language-sql}
 
 Notice “NOAA_water_database” database in the list.  Similar list you get, if you use the top banner database selector. Please select “NOAA_water_database” in this banner.
 
@@ -147,16 +164,19 @@ Now, let’s see the tables in this DB. In Influx tables are called “measureme
 ```
 SHOW MEASUREMENTS
 ```
+{: .language-sql}
 
 The columns here are called fields and tags. From your perspective, there is not much difference between them (in reality tags can be accessed faster). These 2 commands are listing the column names for all measurements:
 
 ```
 SHOW FIELD KEYS 
 ```
+{: .language-sql}
 
 ```
 SHOW TAG KEYS 
 ```
+{: .language-sql}
 
 #### Data Exploration
 
@@ -164,50 +184,50 @@ Simple SELECT:
 ```
 SELECT * FROM h2o_feet
 ```
+{: .language-sql}
 
 LIMIT function:
 ```
 SELECT * FROM h2o_feet LIMIT 5
 ```
+{: .language-sql}
 
 ORDER BY:
 ```
 SELECT * FROM h2o_feet ORDER BY time DESC LIMIT 10
 ```
+{: .language-sql}
 
 SELECT specified columns:
 ```
 SELECT location,water_level FROM h2o_feet LIMIT 10
 ```
+{: .language-sql}
 
 Let’s try a where clause:
 ```
 SELECT *  FROM h2o_feet WHERE location = 'santa_monica' LIMIT 10
 ```
+{: .language-sql}
 
-<br/><br/>
-### `INFLUX Exercise1` 
-### HOW MANY “DEGREE” MEASUREMENT POINTS WE HAVE IN H2O_TEMPERATURE?
-<br/><br/>
+> ## INFLUX Exercise 1 
+> HOW MANY “DEGREE” MEASUREMENT POINTS WE HAVE IN H2O_TEMPERATURE?
+{: .challenge}
 
-
-### `INFLUX Exercise2` 
-### LIST THE DISTINCT LEVEL DESCRIPTORS FOR H2O_FEET?
-<br/><br/>
-
-
+> ## INFLUX Exercise 2 
+> LIST THE DISTINCT LEVEL DESCRIPTORS FOR H2O_FEET?
+{: .challenge}
 
 MEAN as aggregation function:
 
 ```
 SELECT MEAN(water_level) FROM h2o_feet GROUP BY location 
 ```
+{: .language-sql}
 
-<br/><br/>
-### `INFLUX Exercise3` 
-### BETWEEN 2015-08-19 AND 2015-08-27 HOW MANY DAILY H2O_FEET MEASUREMENTS WERE DONE IN 'coyote_creek'
-<br/><br/>
-
+> ## INFLUX Exercise 3 
+> BETWEEN 2015-08-19 AND 2015-08-27 HOW MANY DAILY H2O_FEET MEASUREMENTS WERE DONE IN 'coyote_creek'
+{: .challenge}
 
 #### Advanced Data Exploration
 
@@ -215,25 +235,22 @@ Arithmetic SELECT:
 ```
 SELECT (water_level * 2) + 4 from h2o_feet LIMIT 10
 ```
+{: .language-sql}
 
 Some statistical functions:
 ```
 SELECT SPREAD(water_level) FROM h2o_feet
-```
-```
 SELECT STDDEV(water_level) FROM h2o_feet
-```
-```
 SELECT PERCENTILE(water_level,5) FROM h2o_feet WHERE location = 'coyote_creek'
 ```
+{: .language-sql}
 
 The value 1.148 is larger than 5% of the values in water_level where location equals coyote_creek.
 
 
-<br/><br/>
-### `INFLUX Exercise4` 
-### HOW MUCH IS THE AVERAGE H2O TEMPERATURE BY LOCATION ?
-
+> ## INFLUX Exercise4 
+> HOW MUCH IS THE AVERAGE H2O TEMPERATURE BY LOCATION ?
+{: .challenge}
 
 
 
@@ -259,6 +276,8 @@ import pymongo
 import pprint
 mongo = pymongo.MongoClient("mongodb://xxx:27017")
 ```
+{: .language-python}
+
 #### Select a database and a collection
 
 If database or collection does not exist, will be created with the first data write (eg. insert line)
@@ -267,16 +286,19 @@ If database or collection does not exist, will be created with the first data wr
 db = mongo["mydatabase"]
 customers = db["customers"]
 ```
+{: .language-python}
 
 #### List collections stored in the database
 ```
 db.list_collection_names()
 ```
+{: .language-python}
 
 #### Insert a document
 ```
 id = customers.insert_one({ "name": "John", "address": "Boston Highway 37" }).inserted_id
 ```
+{: .language-python}
 
 #### Find 
 
@@ -284,6 +306,7 @@ Find the customer inserted by id. Pretty print the result.
 ```
 pprint.pprint(customers.find_one({"_id": id}))
 ```
+{: .language-python}
 
 Find multiple customers by "name" field. Inverse sort by "address". Limit to 5. In order to print the result we iterating over the result set and pretty print each resulting JSON.
 
@@ -292,12 +315,14 @@ Find multiple customers by "name" field. Inverse sort by "address". Limit to 5. 
 for customer in customers.find({"name": "John"}).sort("address",-1).limit(5):
     pprint.pprint(customer)
 ```
+{: .language-python}
 
 #### Count 
 
 ```
 customers.count_documents({"name": "John"})
 ```
+{: .language-python}
 
 #### Distinct
 
@@ -307,12 +332,14 @@ Find the customers called "John" which address starts with "Boston" and print ou
 for customer in customers.find({"name":"John","address": {"$regex": "^Boston"}}).distinct("address"):
     pprint.pprint(customer)
 ```
+{: .language-python}
 
 #### Airbnb Sample database
 ```
 airbnb = db["airbnb"]
 pprint.pprint(airbnb.find_one())
 ```
+{: .language-python}
 
 #### Advance filtering
 
@@ -322,11 +349,11 @@ Filter by a deeper JSON field. Print only part of JSON.
 for listing in airbnb.find({ "address.country": "Spain" }).limit(10):
     pprint.pprint(listing['address']['government_area'])
 ```
+{: .language-python}
 
-<br/><br/>
-### `MONGO Exercise1` 
-### COUNT HOW MANY AIRBNB LISTINGS WE HAVE IN THE SAMPLE DATABASE HAVING "COUNTRY_CODE" "US" OR "ADDRESS.MARKET" STARTWITH "M" (USE MONGODB DOCUMENTATION)
-
+> ## MONGO Exercise 1 
+> COUNT HOW MANY AIRBNB LISTINGS WE HAVE IN THE SAMPLE DATABASE HAVING "COUNTRY_CODE" "US" OR "ADDRESS.MARKET" STARTWITH "M" (USE MONGODB DOCUMENTATION)
+{: .challenge}
 
 
 <br/><br/><br/>
@@ -430,10 +457,9 @@ Give the record within a circular circle defined by center point of 39.85,-104.6
 http://ceudsd.net:8081/solr/flightdelays/select?d=2&facet.field=DEST_CITY_str&facet.field=ORIG_CITY_str&facet=on&fl=ORIG_CITY&fq={!geofilt}&pt=39.85,-104.66&q=*:*&sfield=ORIG_LOCATION_p
 ```
 
-<br/><br/>
-### `SOLR Exercise1` 
-### HOW MANY FLIGHTS ARRIVED IN SAN FRANCISCO WITH NO DELAY ALTHOUGH THEY DEPARTED AT LEAST 50 MINS BEHIND THE SCHEDULE?
-
+> ## SOLR Exercise 1 
+> HOW MANY FLIGHTS ARRIVED IN SAN FRANCISCO WITH NO DELAY ALTHOUGH THEY DEPARTED AT LEAST 50 MINS BEHIND THE SCHEDULE?
+{: .challenge}
 
 
 
@@ -490,26 +516,21 @@ RETURN o
 `SELECT o.countries FROM Officer AS o WHERE o.countries LIKE '%Hungary%'`]
 
 
-<br/><br/>
-### `NEO4J Exercise1` 
-### RETURN THE FIRST 10 ADDRESS NODES
-<br/><br/>
+> ## NEO4J Exercise 1 
+> RETURN THE FIRST 10 ADDRESS NODES
+{: .challenge}
 
+> ## NEO4J Exercise 2
+> HOW MANY PROPERTIES AN ADDRESS NODE HAS? 
+{: .challenge}
 
-### `NEO4J Exercise2` 
-### HOW MANY PROPERTIES AN ADDRESS NODE HAS? 
-<br/><br/>
+> ## NEO4J Exercise 3 
+> RETURN THE FIRST 10 COUNTRIES OF THE ADDRESS NODE. WHAT IS THE LAST COUNTRY IN THE LIST?
+{: .challenge}
 
-
-### `NEO4J Exercise3` 
-### RETURN THE FIRST 10 COUNTRIES OF THE ADDRESS NODE. WHAT IS THE LAST COUNTRY IN THE LIST?
-<br/><br/>
-
-
-### `NEO4J Exercise4` 
-### HOW MANY ADDRESS NODES HAS 'Mexico' AND 'Monaco' IN THEIR ADDRESS PROPERTY?
-<br/><br/>
-
+> ## NEO4J Exercise4 
+> HOW MANY ADDRESS NODES HAS 'Mexico' AND 'Monaco' IN THEIR ADDRESS PROPERTY?
+{: .challenge}
 
 ####  Joins
 
@@ -564,16 +585,13 @@ ORDER BY count(*) DESC
 LIMIT 10
 ```
 
-<br/><br/>
-### `NEO4J Exercise5` 
-### List the name and number connections of the top 10 most connected Officers from Bulgaria. Who is the no1.
-<br/><br/>
+> ## NEO4J Exercise 5 
+> List the name and number connections of the top 10 most connected Officers from Bulgaria. Who is the no1.
+{: .challenge}
 
-
-### `NEO4J Exercise6` 
-### Find the entities related to officers named “Tudor” and all nodes related to these entities.
-<br/><br/>
-
+> ## NEO4J Exercise 6 
+> Find the entities related to officers named “Tudor” and all nodes related to these entities.
+{: .challenge}
 
 #### Node analytics
 
@@ -604,11 +622,3 @@ WITH a, count(DISTINCT b) AS n
 MATCH (a)--()-[r]-()--(a)
 RETURN n as degree, count(DISTINCT r) AS clustering_coefficient
 ```
-
-
-
-
-
-
-
-
