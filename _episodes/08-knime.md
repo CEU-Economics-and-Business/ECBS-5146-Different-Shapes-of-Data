@@ -60,9 +60,10 @@ If you need further help check the "KNIME Beginner's Luck" book uploaded on Mood
 
 <br/><br/>
 
-## Practice exercises
-
-@TODO
+> ## Practice exercises
+>
+> @TODO
+{: .challenge}
 
 <br/><br/>
 
