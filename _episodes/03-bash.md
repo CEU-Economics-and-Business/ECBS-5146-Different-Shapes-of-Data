@@ -1,13 +1,19 @@
 ---
 title: "Command Line Exercises"
-teaching: 50
-exercises: 50
+exercises: 60
 questions:
-- ""
+- What tool a data analyst can use to check the content of a large data file?
+- What tool a data analyst can use to modify the content of a large data file?
+
 objectives:
-- ""
+- basic understanding of Linux bash
+- practice of viewing/editing/modifying a large csv file
+- quick intro to Linux scripts
+
 keypoints:
-- ""
+- As analyst, Linux bash can be a handy tool to work with large data files 
+- Some version of Linux bash can be used on any popular OS (Windows/Mac/Linux)
+
 ---
 
 ## Setup
