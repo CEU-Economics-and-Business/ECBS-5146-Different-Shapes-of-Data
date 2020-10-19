@@ -31,79 +31,13 @@ keypoints:
 > 4. [Data lakes](https://martinfowler.com/bliki/DataLake.html)
 {: .discussion}
 
-## Concept maps
-
-A lot of information can be communicated effectively with "lines and boxes." Boxes typically correspond to concepts or things ("nouns"), lines represent the relation between these concepts or actions between them ("verbs").
-
-### Visualizing frontal instruction
-<div class="mermaid">
-graph TD
-    t(Teacher) --> m(Material)
-    m --> s1(Student)
-    m --> s2(Student)
-    m --> s3(Student)
-</div>
-
-### Visualizing live coding
-<div class="mermaid">
-graph TD
-    subgraph S
-        s1(Student) --> m1(Code)
-        s2(Student) --> m2(Code)
-        s3(Student) --> m3(Code)
-    end
-    subgraph T
-        t(Teacher) --> m(Code)
-    end
-    m -.- m1 -.- m2 -.- m3
-</div>
-
-> ## Exercise
-> Label each line with a verb.
->> ## Solution
->> For frontal instruction: Teacher "prepares," "presents" material. Student "reads," "downloads," "absorbs," "learns" material.
->>
->> For live coding: Teacher "writes" code. Student "writes" code, "compares to," "reviews" Teacher's code.
-> {: .solution}
-{: .challenge}
-
-> ## Challenge
-> Take a one-paragraph description of a Grimm story. Working in groups, represent the players and events on a concept map. 
->> ## Solution
->> [One example](https://mermaidjs.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggVERcblN0ZXBtb3RoZXItLUFkdmljZS0tPlNpc3RlcnNcblN0ZXBtb3RoZXItLU5vIHBhcnR5LS0-Q2luZGFyZWxsYVxuU2lzdGVycy0tTW9jay0tPkNpbmRhcmVsbGFcblByaW5jZS0tUG90ZW50aWFsIHJlbGF0aW9uc2hpcC0tPkNpbmRhcmVsbGFcbkNpbmRhcmVsbGEtLURhbmNlIGFsbCBuaWdodC0tPlByaW5jZVxuQVtXaGl0ZSBiaXJkXS0tRHJvcCBzaG9lLS0-Q2luZGFyZWxsYVxuUHJpbmNlLS1Ucnkgb24gc2hvZXMgcGxzLS0-Q2luZGFyZWxsYVxuUHJpbmNlLS1Ucnkgb24gc2hvZXMgcGxzLS0-U2lzdGVyc1xuS2luZy0tSW52aXRlLS0-U2lzdGVyc1xuS2luZy0tT3JkYWluIGZlc3RpdmFsLS0-UHJpbmNlIiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifX0). We also realized [Sequence Diagrams](https://mermaidjs.github.io/#/sequenceDiagram) may be more suited to telling a story. 
-{: .challenge}
-
-> ## Challenge (optional)
-> You are the chief engineer of SpaceX, responsible for creating the first human base on Mars. You are putting in a budget request to Elon Musk. Create a one-page conceptual diagram explaining what you will need and why.
-{: .challenge}
-
-### Using a diagram editor
-
-There are many simple and powerful tools to create and edit diagrams. These note use [Mermaid JS](https://mermaidjs.github.io/#/), which has a natural "plain text" syntax.
-
-```
-graph TD
-    subgraph S
-        s1(Student) --> m1(Code)
-        s2(Student) --> m2(Code)
-        s3(Student) --> m3(Code)
-    end
-    subgraph T
-        t(Teacher) --> m(Code)
-    end
-    m -.- m1 -.- m2 -.- m3
-```
-{: .source}
-
-> ## Exercise
-> Using the [Mermaid Live Editor](https://mermaidjs.github.io/mermaid-live-editor/), create a diagram of your Grimm story. Save the diagram as a text file on your computer.
->> ## Solution
->> See above
-> {: .solution}
-{: .challenge} 
 
 ## The life cycle of data
 We will be thinking about how data moves through our organization.
+
+> ## System Architecture
+> The architecture of a system is the way you subdivide it into parts and manage the dependencies between those parts. ("Uncle Bob" Martin)
+{: .discussion}
 
 > ## Data Life Cycle
 > Data architecture spans the gap between “data as it is” and “data most suitable for analysis.”
@@ -297,4 +231,75 @@ The three components of maintainability (Kleppmann, 2016):
 >> The Python script processes 1 million records per hour, or 1 hour per million records. The C++ code would process 30 million records per hour, or 2 minutes per million records. The time gain is 58 minutes per million records. The loss in developer time if switch to C++ is 100 hours, or 6,000 minutes. To have the same gain in processing time, we need to process 6000/58 = 103.4 million records. So if our dataset is more than 103.4 million records, it is worth rewriting it in C++. (Note that we have ingored other maintainability aspects. Will our developers be able to make changes to the Python/C++ code?)
 > {: .solution}
 {: .challenge}
+
+## Concept maps
+
+A lot of information can be communicated effectively with "lines and boxes." Boxes typically correspond to concepts or things ("nouns"), lines represent the relation between these concepts or actions between them ("verbs").
+
+### Visualizing frontal instruction
+<div class="mermaid">
+graph TD
+    t(Teacher) --> m(Material)
+    m --> s1(Student)
+    m --> s2(Student)
+    m --> s3(Student)
+</div>
+
+### Visualizing live coding
+<div class="mermaid">
+graph TD
+    subgraph S
+        s1(Student) --> m1(Code)
+        s2(Student) --> m2(Code)
+        s3(Student) --> m3(Code)
+    end
+    subgraph T
+        t(Teacher) --> m(Code)
+    end
+    m -.- m1 -.- m2 -.- m3
+</div>
+
+> ## Exercise
+> Label each line with a verb.
+>> ## Solution
+>> For frontal instruction: Teacher "prepares," "presents" material. Student "reads," "downloads," "absorbs," "learns" material.
+>>
+>> For live coding: Teacher "writes" code. Student "writes" code, "compares to," "reviews" Teacher's code.
+> {: .solution}
+{: .challenge}
+
+> ## Challenge
+> Take a one-paragraph description of a Grimm story. Working in groups, represent the players and events on a concept map. 
+>> ## Solution
+>> [One example](https://mermaidjs.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggVERcblN0ZXBtb3RoZXItLUFkdmljZS0tPlNpc3RlcnNcblN0ZXBtb3RoZXItLU5vIHBhcnR5LS0-Q2luZGFyZWxsYVxuU2lzdGVycy0tTW9jay0tPkNpbmRhcmVsbGFcblByaW5jZS0tUG90ZW50aWFsIHJlbGF0aW9uc2hpcC0tPkNpbmRhcmVsbGFcbkNpbmRhcmVsbGEtLURhbmNlIGFsbCBuaWdodC0tPlByaW5jZVxuQVtXaGl0ZSBiaXJkXS0tRHJvcCBzaG9lLS0-Q2luZGFyZWxsYVxuUHJpbmNlLS1Ucnkgb24gc2hvZXMgcGxzLS0-Q2luZGFyZWxsYVxuUHJpbmNlLS1Ucnkgb24gc2hvZXMgcGxzLS0-U2lzdGVyc1xuS2luZy0tSW52aXRlLS0-U2lzdGVyc1xuS2luZy0tT3JkYWluIGZlc3RpdmFsLS0-UHJpbmNlIiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifX0). We also realized [Sequence Diagrams](https://mermaidjs.github.io/#/sequenceDiagram) may be more suited to telling a story. 
+{: .challenge}
+
+> ## Challenge (optional)
+> You are the chief engineer of SpaceX, responsible for creating the first human base on Mars. You are putting in a budget request to Elon Musk. Create a one-page conceptual diagram explaining what you will need and why.
+{: .challenge}
+
+### Using a diagram editor
+
+There are many simple and powerful tools to create and edit diagrams. These note use [Mermaid JS](https://mermaidjs.github.io/#/), which has a natural "plain text" syntax.
+
+```
+graph TD
+    subgraph S
+        s1(Student) --> m1(Code)
+        s2(Student) --> m2(Code)
+        s3(Student) --> m3(Code)
+    end
+    subgraph T
+        t(Teacher) --> m(Code)
+    end
+    m -.- m1 -.- m2 -.- m3
+```
+{: .source}
+
+> ## Exercise
+> Using the [Mermaid Live Editor](https://mermaidjs.github.io/mermaid-live-editor/), create a diagram of your Grimm story. Save the diagram as a text file on your computer.
+>> ## Solution
+>> See above
+> {: .solution}
+{: .challenge} 
 
