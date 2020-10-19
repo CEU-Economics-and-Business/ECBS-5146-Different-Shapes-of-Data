@@ -1,5 +1,5 @@
 ---
-title: "Data Architecture for Reprodicuble Analysis"
+title: "Benefits of Good Data Architecture"
 teaching: 70
 exercises: 55
 questions:
@@ -15,7 +15,7 @@ objectives:
 - Create concept map of data products.
 - Identify key trade-offs in data architecture.
 keypoints:
-- Architecture spans the gap between "data as it is" and "data most suitable for analysis questions."
+- Take "data as it is" and make it "most suitable for analysis questions."
 - Make plans that are fit for purpose and execute them.
 - Architecture for analysis differs from architecture in production.
 - Optimize for human rather than machine performance.
@@ -24,7 +24,7 @@ keypoints:
 
 {% include mermaid.html %}
 
-> ## Reading
+> ## Reading (recommended)
 > 1. Chapter 1 of Brown (2018), [Software Architecture for Developers, Volume 1](https://leanpub.com/?software-architecture-for-developers/).
 > 2. Chapter 1 of Kleppmann (2016), [Designing Data-Intensive Applications](https://dataintensive.net/buy.html).
 > 3. [Concept maps](http://rodallrich.com/advphysiology/ausubel.pdf)
@@ -105,7 +105,7 @@ graph TD
 ## The life cycle of data
 We will be thinking about how data moves through our organization.
 
-> ## Data Architecture
+> ## Data Life Cycle
 > Data architecture spans the gap between “data as it is” and “data most suitable for analysis.”
 {: .callout}
 
@@ -298,4 +298,3 @@ The three components of maintainability (Kleppmann, 2016):
 > {: .solution}
 {: .challenge}
 
-This is not to say that scale does not matter. We will surely encounter datasets big enough not to fit our own laptop. [Episode 3]({{ "03-structures/index.html" | relative_url }}) discusses scalability and speed.
