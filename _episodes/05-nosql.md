@@ -1,11 +1,16 @@
 ---
-title: "NoSQL Overview"
-teaching: 270
-exercises: 
+title: "NoSQL"
+teaching: 100
+exercises: 160
 questions:
-- ""
+- What is polyglot persistence and how solves the data storge problems of the present days?
+- What are the common treats of NoSQL solutions?
+- How can a data analyst choose the appropriate data solution tailored to her/his task?
+
+
 objectives:
-- Understanding the polyglot data storage 
+- Understanding the polyglot persistence
+- Understanding eventual consistency
 - Understanding SQL VS NoSQL
 - Understanding NoSQL families 
 - Introducing Key-Value Stores
@@ -20,29 +25,34 @@ objectives:
 - Practice with Solr
 - Introducing Graph DBMS
 - Practice with Neo4J
+
 keypoints:
-- ""
+- To go beyond tabular data, we need other technologies than RDBMS
+- NoSQL solutions build for high scalability, simplified consistency, finer control over availability could be a solution to persist different shapes of data
+- Hundreds, even thousands of NoSQL solution are available, the best way to orient ourselves in this jungle, is to learn the main families
+
+
+
 ---
 
-# Table of Content:
-
-[REDIS](#redis)
-
-[INFLUX](#influx)
-
-[MONGO](#mongo)
-
-[SOLR](#solr)
-
-[NEO4J](#neo4j)
-
-
-
+> ## Table of Content
+> [Lecture](https://github.com/salacika/DE2DSD/blob/main/nosql/nosql.pptx)
+>
+> [Redis](#redis)
+>
+> [InfluxDB](#influx)
+>
+> [MongoDB](#mongo)
+>
+> [Solr](#solr)
+>
+> [Neo4j](#neo4j)
+{: .discussion}
   
 
-<br/><br/><br/>
+<br/><br/>
 <a name="redis"/>
-## REDIS
+## Redis
 
 
 
@@ -50,6 +60,8 @@ keypoints:
 https://redis-py.readthedocs.io/en/latest/index.html
 
 https://redis.io/commands#
+
+<br>
 
 #### Exercise interface: http://ceudsd.net (Apache Zeppelin)
 
@@ -135,7 +147,7 @@ r.exists('one')
 
 <br/><br/><br/>
 <a name="influx"/>
-## INFLUX
+## InfluxDB
 
 #### Links to help you
 https://docs.influxdata.com/influxdb/v1.0/query_language/data_exploration/
@@ -143,6 +155,8 @@ https://docs.influxdata.com/influxdb/v1.0/query_language/data_exploration/
 https://docs.influxdata.com/influxdb/v1.0/query_language/math_operators/
 
 https://docs.influxdata.com/influxdb/v1.0/query_language/functions/
+
+<br/>
 
 #### Exercise interface: http://ceudsd.net:8082
 
@@ -256,7 +270,7 @@ The value 1.148 is larger than 5% of the values in water_level where location eq
 
 <br/><br/><br/>
 <a name="mongo"/>
-## MONGO
+## MongoDB
 
 
 
@@ -265,10 +279,15 @@ The value 1.148 is larger than 5% of the values in water_level where location eq
 https://docs.mongodb.com/manual/
 https://www.w3schools.com/python/python_mongodb_getstarted.asp
 
+<br/>
+
 #### Exercise interface: http://ceudsd.net (Apache Zeppelin)
 
 Username/Password will be distributed during class. Ask on Slack if you haven't got one. 
 <br/><br/>
+
+<br/>
+
 #### Connect to MongoDB with Python (Use Zeppelin notebook with Python interpreter)
 
 ```
@@ -278,6 +297,7 @@ mongo = pymongo.MongoClient("mongodb://xxx:27017")
 ```
 {: .language-python}
 
+<br/>
 #### Select a database and a collection
 
 If database or collection does not exist, will be created with the first data write (eg. insert line)
@@ -288,18 +308,21 @@ customers = db["customers"]
 ```
 {: .language-python}
 
+<br/>
 #### List collections stored in the database
 ```
 db.list_collection_names()
 ```
 {: .language-python}
 
+<br/>
 #### Insert a document
 ```
 id = customers.insert_one({ "name": "John", "address": "Boston Highway 37" }).inserted_id
 ```
 {: .language-python}
 
+<br/>
 #### Find 
 
 Find the customer inserted by id. Pretty print the result.
@@ -317,6 +340,7 @@ for customer in customers.find({"name": "John"}).sort("address",-1).limit(5):
 ```
 {: .language-python}
 
+<br/>
 #### Count 
 
 ```
@@ -324,6 +348,7 @@ customers.count_documents({"name": "John"})
 ```
 {: .language-python}
 
+<br/>
 #### Distinct
 
 Find the customers called "John" which address starts with "Boston" and print out distinct addresses.
@@ -334,6 +359,7 @@ for customer in customers.find({"name":"John","address": {"$regex": "^Boston"}})
 ```
 {: .language-python}
 
+<br/>
 #### Airbnb Sample database
 ```
 airbnb = db["airbnb"]
@@ -341,6 +367,7 @@ pprint.pprint(airbnb.find_one())
 ```
 {: .language-python}
 
+<br/>
 #### Advance filtering
 
 Filter by a deeper JSON field. Print only part of JSON.
@@ -358,12 +385,14 @@ for listing in airbnb.find({ "address.country": "Spain" }).limit(10):
 
 <br/><br/><br/>
 <a name="solr"/>
-## SOLR
+## Solr
 
 #### Links to help you
 https://cwiki.apache.org/confluence/display/solr/The+Standard+Query+Parser
 
 http://yonik.com/solr/query-syntax/
+
+<br/>
 
 #### Exercise interface: http://ceudsd.net:8081
 
@@ -420,7 +449,7 @@ Sort by distance in descending order:
 http://ceudsd.net:8081/solr/flightdelays/select?q=*:*&rows=5&sort=DISTANCE desc
 ```
 
-
+<br/>
 #### Ranges 
 Return the documents where distance is between 0 and 500, show only DISTANCE,ORIG_CITY,DEST_CITY field.
 ```
@@ -432,7 +461,7 @@ Return the documents from this last 5 years, show only time_hour field.
 ```
 http://ceudsd.net:8081/solr/flightdelays/select?fl=DATE&q=DATE:[NOW-10YEARS TO *]
 ```
-
+<br/><br/>
 #### Fuzzy
 Show me the tailnums for tail numbers starting with any character, followed by “2”, followed by 2 any character, followed by "jb"
 ```
@@ -443,13 +472,13 @@ Show me destination cities (2 distance) close to "balabany"
 ```
 http://ceudsd.net:8081/solr/flightdelays/select?fl=DEST_CITY&q=DEST_CITY:balabany~2
 ```
-
+<br/>
 #### Facets
 Give me the flights with TAIL_NUMBER = N928SW and return facets for airline and destination airport:
 ```
 http://ceudsd.net:8081/solr/flightdelays/select?facet.field=AIRLINE_str&facet.field=DEST_AIRPORT_str&facet=on&q=TAIL_NUMBER:N928SW
 ```
-
+<br/>
 #### Geo spacial search
 Give the record within a circular circle defined by center point of 39.85,-104.66 [lat,lon] and diameter of 2 kilometer. Display only ORIG_CITY in the result set and facests for DEST_CITY_str,ORIG_CITY_str.
 
@@ -465,7 +494,7 @@ http://ceudsd.net:8081/solr/flightdelays/select?d=2&facet.field=DEST_CITY_str&fa
 
 <br/><br/><br/>
 <a name="neo4j"/>
-## NEO4J
+## Neo4j
 
 #### Links to help you
 
@@ -475,7 +504,7 @@ http://neo4j.com/docs/developer-manual/current/cypher/
 
 https://cloudfront-files-1.publicintegrity.org/offshoreleaks/neo4j/guide/index.html
 
- 
+ <br/>
 #### Exercise interface: http://ceudsd.net:8080 
 
 To connect you need to tick "do not use Bolt" in the Settings: [Screenshot help](/DSD2-3-4/neo4j.png?raw=true)
@@ -492,6 +521,7 @@ In Neo4J the SELECT is called MATCH. One of the simplest query is selecting 25 O
 MATCH (n:Officer) 
 RETURN n LIMIT 25
 ```
+{: .language-cypher}
 
 [In SQL would be something like this:
 `SELECT * FROM Officer AS n LIMIT 5`]
@@ -501,6 +531,8 @@ Same SELECT but instead of node the node name is returned:
 MATCH (n:Entity) 
 RETURN n.name LIMIT 25
 ```
+{: .language-cypher}
+
 [In SQL would be something like this:
 `SELECT name FROM Entity AS n LIMIT 25`]
 
@@ -511,6 +543,7 @@ MATCH (o:Officer)
 WHERE o.countries CONTAINS 'Hungary'
 RETURN o
 ```
+{: .language-cypher}
 
 [In SQL would be something like this:
 `SELECT o.countries FROM Officer AS o WHERE o.countries LIKE '%Hungary%'`]
@@ -532,6 +565,7 @@ RETURN o
 > HOW MANY ADDRESS NODES HAS 'Mexico' AND 'Monaco' IN THEIR ADDRESS PROPERTY?
 {: .challenge}
 
+<br/>
 ####  Joins
 
 Find the Officers and the Entities linked to them (double MATCH, )
@@ -542,6 +576,7 @@ MATCH (o)-[r]-(c:Entity)
 RETURN o,r,c
 LIMIT 10
 ```
+{: .language-cypher}
 
 [In SQL would be something like this:
 `SELECT * 
@@ -558,7 +593,7 @@ WHERE o.countries CONTAINS 'Hungary'
 MATCH (o)-[r]-(c:Entity)
 RETURN o,r,c
 ```
-
+{: .language-cypher}
 
 A variation of the previous one, but here the link type is specified:
 ```
@@ -567,6 +602,7 @@ WHERE o.countries CONTAINS 'Hungary'
 MATCH (o)-[r:DIRECTOR_OF]-(c:Entity)
 RETURN o,r,c
 ```
+{: .language-cypher}
 
 Find the Officers called "aliyev" and Entities related to them:
 ```
@@ -575,6 +611,10 @@ WHERE toLower(o.name) CONTAINS "aliyev"
 MATCH (o)-[r]-(c:Entity)
 RETURN o,r,c
 ```
+{: .language-cypher}
+
+<br/>
+
 ####  Count
 
 Which country has the most addresses 
@@ -584,6 +624,7 @@ RETURN n.countries, count(*)
 ORDER BY count(*) DESC
 LIMIT 10
 ```
+{: .language-cypher}
 
 > ## NEO4J Exercise 5 
 > List the name and number connections of the top 10 most connected Officers from Bulgaria. Who is the no1.
@@ -593,6 +634,7 @@ LIMIT 10
 > Find the entities related to officers named “Tudor” and all nodes related to these entities.
 {: .challenge}
 
+<br/>
 #### Node analytics
 
 Return all node labels
@@ -600,6 +642,7 @@ Return all node labels
 MATCH (n)
 RETURN DISTINCT labels(n) 
 ```
+{: .language-cypher}
 
 Same as before, but using "WITH" 
 ```
@@ -607,6 +650,7 @@ MATCH (n)
 WITH labels(n) AS type
 RETURN DISTINCT type
 ```
+{: .language-cypher}
 
 Show the average degree by node type:
 ```
@@ -614,6 +658,7 @@ MATCH (n)
 WITH labels(n) AS type, size( (n)--() ) AS degree
 RETURN type, round(avg(degree)) AS avg
 ```
+{: .language-cypher}
 
 Calculate the degree and clustering_coefficient of a node:
 ```
@@ -622,3 +667,4 @@ WITH a, count(DISTINCT b) AS n
 MATCH (a)--()-[r]-()--(a)
 RETURN n as degree, count(DISTINCT r) AS clustering_coefficient
 ```
+{: .language-cypher}

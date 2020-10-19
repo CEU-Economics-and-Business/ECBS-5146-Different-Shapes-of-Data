@@ -1,5 +1,5 @@
 ---
-title: "Benefits of Good Data Architecture"
+title: Benefits of Good Data Architecture
 teaching: 70
 exercises: 55
 questions:
