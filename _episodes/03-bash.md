@@ -53,7 +53,7 @@ Print the first 3 lines to the file to the screen
 head -n 3 birdstrikes.csv
 ```
 {: .language-bash}
-`man` -
+
 What is `-n`? Check it in the manual
 ```
 head --help
@@ -65,9 +65,9 @@ Check the last 5 lines of the file
 tail -n 5 birdstrikes.csv
 ```
 {: .language-bash}
-`>` - Put the first 10 lines into an other file
+`>` - Put the first 10 lines into an other file (note that instead of -n 10, we used a simplified version)
 ```
-head -n 10 birdstrikes.csv > first10.csv
+head -10 birdstrikes.csv > first10.csv
 ```
 {: .language-bash}
 list the result
@@ -139,6 +139,15 @@ cat birdstrikes.csv | cut -d ';' -f1 | head -1
 cat birdstrikes.csv | cut -d ';' -f4,10 | head -11
 ```
 {: .language-bash}
+
+Similar to previous example, but now writing all columns, except *damage* (column 4) and *cost* (column 10) into a new file:
+```
+cat birdstrikes.csv | cut -d ';' --complement -f4,10 > new.csv
+```
+{: .language-bash}
+
+
+
 
 > ## Exercise 4
 > Write 17th record of *state* and the *bird size* columns from birdstrikes, in file called *onerepublic.csv*. What is the result if run 'cat onerepublic.csv'?
