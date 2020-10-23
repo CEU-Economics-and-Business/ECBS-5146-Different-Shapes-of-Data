@@ -19,6 +19,8 @@ keypoints:
 
 ## Setup
 
+@TODO clone
+
 Let's set up our own user folder. Let's copy the birdstrikes file to our own directory:
 ```
 pwd
@@ -54,7 +56,7 @@ head -n 3 birdstrikes.csv
 `man` -
 What is `-n`? Check it in the manual
 ```
-man head
+head --help
 ```
 {: .language-bash}
 `tail` -
