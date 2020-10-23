@@ -19,17 +19,34 @@ keypoints:
 
 ## Setup
 
-@TODO clone
+For this exercise we will use Git bash on windows (Linux, Mac have built-in Linux shell, so you don't need to install anything). For windows install Git for windows: https://gitforwindows.org/ More info in Git bash: https://www.atlassian.com/git/tutorials/git-bash.
 
-Let's set up our own user folder. Let's copy the birdstrikes file to our own directory:
+
+## Preapring the exercise artifacts
+
+First, let's check some file navigation. Your current location:
 ```
 pwd
-ls
-cp /home/backup/birdstrikes.csv ./
+```
+{: .language-bash}
+
+List files in your current folder in two different formats:
+```
 ls
 ls -l
 ```
 {: .language-bash}
+
+To get the required artifacts (flat files for exercises) navigate to a folder suiteable for exercises (like Documents, CEU class folder etc) and clone the course repo:
+
+Example:
+```
+cd Documents/
+git clone https://github.com/CEU-Economics-and-Business/ECBS-5146-Different-Shapes-of-Data
+```
+{: .language-bash}
+
+
 
 ## Basic commands
 
