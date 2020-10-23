@@ -124,20 +124,24 @@ shows only the line count
 > How many incidents were in California (only output line count)
 {: .challenge}
 
-## Cutting lines
+## Cutting / printing parts of a line
 
+What is name of the 1st column:
 ```
-cat birdstrikes.csv | cut -d ';' -f5 | head -10
+cat birdstrikes.csv | cut -d ';' -f1 | head -1
 ```
 {: .language-bash}
-* `cut` - Display only 20 rows with *damange* and the *cost* columns
+
+
+* `cut` - Display the first 10 records of *damage* (column 4) and the *cost* (column 10) columns
+
 ```
-cat birdstrikes.csv | cut -d ';' -f4,10
+cat birdstrikes.csv | cut -d ';' -f4,10 | head -11
 ```
 {: .language-bash}
 
 > ## Exercise 4
-> Write *state* and the *bird size* columns of the 18th line in birdstrikes in file called *onerepublic.csv*. What is the result if run 'cat onerepublic.csv'
+> Write 17th record of *state* and the *bird size* columns from birdstrikes, in file called *onerepublic.csv*. What is the result if run 'cat onerepublic.csv'?
 {: .challenge}
 
 ## Sorting
@@ -146,9 +150,10 @@ cat birdstrikes.csv | cut -d ';' -f4,10
 sort birdstrikes.csv
 ```
 {: .language-bash}
-DESC sort by *id*
+
+Reverse sort by *damage* (column 4)
 ```
-cat birdstrikes.csv | sort -k1 -t ';' -n -r
+cat birdstrikes.csv | sort -k4 -t ';' -r | head -10
 ```
 {: .language-bash}
 
