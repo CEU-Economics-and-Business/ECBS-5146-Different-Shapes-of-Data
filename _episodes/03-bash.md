@@ -202,16 +202,37 @@ tail -n+2 birdstrikes.csv | cut -d ';' -f6 | sort | uniq -c
 In the next example, the script will display as much column names from birdstrikes, as we send in as parameter:
 
 ```
-# nano myfirstscript.sh
+# nano sentiment.sh
 
-for (( i=1; i<=$1; i++ ))
-do
-  echo column$i:
-  cat birdstrikes.csv | cut -d ';' -f$i | head -1
+dictionary=(sad sorrow death dead pain poor misery)
+count=0
+
+for i in "${dictionary[@]}"; 
+do 
+	
+	((smallcount=$(grep -o -c $i $1)))
+	((count+=$smallcount))
+	echo $i:$smallcount
 done
 
+words=$(cat $1|wc -w)
+ratio=$(($words/$count))
 
-# sh myfirstscript.sh 2
+echo ---
+echo total:$count
+echo words:$words
+echo ratio:$ratio
+
+echo ---
+if [ "$ratio" -gt 1000 ]; then
+	echo Sentiment: this book is not sad
+else
+	echo Sentiment: this book is sad
+fi
+
+
+
+# sh sentiment.sh Hamlet.txt
 ```
 {: .language-bash}
 
