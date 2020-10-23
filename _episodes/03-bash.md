@@ -180,16 +180,18 @@ cat birdstrikes.csv | sort -k4 -t ';' -r | head -10
 ## Distinct/Unique values
 
 `sort | uniq` - 
-How many distinct states we have in birdstrikes?
+Distinct states in birdstrikes:
 ```
 cat birdstrikes.csv | cut -d ';' -f6 | sort | uniq | wc -l
+
+tail -n+2 birdstrikes.csv | cut -d ';' -f6 | sort | uniq | wc -l
 ```
 {: .language-bash}
 
 `uniq -c` -
 How many incidents were there by state?
 ```
-cat birdstrikes.csv | cut -d ';' -f6 | sort | uniq -c
+tail -n+2 birdstrikes.csv | cut -d ';' -f6 | sort | uniq -c
 ```
 {: .language-bash}
 
