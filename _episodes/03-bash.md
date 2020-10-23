@@ -197,33 +197,24 @@ tail -n+2 birdstrikes.csv | cut -d ';' -f6 | sort | uniq -c
 
 ## Scripts
 
-`bash script` - Write a script that gets the first column
+`bash script` - procedural programing able to implement an algorithm.
+
+In the next example, the script will display as much column names from birdstrikes, as we send in as parameter:
 
 ```
 # nano myfirstscript.sh
 
-cat birdstrikes.csv | cut -d ';' -f5 | head -3
-
-
-# chmod a+x myfirstscript.sh
-# ./myfirstscript.sh
-```
-{: .language-bash}
-
-input parameter and for cycle
-
-```
-#!/bin/bash
-
-echo DISPLAY $1x times:
-
 for (( i=1; i<=$1; i++ ))
 do
-  echo $i
-  cat birdstrikes.csv | cut -d ';' -f5 | head -3
+  echo column$i:
+  cat birdstrikes.csv | cut -d ';' -f$i | head -1
 done
+
+
+# sh myfirstscript.sh 2
 ```
 {: .language-bash}
+
 
 > ## Homework (Optional, no need to submit)
 > 
