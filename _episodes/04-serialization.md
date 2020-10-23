@@ -19,7 +19,7 @@ keypoints:
 ---
 
 # Reading
-1. [Chapter 4 (pages 107-112)](https://ceulearning.ceu.edu/mod/resource/view.php?id=288212) of Kleppmann 2016. 
+1. [Chapter 4 (pages 107-112)](https://ceulearning.ceu.edu/pluginfile.php/412982/mod_folder/content/0/Martin%20Kleppmann%20-%20Designing%20Data%20Intensive%20Applications.pdf?forcedownload=1) of Kleppmann 2016. 
 2. Joel Spolsky's [essay on Unicode](https://www.joelonsoftware.com/2003/10/08/the-absolute-minimum-every-software-developer-absolutely-positively-must-know-about-unicode-and-character-sets-no-excuses/)
 
 # Setup
