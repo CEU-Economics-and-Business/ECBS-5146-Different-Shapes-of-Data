@@ -199,11 +199,16 @@ tail -n+2 birdstrikes.csv | cut -d ';' -f6 | sort | uniq -c
 
 `bash script` - procedural programing able to implement an algorithm.
 
-In the next example, the script will display as much column names from birdstrikes, as we send in as parameter:
+In the next example, the script analyzing negative sentiment of the books given as parameter to the script.
 
+First we create the file for the script:
 ```
 # nano sentiment.sh
+```
+{: .language-bash}
 
+Then, here is the script itself:
+```
 dictionary=(sad sorrow death dead pain poor misery)
 count=0
 
@@ -229,9 +234,11 @@ if [ "$ratio" -gt 1000 ]; then
 else
 	echo Sentiment: this book is sad
 fi
+```
+{: .language-bash}
 
-
-
+On the end we run the script with a book stored in txt format:
+```
 # sh sentiment.sh Hamlet.txt
 ```
 {: .language-bash}
