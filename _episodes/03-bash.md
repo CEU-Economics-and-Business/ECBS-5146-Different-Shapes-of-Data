@@ -65,6 +65,13 @@ Check the last 5 lines of the file
 tail -n 5 birdstrikes.csv
 ```
 {: .language-bash}
+
+First 10 lines, skipping the 1st: 
+```
+tail -n+2 birdstrikes.csv | head -10
+```
+{: .language-bash}
+
 `>` - Put the first 10 lines into an other file (note that instead of -n 10, we used a simplified version)
 ```
 head -10 birdstrikes.csv > first10.csv
