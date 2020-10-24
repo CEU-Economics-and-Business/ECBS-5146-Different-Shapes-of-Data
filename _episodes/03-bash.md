@@ -221,7 +221,7 @@ In the next example, the script analyzing negative sentiment of the books given 
 
 First we create the file for the script:
 ```
-# nano sentiment.sh
+nano sentiment.sh
 ```
 {: .language-bash}
 
@@ -257,7 +257,7 @@ fi
 
 On the end we run the script with a book stored in txt format:
 ```
-# sh sentiment.sh Hamlet.txt
+sh sentiment.sh Hamlet.txt
 ```
 {: .language-bash}
 
