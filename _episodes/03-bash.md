@@ -22,8 +22,8 @@ keypoints:
 For this exercise we will use Git. 
 
 Instructions for Windows: 
-* Install Git for Windows: (https://gitforwindows.org/) 
-* This installs Git bash too. More info on Git bash: (https://www.atlassian.com/git/tutorials/git-bash)
+* Install Git for Windows: <https://gitforwindows.org/> 
+* This installs Git bash too. More info on Git bash: <https://www.atlassian.com/git/tutorials/git-bash>
 * Please run and check (and double check) that Git Bash works properly. Type `pwd` and see if you get a response.
 
 Instructions for Mac:
