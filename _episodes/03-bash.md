@@ -69,12 +69,6 @@ cat birdstrikes.csv
 ```
 {: .language-bash}
 
-`less` -
-Explore the csv
-```
-less birdstrikes.csv
-```
-{: .language-bash}
 
 `head` -
 Print the first 3 lines to the file to the screen
@@ -95,13 +89,8 @@ tail -n 5 birdstrikes.csv
 ```
 {: .language-bash}
 
-First 10 lines, skipping the 1st: 
-```
-tail -n+2 birdstrikes.csv | head -10
-```
-{: .language-bash}
 
-`>` - Put the first 10 lines into an other file (note that instead of -n 10, we used a simplified version)
+`>` - Save the first 10 lines into an other file (note that instead of -n 10, we used a simplified version)
 ```
 head -10 birdstrikes.csv > first10.csv
 ```
@@ -114,7 +103,7 @@ cat first10.csv
 
 `|` - concatenating command. Show the 10th line only: 
 ```
-head -n 5 birdstrikes.csv | tail -n 1
+head -n 10 birdstrikes.csv | tail -n 1
 ```
 {: .language-bash}
 
@@ -133,13 +122,13 @@ cat birdstrikes.csv | grep California
 `grep -v` -
 Only show incidents NOT with Airplanes
 ```
-cat birdstrikes.csv | grep -v Airplane
+cat birdstrikes.csv | grep -v California
 ```
 {: .language-bash}
 `grep -i` -
 Ignore case
 ```
-cat birdstrikes.csv | grep -i airplane
+cat birdstrikes.csv | grep -i CALIFORNIA
 ```
 {: .language-bash}
 
