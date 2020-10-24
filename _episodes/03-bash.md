@@ -131,7 +131,8 @@ Ignore case
 cat birdstrikes.csv | grep -i airplane
 ```
 {: .language-bash}
-## Others
+
+## Word count
 
 `wc` - show the line, word and character count of birdstrikes
 ```
@@ -149,7 +150,7 @@ shows only the line count
 > How many incidents were in California (only output line count)
 {: .challenge}
 
-## Cutting / printing parts of a line
+## Cut / printing out parts of a line
 
 What is name of the 1st column:
 ```
