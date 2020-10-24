@@ -206,8 +206,6 @@ cat birdstrikes.csv | sort -k4 -t ';' -r | head -10
 Distinct states in birdstrikes:
 ```
 cat birdstrikes.csv | cut -d ';' -f6 | sort | uniq | wc -l
-
-tail -n+2 birdstrikes.csv | cut -d ';' -f6 | sort | uniq | wc -l
 ```
 {: .language-bash}
 
