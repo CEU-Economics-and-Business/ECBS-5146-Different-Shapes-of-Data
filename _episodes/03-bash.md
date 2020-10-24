@@ -90,7 +90,7 @@ tail -n 5 birdstrikes.csv
 {: .language-bash}
 
 
-`>` - Save the first 10 lines into an other file (note that instead of -n 10, we used a simplified version)
+`>` - Save the first 10 lines into another file (note that instead of -n 10, we used a simplified version)
 ```
 head -10 birdstrikes.csv > first10.csv
 ```
