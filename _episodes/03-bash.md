@@ -22,7 +22,7 @@ keypoints:
 For this exercise we will use Git bash on Windows (Linux, Mac have built-in Linux shell, so you don't need to install anything). For windows install Git for windows: https://gitforwindows.org/ More info in Git bash: https://www.atlassian.com/git/tutorials/git-bash.
 
 
-## Preapring the exercise artifacts
+## Preparing the exercise artifacts
 
 First, let's check some file navigation. Your current location:
 ```
@@ -37,7 +37,7 @@ ls -l
 ```
 {: .language-bash}
 
-To get the required artifacts (flat files for exercises) navigate to a folder suiteable for exercises (like Documents, CEU class folder etc) and clone the course repo:
+To get the required artifacts (flat files for exercises) navigate to a folder suitable for exercises (like Documents, CEU class folder etc) and clone the course repo:
 
 Example:
 ```
@@ -142,7 +142,7 @@ wc birdstrikes.csv
 shows only the line count
 
 > ## Exercise 2
-> Show the word, line and character count of the first 10 lines
+> How many words we have in the first 10 lines of birdstrikes?
 {: .challenge}
 
 > ## Exercise 3
