@@ -42,6 +42,7 @@ To get the required artifacts (flat files for exercises) navigate to a folder su
 Example:
 ```
 cd Documents/
+mkdir bash
 git clone https://github.com/CEU-Economics-and-Business/ECBS-5146-Different-Shapes-of-Data
 ```
 {: .language-bash}
