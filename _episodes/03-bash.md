@@ -19,7 +19,7 @@ keypoints:
 
 ## Setup
 
-For this exercise we will use Git bash on windows (Linux, Mac have built-in Linux shell, so you don't need to install anything). For windows install Git for windows: https://gitforwindows.org/ More info in Git bash: https://www.atlassian.com/git/tutorials/git-bash.
+For this exercise we will use Git bash on Windows (Linux, Mac have built-in Linux shell, so you don't need to install anything). For windows install Git for windows: https://gitforwindows.org/ More info in Git bash: https://www.atlassian.com/git/tutorials/git-bash.
 
 
 ## Preapring the exercise artifacts
