@@ -54,6 +54,7 @@ Example:
 cd Documents/
 mkdir bash
 git clone https://github.com/CEU-Economics-and-Business/ECBS-5146-Different-Shapes-of-Data
+cd ECBS-5146-Different-Shapes-of-Data/artifacts/bash/
 ```
 {: .language-bash}
 
