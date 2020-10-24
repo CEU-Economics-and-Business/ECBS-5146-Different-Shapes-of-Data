@@ -169,6 +169,10 @@ cat birdstrikes.csv | cut -d ';' -f4,10 | head -11
 Similar to previous example, but now writing all columns, except *damage* (column 4) and *cost* (column 10) into a new file:
 ```
 cat birdstrikes.csv | cut -d ';' --complement -f4,10 > new.csv
+cat birdstrikes.csv | cut -d ';' -f1-3,5-9,11- > new.csv
+
+head -5 new.csv
+
 ```
 {: .language-bash}
 
