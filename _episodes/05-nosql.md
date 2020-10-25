@@ -132,17 +132,11 @@ r.mget('one','three')
 ```
 {: .language-python}
 
-#### Delete a value by key
-```
-r.delete('three')
-```
-{: .language-python}
+> ## REDIS Exercise 
+> Using the documentation find how to delete a key and how to check the existence of a key.
+{: .challenge}
 
-#### Check the existence of a key
-```
-r.exists('one')
-```
-{: .language-python}
+
 
 
 <br/><br/><br/>
