@@ -618,12 +618,9 @@ LIMIT 10
 {: .language-cypher}
 
 > ## NEO4J Exercise 5 
-> List the name and number connections of the top 10 most connected Officers from Bulgaria. Who is the no1.
+> LIST THE NAME AND NUMBER CONNECTIONS OF THE TOP 10 MOST CONNECTED OFFICERS FROM BULGARIA.WHO IS THE NO1?
 {: .challenge}
 
-> ## NEO4J Exercise 6 
-> Find the entities related to officers named “Tudor” and all nodes related to these entities.
-{: .challenge}
 
 <br/>
 #### Node analytics
