@@ -63,7 +63,7 @@ keypoints:
 
 <br>
 
-#### Exercise interface: http://ceudsd.net (Apache Zeppelin)
+#### Exercise interface: [http://ceudsd.net](http://ceudsd.net) (Apache Zeppelin)
 
 Username/Password will be distributed during class. Ask on Slack if you haven't got one. 
 
@@ -152,7 +152,7 @@ r.mget('one','three')
 
 <br/>
 
-#### Exercise interface: http://ceudsd.net:8082
+#### Exercise interface: [http://ceudsd.net:8082](http://ceudsd.net:8082)
 
 To connect you need to apply connection Settings: [Screenshot help](/DSD2-3-4/influx.png?raw=true)
 
@@ -278,7 +278,7 @@ The value 1.148 is larger than 5% of the values in water_level where location eq
 
 <br/>
 
-#### Exercise interface: http://ceudsd.net (Apache Zeppelin)
+#### Exercise interface: [http://ceudsd.net](http://ceudsd.net) (Apache Zeppelin)
 
 Username/Password will be distributed during class. Ask on Slack if you haven't got one. 
 <br/><br/>
