@@ -403,10 +403,10 @@ The simplest query (the result is limited by default to 10):
 ```
 http://ceudsd.net:8081/solr/flightdelays/select?q=*:* 
 ```
-
-In SQL would be something like this:
+<br/>
+In SQL, this would be something like:
 ```
-SELECT * FROM flightdelays
+SELECT * FROM flightdelays LIMIT 10;
 ```
 {: .language-sql}
 
@@ -419,8 +419,12 @@ List flights from the last 10 years where tail number is N520JB:
 http://ceudsd.net:8081/solr/flightdelays/select?fl=DISTANCE,ORIG_CITY,DEST_CITY&q=TAIL_NUMBER:N520JB AND DATE:[NOW-10YEARS TO *]&sort=DISTANCE desc&rows=5
 ```
 
-[In SQL would be something like this:
-`SELECT distance,orig_city,dest_city FROM flightdelays WHERE tail_number='N520JB' AND date >= DATE_SUB(NOW(),INTERVAL 10 YEAR) ORDER BY distance DESC LIMIT 5;`]
+<br/>
+In SQL, this would be something like:
+```
+`SELECT distance,orig_city,dest_city FROM flightdelays WHERE tail_number='N520JB' AND date >= DATE_SUB(NOW(),INTERVAL 10 YEAR) ORDER BY distance DESC LIMIT 5;`
+```
+{: .language-sql}
 
 <br/><br/>
 #### Fuzzy
@@ -435,10 +439,22 @@ http://ceudsd.net:8081/solr/flightdelays/select?fl=DEST_CITY&q=DEST_CITY:columba
 ```
 <br/>
 #### Facets
-Give me the flights with TAIL_NUMBER = N928SW and return facets for airline and destination airport:
+
+Same as before but this time 
 ```
-http://ceudsd.net:8081/solr/flightdelays/select?facet.field=AIRLINE_str&facet.field=DEST_AIRPORT_str&facet=on&q=TAIL_NUMBER:N928SW
+http://ceudsd.net:8081/solr/flightdelays/select?q=DEST_CITY:columbas~2&facet.field=DEST_CITY_str&facet=on
 ```
+
+<br/>
+This previous result sounds like a combined result of the following SQLs:
+```
+SELECT * FROM flightdelays WHERE DEST_CITY LIKE 'columbas%' LIMIT 10;
+
+SELECT dest_city, COUNT(*) FROM flightdelays WHERE DEST_CITY LIKE 'columbas%' GROUP BY dest_city;
+```
+{: .language-sql}
+
+
 <br/>
 #### Geo spacial search
 Give the record within a circular circle defined by center point of 39.85,-104.66 [lat,lon] and diameter of 2 kilometer. Display only ORIG_CITY in the result set and facests for DEST_CITY_str,ORIG_CITY_str.
