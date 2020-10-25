@@ -511,15 +511,16 @@ Username/Password will be distributed during class. Ask on Slack if you haven't 
 In Neo4J the SELECT is called MATCH. One of the simplest query is selecting 25 Officer nodes :
 
 ```
-MATCH (n:Officer) 
-RETURN n LIMIT 25
+MATCH (n:Entity) 
+RETURN n.name LIMIT 25
+
 ```
 {: .language-cypher}
 
 <br/>
 In SQL, this would be something like:
 ```
-SELECT * FROM Officer AS n LIMIT 5;
+SELECT n.name FROM Officer AS n LIMIT 25;
 ```
 {: .language-sql}
 
