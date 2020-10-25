@@ -672,4 +672,4 @@ WITH a, count(DISTINCT b) AS n
 MATCH (a)--()-[r]-()--(a)
 RETURN n as degree, count(DISTINCT r) AS clustering_coefficient
 ```
-{: .language-cypher}
+{: .output}
