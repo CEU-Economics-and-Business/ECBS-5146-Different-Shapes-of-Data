@@ -467,7 +467,7 @@ http://ceudsd.net:8081/solr/flightdelays/select?fl=TAIL_NUMBER&q=TAIL_NUMBER:?2?
 
 Show me destination cities (2 distance) close to "balabany"
 ```
-http://ceudsd.net:8081/solr/flightdelays/select?fl=DEST_CITY&q=DEST_CITY:balabany~2
+http://ceudsd.net:8081/solr/flightdelays/select?fl=DEST_CITY&q=DEST_CITY:columbas~2
 ```
 <br/>
 #### Facets
