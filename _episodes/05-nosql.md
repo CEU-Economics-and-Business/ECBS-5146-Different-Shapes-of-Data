@@ -480,7 +480,7 @@ http://ceudsd.net:8081/solr/flightdelays/select?facet.field=AIRLINE_str&facet.fi
 Give the record within a circular circle defined by center point of 39.85,-104.66 [lat,lon] and diameter of 2 kilometer. Display only ORIG_CITY in the result set and facests for DEST_CITY_str,ORIG_CITY_str.
 
 ```
-http://ceudsd.net:8081/solr/flightdelays/select?d=2&facet.field=DEST_CITY_str&facet.field=ORIG_CITY_str&facet=on&fl=ORIG_CITY&fq={!geofilt}&pt=39.85,-104.66&q=*:*&sfield=ORIG_LOCATION_p
+http://ceudsd.net:8081/solr/flightdelays/select?d=2&facet.field=ORIG_CITY_str&facet=on&fl=ORIG_CITY,ORIG_LOCATION_p,&fq={!geofilt}&pt=39.85,-104.66&q=*:*&sfield=ORIG_LOCATION_p
 ```
 
 > ## SOLR Exercise 
