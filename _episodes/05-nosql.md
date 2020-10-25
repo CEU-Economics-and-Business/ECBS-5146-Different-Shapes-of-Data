@@ -57,9 +57,9 @@ keypoints:
 
 
 #### Links to help you
-(https://redis-py.readthedocs.io/en/stable/index.html)
+[https://redis-py.readthedocs.io/en/stable/index.html](https://redis-py.readthedocs.io/en/stable/index.html)
 
-(https://redis.io/commands#)
+[https://redis.io/commands#](https://redis.io/commands#)
 
 <br>
 
