@@ -506,7 +506,7 @@ In Neo4J the SELECT is called MATCH. One of the simplest query is selecting 25 O
 MATCH (n:Officer) 
 RETURN n LIMIT 25
 ```
-{: .language-cypher}
+{: .language-graphql}
 
 <br/>
 In SQL, this would be something like:
@@ -521,7 +521,7 @@ Same SELECT but instead of node the node name is returned:
 MATCH (n:Entity) 
 RETURN n.name LIMIT 25
 ```
-{: .language-cypher}
+{: .language-sql}
 
 <br/>
 In SQL, this would be something like:
