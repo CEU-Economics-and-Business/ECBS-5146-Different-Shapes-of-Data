@@ -655,7 +655,7 @@ MATCH (n)
 WITH labels(n) AS type
 RETURN DISTINCT type
 ```
-{: .language-cypher}
+{:.source: program source.}
 
 Show the average degree by node type:
 ```
