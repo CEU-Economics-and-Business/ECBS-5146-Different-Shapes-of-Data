@@ -414,7 +414,7 @@ SELECT * FROM flightdelays LIMIT 10;
 <br/>
 #### Ranges 
 
-List flights from the last 10 years where tail number is N520JB:
+List records from the last 10 years where tail number is N520JB:
 ```
 http://ceudsd.net:8081/solr/flightdelays/select?fl=DISTANCE,ORIG_CITY,DEST_CITY&q=TAIL_NUMBER:N520JB AND DATE:[NOW-10YEARS TO *]&sort=DISTANCE desc&rows=5
 ```
@@ -427,13 +427,15 @@ In SQL, this would be something like:
 {: .language-sql}
 
 <br/><br/>
-#### Fuzzy
-Show me the tailnums for tail numbers starting with any character, followed by “2”, followed by 2 any character, followed by "jb"
+#### String search / Fuzzy Search
+List records where tail numbers starting with any character, followed by “2”, followed by 2 any character, followed by "jb". Display only tail number in the result set:
 ```
 http://ceudsd.net:8081/solr/flightdelays/select?fl=TAIL_NUMBER&q=TAIL_NUMBER:?2??jb
 ```
 
-Show me destination cities (2 distance) close to "columbas"
+Fuzzy searches is based on the Damerau-Levenshtein Distance or Edit Distance algorithm. Fuzzy searches discover terms that are similar to a specified term without necessarily being an exact match. To perform a fuzzy search, use the tilde ~ symbol at the end of a single-word term
+
+In the next example we list records with destination city close to "columbas" by distance of 2. The distance referred to here is the number of term movements needed to match the specified phrase.
 ```
 http://ceudsd.net:8081/solr/flightdelays/select?fl=DEST_CITY&q=DEST_CITY:columbas~2
 ```
