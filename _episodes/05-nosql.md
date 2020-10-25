@@ -385,13 +385,13 @@ for listing in airbnb.find({ "address.country": "Spain" }).limit(10):
 ## Solr
 
 #### Links to help you
-(https://cwiki.apache.org/confluence/display/solr/The+Standard+Query+Parser)
+[https://cwiki.apache.org/confluence/display/solr/The+Standard+Query+Parser](https://cwiki.apache.org/confluence/display/solr/The+Standard+Query+Parser)
 
-(http://yonik.com/solr/query-syntax/)
+[http://yonik.com/solr/query-syntax/](http://yonik.com/solr/query-syntax/)
 
 <br/>
 
-#### Exercise interface: http://ceudsd.net:8081
+#### Exercise interface: [http://ceudsd.net:8081/solr/#/flightdelays/query](http://ceudsd.net:8081/solr/#/flightdelays/query)
 
 <br/><br/>
 
