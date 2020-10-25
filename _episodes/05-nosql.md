@@ -395,7 +395,7 @@ for listing in airbnb.find({ "address.country": "Spain" }).limit(10):
 
 <br/><br/>
 
-#### Simple queries
+#### A simple query
 
 SOLR has different connectors to programming languages. For simple query testing, we don’t need to program because SOLR is offering so called HTTP Rest interface. These are basically url calls from a browser.
 
@@ -407,57 +407,17 @@ http://ceudsd.net:8081/solr/flightdelays/select?q=*:*
 [In SQL would be something like this:
 `SELECT * FROM flightdelays`]
 
-Same query, but now limited to 3 results:
-```
-http://ceudsd.net:8081/solr/flightdelays/select?q=*:*&rows=2
-```
-
-[In SQL would be something like this:
-`SELECT * FROM flightdelays LIMT 3`]
-
-Same query, but the output is CSV:
-```
-http://ceudsd.net:8081/solr/flightdelays/select?q=*:*&rows=2&wt=csv
-```
-
-Same as the first query, but requesting only one field of the document (YEAR):
-
-```
-http://ceudsd.net:8081/solr/flightdelays/select?q=*:*&fl=YEAR
-```
-[In SQL would be something like this:
-`SELECT year FROM flightdelays`]
-
-Same as the first query, but requesting only the fields starting with “D”:
-```
-http://ceudsd.net:8081/solr/flightdelays/select?q=*:*&fl=D*
-```
-
-Same as the first query, but requesting two fields of the document (YEAR,ORIG_CITY):
-```
-http://ceudsd.net:8081/solr/flightdelays/select?q=*:*&fl=YEAR,ORIG_CITY
-```
-[In SQL would be something like this:
-`SELECT year,origin FROM flightdelays`]
-
-
-Sort by distance in descending order:
-```
-http://ceudsd.net:8081/solr/flightdelays/select?q=*:*&rows=5&sort=DISTANCE desc
-```
 
 <br/>
 #### Ranges 
-Return the documents where distance is between 0 and 500, show only DISTANCE,ORIG_CITY,DEST_CITY field.
-```
-http://ceudsd.net:8081/solr/flightdelays/select?fl=DISTANCE,ORIG_CITY,DEST_CITY&q=DISTANCE:[0 TO 500]
-```
-
-Return the documents from this last 5 years, show only time_hour field.
 
 ```
-http://ceudsd.net:8081/solr/flightdelays/select?fl=DATE&q=DATE:[NOW-10YEARS TO *]
+http://ceudsd.net:8081/solr/flightdelays/select?fl=DISTANCE,ORIG_CITY,DEST_CITY&q=TAIL_NUMBER:N520JB AND DATE:[NOW-10YEARS TO *]&sort=DISTANCE desc&rows=5
 ```
+
+[In SQL would be something like this:
+`SELECT distance,orig_city,dest_city FROM flightdelays WHERE tail_number='N520JB' AND date >= DATE_SUB(NOW(),INTERVAL 1 YEAR) ORDER BY distance DESC LIMIT 5;`]
+
 <br/><br/>
 #### Fuzzy
 Show me the tailnums for tail numbers starting with any character, followed by “2”, followed by 2 any character, followed by "jb"
@@ -465,7 +425,7 @@ Show me the tailnums for tail numbers starting with any character, followed by �
 http://ceudsd.net:8081/solr/flightdelays/select?fl=TAIL_NUMBER&q=TAIL_NUMBER:?2??jb
 ```
 
-Show me destination cities (2 distance) close to "balabany"
+Show me destination cities (2 distance) close to "columbas"
 ```
 http://ceudsd.net:8081/solr/flightdelays/select?fl=DEST_CITY&q=DEST_CITY:columbas~2
 ```
