@@ -433,7 +433,7 @@ SELECT distance,orig_city,dest_city FROM flightdelays
 {: .language-sql}
 
 <br/><br/>
-#### String search / Fuzzy Search
+#### String search / Fuzzy search
 List records where tail numbers starting with any character, followed by “2”, followed by 2 any character, followed by "jb". Display only tail number in the result set:
 ```
 http://ceudsd.net:8081/solr/flightdelays/select?fl=TAIL_NUMBER&q=TAIL_NUMBER:?2??jb
