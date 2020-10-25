@@ -449,7 +449,7 @@ Same as before, but this time return back distinct destination cities as well:
 ```
 http://ceudsd.net:8081/solr/flightdelays/select?q=DEST_CITY:columbas~2&facet.field=DEST_CITY_str&facet=on
 ```
-{: .source}
+{: .input}
 
 <br/>
 This previous result sounds like a combined result of the following SQLs:
@@ -471,7 +471,7 @@ Return back records within a circle defined by center point of 39.85,-104.66 [la
 ```
 http://ceudsd.net:8081/solr/flightdelays/select?d=2&facet.field=ORIG_CITY_str&facet=on&fl=ORIG_CITY,ORIG_LOCATION_p,&fq={!geofilt}&pt=39.85,-104.66&q=*:*&sfield=ORIG_LOCATION_p
 ```
-{: .url}
+{: .output}
 
 > ## SOLR Exercise 
 > HOW MANY FLIGHTS ARRIVED IN SAN FRANCISCO WITH NO DELAY ALTHOUGH THEY DEPARTED AT LEAST 50 MINS BEHIND THE SCHEDULE?
@@ -652,12 +652,13 @@ RETURN DISTINCT labels(n)
 {: .language-cypher}
 
 Same as before, but using "WITH" 
->```
+>~~~
 >MATCH (n)
 >WITH labels(n) AS type
 >RETURN DISTINCT type
->```
-{: .language-cypher}
+>~~~
+>{: .language-cypher}
+{: .source}
 
 Show the average degree by node type:
 ```
