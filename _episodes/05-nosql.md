@@ -411,12 +411,13 @@ http://ceudsd.net:8081/solr/flightdelays/select?q=*:*
 <br/>
 #### Ranges 
 
+List flights from the last 10 years where tail number is N520JB:
 ```
 http://ceudsd.net:8081/solr/flightdelays/select?fl=DISTANCE,ORIG_CITY,DEST_CITY&q=TAIL_NUMBER:N520JB AND DATE:[NOW-10YEARS TO *]&sort=DISTANCE desc&rows=5
 ```
 
 [In SQL would be something like this:
-`SELECT distance,orig_city,dest_city FROM flightdelays WHERE tail_number='N520JB' AND date >= DATE_SUB(NOW(),INTERVAL 1 YEAR) ORDER BY distance DESC LIMIT 5;`]
+`SELECT distance,orig_city,dest_city FROM flightdelays WHERE tail_number='N520JB' AND date >= DATE_SUB(NOW(),INTERVAL 10 YEAR) ORDER BY distance DESC LIMIT 5;`]
 
 <br/><br/>
 #### Fuzzy
