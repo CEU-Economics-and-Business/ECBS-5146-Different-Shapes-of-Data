@@ -133,7 +133,7 @@ r.mget('one','three')
 {: .language-python}
 
 > ## REDIS Exercise 
-> Using the documentation, find how to delete a value by key and how to check the existence of a key.
+> USING THE DOCUMENTATION, FIND HOW TO DELETE A VALUE BY KEY AND HOW TO CHECK THE EXISTENCE OF A KEY.
 {: .challenge}
 
 
