@@ -650,12 +650,12 @@ RETURN DISTINCT labels(n)
 {: .language-cypher}
 
 Same as before, but using "WITH" 
-```
-MATCH (n)
-WITH labels(n) AS type
-RETURN DISTINCT type
-```
-{: .source}
+>```
+>MATCH (n)
+>WITH labels(n) AS type
+>RETURN DISTINCT type
+>```
+{: .language-cypher}
 
 Show the average degree by node type:
 ```
@@ -663,7 +663,7 @@ MATCH (n)
 WITH labels(n) AS type, size( (n)--() ) AS degree
 RETURN type, round(avg(degree)) AS avg
 ```
-{: .output}
+
 
 Calculate the degree and clustering_coefficient of a node:
 ```
@@ -672,4 +672,4 @@ WITH a, count(DISTINCT b) AS n
 MATCH (a)--()-[r]-()--(a)
 RETURN n as degree, count(DISTINCT r) AS clustering_coefficient
 ```
-{: .output}
+{: .language-cypher}
