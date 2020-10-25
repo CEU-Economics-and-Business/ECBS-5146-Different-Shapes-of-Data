@@ -502,7 +502,7 @@ http://ceudsd.net:8081/solr/flightdelays/select?d=2&facet.field=DEST_CITY_str&fa
 (https://cloudfront-files-1.publicintegrity.org/offshoreleaks/neo4j/guide/index.html)
 
  <br/>
-#### Exercise interface: http://ceudsd.net:8080 
+#### Exercise interface: [http://ceudsd.net:8080 ](http://ceudsd.net:8080)
 
 To connect you need to tick "do not use Bolt" in the Settings: [Screenshot help](https://github.com/salacika/DE2DSD/blob/main/nosql/neo4j.png?raw=true)
 
