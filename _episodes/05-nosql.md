@@ -655,7 +655,7 @@ MATCH (n)
 WITH labels(n) AS type
 RETURN DISTINCT type
 ```
-{:.source: program source.}
+{: .source:GraphQL}
 
 Show the average degree by node type:
 ```
