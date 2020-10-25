@@ -446,9 +446,9 @@ http://ceudsd.net:8081/solr/flightdelays/select?fl=DEST_CITY&q=DEST_CITY:columba
 #### Facets
 
 Same as before, but this time return back distinct destination cities as well:
-```
-http://ceudsd.net:8081/solr/flightdelays/select?q=DEST_CITY:columbas~2&facet.field=DEST_CITY_str&facet=on
-```
+>```
+>http://ceudsd.net:8081/solr/flightdelays/select?q=DEST_CITY:columbas~2&facet.field=DEST_CITY_str&facet=on
+>```
 
 <br/>
 This previous result sounds like a combined result of the following SQLs:
@@ -468,7 +468,7 @@ SELECT dest_city, COUNT(*) FROM flightdelays
 Return back records within a circle defined by center point of 39.85,-104.66 [lat,lon] and diameter of 2 kilometer. Display only ORIG_CITY and ORIG_LOCATION_p in the result set and facests for ORIG_CITY_str.
 
 ```
-http://ceudsd.net:8081/solr/flightdelays/select?d=2&facet.field=ORIG_CITY_str&facet=on&fl=ORIG_CITY,ORIG_LOCATION_p,&fq={!geofilt}&pt=39.85,-104.66&q=*:*&sfield=ORIG_LOCATION_p
+>http://ceudsd.net:8081/solr/flightdelays/select?d=2&facet.field=ORIG_CITY_str&facet=on&fl=ORIG_CITY,ORIG_LOCATION_p,&fq={!geofilt}&pt=39.85,-104.66&q=*:*&sfield=ORIG_LOCATION_p
 ```
 
 > ## SOLR Exercise 
