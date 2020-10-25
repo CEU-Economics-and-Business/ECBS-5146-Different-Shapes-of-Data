@@ -663,7 +663,7 @@ MATCH (n)
 WITH labels(n) AS type, size( (n)--() ) AS degree
 RETURN type, round(avg(degree)) AS avg
 ```
-{: .language-cypher}
+{: .output name="Cypher" title="Cypher"}
 
 Calculate the degree and clustering_coefficient of a node:
 ```
