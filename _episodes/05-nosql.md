@@ -524,22 +524,6 @@ SELECT * FROM Officer AS n LIMIT 5;
 {: .language-sql}
 
 
-Same SELECT but instead of node the node name is returned:
-```
-MATCH (n:Entity) 
-RETURN n.name LIMIT 25
-```
-{: .language-cypher}
-
-<br/>
-In SQL, this would be something like:
-```
-SELECT n.name FROM entity AS n LIMIT 25;
-```
-{: .language-sql}
-
-
-
 We can use WHERE clause to filter our result:
 ```
 MATCH (o:Officer)
@@ -577,7 +561,7 @@ SELECT o.countries FROM officer AS o WHERE o.countries LIKE '%Hungary%';
 <br/>
 ####  Joins
 
-Find the Officers and the Entities linked to them (double MATCH, )
+Find the Officers and the Entities linked to them (double MATCH)
 
 ```
 MATCH (o:Officer) 
@@ -598,25 +582,6 @@ USING (relationship)
 {: .language-sql}
 
 
-
-Find joint/linked entities with double MATCH, find the officers from Hungary and the Entities linked to them:
-```
-MATCH (o:Officer) 
-WHERE o.countries CONTAINS 'Hungary'
-MATCH (o)-[r]-(c:Entity)
-RETURN o,r,c
-```
-{: .language-cypher}
-
-A variation of the previous one, but here the link type is specified:
-```
-MATCH (o:Officer) 
-WHERE o.countries CONTAINS 'Hungary'
-MATCH (o)-[r:DIRECTOR_OF]-(c:Entity)
-RETURN o,r,c
-```
-{: .language-cypher}
-
 Find the Officers called "aliyev" and Entities related to them:
 ```
 MATCH (o:Officer) 
@@ -625,6 +590,18 @@ MATCH (o)-[r]-(c:Entity)
 RETURN o,r,c
 ```
 {: .language-cypher}
+
+Same, but this time return only "DIRECTOR_OF" relations:
+```
+MATCH (o:Officer) 
+WHERE toLower(o.name) CONTAINS "aliyev"
+MATCH (o)-[r:DIRECTOR_OF]-(c:Entity)
+RETURN o,r,c
+```
+{: .language-cypher}
+
+
+
 
 <br/>
 
