@@ -133,7 +133,7 @@ r.mget('one','three')
 {: .language-python}
 
 > ## REDIS Exercise 
-> Using the documentation find how to delete a key and how to check the existence of a key.
+> Using the documentation, find how to delete a key and how to check the existence of a key.
 {: .challenge}
 
 
@@ -144,11 +144,11 @@ r.mget('one','three')
 ## InfluxDB
 
 #### Links to help you
-(https://docs.influxdata.com/influxdb/v1.0/query_language/data_exploration/)
+[https://docs.influxdata.com/influxdb/v1.0/query_language/data_exploration/](https://docs.influxdata.com/influxdb/v1.0/query_language/data_exploration/)
 
-(https://docs.influxdata.com/influxdb/v1.0/query_language/math_operators/)
+[https://docs.influxdata.com/influxdb/v1.0/query_language/math_operators/](https://docs.influxdata.com/influxdb/v1.0/query_language/math_operators/)
 
-(https://docs.influxdata.com/influxdb/v1.0/query_language/functions/)
+[https://docs.influxdata.com/influxdb/v1.0/query_language/functions/](https://docs.influxdata.com/influxdb/v1.0/query_language/functions/)
 
 <br/>
 
@@ -270,8 +270,8 @@ The value 1.148 is larger than 5% of the values in water_level where location eq
 
 #### Links to help you
 
-(https://docs.mongodb.com/manual/)
-(https://www.w3schools.com/python/python_mongodb_getstarted.asp)
+[https://docs.mongodb.com/manual/](https://docs.mongodb.com/manual/)
+[https://www.w3schools.com/python/python_mongodb_getstarted.asp](https://www.w3schools.com/python/python_mongodb_getstarted.asp)
 
 <br/>
 
@@ -372,7 +372,7 @@ for listing in airbnb.find({ "address.country": "Spain" }).limit(10):
 ```
 {: .language-python}
 
-> ## MONGO Exercise 1 
+> ## MONGO Exercise 
 > COUNT HOW MANY AIRBNB LISTINGS WE HAVE IN THE SAMPLE DATABASE HAVING "COUNTRY_CODE" "US" OR "ADDRESS.MARKET" STARTWITH "M" (USE MONGODB DOCUMENTATION)
 {: .challenge}
 
@@ -480,7 +480,7 @@ Give the record within a circular circle defined by center point of 39.85,-104.6
 http://ceudsd.net:8081/solr/flightdelays/select?d=2&facet.field=DEST_CITY_str&facet.field=ORIG_CITY_str&facet=on&fl=ORIG_CITY&fq={!geofilt}&pt=39.85,-104.66&q=*:*&sfield=ORIG_LOCATION_p
 ```
 
-> ## SOLR Exercise 1 
+> ## SOLR Exercise 
 > HOW MANY FLIGHTS ARRIVED IN SAN FRANCISCO WITH NO DELAY ALTHOUGH THEY DEPARTED AT LEAST 50 MINS BEHIND THE SCHEDULE?
 {: .challenge}
 
