@@ -422,7 +422,10 @@ http://ceudsd.net:8081/solr/flightdelays/select?fl=DISTANCE,ORIG_CITY,DEST_CITY&
 <br/>
 In SQL, this would be something like:
 ```
-SELECT distance,orig_city,dest_city FROM flightdelays WHERE tail_number='N520JB' AND date >= DATE_SUB(NOW(),INTERVAL 10 YEAR) ORDER BY distance DESC LIMIT 5;
+SELECT distance,orig_city,dest_city FROM flightdelays 
+  WHERE tail_number='N520JB' AND date >= DATE_SUB(NOW(),INTERVAL 10 YEAR) 
+  ORDER BY distance DESC 
+  LIMIT 5;
 ```
 {: .language-sql}
 
@@ -452,7 +455,9 @@ This previous result sounds like a combined result of the following SQLs:
 ```
 SELECT * FROM flightdelays WHERE DEST_CITY LIKE 'columbas%' LIMIT 10;
 
-SELECT dest_city, COUNT(*) FROM flightdelays WHERE DEST_CITY LIKE 'columbas%' GROUP BY dest_city;
+SELECT dest_city, COUNT(*) FROM flightdelays 
+  WHERE DEST_CITY LIKE 'columbas%' 
+  GROUP BY dest_city;
 ```
 {: .language-sql}
 
@@ -503,8 +508,13 @@ RETURN n LIMIT 25
 ```
 {: .language-cypher}
 
-[In SQL would be something like this:
-`SELECT * FROM Officer AS n LIMIT 5`]
+<br/>
+In SQL, this would be something like:
+```
+SELECT * FROM Officer AS n LIMIT 5;
+```
+{: .language-sql}
+
 
 Same SELECT but instead of node the node name is returned:
 ```
@@ -513,8 +523,13 @@ RETURN n.name LIMIT 25
 ```
 {: .language-cypher}
 
-[In SQL would be something like this:
-`SELECT name FROM Entity AS n LIMIT 25`]
+<br/>
+In SQL, this would be something like:
+```
+SELECT n.name FROM entity AS n LIMIT 25;
+```
+{: .language-sql}
+
 
 
 We can use WHERE clause to filter our result:
@@ -525,8 +540,14 @@ RETURN o
 ```
 {: .language-cypher}
 
-[In SQL would be something like this:
-`SELECT o.countries FROM Officer AS o WHERE o.countries LIKE '%Hungary%'`]
+<br/>
+In SQL, this would be something like:
+```
+SELECT o.countries FROM officer AS o WHERE o.countries LIKE '%Hungary%';
+```
+{: .language-sql}
+
+
 
 
 > ## NEO4J Exercise 1 
@@ -558,13 +579,17 @@ LIMIT 10
 ```
 {: .language-cypher}
 
-[In SQL would be something like this:
-`SELECT * 
-FROM Officer as o  
+<br/>
+In SQL, this would be something like:
+```
+SELECT * 
+FROM officer as o  
 INNER JOIN Entity as c 
 USING (relationship)
-`
-]
+```
+{: .language-sql}
+
+
 
 Find joint/linked entities with double MATCH, find the officers from Hungary and the Entities linked to them:
 ```
