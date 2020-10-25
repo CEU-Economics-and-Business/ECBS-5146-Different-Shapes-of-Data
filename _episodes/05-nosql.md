@@ -377,10 +377,13 @@ for listing in airbnb.find({ "address.country": "Spain" }).limit(10):
 
 > ## MONGO Exercise 
 > COUNT HOW MANY AIRBNB LISTINGS WE HAVE IN THE SAMPLE DATABASE HAVING "COUNTRY_CODE" "US" OR "ADDRESS.MARKET" STARTWITH "M" (USE MONGODB DOCUMENTATION)
-> > 
-> > Just a hint, the solution in SQL is something like:
-> > `SELECT COUNT(*) FROM airbnb WHERE country_code='US' OR market LIKE 'M%'`
+>> 
+>> Just a hint, the solution in SQL is something like:
+>>~~~ 
+>> SELECT COUNT(*) FROM airbnb WHERE country_code='US' OR market LIKE 'M%'
+>> ~~~
 > > {: .language-sql} 
+>{: .solution} 
 {: .challenge}
 
 
