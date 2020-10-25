@@ -410,6 +410,7 @@ SOLR has different connectors to programming languages. For simple query testing
 
 The simplest query (the result is limited by default to 10):
 ```
+## URL
 http://ceudsd.net:8081/solr/flightdelays/select?q=*:* 
 ```
 {: .output}
