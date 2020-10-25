@@ -422,7 +422,7 @@ http://ceudsd.net:8081/solr/flightdelays/select?fl=DISTANCE,ORIG_CITY,DEST_CITY&
 <br/>
 In SQL, this would be something like:
 ```
-`SELECT distance,orig_city,dest_city FROM flightdelays WHERE tail_number='N520JB' AND date >= DATE_SUB(NOW(),INTERVAL 10 YEAR) ORDER BY distance DESC LIMIT 5;`
+SELECT distance,orig_city,dest_city FROM flightdelays WHERE tail_number='N520JB' AND date >= DATE_SUB(NOW(),INTERVAL 10 YEAR) ORDER BY distance DESC LIMIT 5;
 ```
 {: .language-sql}
 
