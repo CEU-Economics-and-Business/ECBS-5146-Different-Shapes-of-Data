@@ -403,6 +403,8 @@ The simplest query (the result is limited by default to 10):
 ```
 http://ceudsd.net:8081/solr/flightdelays/select?q=*:* 
 ```
+{: .output}
+
 <br/>
 In SQL, this would be something like:
 ```
@@ -418,6 +420,7 @@ List records from the last 10 years where tail number is N520JB:
 ```
 http://ceudsd.net:8081/solr/flightdelays/select?fl=DISTANCE,ORIG_CITY,DEST_CITY&q=TAIL_NUMBER:N520JB AND DATE:[NOW-10YEARS TO *]&sort=DISTANCE desc&rows=5
 ```
+{: .output}
 
 <br/>
 In SQL, this would be something like:
@@ -435,6 +438,7 @@ List records where tail numbers starting with any character, followed by “2”
 ```
 http://ceudsd.net:8081/solr/flightdelays/select?fl=TAIL_NUMBER&q=TAIL_NUMBER:?2??jb
 ```
+{: .output}
 
 Fuzzy searches is based on the Damerau-Levenshtein Distance or Edit Distance algorithm. Fuzzy searches discover terms that are similar to a specified term without necessarily being an exact match. To perform a fuzzy search, use the tilde ~ symbol at the end of a single-word term
 
@@ -442,6 +446,8 @@ In the next example we list records with destination city close to "columbas" by
 ```
 http://ceudsd.net:8081/solr/flightdelays/select?fl=DEST_CITY&q=DEST_CITY:columbas~2
 ```
+{: .output}
+
 <br/>
 #### Facets
 
@@ -449,7 +455,7 @@ Same as before, but this time return back distinct destination cities as well:
 ```
 http://ceudsd.net:8081/solr/flightdelays/select?q=DEST_CITY:columbas~2&facet.field=DEST_CITY_str&facet=on
 ```
-{: .input}
+{: .output}
 
 <br/>
 This previous result sounds like a combined result of the following SQLs:
@@ -652,13 +658,13 @@ RETURN DISTINCT labels(n)
 {: .language-cypher}
 
 Same as before, but using "WITH" 
->~~~
->MATCH (n)
->WITH labels(n) AS type
->RETURN DISTINCT type
->~~~
->{: .language-cypher}
-{: .source}
+```
+MATCH (n)
+WITH labels(n) AS type
+RETURN DISTINCT type
+```
+{: .language-cypher}
+
 
 Show the average degree by node type:
 ```
