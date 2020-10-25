@@ -655,7 +655,7 @@ MATCH (n)
 WITH labels(n) AS type
 RETURN DISTINCT type
 ```
-{: .source:GraphQL}
+{: .source:Cypher}
 
 Show the average degree by node type:
 ```
@@ -663,7 +663,7 @@ MATCH (n)
 WITH labels(n) AS type, size( (n)--() ) AS degree
 RETURN type, round(avg(degree)) AS avg
 ```
-{: .output name="Cypher" title="Cypher"}
+{: .output:Cypher}
 
 Calculate the degree and clustering_coefficient of a node:
 ```
