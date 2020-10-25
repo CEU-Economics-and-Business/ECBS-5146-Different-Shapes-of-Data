@@ -382,7 +382,7 @@ for listing in airbnb.find({ "address.country": "Spain" }).limit(10):
 >>~~~ 
 >> SELECT COUNT(*) FROM airbnb WHERE country_code='US' OR market LIKE 'M%'
 >> ~~~
-> > {: .language-sql} 
+>> {: .language-sql} 
 >{: .solution} 
 {: .challenge}
 
