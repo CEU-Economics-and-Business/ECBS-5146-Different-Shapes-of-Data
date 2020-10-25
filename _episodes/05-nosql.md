@@ -568,7 +568,7 @@ Find the Officers and the Entities linked to them (double MATCH)
 MATCH (o:Officer) 
 MATCH (o)-[r]-(c:Entity)
 RETURN o,r,c
-LIMIT 10
+LIMIT 50
 ```
 {: .language-cypher}
 
