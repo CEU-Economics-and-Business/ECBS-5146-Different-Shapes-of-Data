@@ -404,8 +404,11 @@ The simplest query (the result is limited by default to 10):
 http://ceudsd.net:8081/solr/flightdelays/select?q=*:* 
 ```
 
-[In SQL would be something like this:
-`SELECT * FROM flightdelays`]
+In SQL would be something like this:
+```
+SELECT * FROM flightdelays
+```
+{: .language-sql}
 
 
 <br/>
