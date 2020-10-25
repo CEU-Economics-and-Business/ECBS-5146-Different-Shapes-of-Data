@@ -57,9 +57,9 @@ keypoints:
 
 
 #### Links to help you
-https://redis-py.readthedocs.io/en/stable/index.html
+(https://redis-py.readthedocs.io/en/stable/index.html)
 
-https://redis.io/commands#
+(https://redis.io/commands#)
 
 <br>
 
@@ -150,11 +150,11 @@ r.exists('one')
 ## InfluxDB
 
 #### Links to help you
-https://docs.influxdata.com/influxdb/v1.0/query_language/data_exploration/
+(https://docs.influxdata.com/influxdb/v1.0/query_language/data_exploration/)
 
-https://docs.influxdata.com/influxdb/v1.0/query_language/math_operators/
+(https://docs.influxdata.com/influxdb/v1.0/query_language/math_operators/)
 
-https://docs.influxdata.com/influxdb/v1.0/query_language/functions/
+(https://docs.influxdata.com/influxdb/v1.0/query_language/functions/)
 
 <br/>
 
@@ -276,8 +276,8 @@ The value 1.148 is larger than 5% of the values in water_level where location eq
 
 #### Links to help you
 
-https://docs.mongodb.com/manual/
-https://www.w3schools.com/python/python_mongodb_getstarted.asp
+(https://docs.mongodb.com/manual/)
+(https://www.w3schools.com/python/python_mongodb_getstarted.asp)
 
 <br/>
 
@@ -388,9 +388,9 @@ for listing in airbnb.find({ "address.country": "Spain" }).limit(10):
 ## Solr
 
 #### Links to help you
-https://cwiki.apache.org/confluence/display/solr/The+Standard+Query+Parser
+(https://cwiki.apache.org/confluence/display/solr/The+Standard+Query+Parser)
 
-http://yonik.com/solr/query-syntax/
+(http://yonik.com/solr/query-syntax/)
 
 <br/>
 
@@ -498,11 +498,11 @@ http://ceudsd.net:8081/solr/flightdelays/select?d=2&facet.field=DEST_CITY_str&fa
 
 #### Links to help you
 
-https://neo4j.com/developer/cypher-query-language/
+(https://neo4j.com/developer/cypher-query-language/)
 
-http://neo4j.com/docs/developer-manual/current/cypher/
+(http://neo4j.com/docs/developer-manual/current/cypher/)
 
-https://cloudfront-files-1.publicintegrity.org/offshoreleaks/neo4j/guide/index.html
+(https://cloudfront-files-1.publicintegrity.org/offshoreleaks/neo4j/guide/index.html)
 
  <br/>
 #### Exercise interface: http://ceudsd.net:8080 
