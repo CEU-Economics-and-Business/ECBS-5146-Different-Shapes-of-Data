@@ -120,7 +120,7 @@ cat birdstrikes.csv | grep California
 ```
 {: .language-bash}
 `grep -v` -
-Only show incidents NOT with Airplanes
+Only show incidents NOT with California
 ```
 cat birdstrikes.csv | grep -v California
 ```
@@ -186,13 +186,14 @@ head -5 new.csv
 ## Sorting
 
 ```
-sort birdstrikes.csv
+sort birdstrikes.csv | head -10
+sort -n birdstrikes.csv | head -10
 ```
 {: .language-bash}
 
 Reverse sort by *damage* (column 4)
 ```
-cat birdstrikes.csv | sort -k4 -t ';' -r | head -10
+cat birdstrikes.csv | sort -t ';' -k4 -r | head -10 
 ```
 {: .language-bash}
 
