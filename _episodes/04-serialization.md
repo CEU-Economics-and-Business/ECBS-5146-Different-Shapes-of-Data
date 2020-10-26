@@ -180,7 +180,7 @@ or something similar.
 
 # Exploring files
 > ## Exercise
-> Open `DE.sqlite` in the DB Browser for SQLite. Export the following three tables to .csv: `seller`, `buyer`, `lot` using "File", "Export", "Tables to CSV".
+> Get the following three tables with `curl` from `https://github.com/CEU-Economics-and-Business/ECBS-5146-Different-Shapes-of-Data/raw/master/data/ted/*.csv`: `seller`, `buyer`, `lot`.
 {: .challenge}
 
 ```
