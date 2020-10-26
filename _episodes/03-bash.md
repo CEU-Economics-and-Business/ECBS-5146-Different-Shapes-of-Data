@@ -263,6 +263,11 @@ sh sentiment.sh Hamlet.txt
 ```
 {: .language-bash}
 
+> ## Book recommendation
+> If you want to get deeper, into the magic land of command lines, a new book is available for free: [Data Science at the Command Line (https://www.datascienceatthecommandline.com/1e/index.html)
+>
+{: .callout}
+
 
 > ## Homework (Optional, no need to submit)
 > 
@@ -270,4 +275,6 @@ sh sentiment.sh Hamlet.txt
 > * How many incidents did happen were cost is bigger than 0
 > * In which Area did the most expensive incident happen that was caused by a Small bird?
 {: .challenge}
+
+
 
