@@ -141,8 +141,19 @@ Disallow: /reserved.reportviewerwebcontrol.axd
 ```
 
 > ## Exercise
-> Write a shell script to download all years of wage the for the [California Superior Court](https://publicpay.ca.gov/Reports/RawExport.aspx).
+> Write a shell script to download all years of wage the for the [California Superior Court](https://publicpay.ca.gov/Reports/RawExport.aspx). (Optional: unzip the files.)
+>> ## Solution
+>> ```
+>> for year in {2013..2019}
+>> do
+>>    curl "https://publicpay.ca.gov/RawExport/${year}_SuperiorCourt.zip" -o ${year}.zip
+>>    unzip ${year}.zip
+>> done
+>> ```
+>> {: .language-bash}
+> {: .solution}
 {: .challenge}
+
 
 # Data Serialization
 With Data Structures (to be discussed later), we organize our data to optimize performance in lookup, matching, or other analytics question. But for storing data and sharing them with others, we have to convert them into a sequence of bytes.
