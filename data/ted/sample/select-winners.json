@@ -1,0 +1,87 @@
+[
+  {
+    "op": "core/multivalued-cell-split",
+    "columnName": "WIN_NAME",
+    "keyColumnName": "ID_NOTICE_CAN",
+    "mode": "separator",
+    "separator": "---",
+    "regex": false,
+    "description": "Split multi-valued cells in column WIN_NAME"
+  },
+  {
+    "op": "core/multivalued-cell-split",
+    "columnName": "WIN_NATIONALID",
+    "keyColumnName": "ID_NOTICE_CAN",
+    "mode": "separator",
+    "separator": "---",
+    "regex": false,
+    "description": "Split multi-valued cells in column WIN_NATIONALID"
+  },
+  {
+    "op": "core/multivalued-cell-split",
+    "columnName": "WIN_ADDRESS",
+    "keyColumnName": "ID_NOTICE_CAN",
+    "mode": "separator",
+    "separator": "---",
+    "regex": false,
+    "description": "Split multi-valued cells in column WIN_ADDRESS"
+  },
+  {
+    "op": "core/multivalued-cell-split",
+    "columnName": "WIN_TOWN",
+    "keyColumnName": "ID_NOTICE_CAN",
+    "mode": "separator",
+    "separator": "---",
+    "regex": false,
+    "description": "Split multi-valued cells in column WIN_TOWN"
+  },
+  {
+    "op": "core/multivalued-cell-split",
+    "columnName": "WIN_POSTAL_CODE",
+    "keyColumnName": "ID_NOTICE_CAN",
+    "mode": "separator",
+    "separator": "---",
+    "regex": false,
+    "description": "Split multi-valued cells in column WIN_POSTAL_CODE"
+  },
+  {
+    "op": "core/multivalued-cell-split",
+    "columnName": "WIN_COUNTRY_CODE",
+    "keyColumnName": "ID_NOTICE_CAN",
+    "mode": "separator",
+    "separator": "---",
+    "regex": false,
+    "description": "Split multi-valued cells in column WIN_COUNTRY_CODE"
+  },
+  {
+    "op": "core/multivalued-cell-split",
+    "columnName": "B_CONTRACTOR_SME",
+    "keyColumnName": "ID_NOTICE_CAN",
+    "mode": "separator",
+    "separator": "---",
+    "regex": false,
+    "description": "Split multi-valued cells in column B_CONTRACTOR_SME"
+  },
+  {
+    "op": "core/column-reorder",
+    "columnNames": [
+      "ID_AWARD",
+      "WIN_NAME",
+      "WIN_NATIONALID",
+      "WIN_ADDRESS",
+      "WIN_TOWN",
+      "WIN_POSTAL_CODE",
+      "WIN_COUNTRY_CODE"
+    ],
+    "description": "Reorder columns"
+  },
+  {
+    "op": "core/fill-down",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ID_AWARD",
+    "description": "Fill down cells in column ID_AWARD"
+  }
+]

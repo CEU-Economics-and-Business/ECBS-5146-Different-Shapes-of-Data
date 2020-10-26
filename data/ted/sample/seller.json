@@ -1,0 +1,94 @@
+[
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ID_LOT_AWARDED",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          ""
+        ],
+        "fromBlank": true,
+        "fromError": false,
+        "to": "1"
+      }
+    ],
+    "description": "Mass edit cells in column ID_LOT_AWARDED"
+  },
+  {
+    "op": "core/multivalued-cell-split",
+    "columnName": "WIN_NAME",
+    "keyColumnName": "ID_AWARD",
+    "mode": "separator",
+    "separator": "---",
+    "regex": false,
+    "description": "Split multi-valued cells in column CAE_NAME"
+  },
+  {
+    "op": "core/multivalued-cell-split",
+    "columnName": "WIN_NATIONALID",
+    "keyColumnName": "ID_AWARD",
+    "mode": "separator",
+    "separator": "---",
+    "regex": false,
+    "description": "Split multi-valued cells in column CAE_NATIONALID"
+  },
+  {
+    "op": "core/multivalued-cell-split",
+    "columnName": "WIN_ADDRESS",
+    "keyColumnName": "ID_AWARD",
+    "mode": "separator",
+    "separator": "---",
+    "regex": false,
+    "description": "Split multi-valued cells in column CAE_ADDRESS"
+  },
+  {
+    "op": "core/multivalued-cell-split",
+    "columnName": "WIN_TOWN",
+    "keyColumnName": "ID_AWARD",
+    "mode": "separator",
+    "separator": "---",
+    "regex": false,
+    "description": "Split multi-valued cells in column CAE_TOWN"
+  },
+  {
+    "op": "core/multivalued-cell-split",
+    "columnName": "WIN_POSTAL_CODE",
+    "keyColumnName": "ID_AWARD",
+    "mode": "separator",
+    "separator": "---",
+    "regex": false,
+    "description": "Split multi-valued cells in column CAE_POSTAL_CODE"
+  },
+  {
+    "op": "core/multivalued-cell-split",
+    "columnName": "WIN_COUNTRY_CODE",
+    "keyColumnName": "ID_AWARD",
+    "mode": "separator",
+    "separator": "---",
+    "regex": false,
+    "description": "Split multi-valued cells in column ISO_COUNTRY_CODE_ALL"
+  },
+  {
+    "op": "core/fill-down",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ID_AWARD",
+    "description": "Fill down cells in column ID_AWARD"
+  },
+  {
+    "op": "core/fill-down",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ID_LOT_AWARDED",
+    "description": "Fill down cells in column ID_LOT_AWARDED"
+  }
+]

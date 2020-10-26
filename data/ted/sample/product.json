@@ -1,0 +1,112 @@
+[
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "CPV",
+    "expression": "grel:value + '---' + cells['ADDITIONAL_CPVS'].value.toString()",
+    "onError": "set-to-blank",
+    "newColumnName": "all_cpvs",
+    "columnInsertIndex": 3,
+    "description": "Create column all_cpvs at index 3 based on column CPV using expression grel:value + '---' + cells['ADDITIONAL_CPVS'].value.toString()"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ID_LOT_AWARDED",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          ""
+        ],
+        "fromBlank": true,
+        "fromError": false,
+        "to": "1"
+      }
+    ],
+    "description": "Mass edit cells in column ID_LOT_AWARDED"
+  },
+  {
+    "op": "core/multivalued-cell-split",
+    "columnName": "all_cpvs",
+    "keyColumnName": "ID_AWARD",
+    "mode": "separator",
+    "separator": "---",
+    "regex": false,
+    "description": "Split multi-valued cells in column all_cpvs"
+  },
+  {
+    "op": "core/fill-down",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ID_AWARD",
+    "description": "Fill down cells in column ID_AWARD"
+  },
+  {
+    "op": "core/fill-down",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ID_LOT_AWARDED",
+    "description": "Fill down cells in column ID_LOT_AWARDED"
+  },
+  {
+    "op": "core/row-removal",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "all_cpvs",
+          "expression": "value",
+          "columnName": "all_cpvs",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [],
+          "selectBlank": true,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "description": "Remove rows"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "all_cpvs",
+    "expression": "grel:value == cells['CPV'].value",
+    "onError": "set-to-blank",
+    "newColumnName": "main_cpv",
+    "columnInsertIndex": 4,
+    "description": "Create column main_cpv at index 4 based on column all_cpvs using expression grel:value == cells['CPV'].value"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "CPV",
+    "description": "Remove column CPV"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "ADDITIONAL_CPVS",
+    "description": "Remove column ADDITIONAL_CPVS"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "all_cpvs",
+    "newColumnName": "cpv",
+    "description": "Rename column all_cpvs to cpv"
+  }
+]

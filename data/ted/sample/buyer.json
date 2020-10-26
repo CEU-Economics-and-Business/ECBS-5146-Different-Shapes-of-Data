@@ -1,0 +1,122 @@
+[
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ID_LOT_AWARDED",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          ""
+        ],
+        "fromBlank": true,
+        "fromError": false,
+        "to": "1"
+      }
+    ],
+    "description": "Mass edit cells in column ID_LOT_AWARDED"
+  },
+  {
+    "op": "core/multivalued-cell-split",
+    "columnName": "CAE_NAME",
+    "keyColumnName": "ID_AWARD",
+    "mode": "separator",
+    "separator": "---",
+    "regex": false,
+    "description": "Split multi-valued cells in column CAE_NAME"
+  },
+  {
+    "op": "core/multivalued-cell-split",
+    "columnName": "CAE_NATIONALID",
+    "keyColumnName": "ID_AWARD",
+    "mode": "separator",
+    "separator": "---",
+    "regex": false,
+    "description": "Split multi-valued cells in column CAE_NATIONALID"
+  },
+  {
+    "op": "core/multivalued-cell-split",
+    "columnName": "CAE_ADDRESS",
+    "keyColumnName": "ID_AWARD",
+    "mode": "separator",
+    "separator": "---",
+    "regex": false,
+    "description": "Split multi-valued cells in column CAE_ADDRESS"
+  },
+  {
+    "op": "core/multivalued-cell-split",
+    "columnName": "CAE_TOWN",
+    "keyColumnName": "ID_AWARD",
+    "mode": "separator",
+    "separator": "---",
+    "regex": false,
+    "description": "Split multi-valued cells in column CAE_TOWN"
+  },
+  {
+    "op": "core/multivalued-cell-split",
+    "columnName": "CAE_POSTAL_CODE",
+    "keyColumnName": "ID_AWARD",
+    "mode": "separator",
+    "separator": "---",
+    "regex": false,
+    "description": "Split multi-valued cells in column CAE_POSTAL_CODE"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "CAE_GPA_ANNEX",
+    "description": "Remove column CAE_GPA_ANNEX"
+  },
+  {
+    "op": "core/multivalued-cell-split",
+    "columnName": "ISO_COUNTRY_CODE_ALL",
+    "keyColumnName": "ID_AWARD",
+    "mode": "separator",
+    "separator": "---",
+    "regex": false,
+    "description": "Split multi-valued cells in column ISO_COUNTRY_CODE_ALL"
+  },
+  {
+    "op": "core/fill-down",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ID_AWARD",
+    "description": "Fill down cells in column ID_AWARD"
+  },
+  {
+    "op": "core/fill-down",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ID_LOT_AWARDED",
+    "description": "Fill down cells in column ID_LOT_AWARDED"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ISO_COUNTRY_CODE",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [],
+        "fromBlank": true,
+        "fromError": false,
+        "to": "DE"
+      }
+    ],
+    "description": "Mass edit cells in column ISO_COUNTRY_CODE"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "ISO_COUNTRY_CODE_ALL",
+    "description": "Remove column ISO_COUNTRY_CODE_ALL"
+  }
+]
