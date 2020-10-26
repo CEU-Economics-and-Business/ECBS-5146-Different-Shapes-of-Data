@@ -234,7 +234,7 @@ dictionary=(sad sorrow death dead pain poor misery)
 totalcount=0
 
 for i in "${dictionary[@]}"; 
-do 
+do
 	((wordcount=$(grep -o -c $i $1)))
 	((totalcount+=$wordcount))
 	echo $i:$wordcount
