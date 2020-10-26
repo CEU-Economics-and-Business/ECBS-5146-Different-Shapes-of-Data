@@ -57,13 +57,13 @@ keypoints:
 
 
 #### Links to help you
-https://redis-py.readthedocs.io/en/latest/index.html
+[https://redis-py.readthedocs.io/en/stable/index.html](https://redis-py.readthedocs.io/en/stable/index.html)
 
-https://redis.io/commands#
+[https://redis.io/commands#](https://redis.io/commands#)
 
 <br>
 
-#### Exercise interface: http://ceudsd.net (Apache Zeppelin)
+#### Exercise interface: [http://ceudsd.net](http://ceudsd.net) (Apache Zeppelin)
 
 Username/Password will be distributed during class. Ask on Slack if you haven't got one. 
 
@@ -132,17 +132,11 @@ r.mget('one','three')
 ```
 {: .language-python}
 
-#### Delete a value by key
-```
-r.delete('three')
-```
-{: .language-python}
+> ## REDIS Exercise 
+> USING THE DOCUMENTATION, FIND HOW TO DELETE A VALUE BY KEY AND HOW TO CHECK THE EXISTENCE OF A KEY.
+{: .challenge}
 
-#### Check the existence of a key
-```
-r.exists('one')
-```
-{: .language-python}
+
 
 
 <br/><br/><br/>
@@ -150,17 +144,17 @@ r.exists('one')
 ## InfluxDB
 
 #### Links to help you
-https://docs.influxdata.com/influxdb/v1.0/query_language/data_exploration/
+[https://docs.influxdata.com/influxdb/v1.0/query_language/data_exploration/](https://docs.influxdata.com/influxdb/v1.0/query_language/data_exploration/)
 
-https://docs.influxdata.com/influxdb/v1.0/query_language/math_operators/
+[https://docs.influxdata.com/influxdb/v1.0/query_language/math_operators/](https://docs.influxdata.com/influxdb/v1.0/query_language/math_operators/)
 
-https://docs.influxdata.com/influxdb/v1.0/query_language/functions/
+[https://docs.influxdata.com/influxdb/v1.0/query_language/functions/](https://docs.influxdata.com/influxdb/v1.0/query_language/functions/)
 
 <br/>
 
-#### Exercise interface: http://ceudsd.net:8082
+#### Exercise interface: [http://ceudsd.net:8082](http://ceudsd.net:8082)
 
-To connect you need to apply connection Settings: [Screenshot help](/DSD2-3-4/influx.png?raw=true)
+To connect you need to apply connection Settings: [Screenshot help](https://github.com/salacika/DE2DSD/blob/main/nosql/influx.png?raw=true)
 
 <br/><br/>
 
@@ -276,12 +270,15 @@ The value 1.148 is larger than 5% of the values in water_level where location eq
 
 #### Links to help you
 
-https://docs.mongodb.com/manual/
-https://www.w3schools.com/python/python_mongodb_getstarted.asp
+[https://docs.mongodb.com/manual/](https://docs.mongodb.com/manual/)
+
+[https://www.w3schools.com/python/python_mongodb_getstarted.asp](https://www.w3schools.com/python/python_mongodb_getstarted.asp)
+
+[AirBnb dataset](https://docs.atlas.mongodb.com/sample-data/sample-airbnb/)
 
 <br/>
 
-#### Exercise interface: http://ceudsd.net (Apache Zeppelin)
+#### Exercise interface: [http://ceudsd.net](http://ceudsd.net) (Apache Zeppelin)
 
 Username/Password will be distributed during class. Ask on Slack if you haven't got one. 
 <br/><br/>
@@ -378,9 +375,18 @@ for listing in airbnb.find({ "address.country": "Spain" }).limit(10):
 ```
 {: .language-python}
 
-> ## MONGO Exercise 1 
+> ## MONGO Exercise 
 > COUNT HOW MANY AIRBNB LISTINGS WE HAVE IN THE SAMPLE DATABASE HAVING "COUNTRY_CODE" "US" OR "ADDRESS.MARKET" STARTWITH "M" (USE MONGODB DOCUMENTATION)
+>> ## Solution
+>> Just a hint, the solution in SQL is something like:
+>> ~~~
+>> SELECT COUNT(*) FROM airbnb WHERE country_code='US' OR market LIKE 'M%'
+>> ~~~
+>> {: .language-sql} 
+> {: .solution} 
 {: .challenge}
+
+
 
 
 <br/><br/><br/>
@@ -388,17 +394,17 @@ for listing in airbnb.find({ "address.country": "Spain" }).limit(10):
 ## Solr
 
 #### Links to help you
-https://cwiki.apache.org/confluence/display/solr/The+Standard+Query+Parser
+[https://cwiki.apache.org/confluence/display/solr/The+Standard+Query+Parser](https://cwiki.apache.org/confluence/display/solr/The+Standard+Query+Parser)
 
-http://yonik.com/solr/query-syntax/
+[http://yonik.com/solr/query-syntax/](http://yonik.com/solr/query-syntax/)
 
 <br/>
 
-#### Exercise interface: http://ceudsd.net:8081
+#### Exercise interface: [http://ceudsd.net:8081/solr/#/flightdelays/query](http://ceudsd.net:8081/solr/#/flightdelays/query)
 
 <br/><br/>
 
-#### Simple queries
+#### A simple query
 
 SOLR has different connectors to programming languages. For simple query testing, we don’t need to program because SOLR is offering so called HTTP Rest interface. These are basically url calls from a browser.
 
@@ -406,87 +412,85 @@ The simplest query (the result is limited by default to 10):
 ```
 http://ceudsd.net:8081/solr/flightdelays/select?q=*:* 
 ```
+{: .output}
 
-[In SQL would be something like this:
-`SELECT * FROM flightdelays`]
+<br/>
+In SQL, this would be something like:
+```
+SELECT * FROM flightdelays LIMIT 10;
+```
+{: .language-sql}
 
-Same query, but now limited to 3 results:
-```
-http://ceudsd.net:8081/solr/flightdelays/select?q=*:*&rows=2
-```
-
-[In SQL would be something like this:
-`SELECT * FROM flightdelays LIMT 3`]
-
-Same query, but the output is CSV:
-```
-http://ceudsd.net:8081/solr/flightdelays/select?q=*:*&rows=2&wt=csv
-```
-
-Same as the first query, but requesting only one field of the document (YEAR):
-
-```
-http://ceudsd.net:8081/solr/flightdelays/select?q=*:*&fl=YEAR
-```
-[In SQL would be something like this:
-`SELECT year FROM flightdelays`]
-
-Same as the first query, but requesting only the fields starting with “D”:
-```
-http://ceudsd.net:8081/solr/flightdelays/select?q=*:*&fl=D*
-```
-
-Same as the first query, but requesting two fields of the document (YEAR,ORIG_CITY):
-```
-http://ceudsd.net:8081/solr/flightdelays/select?q=*:*&fl=YEAR,ORIG_CITY
-```
-[In SQL would be something like this:
-`SELECT year,origin FROM flightdelays`]
-
-
-Sort by distance in descending order:
-```
-http://ceudsd.net:8081/solr/flightdelays/select?q=*:*&rows=5&sort=DISTANCE desc
-```
 
 <br/>
 #### Ranges 
-Return the documents where distance is between 0 and 500, show only DISTANCE,ORIG_CITY,DEST_CITY field.
-```
-http://ceudsd.net:8081/solr/flightdelays/select?fl=DISTANCE,ORIG_CITY,DEST_CITY&q=DISTANCE:[0 TO 500]
-```
 
-Return the documents from this last 5 years, show only time_hour field.
+List records from the last 10 years where tail number is N520JB:
+
 
 ```
-http://ceudsd.net:8081/solr/flightdelays/select?fl=DATE&q=DATE:[NOW-10YEARS TO *]
+http://ceudsd.net:8081/solr/flightdelays/select?fl=DISTANCE,ORIG_CITY,DEST_CITY&q=TAIL_NUMBER:N520JB AND DATE:[NOW-10YEARS TO *]&sort=DISTANCE desc&rows=5
 ```
+{: .output}
+
+<br/>
+In SQL, this would be something like:
+```
+SELECT distance,orig_city,dest_city FROM flightdelays 
+  WHERE tail_number='N520JB' AND date >= DATE_SUB(NOW(),INTERVAL 10 YEAR) 
+  ORDER BY distance DESC 
+  LIMIT 5;
+```
+{: .language-sql}
+
 <br/><br/>
-#### Fuzzy
-Show me the tailnums for tail numbers starting with any character, followed by “2”, followed by 2 any character, followed by "jb"
+#### String search / Fuzzy search
+List records where tail numbers starting with any character, followed by “2”, followed by 2 any character, followed by "jb". Display only tail number in the result set:
 ```
 http://ceudsd.net:8081/solr/flightdelays/select?fl=TAIL_NUMBER&q=TAIL_NUMBER:?2??jb
 ```
+{: .output}
 
-Show me destination cities (2 distance) close to "balabany"
+Fuzzy searches is based on the Damerau-Levenshtein Distance or Edit Distance algorithm. Fuzzy searches discover terms that are similar to a specified term without necessarily being an exact match. To perform a fuzzy search, use the tilde ~ symbol at the end of a single-word term
+
+In the next example we list records with destination city close to "columbas" by distance of 2. The distance referred to here is the number of term movements needed to match the specified phrase.
 ```
-http://ceudsd.net:8081/solr/flightdelays/select?fl=DEST_CITY&q=DEST_CITY:balabany~2
+http://ceudsd.net:8081/solr/flightdelays/select?fl=DEST_CITY&q=DEST_CITY:columbas~2
 ```
+{: .output}
+
 <br/>
 #### Facets
-Give me the flights with TAIL_NUMBER = N928SW and return facets for airline and destination airport:
+
+Same as before, but this time return back distinct destination cities as well:
 ```
-http://ceudsd.net:8081/solr/flightdelays/select?facet.field=AIRLINE_str&facet.field=DEST_AIRPORT_str&facet=on&q=TAIL_NUMBER:N928SW
+http://ceudsd.net:8081/solr/flightdelays/select?q=DEST_CITY:columbas~2&facet.field=DEST_CITY_str&facet=on
 ```
+{: .output}
+
+<br/>
+This previous result sounds like a combined result of the following SQLs:
+```
+SELECT * FROM flightdelays WHERE DEST_CITY LIKE 'columbas%' LIMIT 10;
+
+SELECT dest_city, COUNT(*) FROM flightdelays 
+  WHERE DEST_CITY LIKE 'columbas%' 
+  GROUP BY dest_city;
+```
+{: .language-sql}
+
+
 <br/>
 #### Geo spacial search
-Give the record within a circular circle defined by center point of 39.85,-104.66 [lat,lon] and diameter of 2 kilometer. Display only ORIG_CITY in the result set and facests for DEST_CITY_str,ORIG_CITY_str.
+
+Return back records within a circle defined by center point of 39.85,-104.66 [lat,lon] and diameter of 2 kilometer. Display only ORIG_CITY and ORIG_LOCATION_p in the result set and facests for ORIG_CITY_str.
 
 ```
-http://ceudsd.net:8081/solr/flightdelays/select?d=2&facet.field=DEST_CITY_str&facet.field=ORIG_CITY_str&facet=on&fl=ORIG_CITY&fq={!geofilt}&pt=39.85,-104.66&q=*:*&sfield=ORIG_LOCATION_p
+http://ceudsd.net:8081/solr/flightdelays/select?d=2&facet.field=ORIG_CITY_str&facet=on&fl=ORIG_CITY,ORIG_LOCATION_p,&fq={!geofilt}&pt=39.85,-104.66&q=*:*&sfield=ORIG_LOCATION_p
 ```
+{: .output}
 
-> ## SOLR Exercise 1 
+> ## SOLR Exercise 
 > HOW MANY FLIGHTS ARRIVED IN SAN FRANCISCO WITH NO DELAY ALTHOUGH THEY DEPARTED AT LEAST 50 MINS BEHIND THE SCHEDULE?
 {: .challenge}
 
@@ -498,16 +502,16 @@ http://ceudsd.net:8081/solr/flightdelays/select?d=2&facet.field=DEST_CITY_str&fa
 
 #### Links to help you
 
-https://neo4j.com/developer/cypher-query-language/
+(https://neo4j.com/developer/cypher-query-language/)
 
-http://neo4j.com/docs/developer-manual/current/cypher/
+(http://neo4j.com/docs/developer-manual/current/cypher/)
 
-https://cloudfront-files-1.publicintegrity.org/offshoreleaks/neo4j/guide/index.html
+(https://cloudfront-files-1.publicintegrity.org/offshoreleaks/neo4j/guide/index.html)
 
  <br/>
-#### Exercise interface: http://ceudsd.net:8080 
+#### Exercise interface: [http://ceudsd.net:8080 ](http://ceudsd.net:8080)
 
-To connect you need to tick "do not use Bolt" in the Settings: [Screenshot help](/DSD2-3-4/neo4j.png?raw=true)
+To connect you need to tick "do not use Bolt" in the Settings: [Screenshot help](https://github.com/salacika/DE2DSD/blob/main/nosql/neo4j.png?raw=true)
 
 Username/Password will be distributed during class. Ask on Slack if you haven't got one. 
 
@@ -518,23 +522,18 @@ Username/Password will be distributed during class. Ask on Slack if you haven't 
 In Neo4J the SELECT is called MATCH. One of the simplest query is selecting 25 Officer nodes :
 
 ```
-MATCH (n:Officer) 
-RETURN n LIMIT 25
-```
-{: .language-cypher}
-
-[In SQL would be something like this:
-`SELECT * FROM Officer AS n LIMIT 5`]
-
-Same SELECT but instead of node the node name is returned:
-```
 MATCH (n:Entity) 
 RETURN n.name LIMIT 25
+
 ```
 {: .language-cypher}
 
-[In SQL would be something like this:
-`SELECT name FROM Entity AS n LIMIT 25`]
+<br/>
+In SQL, this would be something like:
+```
+SELECT n.name FROM Officer AS n LIMIT 25;
+```
+{: .language-sql}
 
 
 We can use WHERE clause to filter our result:
@@ -545,8 +544,14 @@ RETURN o
 ```
 {: .language-cypher}
 
-[In SQL would be something like this:
-`SELECT o.countries FROM Officer AS o WHERE o.countries LIKE '%Hungary%'`]
+<br/>
+In SQL, this would be something like:
+```
+SELECT o.countries FROM officer AS o WHERE o.countries LIKE '%Hungary%';
+```
+{: .language-sql}
+
+
 
 
 > ## NEO4J Exercise 1 
@@ -568,41 +573,26 @@ RETURN o
 <br/>
 ####  Joins
 
-Find the Officers and the Entities linked to them (double MATCH, )
+Find the Officers and the Entities linked to them (double MATCH)
 
 ```
 MATCH (o:Officer) 
 MATCH (o)-[r]-(c:Entity)
 RETURN o,r,c
-LIMIT 10
+LIMIT 50
 ```
 {: .language-cypher}
 
-[In SQL would be something like this:
-`SELECT * 
-FROM Officer as o  
+<br/>
+In SQL, this would be something like:
+```
+SELECT * 
+FROM officer as o  
 INNER JOIN Entity as c 
 USING (relationship)
-`
-]
+```
+{: .language-sql}
 
-Find joint/linked entities with double MATCH, find the officers from Hungary and the Entities linked to them:
-```
-MATCH (o:Officer) 
-WHERE o.countries CONTAINS 'Hungary'
-MATCH (o)-[r]-(c:Entity)
-RETURN o,r,c
-```
-{: .language-cypher}
-
-A variation of the previous one, but here the link type is specified:
-```
-MATCH (o:Officer) 
-WHERE o.countries CONTAINS 'Hungary'
-MATCH (o)-[r:DIRECTOR_OF]-(c:Entity)
-RETURN o,r,c
-```
-{: .language-cypher}
 
 Find the Officers called "aliyev" and Entities related to them:
 ```
@@ -612,6 +602,18 @@ MATCH (o)-[r]-(c:Entity)
 RETURN o,r,c
 ```
 {: .language-cypher}
+
+Same, but this time return only "DIRECTOR_OF" relations:
+```
+MATCH (o:Officer) 
+WHERE toLower(o.name) CONTAINS "aliyev"
+MATCH (o)-[r:DIRECTOR_OF]-(c:Entity)
+RETURN o,r,c
+```
+{: .language-cypher}
+
+
+
 
 <br/>
 
@@ -627,12 +629,9 @@ LIMIT 10
 {: .language-cypher}
 
 > ## NEO4J Exercise 5 
-> List the name and number connections of the top 10 most connected Officers from Bulgaria. Who is the no1.
+> LIST THE NAME AND NUMBER CONNECTIONS OF THE TOP 10 MOST CONNECTED OFFICERS FROM BULGARIA.WHO IS THE NO1?
 {: .challenge}
 
-> ## NEO4J Exercise 6 
-> Find the entities related to officers named “Tudor” and all nodes related to these entities.
-{: .challenge}
 
 <br/>
 #### Node analytics
@@ -651,6 +650,7 @@ WITH labels(n) AS type
 RETURN DISTINCT type
 ```
 {: .language-cypher}
+
 
 Show the average degree by node type:
 ```
