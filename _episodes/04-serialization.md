@@ -7,6 +7,8 @@ questions:
 - Why cannot open my data in Excel?
 - How do I explore large files?
 objectives:
+- Understand basic robots.txt structure.
+- Use wget to download data from the web.
 - Understand character encodings and Unicode points.
 - Load and save text file with different character encodings.
 - Compare popular serialization formats fixed width, CSV, JSON, XML, YAML, JSONlines, Parquet.
@@ -21,11 +23,126 @@ keypoints:
 # Reading
 1. [Chapter 4 (pages 107-112)](https://ceulearning.ceu.edu/pluginfile.php/412982/mod_folder/content/0/Martin%20Kleppmann%20-%20Designing%20Data%20Intensive%20Applications.pdf?forcedownload=1) of Kleppmann 2016. 
 2. Joel Spolsky's [essay on Unicode](https://www.joelonsoftware.com/2003/10/08/the-absolute-minimum-every-software-developer-absolutely-positively-must-know-about-unicode-and-character-sets-no-excuses/)
+1. [`wget` tutorial](https://shapeshed.com/unix-wget/)
+2. Laiacano, Adam. 2012. "(Re)Organizing the Web’s Data." in McCallum, Q. Ethan (ed), "Bad Data Handbook." O'Reilly.
+3. [For loops](http://swcarpentry.github.io/shell-novice/05-loop/index.html) and [shell scripts](http://swcarpentry.github.io/shell-novice/06-script/index.html)
 
 # Setup
 1. If you use Windows, install [Git Bash](https://git-scm.com/download/win) and the [Software Carpentry Installer](https://github.com/swcarpentry/windows-installer/releases/download/v0.3/SWCarpentryInstaller.exe), following [these instructions](https://www.youtube.com/watch?v=339AEqk9c-8). If you use Mac or Linux, you don't need to download these.
 2. [Download jq](https://stedolan.github.io/jq/download/), a command-line JSON processor.
 3. Make sure you have a [text editor](https://carpentries.github.io/workshop-template/#editor) you are comfortable working with.
+
+# Getting data from the web
+
+![How URLs work by Julia Evans](https://pbs.twimg.com/media/ECA-PX3XsAAdaOs?format=jpg&name=large)
+
+Get the page at [https://scrapethissite.com/pages/simple/](https://scrapethissite.com/) using `wget`.
+```
+wget https://scrapethissite.com/pages/simple/
+```
+{: .language-bash}
+
+This saves `index.html`, which is an XML document. Well, HTML, but proper XHTMLs are a subset of XML.
+
+```
+bash-5.0$ head index.html 
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Countries of the World: A Simple Example | Scrape This Site | A public sandbox for learning web scraping</title>
+    <link rel="icon" type="image/png" href="/static/images/scraper-icon.png" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A single page that lists information about all the countries in the world. Good for those just get started with web scraping.">
+```
+{: .language-bash}
+
+We can save to a different file using the `-O` (uppercase) option.
+```
+wget https://scrapethissite.com/pages/simple/ -O
+```
+{: .language-bash}
+
+We will not study HTML parsing, the Bad Data Habdbook and [https://scrapethissite.com/](https://scrapethissite.com/) provides good lessons.
+
+> ## Steps of web scraping
+> 1. Reconnaissance
+>   - Site permissions, `robots.txt`
+>   - Structure of content
+> 2. Get the data
+>   - For loops and wgets
+>   - Save the raw data as it is
+> 3. Parse the data
+>   - Process HTML (grep, regex, XML parsers)
+>   - Often you need more URLs from here 
+> 4. Update local data base
+{: .discussion}
+
+
+### Get data about contracts with the city of Győr
+
+[`http://onkormanyzat.gyor.hu/cikklista/uvegzseb.html/1-oldal`](http://onkormanyzat.gyor.hu/cikklista/uvegzseb.html/1-oldal)
+
+1. The contents of [`http://onkormanyzat.gyor.hu/robots.txt`](http://onkormanyzat.gyor.hu/robots.txt
+)
+```
+User-agent: *
+Disallow: /adatok
+Disallow: /data/files
+Allow: /
+```
+The URLs we want to scrape are at `/cikk`, so we are good to go. Also make sure the check any legal language about restrictions. Note that Hungarian copyright law allows you to make copies of published website content __for research purposes__.
+
+
+2. Find the patterns in URLs `http://onkormanyzat.gyor.hu/cikklista/uvegzseb.html/{}-oldal`.
+
+Write a for loop in bash.
+```
+for page in {1..129}
+do
+    echo $page
+done
+```
+{: .language-bash}
+
+We can also put this in a script.
+
+Using the URL pattern we discovered,
+```
+for page in {1..5}
+do
+    wget http://onkormanyzat.gyor.hu/cikklista/uvegzseb.html/$page-oldal -O $page.html
+done
+```
+{: .language-bash}
+
+```
+bash-5.0$ ls -lh
+total 84440
+-rw-r--r--  1 koren  staff    41K Dec  3 05:43 1.html
+-rw-r--r--  1 koren  staff    42K Dec  3 05:43 2.html
+-rw-r--r--  1 koren  staff    42K Dec  3 05:43 3.html
+-rw-r--r--  1 koren  staff    42K Dec  3 05:43 4.html
+-rw-r--r--  1 koren  staff    42K Dec  3 05:43 5.html
+```
+{: .language-bash}
+
+
+The content of [`https://publicpay.ca.gov/robots.txt`](https://publicpay.ca.gov/robots.txt)
+```
+User-agent: *
+Disallow: /ScriptResource.axd
+Disallow: /scriptresource.axd
+Disallow: /WebResource.axd
+Disallow: /webresource.axd
+Disallow: /Reserved.ReportViewerWebControl.axd
+Disallow: /reserved.reportviewerwebcontrol.axd
+```
+
+> ## Exercise
+> Write a shell script to download all years of wage the for the [California Superior Court](https://publicpay.ca.gov/Reports/RawExport.aspx).
+{: .challenge}
 
 # Data Structures vs Data Serialization
 With Data Structures, we organize our data to optimize performance in lookup, matching, or other analytics question. But for storing data and sharing them with others, we have to convert them into a sequence of bytes.
