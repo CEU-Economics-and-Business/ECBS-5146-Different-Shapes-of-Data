@@ -23,7 +23,7 @@ keypoints:
 # Reading
 1. [Chapter 4 (pages 107-112)](https://ceulearning.ceu.edu/pluginfile.php/412982/mod_folder/content/0/Martin%20Kleppmann%20-%20Designing%20Data%20Intensive%20Applications.pdf?forcedownload=1) of Kleppmann 2016. 
 2. Joel Spolsky's [essay on Unicode](https://www.joelonsoftware.com/2003/10/08/the-absolute-minimum-every-software-developer-absolutely-positively-must-know-about-unicode-and-character-sets-no-excuses/)
-1. [`wget` tutorial](https://shapeshed.com/unix-wget/)
+1. [`curl` tutorial](https://curl.haxx.se/docs/httpscripting.html)
 2. Laiacano, Adam. 2012. "(Re)Organizing the Web’s Data." in McCallum, Q. Ethan (ed), "Bad Data Handbook." O'Reilly.
 3. [For loops](http://swcarpentry.github.io/shell-novice/05-loop/index.html) and [shell scripts](http://swcarpentry.github.io/shell-novice/06-script/index.html)
 
@@ -36,9 +36,9 @@ keypoints:
 
 ![How URLs work by Julia Evans](https://pbs.twimg.com/media/ECA-PX3XsAAdaOs?format=jpg&name=large)
 
-Get the page at [https://scrapethissite.com/pages/simple/](https://scrapethissite.com/) using `wget`.
+Get the page at [https://scrapethissite.com/pages/simple/](https://scrapethissite.com/) using `curl`.
 ```
-wget https://scrapethissite.com/pages/simple/
+curl https://scrapethissite.com/pages/simple/ -o index.html
 ```
 {: .language-bash}
 
@@ -58,9 +58,9 @@ bash-5.0$ head index.html
 ```
 {: .language-bash}
 
-We can save to a different file using the `-O` (uppercase) option.
+We can save to a different file using the `-o` option.
 ```
-wget https://scrapethissite.com/pages/simple/ -O
+curl https://scrapethissite.com/pages/simple/ -o otherfile.xhtml
 ```
 {: .language-bash}
 
@@ -112,7 +112,7 @@ Using the URL pattern we discovered,
 ```
 for page in {1..5}
 do
-    wget http://onkormanyzat.gyor.hu/cikklista/uvegzseb.html/$page-oldal -O $page.html
+    curl http://onkormanyzat.gyor.hu/cikklista/uvegzseb.html/$page-oldal -o $page.html
 done
 ```
 {: .language-bash}
