@@ -227,10 +227,6 @@ tail -n+2 birdstrikes.csv | cut -d ';' -f6 | sort | uniq -c
 > Source if image: [Fair is foul, and foul is fair: a tidytext sentiment analysis of Shakespeare’s tragedies](https://peerchristensen.netlify.app/post/fair-is-foul-and-foul-is-fair-a-tidytext-entiment-analysis-of-shakespeare-s-tragedies/)
 {: .callout}
 
-`bash script` - procedural programing able to implement an algorithm.
-
-In the next example, the script analyzing negative sentiment of the books given as parameter to the script.
-
 First we create the file for the script:
 ```
 nano sentiment.sh
