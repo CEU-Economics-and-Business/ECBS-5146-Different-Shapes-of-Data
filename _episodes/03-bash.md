@@ -221,11 +221,17 @@ tail -n+2 birdstrikes.csv | cut -d ';' -f6 | sort | uniq -c
 > ## Sentiment analysis 
 > In the next example, we would like to present a small script for sentiment analysis of books. You will see, that using the commands above and adding a bit of procedural logic by bash scripting, we can easily create a basic sentiment analyzer.
 > <br/>
+>
+>
 > This script is focusing on counting certain negative words and calculating the ratio against the number of words in a book. The script could be improved with a little more effort to look for context, distribution in time and ultimately check the positive words as well for a bit more balanced analytics. 
 >
+>
+
 > ![](https://peerchristensen.netlify.app/post/2018-06-07-fair-is-foul-and-foul-is-fair-a-tidytext-entiment-analysis-of-shakespeare-s-tragedies_files/figure-html/unnamed-chunk-11-1.png)
 > Source if image: [Fair is foul, and foul is fair: a tidytext sentiment analysis of Shakespeare’s tragedies](https://peerchristensen.netlify.app/post/fair-is-foul-and-foul-is-fair-a-tidytext-entiment-analysis-of-shakespeare-s-tragedies/)
 {: .callout}
+
+<br/><br/>
 
 First we create the file for the script:
 ```
