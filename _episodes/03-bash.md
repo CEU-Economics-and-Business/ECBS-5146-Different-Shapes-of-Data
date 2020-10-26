@@ -264,7 +264,8 @@ sh sentiment.sh Hamlet.txt
 {: .language-bash}
 
 > ## Book recommendation
-> If you want to get deeper, into the magic land of command lines, a new book is available for free: [Data Science at the Command Line (https://www.datascienceatthecommandline.com/1e/index.html)
+>
+> If you want to get deeper, into the magic land of command lines, a new book is available for free: [Data Science at the Command Line](https://www.datascienceatthecommandline.com/1e/index.html)
 >
 {: .callout}
 
