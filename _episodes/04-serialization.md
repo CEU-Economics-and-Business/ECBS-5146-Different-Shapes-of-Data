@@ -144,10 +144,10 @@ Disallow: /reserved.reportviewerwebcontrol.axd
 > Write a shell script to download all years of wage the for the [California Superior Court](https://publicpay.ca.gov/Reports/RawExport.aspx).
 {: .challenge}
 
-# Data Structures vs Data Serialization
-With Data Structures, we organize our data to optimize performance in lookup, matching, or other analytics question. But for storing data and sharing them with others, we have to convert them into a sequence of bytes.
+# Data Serialization
+With Data Structures (to be discussed later), we organize our data to optimize performance in lookup, matching, or other analytics question. But for storing data and sharing them with others, we have to convert them into a sequence of bytes.
 
-Take, for example the binary tree in the last episode. We have to convert ![](https://upload.wikimedia.org/wikipedia/commons/d/da/Binary_search_tree.svg) into
+Take, for example, a binary tree. We have to convert ![](https://upload.wikimedia.org/wikipedia/commons/d/da/Binary_search_tree.svg) into
 ```
 080310010614040713
 ```
@@ -157,7 +157,7 @@ or something similar.
 > ## Binary vs text based
 > Binary formats have the benefits of taking less storage space and (potentially) being optimized for fast reading and writing. But they may require specialized software to work with. By contrast, text-based formats are more easily exchanged with other users on other systems.
 > 
-> You can get the best of both worlds by compressing your test-based representation. For example, all .xslx files are ZIP-compressed archives of a bunch of machine- and human-readbale XML files. Much easier to read and write than Microsoft's earlier Excel Binary Format (.xls).
+> You can get the best of both worlds by compressing your text-based representation. For example, all .xslx files are ZIP-compressed archives of a bunch of machine- and human-readbale XML files. Much easier to read and write than Microsoft's earlier Excel Binary Format (.xls).
 > 
 > ```
 > bash-5.0$ cp seller.xlsx seller.zip
