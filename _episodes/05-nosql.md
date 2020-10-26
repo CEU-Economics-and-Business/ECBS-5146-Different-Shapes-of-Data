@@ -154,7 +154,7 @@ r.mget('one','three')
 
 #### Exercise interface: [http://ceudsd.net:8082](http://ceudsd.net:8082)
 
-To connect you need to apply connection Settings: [Screenshot help](/DSD2-3-4/influx.png?raw=true)
+To connect you need to apply connection Settings: [Screenshot help](https://github.com/salacika/DE2DSD/blob/main/nosql/influx.png?raw=true)
 
 <br/><br/>
 
