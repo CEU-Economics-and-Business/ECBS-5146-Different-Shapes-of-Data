@@ -231,21 +231,20 @@ nano sentiment.sh
 Then, here is the script itself:
 ```
 dictionary=(sad sorrow death dead pain poor misery)
-count=0
+totalcount=0
 
 for i in "${dictionary[@]}"; 
 do 
-	
-	((smallcount=$(grep -o -c $i $1)))
-	((count+=$smallcount))
-	echo $i:$smallcount
+	((wordcount=$(grep -o -c $i $1)))
+	((totalcount+=$wordcount))
+	echo $i:$wordcount
 done
 
-words=$(cat $1|wc -w)
-ratio=$(($words/$count))
+words=($(wc -w $1))
+ratio=$(($words/$totalcount))
 
 echo ---
-echo total:$count
+echo total:$totalcount
 echo words:$words
 echo ratio:$ratio
 
