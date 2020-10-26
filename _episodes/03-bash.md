@@ -218,6 +218,12 @@ tail -n+2 birdstrikes.csv | cut -d ';' -f6 | sort | uniq -c
 
 ## Scripts
 
+> ## Sentiment analysis 
+>
+> ![Drag Racing](https://peerchristensen.netlify.app/post/2018-06-07-fair-is-foul-and-foul-is-fair-a-tidytext-entiment-analysis-of-shakespeare-s-tragedies_files/figure-html/unnamed-chunk-11-1.png){ width: 200px; }
+>
+{: .callout}
+
 `bash script` - procedural programing able to implement an algorithm.
 
 In the next example, the script analyzing negative sentiment of the books given as parameter to the script.
@@ -265,7 +271,7 @@ sh sentiment.sh Hamlet.txt
 
 > ## Book recommendation
 >
-> If you want to get deeper, into the magic land of command lines, a new book is available for free: [Data Science at the Command Line](https://www.datascienceatthecommandline.com/1e/index.html)
+> If you want to get deeper into the magic land of command lines, a new book is available for free: [Data Science at the Command Line](https://www.datascienceatthecommandline.com/1e/index.html)
 >
 {: .callout}
 
