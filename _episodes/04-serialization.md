@@ -348,51 +348,6 @@ for row in csv.DictReader(open('seller.csv', 'rt')):
 ```
 {: .language-python}
 
-# Binary and fixed width formats
-
-Take a tabular dataset with rows and columns.
-```
-bash-5.0$ cat cg18dc63-1000.txt 
-E181201            19011462101010    I                           1BE BE    01  COM       000000000073360000000000000000000000035456000000035456                     3     C 11EXW            000000000000                       01
-E181201            19011462101010    I                           1FR FR    01  COM       000000000254590000000000000000000000102671000000102671                     3     C 11EXW            000000000000                       01
-E181201            19011462101010    I                           1PT PT    01  COM       000000000042070000000000000000000000018037000000018037                     3     C 11EXW            000000000000                       01
-E181248            19011162113390    I                           1FR FR    48  COM       000000000019000000000000000000000000191149000000191149                     3     C 11CFR            000000000000                       48
-E181248            19011162113390    I                           1SE SE    48  COM       000000000011000000000000000000000000091039000000091039                     3     C 11FOB            000000000000                       48
-E181248            19011162113390    I                           1FR FR    48  COM       000000000030000000000000000000000000269543000000269543                     3     C 11FOB            000000000000                       48
-E181248            19011162113390    I                           1PT PT    48  COM       000000000001000000000000000000000000005449000000005449                     3     C 11CFR            000000000000                       48
-E181248            19011162113390    I                           1CY CY    48  COM       000000000050000000000000000000000000240098000000240098                     3     C 11FOB            000000000000                       48
-E181201            19011162179000    I                           1RO RO    01  COM       000000000006500000000000000000000000022945000000027300                     3     C 21CIF            000000000000                       01
-E181201            1812276204420090  D                           1MX ES    01  EX 1000   000000000000500000000000001000000000007400000000000000EUR            0     4 BE  T 11CIF            000000000000                       26
-E181202            19011162034319    I                           1FR FR    02  COM       000000000694000000000001388000000002484520000002484520                     3     C 11CFR            000000000000                       02
-E181202            19011162034319    I                           1PT PT    02  COM       000000000004000000000000008000000000017025000000017025                     3     C 11CFR            000000000000                       02
-E181202            19011162034319    I                           1FR FR    02  COM       000000002448000000000004896000000008959036000008959036                     3     C 11CFR            000000000000                       02
-```
-{: .source}
-
-## Columnar 
-Storing rows after rows has the benefit that the file can be read sequentially. I can have a quick peek in my data with `head cg18dc63-1000.txt`. Reading the whole data, however, can be slow for large datasets. This format is also difficult to compress, because patterns are complex.
-
-In a columnar format, we would write out column 1 first, then column 2, etc. Something like
-```
-EEEEE...
-181201181201181202181248181248...
-``` 
-This is much easier to compress because similar values are repeated in a somewhat regular pattern.
-
-This is the key idea behind the [Apache Parquet](https://databricks.com/glossary/what-is-parquet) format, which is compressed to a fraction of the typical data table size and is very fast to read and write.
-
-Hadoop and Spark can work with `parquet` files, so do Python (with `pandas`) and R (more complicated, but should work with `arrow` library).
-
-```
-for row in csv.reader(open('seller.csv')):
-....     for i, cell in enumerate(row):
-....         if i in columns:
-....             columns[i].append(cell)
-....         else:
-....             columns[i] = [cell]
-```
-{: .language-python}
-
 # JSON (Javascript Object Notation) 
 Export the seller table from `DE.sqlite` in JSON using "File", "Export", "Table to JSON". 
 
@@ -520,18 +475,6 @@ Take the first JSON document in the _Offene Register_ data.
 
 This is a _denormalized_ data, containing all the relevant relations of the firm.
 
-> ## Exercise
-> How would you model the _Offene Register_ on an Entity Relation Diagram?
->> ## Solution
->> ```
->> classDiagram
->> class Company
->> class Officer
->> Company "many" .. "many" Officer : (position, start_date)
->> ```
-> {: .solution}
-{: .challenge}
-
 > ## JSON lines
 > Because arrays and objects in JSON have to end with `]` or `}`, we cannot really finish processing a JSON file until we read it all in memory. This can be limiting for large files.
 > 
@@ -539,51 +482,7 @@ This is a _denormalized_ data, containing all the relevant relations of the firm
 {: .callout}
 
 # YAML
-[YAML](https://yaml.org/) is essentially JSON for humans. It replaces brackets and other boilerplate with human-readable whitespace.
-
-```
-- apple
-- banana
-- plum
-```
-
-There is no need to quote strings.
-
-```
-name: apple
-type: fruit
-quantity: 2
-unit: kg
-```
-
-You can validate [YAML online](https://codebeautify.org/yaml-validator).
-
-```
-- name: apple 
-  type: fruit 
-  quantity: 2 
-  unit: kg
-- name: carrot 
-  type: vegetable 
-  quantity: 1
-  unit: kg
-```
-
-> ## Benefits of YAML
-> 1. Human readable and editable
-> 2. Can be processed sequentially
-{: .discussion}
-
-Although is much more human readable than JSON, you do not see much data being exchanged in this format. One exception is configuration settings which are often directly edited by humans. For example, if you are writing a document in [(R)Markdown](https://bookdown.org/yihui/rmarkdown/html-document.html), you may have a header like
-```
----
-title: Habits
-author: John Doe
-date: March 22, 2005
-output: html_document
----
-```
-This is a YAML-formatted configuration header.
+[YAML](https://yaml.org/) is essentially JSON for humans. It replaces brackets and other boilerplate with human-readable whitespace. [YAML is my favorite](https://ceu-economics-and-business.github.io/ECBS-5148-Data-Architecture/04-serialization/index.html#yaml), but we will omit it here.
 
 ## XML
 XML, [Extensible Markup Language](https://en.wikipedia.org/wiki/XML), is an early but robust format for serializing structured documents.
@@ -671,216 +570,49 @@ Or, in a fuller example:
 </company>
 ```
 
+> ## Watch your language
+> JSON has *arrays* and *objects*. Objects have *names* and *values*. XML has *elements*. Elements are made of *tags*, *content*, and potentially, *attributes*.
+{: .callout}
+
 > ## Exercise
-> Represent the entites in the following nursery rhyme in XML. To save typing, just use two of each, not seven.
-> > As I was going to St Ives,  
-> > Upon the road I met seven wives;  
-> > Every wife had seven sacks,  
-> > Every sack had seven cats,  
-> > Every cat had seven kits:  
-> > Kits, cats, sacks, and wives,  
-> > How many were going to St Ives?  
+> Represent the following binary tree in a JSON object, using the "word", "left" and "right" tags.
+> [![](https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggVERcbiAgICBsb3ZlIC0tPnxsZWZ0fCBhdXRob3JpdHlcbiAgICBsb3ZlIC0tPnxyaWdodHwgdHJvdXNlcnNcbiAgICB0cm91c2VycyAtLT58bGVmdHwgY3V0IiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQiLCJ0aGVtZVZhcmlhYmxlcyI6eyJiYWNrZ3JvdW5kIjoid2hpdGUiLCJwcmltYXJ5Q29sb3IiOiIjRUNFQ0ZGIiwic2Vjb25kYXJ5Q29sb3IiOiIjZmZmZmRlIiwidGVydGlhcnlDb2xvciI6ImhzbCg4MCwgMTAwJSwgOTYuMjc0NTA5ODAzOSUpIiwicHJpbWFyeUJvcmRlckNvbG9yIjoiaHNsKDI0MCwgNjAlLCA4Ni4yNzQ1MDk4MDM5JSkiLCJzZWNvbmRhcnlCb3JkZXJDb2xvciI6ImhzbCg2MCwgNjAlLCA4My41Mjk0MTE3NjQ3JSkiLCJ0ZXJ0aWFyeUJvcmRlckNvbG9yIjoiaHNsKDgwLCA2MCUsIDg2LjI3NDUwOTgwMzklKSIsInByaW1hcnlUZXh0Q29sb3IiOiIjMTMxMzAwIiwic2Vjb25kYXJ5VGV4dENvbG9yIjoiIzAwMDAyMSIsInRlcnRpYXJ5VGV4dENvbG9yIjoicmdiKDkuNTAwMDAwMDAwMSwgOS41MDAwMDAwMDAxLCA5LjUwMDAwMDAwMDEpIiwibGluZUNvbG9yIjoiIzMzMzMzMyIsInRleHRDb2xvciI6IiMzMzMiLCJtYWluQmtnIjoiI0VDRUNGRiIsInNlY29uZEJrZyI6IiNmZmZmZGUiLCJib3JkZXIxIjoiIzkzNzBEQiIsImJvcmRlcjIiOiIjYWFhYTMzIiwiYXJyb3doZWFkQ29sb3IiOiIjMzMzMzMzIiwiZm9udEZhbWlseSI6IlwidHJlYnVjaGV0IG1zXCIsIHZlcmRhbmEsIGFyaWFsIiwiZm9udFNpemUiOiIxNnB4IiwibGFiZWxCYWNrZ3JvdW5kIjoiI2U4ZThlOCIsIm5vZGVCa2ciOiIjRUNFQ0ZGIiwibm9kZUJvcmRlciI6IiM5MzcwREIiLCJjbHVzdGVyQmtnIjoiI2ZmZmZkZSIsImNsdXN0ZXJCb3JkZXIiOiIjYWFhYTMzIiwiZGVmYXVsdExpbmtDb2xvciI6IiMzMzMzMzMiLCJ0aXRsZUNvbG9yIjoiIzMzMyIsImVkZ2VMYWJlbEJhY2tncm91bmQiOiIjZThlOGU4IiwiYWN0b3JCb3JkZXIiOiJoc2woMjU5LjYyNjE2ODIyNDMsIDU5Ljc3NjUzNjMxMjglLCA4Ny45MDE5NjA3ODQzJSkiLCJhY3RvckJrZyI6IiNFQ0VDRkYiLCJhY3RvclRleHRDb2xvciI6ImJsYWNrIiwiYWN0b3JMaW5lQ29sb3IiOiJncmV5Iiwic2lnbmFsQ29sb3IiOiIjMzMzIiwic2lnbmFsVGV4dENvbG9yIjoiIzMzMyIsImxhYmVsQm94QmtnQ29sb3IiOiIjRUNFQ0ZGIiwibGFiZWxCb3hCb3JkZXJDb2xvciI6ImhzbCgyNTkuNjI2MTY4MjI0MywgNTkuNzc2NTM2MzEyOCUsIDg3LjkwMTk2MDc4NDMlKSIsImxhYmVsVGV4dENvbG9yIjoiYmxhY2siLCJsb29wVGV4dENvbG9yIjoiYmxhY2siLCJub3RlQm9yZGVyQ29sb3IiOiIjYWFhYTMzIiwibm90ZUJrZ0NvbG9yIjoiI2ZmZjVhZCIsIm5vdGVUZXh0Q29sb3IiOiJibGFjayIsImFjdGl2YXRpb25Cb3JkZXJDb2xvciI6IiM2NjYiLCJhY3RpdmF0aW9uQmtnQ29sb3IiOiIjZjRmNGY0Iiwic2VxdWVuY2VOdW1iZXJDb2xvciI6IndoaXRlIiwic2VjdGlvbkJrZ0NvbG9yIjoicmdiYSgxMDIsIDEwMiwgMjU1LCAwLjQ5KSIsImFsdFNlY3Rpb25Ca2dDb2xvciI6IndoaXRlIiwic2VjdGlvbkJrZ0NvbG9yMiI6IiNmZmY0MDAiLCJ0YXNrQm9yZGVyQ29sb3IiOiIjNTM0ZmJjIiwidGFza0JrZ0NvbG9yIjoiIzhhOTBkZCIsInRhc2tUZXh0TGlnaHRDb2xvciI6IndoaXRlIiwidGFza1RleHRDb2xvciI6IndoaXRlIiwidGFza1RleHREYXJrQ29sb3IiOiJibGFjayIsInRhc2tUZXh0T3V0c2lkZUNvbG9yIjoiYmxhY2siLCJ0YXNrVGV4dENsaWNrYWJsZUNvbG9yIjoiIzAwMzE2MyIsImFjdGl2ZVRhc2tCb3JkZXJDb2xvciI6IiM1MzRmYmMiLCJhY3RpdmVUYXNrQmtnQ29sb3IiOiIjYmZjN2ZmIiwiZ3JpZENvbG9yIjoibGlnaHRncmV5IiwiZG9uZVRhc2tCa2dDb2xvciI6ImxpZ2h0Z3JleSIsImRvbmVUYXNrQm9yZGVyQ29sb3IiOiJncmV5IiwiY3JpdEJvcmRlckNvbG9yIjoiI2ZmODg4OCIsImNyaXRCa2dDb2xvciI6InJlZCIsInRvZGF5TGluZUNvbG9yIjoicmVkIiwibGFiZWxDb2xvciI6ImJsYWNrIiwiZXJyb3JCa2dDb2xvciI6IiM1NTIyMjIiLCJlcnJvclRleHRDb2xvciI6IiM1NTIyMjIiLCJjbGFzc1RleHQiOiIjMTMxMzAwIiwiZmlsbFR5cGUwIjoiI0VDRUNGRiIsImZpbGxUeXBlMSI6IiNmZmZmZGUiLCJmaWxsVHlwZTIiOiJoc2woMzA0LCAxMDAlLCA5Ni4yNzQ1MDk4MDM5JSkiLCJmaWxsVHlwZTMiOiJoc2woMTI0LCAxMDAlLCA5My41Mjk0MTE3NjQ3JSkiLCJmaWxsVHlwZTQiOiJoc2woMTc2LCAxMDAlLCA5Ni4yNzQ1MDk4MDM5JSkiLCJmaWxsVHlwZTUiOiJoc2woLTQsIDEwMCUsIDkzLjUyOTQxMTc2NDclKSIsImZpbGxUeXBlNiI6ImhzbCg4LCAxMDAlLCA5Ni4yNzQ1MDk4MDM5JSkiLCJmaWxsVHlwZTciOiJoc2woMTg4LCAxMDAlLCA5My41Mjk0MTE3NjQ3JSkifX0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9)](https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggVERcbiAgICBsb3ZlIC0tPnxsZWZ0fCBhdXRob3JpdHlcbiAgICBsb3ZlIC0tPnxyaWdodHwgdHJvdXNlcnNcbiAgICB0cm91c2VycyAtLT58bGVmdHwgY3V0IiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQiLCJ0aGVtZVZhcmlhYmxlcyI6eyJiYWNrZ3JvdW5kIjoid2hpdGUiLCJwcmltYXJ5Q29sb3IiOiIjRUNFQ0ZGIiwic2Vjb25kYXJ5Q29sb3IiOiIjZmZmZmRlIiwidGVydGlhcnlDb2xvciI6ImhzbCg4MCwgMTAwJSwgOTYuMjc0NTA5ODAzOSUpIiwicHJpbWFyeUJvcmRlckNvbG9yIjoiaHNsKDI0MCwgNjAlLCA4Ni4yNzQ1MDk4MDM5JSkiLCJzZWNvbmRhcnlCb3JkZXJDb2xvciI6ImhzbCg2MCwgNjAlLCA4My41Mjk0MTE3NjQ3JSkiLCJ0ZXJ0aWFyeUJvcmRlckNvbG9yIjoiaHNsKDgwLCA2MCUsIDg2LjI3NDUwOTgwMzklKSIsInByaW1hcnlUZXh0Q29sb3IiOiIjMTMxMzAwIiwic2Vjb25kYXJ5VGV4dENvbG9yIjoiIzAwMDAyMSIsInRlcnRpYXJ5VGV4dENvbG9yIjoicmdiKDkuNTAwMDAwMDAwMSwgOS41MDAwMDAwMDAxLCA5LjUwMDAwMDAwMDEpIiwibGluZUNvbG9yIjoiIzMzMzMzMyIsInRleHRDb2xvciI6IiMzMzMiLCJtYWluQmtnIjoiI0VDRUNGRiIsInNlY29uZEJrZyI6IiNmZmZmZGUiLCJib3JkZXIxIjoiIzkzNzBEQiIsImJvcmRlcjIiOiIjYWFhYTMzIiwiYXJyb3doZWFkQ29sb3IiOiIjMzMzMzMzIiwiZm9udEZhbWlseSI6IlwidHJlYnVjaGV0IG1zXCIsIHZlcmRhbmEsIGFyaWFsIiwiZm9udFNpemUiOiIxNnB4IiwibGFiZWxCYWNrZ3JvdW5kIjoiI2U4ZThlOCIsIm5vZGVCa2ciOiIjRUNFQ0ZGIiwibm9kZUJvcmRlciI6IiM5MzcwREIiLCJjbHVzdGVyQmtnIjoiI2ZmZmZkZSIsImNsdXN0ZXJCb3JkZXIiOiIjYWFhYTMzIiwiZGVmYXVsdExpbmtDb2xvciI6IiMzMzMzMzMiLCJ0aXRsZUNvbG9yIjoiIzMzMyIsImVkZ2VMYWJlbEJhY2tncm91bmQiOiIjZThlOGU4IiwiYWN0b3JCb3JkZXIiOiJoc2woMjU5LjYyNjE2ODIyNDMsIDU5Ljc3NjUzNjMxMjglLCA4Ny45MDE5NjA3ODQzJSkiLCJhY3RvckJrZyI6IiNFQ0VDRkYiLCJhY3RvclRleHRDb2xvciI6ImJsYWNrIiwiYWN0b3JMaW5lQ29sb3IiOiJncmV5Iiwic2lnbmFsQ29sb3IiOiIjMzMzIiwic2lnbmFsVGV4dENvbG9yIjoiIzMzMyIsImxhYmVsQm94QmtnQ29sb3IiOiIjRUNFQ0ZGIiwibGFiZWxCb3hCb3JkZXJDb2xvciI6ImhzbCgyNTkuNjI2MTY4MjI0MywgNTkuNzc2NTM2MzEyOCUsIDg3LjkwMTk2MDc4NDMlKSIsImxhYmVsVGV4dENvbG9yIjoiYmxhY2siLCJsb29wVGV4dENvbG9yIjoiYmxhY2siLCJub3RlQm9yZGVyQ29sb3IiOiIjYWFhYTMzIiwibm90ZUJrZ0NvbG9yIjoiI2ZmZjVhZCIsIm5vdGVUZXh0Q29sb3IiOiJibGFjayIsImFjdGl2YXRpb25Cb3JkZXJDb2xvciI6IiM2NjYiLCJhY3RpdmF0aW9uQmtnQ29sb3IiOiIjZjRmNGY0Iiwic2VxdWVuY2VOdW1iZXJDb2xvciI6IndoaXRlIiwic2VjdGlvbkJrZ0NvbG9yIjoicmdiYSgxMDIsIDEwMiwgMjU1LCAwLjQ5KSIsImFsdFNlY3Rpb25Ca2dDb2xvciI6IndoaXRlIiwic2VjdGlvbkJrZ0NvbG9yMiI6IiNmZmY0MDAiLCJ0YXNrQm9yZGVyQ29sb3IiOiIjNTM0ZmJjIiwidGFza0JrZ0NvbG9yIjoiIzhhOTBkZCIsInRhc2tUZXh0TGlnaHRDb2xvciI6IndoaXRlIiwidGFza1RleHRDb2xvciI6IndoaXRlIiwidGFza1RleHREYXJrQ29sb3IiOiJibGFjayIsInRhc2tUZXh0T3V0c2lkZUNvbG9yIjoiYmxhY2siLCJ0YXNrVGV4dENsaWNrYWJsZUNvbG9yIjoiIzAwMzE2MyIsImFjdGl2ZVRhc2tCb3JkZXJDb2xvciI6IiM1MzRmYmMiLCJhY3RpdmVUYXNrQmtnQ29sb3IiOiIjYmZjN2ZmIiwiZ3JpZENvbG9yIjoibGlnaHRncmV5IiwiZG9uZVRhc2tCa2dDb2xvciI6ImxpZ2h0Z3JleSIsImRvbmVUYXNrQm9yZGVyQ29sb3IiOiJncmV5IiwiY3JpdEJvcmRlckNvbG9yIjoiI2ZmODg4OCIsImNyaXRCa2dDb2xvciI6InJlZCIsInRvZGF5TGluZUNvbG9yIjoicmVkIiwibGFiZWxDb2xvciI6ImJsYWNrIiwiZXJyb3JCa2dDb2xvciI6IiM1NTIyMjIiLCJlcnJvclRleHRDb2xvciI6IiM1NTIyMjIiLCJjbGFzc1RleHQiOiIjMTMxMzAwIiwiZmlsbFR5cGUwIjoiI0VDRUNGRiIsImZpbGxUeXBlMSI6IiNmZmZmZGUiLCJmaWxsVHlwZTIiOiJoc2woMzA0LCAxMDAlLCA5Ni4yNzQ1MDk4MDM5JSkiLCJmaWxsVHlwZTMiOiJoc2woMTI0LCAxMDAlLCA5My41Mjk0MTE3NjQ3JSkiLCJmaWxsVHlwZTQiOiJoc2woMTc2LCAxMDAlLCA5Ni4yNzQ1MDk4MDM5JSkiLCJmaWxsVHlwZTUiOiJoc2woLTQsIDEwMCUsIDkzLjUyOTQxMTc2NDclKSIsImZpbGxUeXBlNiI6ImhzbCg4LCAxMDAlLCA5Ni4yNzQ1MDk4MDM5JSkiLCJmaWxsVHlwZTciOiJoc2woMTg4LCAxMDAlLCA5My41Mjk0MTE3NjQ3JSkifX0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9)
 > 
 >> ## Solution
 >> ```
->> <me going_to="St Ives">
->>     <wife>
->>         <sack>
->>             <cat>
->>                 <kit/>
->>                 <kit/>
->>             </cat>
->>             <cat>
->>                 <kit/>
->>                 <kit/>
->>             </cat>
->>         </sack>
->>         <sack>
->>             <cat>
->>                 <kit/>
->>                 <kit/>
->>             </cat>
->>             <cat>
->>                 <kit/>
->>                 <kit/>
->>             </cat>
->>         </sack>
->>     </wife>
->> </me>
+>> {
+>>   "word": "love",
+>>   "left": {
+>>     "word": "authority"
+>>   },
+>>   "right": {
+>>     "word": "trousers",
+>>     "left": {
+>>       "word": "cut"
+>>     }
+>>   }
+>> }
 >> ```
 > {: .solution}
 {: .challenge}
+
+> ## Exercise
+> Do the same in XML, using an attribute if you can.
+>> ## Solution
+>> ```
+>> <?xml version="1.0" encoding="UTF-8" ?>
+>> <root word="love">
+>>     <left word="authority"></left>
+>>     <right word="trousers">
+>>         <left word="cut"></left>
+>>     </right>
+>> </root>
+>> ```
+> {: .solution}
+{: .challenge}
+
 
 > ## XML vs JSON vs YAML
 > XML is very powerful and extremely widely used as a data interchange format. You can set up XML schemas to validate XML documents. There are even XML database engines. However, it uses a lot of boilerplate (closing tags, for example) and is an eyesore. JSON is much easier on the eyes and YAML is best for humans. Since YAML is not that widely used, JSON seems a good compromise. 
 {: .discussion}
-
-## Query structured documents (optional)
-
-XPath and jq.
-
-### jq
-JSON files have a well-defined structure, but we need a language and a tool to query them. We can do this in Python or any other programming language.
-```
-import json
-seller = json.load(open('seller.json', 'rt'))
-seller[0]
-seller[0]['WIN_NAME']
-```
-{: .language-python}
-
-```
-{'ID_AWARD': 8447168, 'ID_LOT_AWARDED': '', 'WIN_COUNTRY_CODE': 'DE', 'WIN_NAME': 'Dialogika GmbH'}
-'Dialogika GmbH'
-```
-{: .output}
-
-The command line tool `jq` can also extract information from JSON files. (Not to be confused with jquery, which is a frontend JavaScript framework.) It has its separate query language, which we will practice in the [jq playground](https://jqplay.org/).
-
-```
-[
-  { "name": "apple", 
-    "type": "fruit", 
-    "quantity": 2, 
-    "unit": "kg"},
-  { "name": "carrot", 
-    "type": "vegetable", 
-    "quantity": 1, 
-    "unit": "kg"}
-]
-```
-
-`jq '.[0]'` will return
-```
-{
-  "name": "apple",
-  "type": "fruit",
-  "quantity": 2,
-  "unit": "kg"
-}
-```
-{: .output}
-
-`jq '.[0].name'` will return
-```
-"apple"
-```
-{: .output}
-
-We can loop over a list and return a property for each element, like `.[].name`.
-```
-"apple"
-"carrot"
-```
-{: .output}
-
-We can also use `jq` to create new JSON objects by nesting our query in `[]` and `{}`, like `[{fruit: .[].name}]`
-```
-[
-  {
-    "fruit": "apple"
-  },
-  {
-    "fruit": "carrot"
-  }
-]
-```
-{: .output}
-
-> ## Exercise
-> Write a `jq` query to list the units of fruits and vegetables in our basket. It should return a proper JSON list.
->> ## Solution
->> `[.[].unit]`
-> {: .solution}
-{: .challenge}
-
-We can combine queries with the pipe operator `|`. This is useful for filtering, for example.
-Both `.[] | select(.type == "fruit")` and `.[] | select(.name | contains("pp"))`
-result in 
-```
-{
-  "name": "apple",
-  "type": "fruit",
-  "quantity": 2,
-  "unit": "kg"
-}
-```
-{: .output}
-
-To invoke `jq` in bash, write the query in single (not double) quotes.
-```
-bash-5.0$ jq '.[0]' seller.json 
-{
-  "ID_AWARD": 8447168,
-  "ID_LOT_AWARDED": "",
-  "WIN_COUNTRY_CODE": "DE",
-  "WIN_NAME": "Dialogika GmbH"
-}
-```
-{: .language-bash}
-
-> ## Exercise
-> Display the country codes of each seller in `seller.json` in bash. 
->> ## Solution
->> `jq '.[].WIN_COUNTRY_CODE' seller.json`
-> {: .solution}
-{: .challenge}
-
-There are some built-in function, such as `length`, `map` and `group_by`. To count the objects in a JSON file,
-```
-jq 'length' seller.json 
-```
-{: .language-bash}
-
-```
-jq 'group_by(.WIN_COUNTRY_CODE) | map({country: .[0].WIN_COUNTRY_CODE, number: length})' seller.json 
-```
-{: .language-bash}
-
-We can convert JSON files to CSV, for example.
-```
-jq 'group_by(.WIN_COUNTRY_CODE) | map({country: .[0].WIN_COUNTRY_CODE, number: length}) | .[]@csv' seller.json 
-```
-{: .language-bash}
-
-> ## Exercise 
-> Convert the JSON lines file in _Offene Register_ to proper JSON using `jq`.
-> > ## Solution
-> > ```
-> > cat offeneregister-1000.jsonl | jq -cs '.' > offeneregister-1000.json
-> > ```
-> > {: .language-bash}
-> {: .solution}
-{: .challenge}
-
-```
-~/D/t/c/2/d/d/okf ❯ head -n5 offeneregister-1000.jsonl | jq ".officers[] | {name: .name, city: .other_attributes.city, position: .position}"
-{
-  "name": "Oliver Keunecke",
-  "city": "Hamburg",
-  "position": "Geschäftsführer"
-}
-...
-{
-  "name": "Wolfgang Adamiok",
-  "city": "Mommenheim",
-  "position": "Geschäftsführer"
-}
-```
-{: .language-bash}
-
-> ## Exercise
-> Using `jq`, create a list of JSON objects ("JSON lines"), with each record corresponding to a person-entry in the _Offene Register_, with the following fields: name, city, firm identifier.
-> > ## Solution
-> > ```
-> > jq '. as $parent | .officers[] | {name: .name, firm: $parent.company_number, city: .other_attributes.city, position: .position}' offeneregister-1000.jsonl
-> > ```
-> > {: .language-bash}
-> {: .solution}
-{: .challenge}
-
-```
-jq -r '(map(keys) | add | unique) as $cols | map(. as $row | $cols | map($row[.])) as $rows | $cols, $rows[] | @csv' officer.json > officer.csv
-```
-{: .language-bash}
 

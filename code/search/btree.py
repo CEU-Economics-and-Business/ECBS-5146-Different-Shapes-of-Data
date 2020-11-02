@@ -64,8 +64,9 @@ class BTree:
     def __len__(self):
         return self._len
 
-    def _printTree(self, node):
+    def _printTree(self, node, indent=0):
+        indentation = '| '*indent
         if node is not None:
-            return self._printTree(node.l) + str(node.v) + ' ' + self._printTree(node.r)
+            return f'{str(node.v)}\n{indentation}|-{self._printTree(node.l, indent=indent+1)}\n{indentation} \\{self._printTree(node.r, indent=indent+1)}'
         else:
-            return ''
+            return '()'

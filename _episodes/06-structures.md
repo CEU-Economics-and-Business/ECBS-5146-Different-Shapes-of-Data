@@ -1,19 +1,17 @@
 ---
 title: "Data Structures for Scalability"
-teaching: 100
-exercises: 100
+teaching: 50
+exercises: 30
 questions:
 - How does my solution scale as the problem becomes bigger?
 - Why should I care about algorithmic complexity?
 - What is the fastest data structure for searching a value?
 objectives:
 - Classify search algorithms according to algorithmic complexity.
-- Explain the basic idea behind hash tables.
 - Build a binary tree from simple ordered data.
 - Express the algorithmic complexity of simple algorithms written in pseudocode.
 - Compare different data structures.
-- Describe linked lists, binary trees and hash tables.
-- Contrast worst-case and average algorithmic complexities.
+- Describe linked lists and binary trees.
 - Understand O() notation.
 keypoints:
 - If your algorithm is worse than O(n), think harder.
@@ -21,18 +19,17 @@ keypoints:
 - "Hash tables > search trees > unordered lists"
 ---
 
-# Reading
-1. [Algorithmic complexity and big-O notation](https://skerritt.blog/big-o/)
-2. [Review logarithmic functions](https://github.com/kiss-oliver/ba-pre-session-2019/blob/master/02_functions_of_one_variable/02_slides.pdf)
+# Prerequisites
 
 ## Python
 1. Download and unzip [pypy](https://pypy.org/download.html#python-3-6-compatible-pypy3-6-v7-2-0). We will use the `pypy3` executable to run simple Python scripts.
 2. Review how [for loops](https://realpython.com/python-for-loop/) and [dictionaries](https://realpython.com/python-dicts/) work in Python.
 
-## Optional reading
-1. [Tree data structures](https://www.freecodecamp.org/news/all-you-need-to-know-about-tree-data-structures-bceacb85490c/)
-2. [Binary search](https://medium.com/karuna-sehgal/a-simplified-interpretation-of-binary-search-246433693e0b) (Ignore the Java and JavaScript code examples.)
-3. [Indexing in SQLite](https://medium.com/@JasonWyatt/squeezing-performance-from-sqlite-indexes-indexes-c4e175f3c346)
+## Reading
+1. [Algorithmic complexity and big-O notation](https://skerritt.blog/big-o/)
+2. [Review logarithmic functions](https://github.com/kiss-oliver/ba-pre-session-2019/blob/master/02_functions_of_one_variable/02_slides.pdf)
+3. [Tree data structures](https://www.freecodecamp.org/news/all-you-need-to-know-about-tree-data-structures-bceacb85490c/)
+4. [Binary search](https://medium.com/karuna-sehgal/a-simplified-interpretation-of-binary-search-246433693e0b) (Ignore the Java and JavaScript code examples.)
 
 ## Review of Python
 ### For loops
@@ -135,57 +132,18 @@ for item = 1 to 5
 > ## Exercise
 > How long does the following pseudo-code take to run?
 > ```
-> for item in A B C
->     for other_item in D E
+> for item in list
+>     for other_item in list
 >         sleep for 1 second
 > ```
 > {: .source}
 > > ## Solution
-> > The outer loop runs 3 times. The inner loop runs 2 times. Each run takes 1 second, so total runtime is 6 seconds.
+> > The outer loop runs once for each element in the list (N). The inner loop also runs once for each element. The total runtime is N-squared seconds.
 > {: .solution}
 {: .challenge}
-
-```
-for item = 1 to 100
-    for other_item = 1 to 100
-        if item > other_time
-            break loop and stop
-        else
-            sleep for 1 second
-```
-{: .source}
-
-```
-from time import sleep, time
-begin = time()
-for item in range(100):
-    for other_item in range(100): 
-        if item > other_item:
-            break
-        else:
-            sleep(1)
-print(time() - begin)
-```
-{: .language-python}
-
-
-> ## Exercise
-> How long does the following pseudo-code run?
-> ```
-> for item = 1 to N
->     for other_item = 1 to item
->         sleep for 1 second
-> ```
-> {: .source}
-> > ## Solution
-> > If the outer index has value i, the inner loop runs i times. The outer loop iterates over i, so the sleep command runs 1 + 2 + 3 + ... + N times. We know from Euler that this sum is N (N + 1) / 2, so the program takes as many seconds. In Big-O notation, this is O(n^2).
-> {: .solution}
-{: .challenge}
-
-We use the `sleep` command to illustrate that what matters is the number of times a loop runs, not the runtime of a single run.
 
 > ## Why Big-O notation
-> We care about what happens when our problem becomes "very large." As the size of the problem grows without bound, just throwing more resources at it won't help. For large-enough n, an O(n) problem will take more time on a supercomputer than an O(log n) problem will take on your laptop.
+> We care about what happens when our problem becomes "very large." As the size of the problem grows without bound, just throwing more resources at it won't help. For large-enough n, an O(n^2) problem will take more time on a supercomputer than an O(n) problem will take on your laptop.
 > Big-O notation helps uncover the big-picture challenges that defy easy solution.
 {: .callout}
 
@@ -198,13 +156,6 @@ while length_of_stick > LIMIT
     length_of_stick = length_of_stick / 2
 ```
 {: .source}
-
-> ## Challenge (optional)
-> Give a simple algorithm to find all divisors of a positive integer `n`. What is its algorithmic complexity?
->> ## Solution
->> [Solution](https://www.geeksforgeeks.org/find-divisors-natural-number-set-1/)
-> {: .solution}
-{: .challenge}
 
 # Searching for a value
 ## Data structures
@@ -245,45 +196,7 @@ while length_of_stick > LIMIT
 {: .challenge}
 
 
-If the list is sorted, a bisection (binary) search can drastically improve search time.
-
-### Ordered list (data structure)
-
-{% assign table_data = site.data.structure.bisection %}
-{% assign table_caption = "A sorted list of values" %}
-{% include table.html %}
-
-### Bisection search
-
-[Bisection search visualized](http://www.cs.armstrong.edu/liang/animation/web/BinarySearch.html)
-
-```
-def bisection(what, sorted_list):
-    if len(sorted_list) == 0:
-        return 'Not found.'
-    middle_index = int(len(sorted_list) / 2)
-    if what == sorted_list[middle_index]:
-        return sorted_list[middle_index]
-    if what < sorted_list[middle_index]:
-        return bisection(what, sorted_list[:middle_index])
-    else:
-        return bisection(what, sorted_list[middle_index+1:])
-```
-{: .language-python}
-
-> ## Exercise
-> For each value in the table above, calculate how many comparison steps does a _bisection search_ take? What is the average and the worst number of steps? What is the Big-O complexity of bisection search?
-{: .challenge}
-
-Download `bisection.py` to the folder from which you are running `pypy3`. This Python code implements a binary tree like this.
-
-Check you answer with the following code.
-```
-from bisection import bisection
-list_to_search = [5, 6, 8, 11, 12, 14, 16]
-bisection(5, list_to_search, debug=True)
-```
-{: .language-python}
+If the list is sorted, a [bisection (binary) search](https://ceu-economics-and-business.github.io/ECBS-5148-Data-Architecture/03-structures/index.html#bisection-search) can drastically improve search time.
 
 ### Binary tree (data structure)
 In fact, sorting is quite expensive algorithmically. Since we have to do it anyway, we create a data structure more suited for searching, the _binary tree_. In this tree, each node has at most two branches. The left branch is an element less than, the right branch is an element greater than the current element.
@@ -312,7 +225,7 @@ In fact, sorting is quite expensive algorithmically. Since we have to do it anyw
 Download `btree.py` to the folder from which you are running `pypy3`. This Python code implements a binary tree like this.
 ```
 from btree import BTree
-tree = BTree()
+tree = BTree(debug=True)
 tree.add('love')
 tree.add('authority')
 tree.add('trousers')
@@ -328,16 +241,6 @@ print(love)
 > Create a binary tree with the debug option turned on, `tree = BTree(debug=True)`. Add all the seven words above to this tree, in the order in which they appear. Then find `'love'` and `'metal'`. How many comparisons do they each take?
 {: .challenge}
 
-
-> ## Quadtree (optional)
-> Not everything can be sorted on the real line. Take geo-coordinates, for example. Is (47.6698, 17.6588) bigger than (47.4816, 19.1300)? These points can be arranged in a [quadtree](https://en.wikipedia.org/wiki/Quadtree), in which every node has at most _four_ children, rather than two as in a binary tree. A point to the North-West would become the first child, a point to the North-East the second, etc.
-> 
-> ![Source: https://commons.wikimedia.org/wiki/User:David_Eppstein/](https://upload.wikimedia.org/wikipedia/commons/8/8b/Point_quadtree.svg)
-> 
-> Show that looking for a point in a quadtree has `O(log n)` complexity.
-> 
-> [Searching for points in three dimensions](https://www.youtube.com/watch?v=G67eMq1YwmI)
-{: .callout}
 
 To illustrate the performance of binary trees, we are going to generate some random words to search over. Download `random_words.py` to the folder from which you are running `pypy3`. You can use it like this:
 
@@ -362,159 +265,8 @@ word_tree.find('abcdefg')
 ```
 {: .language-python}
 
-> ## Exercise
-> Suppose you categorize your files into folders. To maintain a clear folder structure, each folder contains at most seven files or subfolders. Given your logical structure, you always know for sure which subfolder to look into when searching a file.
-> 
-> You have 15,000 files to organize. What is the worst-case number of steps for finding a file?
-{: .challenge}
-
 With bisection search, binary trees or similar data structures, search time is O(log n). SQLite indexes use balanced trees.
 
 This is very good, but we can do even faster!
-
-
-## Indexing
-
-> **Indexing** takes unordered lists of data and converts them into data structures suitable for efficient lookup.
-
-{% assign table_data = site.data.structure.id-index %}
-{% assign table_caption = "A sorted index of `id`" %}
-{% include table.html %}
-
-{% assign table_data = site.data.structure.word-index %}
-{% assign table_caption = "A sorted index of `word`" %}
-{% include table.html %}
-
-### Hash table (data structure)
-> In a well-dimensioned hash table, the average cost (number of instructions) for each lookup is independent of the number of elements stored in the table.
-
-> ## Hash function
-> 1. Uniformity
-> 2. Defined range
-> 3. Pre-image resistant
-> 4. Collision resistant
-> 5. One-way function
-{: .callout}
-
-[cryptographic hash function](https://en.wikipedia.org/wiki/Cryptographic_hash_function)
-
-
-What if we had an index where we knew exactly where to look for keys?
-
-{% assign table_data = site.data.structure.positional-index %}
-{% assign table_caption = "A positional index of `id`" %}
-{% include table.html %}
-
-But how to this with text data? Create a function that returns a numeric value in a bounded range for every piece of text. The output of the function should cover the entire range fairly equally and should be easy to calculate. This is a *hash function*.
-
-See, for example:
-```
-def hash(word):
-    '''
-    Return a hash based on the sum of characters in the word. 
-    a = 1, b = 2, etc
-    The hash is an integer between 1 and 20.
-    '''
-    sum_of_digits = 0
-    for char in word.lower():
-        sum_of_digits += ord(char) - ord('a') + 1
-    return (sum_of_digits) % 20 + 1
-```
-{: .language-python}
-
-{% assign table_data = site.data.structure.word-hash-index %}
-{% assign table_caption = "A hash index of `word`" %}
-{% include table.html %}
-
-#### Finding "love"
-```
-"love" = 12 + 15 + 22 + 5 = 54
-54 mod 20 = 14
-14 + 1 = 15
-```
-{: .source}
-We should be looking for "love" in the 15th position.
-
-#### Finding "hate"
-```
-"hate" = 8 + 1 + 20 + 5 = 34
-34 mod 20 = 14
-14 + 1 = 15
-```
-{: .source}
-The word "hate" also has the same hash ("hash collision"), so it should be in the 15th position. But it is not.
-
-> ## Challenge (optional)
-> [Watch this clip](https://www.youtube.com/watch?v=IN4CiToDGNg&t=22m48s) of searching for a lost transit pass in the lost-and-found office. What is the complexity of this search algorithm? (Hint: it is not O(n).)
-> ### English transcript
-> > You have lost your pass, yes? Sit.  
-> > This is not it.  
-> > Let's see. This neither.  
-> > These are from yesterday.  
-> > No. Not here. It wasn't left here.  
-> 
-> > ## Solution
-> > Because each time a pass is checked, it is put back into the pile, this process is slower than O(n). If checked passes went to a new pile, this would be searching in a linked list with O(n) time. However, each pass can be picked up twice or more, slowing down the process. The likelihood of checking again increases with n. In the worst case, the pass is not found in finite time. The average number of check required is O(n log n).
-> >
-> > This relates to the [coupon collector's problem](https://en.wikipedia.org/wiki/Coupon_collector%27s_problem). 
-> {: .solution}
-{: .challenge}
-
-You almost never have to create binary trees and hash tables yourself. But you have to understand how they work to know when to use them.
-
-[create index in sqlite](https://www.sqlitetutorial.net/sqlite-index/)
-
-> ## Exercise
-> Using `DE.sqlite`, create an index of `WIN_NAME` on the table `seller`. Then search for sellers with the name "Siemens AG". Have SQLite explain the query with `EXPLAIN QUERY PLAN`.
->> ## Solution
->> ```
->> EXPLAIN QUERY PLAN SELECT * FROM seller WHERE WIN_NAME = 'Siemens AG';
->> ```
->> {: .language-sql}
->> With just 61,701 rows, you will not notice any difference in performance. But with 100 millions, this will matter. 
-> {: .solution}
-{: .challenge}
-
-In Python, _dictionaries_ are implemented as hash tables. [Time complexity of data structure operationsin Python](https://wiki.python.org/moin/TimeComplexity)
-
-> ## Exercise
-> Create a dictionary of 10 million random words as keys and the number 1 as value, by filling in the blanks.
-> ```
-> wd = {}
-> for word in random_word_generator(___):
->     wd[___] = ___
-> ```
-> {: .language-python}
-{: .challenge}
-
-# Comparing two values
-
-Suppose we have two lists of student names and want to select all students who appear on both. In SQL, this is called an `INNER JOIN`.
-
-```
-for one_student in Anna Cecilia Balazs Daniel
-    for other_student in Greg Daniel Anna Pavel
-        if one_student == other_student
-            yield one_student
-```
-{: .source}
-The complexity of this algorithm is O(nk), with n and k the number of students in each list. (Don't worry, this not how `INNER JOIN` is implemented.)
-
-> ## Exercise
-> Count how many sellers also appear as buyers in `DE.sqlite`. Show how this is using the index of winner names.
->> ## Solution
->> ```
->> select count(distinct(WIN_NAME)) from seller inner join buyer on seller.WIN_NAME = buyer.CAE_NAME;
->> ```
->> {: .language-sql}
-> {: .solution}
-{: .challenge}
-
-> ## Exercise
-> We have written a naive double-loop join algorithm in Python to match 1,000 firms with those in a list of a 200 politically connected firms. The code takes 10 minutes to run. After a data update, we will have 500 politically connected firms, and 20,000 candidate firms to match with them. How long will this matching run?
-> > ## Solution
-> > The naive algorithm makes 1000 x 200 = 200,000 comparisons in 10 minutes, so 1,000 comparisons take 3 seconds. On the bigger data, we would do 20000 x 500 = 10 million comparisons. This takes 500 minutes, that is, 8 hours and 20 minutes.
-> {: .solution}
-{: .challenge}
 
 
