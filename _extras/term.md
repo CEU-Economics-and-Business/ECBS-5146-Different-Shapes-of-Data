@@ -1,6 +1,3 @@
-
-<br/><br/><br/>
-<a name="homework"/>
 # Term project
 
 ### Format
