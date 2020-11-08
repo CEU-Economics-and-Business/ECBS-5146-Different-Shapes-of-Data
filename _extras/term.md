@@ -1,4 +1,6 @@
-# Term project
+---
+title: Term project
+---
 
 ### Format
 The term project will delivered in teams, consisting 3 students each. 
