@@ -26,7 +26,7 @@ The term project will delivered in teams, consisting 3 students each.
 
 
 ### Delivery
-The project artifacts should be stored and handed over in a folder "Term DE2" on your GitHub repo.
+The project artifacts should be stored and handed over in a folder "Term DE2" in a GitHub repo.
 
 The main artifact submitted is a 4-6 page report (including figures and data citation), with the following requirements:
 * documents the solution provided
@@ -65,4 +65,4 @@ Extra points:
 - Anything special not covered during the course but, makes sense in the project context
 
 ### Submission 
-Submit GitHub link to Moodle when you are ready. 
+Submit one GitHub link to Moodle when you are ready. 
