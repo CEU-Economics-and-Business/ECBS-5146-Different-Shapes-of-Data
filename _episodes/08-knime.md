@@ -56,23 +56,13 @@ If you need further help check the "KNIME Beginner's Luck" book uploaded on Mood
 #### KNIME Nodes Classification 
 [Picture](https://github.com/salacika/DE2DSD/tree/main/knime/pictures/Picture2.png)
 
-<br/>
-
-> ## Practice exercises
->
-> @TODO
-{: .challenge}
 
 <br/>
 
 >## End-to-end example
-> [Source file 1](https://github.com/salacika/DE2DSD/tree/main/knime/source_birdstrikes_small.csv)
+> [Source file 1](https://github.com/CEU-Economics-and-Business/ECBS-5146-Different-Shapes-of-Data/blob/master/artifacts/knime/fips.csv)
 >
-> [Source file 2](https://github.com/salacika/DE2DSD/tree/main/knime/source_us_state_bounding_boxes.csv)
->
-> [Tutorial](https://github.com/salacika/DE2DSD/tree/main/knime/seminar_script.docx)
->
-> [End result](https://github.com/salacika/DE2DSD/tree/main/knime/ceu.knwf)
+> [End result](https://github.com/CEU-Economics-and-Business/ECBS-5146-Different-Shapes-of-Data/blob/master/artifacts/knime/ceu2020-ver2.knwf)
 >
 {: .challenge}
 
