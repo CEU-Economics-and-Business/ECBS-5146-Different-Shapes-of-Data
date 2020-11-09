@@ -50,13 +50,12 @@ Reproducibility: the project should be reproducible in a straightforward manner.
 -	Fitness of the input dataset to the purpose **5 points**
 -	Complexity of the input data set **5 points**
 -	Usage of concepts used in the class **10 points**
-- 	Knime pipeline **10 points**
+- 	Knime pipeline **20 points**
 - 	Using database **10 points**
-- 	Using API **20 points**
 -	Delivery: Naming, structure **10 points**
--	Delivery: Report **10 points**
+-	Delivery: Report **15 points**
 -	Delivery: Presentation **10 points**
--	Reproducibility **10 points**
+-	Reproducibility **15 points**
 
 Extra points:
 - Using NoSQL in the project
