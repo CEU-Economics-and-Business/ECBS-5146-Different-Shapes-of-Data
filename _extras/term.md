@@ -18,7 +18,6 @@ The term project will delivered in teams, consisting 3 students each.
 * Combine at least two distinct datasets
 * Use an example dataset or bring your own
 * Persist at least one dataset in a database (SQL or NoSQL)
-* Use at least one API as data source
 * Build an ETL data pipeline with Knime 
 * Do some data cleaning
 * Do some basic analytics or visualization on the end of the pipeline
@@ -61,6 +60,7 @@ Reproducibility: the project should be reproducible in a straightforward manner.
 
 Extra points:
 - Using NoSQL in the project
+- Using API in the project
 - Anything special not covered during the course but, makes sense in the project context
 
 ### Submission 
