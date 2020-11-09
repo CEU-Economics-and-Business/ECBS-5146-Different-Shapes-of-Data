@@ -61,7 +61,6 @@ Reproducibility: the project should be reproducible in a straightforward manner.
 
 Extra points:
 - Using NoSQL in the project
-- Using AWS or any other cloud in the project
 - Anything special not covered during the course but, makes sense in the project context
 
 ### Submission 
