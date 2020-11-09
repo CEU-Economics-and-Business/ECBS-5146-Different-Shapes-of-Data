@@ -9,7 +9,6 @@ questions:
 objectives:
 - Recognize tidy data. 
 - Create logical model for simple relational data and represent it with Entity-Relation Diagrams.
-- Create and query a simple database in SQLite.
 - Understand and apply normal forms 1-3 to simple relational data.
 - Model many-to-one relationships.
 - Model many-to-many relations through a link table.
@@ -25,10 +24,6 @@ keypoints:
 1. Broman and Woo, 2018. [Data Organization in Spreadsheets](https://www.tandfonline.com/doi/pdf/10.1080/00031305.2017.1375989).
 2. Silberschatz, Kotz and Sudarshan, 2011. Database System Concepts, 6th Edition. Chapters 7.1-7.3. (optional)
 3. [Entity Relationship Diagrams](https://www.youtube.com/watch?v=QpdhBUYk7Kk)
-4. [Cost of a join](https://www.brianlikespostgres.com/cost-of-a-join.html)
-
-## Setup
-- [Download](https://sqlite.org/download.html) and install SQLite.
 
 ## Tidy data
 
@@ -90,55 +85,37 @@ We will study _how_ to create tidy data in Episode 5.
 {: .challenge}
 
 ### The Entity Relation Diagram
-[Mermaid Live Editor](https://mermaidjs.github.io/mermaid-live-editor/) to create block diagrams ("lines and boxes").
+[Mermaid Live Editor](https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZXJEaWFncmFtXG4gICAgICAgICAgQ1VTVE9NRVIgfXwuLnx7IERFTElWRVJZLUFERFJFU1MgOiBoYXNcbiAgICAgICAgICBDVVNUT01FUiB8fC0tb3sgT1JERVIgOiBwbGFjZXNcbiAgICAgICAgICBDVVNUT01FUiB8fC0tb3sgSU5WT0lDRSA6IFwibGlhYmxlIGZvclwiXG4gICAgICAgICAgREVMSVZFUlktQUREUkVTUyB8fC0tb3sgT1JERVIgOiByZWNlaXZlc1xuICAgICAgICAgIElOVk9JQ0UgfHwtLXx7IE9SREVSIDogY292ZXJzXG4gICAgICAgICAgT1JERVIgfHwtLXx7IE9SREVSLUlURU0gOiBpbmNsdWRlc1xuICAgICAgICAgIFBST0RVQ1QtQ0FURUdPUlkgfHwtLXx7IFBST0RVQ1QgOiBjb250YWluc1xuICAgICAgICAgIFBST0RVQ1QgfHwtLW97IE9SREVSLUlURU0gOiBcIm9yZGVyZWQgaW5cIlxuICAgICAgICAgICAgIiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQiLCJ0aGVtZVZhcmlhYmxlcyI6eyJiYWNrZ3JvdW5kIjoid2hpdGUiLCJwcmltYXJ5Q29sb3IiOiIjRUNFQ0ZGIiwic2Vjb25kYXJ5Q29sb3IiOiIjZmZmZmRlIiwidGVydGlhcnlDb2xvciI6ImhzbCg4MCwgMTAwJSwgOTYuMjc0NTA5ODAzOSUpIiwicHJpbWFyeUJvcmRlckNvbG9yIjoiaHNsKDI0MCwgNjAlLCA4Ni4yNzQ1MDk4MDM5JSkiLCJzZWNvbmRhcnlCb3JkZXJDb2xvciI6ImhzbCg2MCwgNjAlLCA4My41Mjk0MTE3NjQ3JSkiLCJ0ZXJ0aWFyeUJvcmRlckNvbG9yIjoiaHNsKDgwLCA2MCUsIDg2LjI3NDUwOTgwMzklKSIsInByaW1hcnlUZXh0Q29sb3IiOiIjMTMxMzAwIiwic2Vjb25kYXJ5VGV4dENvbG9yIjoiIzAwMDAyMSIsInRlcnRpYXJ5VGV4dENvbG9yIjoicmdiKDkuNTAwMDAwMDAwMSwgOS41MDAwMDAwMDAxLCA5LjUwMDAwMDAwMDEpIiwibGluZUNvbG9yIjoiIzMzMzMzMyIsInRleHRDb2xvciI6IiMzMzMiLCJtYWluQmtnIjoiI0VDRUNGRiIsInNlY29uZEJrZyI6IiNmZmZmZGUiLCJib3JkZXIxIjoiIzkzNzBEQiIsImJvcmRlcjIiOiIjYWFhYTMzIiwiYXJyb3doZWFkQ29sb3IiOiIjMzMzMzMzIiwiZm9udEZhbWlseSI6IlwidHJlYnVjaGV0IG1zXCIsIHZlcmRhbmEsIGFyaWFsIiwiZm9udFNpemUiOiIxNnB4IiwibGFiZWxCYWNrZ3JvdW5kIjoiI2U4ZThlOCIsIm5vZGVCa2ciOiIjRUNFQ0ZGIiwibm9kZUJvcmRlciI6IiM5MzcwREIiLCJjbHVzdGVyQmtnIjoiI2ZmZmZkZSIsImNsdXN0ZXJCb3JkZXIiOiIjYWFhYTMzIiwiZGVmYXVsdExpbmtDb2xvciI6IiMzMzMzMzMiLCJ0aXRsZUNvbG9yIjoiIzMzMyIsImVkZ2VMYWJlbEJhY2tncm91bmQiOiIjZThlOGU4IiwiYWN0b3JCb3JkZXIiOiJoc2woMjU5LjYyNjE2ODIyNDMsIDU5Ljc3NjUzNjMxMjglLCA4Ny45MDE5NjA3ODQzJSkiLCJhY3RvckJrZyI6IiNFQ0VDRkYiLCJhY3RvclRleHRDb2xvciI6ImJsYWNrIiwiYWN0b3JMaW5lQ29sb3IiOiJncmV5Iiwic2lnbmFsQ29sb3IiOiIjMzMzIiwic2lnbmFsVGV4dENvbG9yIjoiIzMzMyIsImxhYmVsQm94QmtnQ29sb3IiOiIjRUNFQ0ZGIiwibGFiZWxCb3hCb3JkZXJDb2xvciI6ImhzbCgyNTkuNjI2MTY4MjI0MywgNTkuNzc2NTM2MzEyOCUsIDg3LjkwMTk2MDc4NDMlKSIsImxhYmVsVGV4dENvbG9yIjoiYmxhY2siLCJsb29wVGV4dENvbG9yIjoiYmxhY2siLCJub3RlQm9yZGVyQ29sb3IiOiIjYWFhYTMzIiwibm90ZUJrZ0NvbG9yIjoiI2ZmZjVhZCIsIm5vdGVUZXh0Q29sb3IiOiJibGFjayIsImFjdGl2YXRpb25Cb3JkZXJDb2xvciI6IiM2NjYiLCJhY3RpdmF0aW9uQmtnQ29sb3IiOiIjZjRmNGY0Iiwic2VxdWVuY2VOdW1iZXJDb2xvciI6IndoaXRlIiwic2VjdGlvbkJrZ0NvbG9yIjoicmdiYSgxMDIsIDEwMiwgMjU1LCAwLjQ5KSIsImFsdFNlY3Rpb25Ca2dDb2xvciI6IndoaXRlIiwic2VjdGlvbkJrZ0NvbG9yMiI6IiNmZmY0MDAiLCJ0YXNrQm9yZGVyQ29sb3IiOiIjNTM0ZmJjIiwidGFza0JrZ0NvbG9yIjoiIzhhOTBkZCIsInRhc2tUZXh0TGlnaHRDb2xvciI6IndoaXRlIiwidGFza1RleHRDb2xvciI6IndoaXRlIiwidGFza1RleHREYXJrQ29sb3IiOiJibGFjayIsInRhc2tUZXh0T3V0c2lkZUNvbG9yIjoiYmxhY2siLCJ0YXNrVGV4dENsaWNrYWJsZUNvbG9yIjoiIzAwMzE2MyIsImFjdGl2ZVRhc2tCb3JkZXJDb2xvciI6IiM1MzRmYmMiLCJhY3RpdmVUYXNrQmtnQ29sb3IiOiIjYmZjN2ZmIiwiZ3JpZENvbG9yIjoibGlnaHRncmV5IiwiZG9uZVRhc2tCa2dDb2xvciI6ImxpZ2h0Z3JleSIsImRvbmVUYXNrQm9yZGVyQ29sb3IiOiJncmV5IiwiY3JpdEJvcmRlckNvbG9yIjoiI2ZmODg4OCIsImNyaXRCa2dDb2xvciI6InJlZCIsInRvZGF5TGluZUNvbG9yIjoicmVkIiwibGFiZWxDb2xvciI6ImJsYWNrIiwiZXJyb3JCa2dDb2xvciI6IiM1NTIyMjIiLCJlcnJvclRleHRDb2xvciI6IiM1NTIyMjIiLCJjbGFzc1RleHQiOiIjMTMxMzAwIiwiZmlsbFR5cGUwIjoiI0VDRUNGRiIsImZpbGxUeXBlMSI6IiNmZmZmZGUiLCJmaWxsVHlwZTIiOiJoc2woMzA0LCAxMDAlLCA5Ni4yNzQ1MDk4MDM5JSkiLCJmaWxsVHlwZTMiOiJoc2woMTI0LCAxMDAlLCA5My41Mjk0MTE3NjQ3JSkiLCJmaWxsVHlwZTQiOiJoc2woMTc2LCAxMDAlLCA5Ni4yNzQ1MDk4MDM5JSkiLCJmaWxsVHlwZTUiOiJoc2woLTQsIDEwMCUsIDkzLjUyOTQxMTc2NDclKSIsImZpbGxUeXBlNiI6ImhzbCg4LCAxMDAlLCA5Ni4yNzQ1MDk4MDM5JSkiLCJmaWxsVHlwZTciOiJoc2woMTg4LCAxMDAlLCA5My41Mjk0MTE3NjQ3JSkifX0sInVwZGF0ZUVkaXRvciI6dHJ1ZX0) to create Entity Relation diagrams.
+
+### Relationship cardinality
+![Copyright LucidChart](https://d2slcw3kip6qmk.cloudfront.net/marketing/pages/chart/erd-symbols/ERD-Notation.PNG)
 
 #### Government Compensation in California
-<div class="mermaid">
-graph TD
-    employee1 --> employer1 --> region1
-    employee2 --> employer1
-    employer1 --> region2
-    employee3 --> employer2 --> region2
-</div>
-
 Create one box for each "entity set" (say, employers). These correspond to "tables" in a _relational database_.
 
 <div class="mermaid">
-graph LR
-    Employee --n:1--> Employer
-    Employer ---|n:n| Region
+erDiagram
+          EMPLOYEE }|..|| EMPLOYER : "works for"
+          EMPLOYER }|..|{ REGION : "located in"
 </div>
 
 #### Street Tree Census
 
 <div class="mermaid">
-graph LR
-    Tree --n:1--> Street
-    Street --n:1--> Region
+erDiagram
+          Tree }|..|| Street : "located in"
+          Street }|..|{ Region : "part of"
 </div>
 
 #### Habitatges de Barcelona
 <div class="mermaid">
-graph LR
-   Apartment --n:1--> Address --n:1--> Street
-</div>
-We can also use a [Class Diagram](https://mermaidjs.github.io/#/classDiagram) to represent more detail. (Note that this is still experimental in Mermaid JS.) 
-
-```
-classDiagram
-    Apartment "many" ..> "1" Address : located at
-    Address "many" ..> "1" Street : part of
-```
-{: .source}
-
-<div class="mermaid">
-classDiagram
-    Apartment "many" ..> "1" Address : located at
-    Address "many" ..> "1" Street : part of
+erDiagram
+          Apartment }|..|| Address : "located at"
+          Address }|..|| Street : "part of"
 </div>
 
 > ## Exercise
-> Draw an Entity Relation Diagram for the _National Bridge Inventory_ using a Class Diagram in Mermaid.
+> Draw an Entity Relation Diagram for the _National Bridge Inventory_ using an ERD in Mermaid.
 {: .challenge}
 
 ## Modeling many-to-many relationships through link tables
@@ -149,23 +126,23 @@ classDiagram
 
 ### A many-to-one relationsip
 <div class="mermaid">
-graph LR
-    Course --> Department
+erDiagram
+          Course }|..|| Department : "hosted by"
 </div>
 
 This is the easiest to represent in tables. We add a _foreign key_ column to the Course table, referencing the Department _primary key_. The course "ECBS5148" will point to Department "ECBS".
 
 ### A many-to-many relationsip
 <div class="mermaid">
-graph LR
-    Student ---|register| Course
+erDiagram
+          Student }|..|{ Course : "register"
 </div>
 
 ### Modeled with a link table
 <div class="mermaid">
-graph LR
-    register --> Student
-    register --> Course
+erDiagram
+          Student ||..|{ register
+          Course ||..|{ register
 </div>
 
 Often (but not always) there is a natural verb or noun describing the link table. We can also note additional attributes of the relationship, such as taking a course for Grade or for Audit only.
@@ -195,151 +172,12 @@ Often (but not always) there is a natural verb or noun describing the link table
 > Create a link table in your favorite spreadsheet editor to represent the many-to-many relationship between stories and topics.
 {: .challenge}
 
-> ## Exercise
-> In Tenders Electronic Daily, each "Contract Award Notice" represents a tender started by an organization as a "Contracting Authority." Winning organizations ("Contractors") are typically firms. There may be multiple winners for a tender. Draw an Entity Relation Diagram for TED.
-{: .challenge}
-
-#### Tenders Electronic Daily - first version
-<div class="mermaid">
-graph LR
-   Organization ---|n:n| Tender
-</div>
-
-<div class="mermaid">
-graph LR
-    role --n:1--> Organization
-    role --n:1--> Tender
-</div>
-
-<div class="mermaid">
-classDiagram
-    Role "many" ..> "1" Tender
-    Role "many" ..> "1" Organization
-
-    class Organization
-    class Tender
-    class Role
-
-    Role : organization_id
-    Role : tender_id
-    Role : role in (buyer, seller)
-
-    Organization : organization_id
-    Organization : name
-
-    Tender : tender_id
-    Tender : title
-    Tender : value
-</div>
-
-> ## Exercise
-> Looking more closely, we find that there may be multiple "lots" within each tender. Decisions may be different by lot, with different amounts and different winners. We also notice that multiple CPV codes may be listed as products or services procured. With this new information, redesign your Entity Relation Diagram.
-{: .challenge}
-
-#### Tenders Electronic Daily - full version
-
-<div class="mermaid">
-classDiagram
-    Seller "many" .. "many" Lot
-    Lot "many" ..> "1" Tender
-    Product "many" .. "many" Lot
-    Buyer "1" <.. "many" Tender
-</div>
-
-Or,
-<a href="https://mermaidjs.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiY2xhc3NEaWFncmFtXG4gICAgTG90IFwibWFueVwiIC4uPiBcIjFcIiBUZW5kZXJcbiAgICBQcm9kdWN0IFwibWFueVwiIC4uIFwibWFueVwiIExvdFxuICAgIE9yZ2FuaXphdGlvbiBcIjFcIiA8Li4gXCJtYW55XCIgVGVuZGVyIDogYnV5ZXJcbiAgICBCaWQgXCJtYW55XCIgLi4-IFwiMVwiIE9yZ2FuaXphdGlvbiA6IHNlbGxlclxuICAgIEJpZCBcIm1hbnlcIiAuLj4gXCIxXCIgTG90IiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifX0">with a link table for the lot-winner relationship</a>,
-<div class="mermaid">
-classDiagram
-    Lot "many" ..> "1" Tender
-    Product "many" .. "many" Lot
-    Organization "1" <.. "many" Tender : buyer
-    Bid "many" ..> "1" Organization : seller
-    Bid "many" ..> "1" Lot
-</div>
-
 {% assign table_data = site.data.sis.roster %}
 {% assign table_caption = "Data from `roster.csv`" %}
 {% include table.html %}
 
 > ## Exercise
 > Draw a block diagram representing the conceptual model of the student roster.
-{: .challenge}
-
-### Physical modeling (optional)
-The following is a document from the _Offene Register_ data about German corporations in [YAML format](https://en.wikipedia.org/wiki/YAML). Don't worry about the specific format now, try to understand what the document says.
-```
-all_attributes: 
-    _registerArt: HRB
-    _registerNummer: 150148
-    additional_data: 
-        AD: true
-        CD: true
-        DK: true
-        HD: false
-        SI: true
-        UT: true
-        "VÖ": false
-    federal_state: Hamburg
-    native_company_number: "Hamburg HRB 150148"
-    registered_office: Hamburg
-    registrar: Hamburg
-company_number: K1101R_HRB150148
-current_status: "currently registered"
-jurisdiction_code: de
-name: "olly UG (haftungsbeschränkt)"
-officers: 
- -  name: "Oliver Keunecke"
-    other_attributes: 
-        city: Hamburg
-        firstname: Oliver
-        flag: "vertretungsberechtigt gemäß allgemeiner Vertretungsregelung"
-        lastname: Keunecke
-    position: "Geschäftsführer"
-    start_date: "2018-02-06"
-    type: person
-registered_address: "Waidmannstraße 1, 22769 Hamburg."
-retrieved_at: "2018-11-09T18:03:03Z"
-```
-{: .source}
-
-You can also [explore the database](https://db.offeneregister.de/openregister-ef9e802).
-
-> ## Challenge
-> Create an SQL schema for the Offene Register data. It should be able to store all the information in the dataset. Write the `CREATE TABLE` statements.
->> ## Solution
->> ```
->> CREATE TABLE company (
->>     registrar: TEXT NOT NULL,
->>     company_number: TEXT NOT NULL PRIMARY KEY,
->>     current_status: TEXT,
->>     name: TEXT,
->>     registered_address: TEXT,
->>     retrieved_at: FLOAT
->> );
->> CREATE TABLE registrar (
->>     registrar_id: TEXT NOT NULL PRIMARY KEY,
->>     federal_state: TEXT,
->>     jurisdiction_code: TEXT,
->> );
->> CREATE TABLE person (
->>     person_id: INTEGER NOT NULL PRIMARY KEY,
->>     name: TEXT,
->>     city: TEXT,
->>     firstname: TEXT,
->>     flag: TEXT,
->>     lastname: TEXT,
->>     type: TEXT
->> );
->> CREATE TABLE officer (
->>     company_number: TEXT NOT NULL,
->>     person_id: INTEGER NOT NULL,
->>     position: TEXT,
->>     start_date: INTEGER,
->>     end_date: INTEGER,
->> );
->> ```
->> {: .source}
-> {: .solution} 
 {: .challenge}
 
 
@@ -367,7 +205,7 @@ You can also [explore the database](https://db.offeneregister.de/openregister-ef
 
 Strictly speaking, `ECBS5148` is not atomic. Also, programs may be further split up into "MS in Business Analytics", "full-time".
 
-> ## Exercise
+> ## Exercise (optional)
 > Look at the [2015 Street Tree Census](https://data.cityofnewyork.us/Environment/2015-Street-Tree-Census-Tree-Data/uvpi-gqnh). Which of the columns violate the first normal form?
 >> ## Solution
 >> `problems` is a list. We can create a separate `problem` table, with a foreign key pointing to the tree with which there are problems. This would be a many-to-one relation.
@@ -430,7 +268,7 @@ In `student-2NF.csv`, "Department" is a function of "Program."
 {% assign table_caption = "Data from `program-3NF.csv`" %}
 {% include table.html %}
 
-> ## Exercise
+> ## Exercise (optional)
 > Look at the [2015 Street Tree Census](https://data.cityofnewyork.us/Environment/2015-Street-Tree-Census-Tree-Data/uvpi-gqnh). After creating tables that satisfy the first normal form, 
 which of the columns violate the third normal form?
 >> ## Solution
@@ -441,86 +279,20 @@ which of the columns violate the third normal form?
 
 
 > ## Challenge
-> Draw the Entity-Relation diagram of the student database in its 3rd normnal form. Include column names, too.
+> Draw the Entity-Relation diagram of the student database in its 3rd normnal form. 
 {: .challenge}
 
-## Working with a normalized database
+
+## The Kimball framework ("star schema")
+
+1. Select the business process.
+2. Declare the grain.
+3. Identify the dimensions.
+4. Identify the facts.
+
 
 > ## Exercise
-> Load `DE.sqlite` in SQLiteBrowser. This is a subset of 2018 Contract Award Notices from Tenders Electronic Daily, where one of the winner is from Germany. Explore `CAE_NAME`, `WIN_NAME`, `ISO_COUNTRY_CODE` and `WIN_COUNTRY_CODE` from the table `messy`. Find tenders won by "Siemens."
->
-> Now explore buyers and sellers directly in their respective tables and in the `buyer_seller` view.
-{: .challenge}
-
-> ## Exercise
-> Load `DE.sqlite` in SQLiteBrowser. This is a subset of 2018 Contract Award Notices from Tenders Electronic Daily, where one of the winner is from Germany. Explore `CAE_NAME`, `WIN_NAME`, `ISO_COUNTRY_CODE` and `WIN_COUNTRY_CODE` from the table `messy`. Find tenders won by "Siemens."
->
-> Now explore buyers and sellers directly in their respective tables and in the `buyer_seller` view.
-{: .challenge}
-
-> ## Exercise
-> Load `DE.sqlite` in sqlite. Write an SQL query that shows the countries from where sellers named "Siemens*" are from. Use the `LIKE 'Siemens%'` function.
+> Take "students get grades" as the business process. What is the grain? What are the dimensions? What are the facts?
 >> ## Solution
->> ```
->> select WIN_COUNTRY_CODE, count(*) as N  
->>    from seller where WIN_NAME like 'Siemens%' 
->>    group by WIN_COUNTRY_CODE 
->>    order by N desc;
->> ```
->> {: .source}
-> {: .solution}
-{: .challenge}
-
-> ## Exercise
-> Load `DE.sqlite` in sqlite. Replace `WIN_COUNTRY_CODE` with DE for all sellers named "Siemens*". Check you results in the `buyer_seller` view.
-{: .challenge}
-
-> ## Challenge
-> Count the number of tenders (lots) for which the buyer and the seller are from the same country. Also count the lots when they are from different countries. Which version of the data do you want to use?
->> ## Solution
->> We can use the `buyer_seller` view directly. This is a denormalized view of buyers and sellers.
->> ```
->> select count(*) from buyer_seller where ISO_COUNTRY_CODE = WIN_COUNTRY_CODE;
->> ```
->> {: .source}
-> {: .solution}
-{: .challenge}
-
-## Denormalization
-[Joins ar very fast](https://www.brianlikespostgres.com/cost-of-a-join.html), so it is sufficient to denormalize late.
-
-We can denormalize our database like
-```
-SELECT * FROM roster 
-    LEFT JOIN course ON roster.course_code = course.course_code 
-    LEFT JOIN student ON student.student_id = roster.student_id;
-```
-{: .source}
-
-> ## Challenge
-> The primary keys of a lot are `ID_AWARD` and `ID_LOT_AWARDED`. Denormalize the buyer and seller tables to show them together.
->> ## Solution
->> ```
->> SELECT L.ID_AWARD, L.ID_LOT_AWARDED, CAE_NAME, ISO_COUNTRY_CODE, WIN_NAME, WIN_COUNTRY_CODE FROM buyer as L 
->>     LEFT JOIN seller as R
->>     ON L.ID_AWARD = R.ID_AWARD AND
->>     L.ID_LOT_AWARDED = R.ID_LOT_AWARDED;
->> ```
->> {: .source}
-> {: .solution}
-{: .challenge}
-
-
-
-> ## Challenge
-> Write the `SQL` statement that denormalizes the Offene Register data.
->> ## Solution
->> ```
->> SELECT * FROM officer 
->>     JOIN company ON officer.company_number = company.company_number
->>     JOIN person ON person.person_id = officer.person_id
->>     JOIN registrar ON registrar.registrar = company.registrar;
->> ```
->> {: .language-sql}
 > {: .solution}
 {: .challenge}
