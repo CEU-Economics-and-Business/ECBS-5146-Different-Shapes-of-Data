@@ -31,7 +31,7 @@ The project artifacts should be stored and handed over in a folder "Term DE2" in
 The main artifact submitted is a 4-6 page report (including figures and data citation), with the following requirements:
 * documents the solution provided
 * documents the the technical choices made
-* documents the data model (EER diagram for RDBMS)
+* documents the data model (ER diagram for RDBMS)
 * documents the analytics and/or visualization
 * indicates which team member did what in the project
 * can be a README in your git folder
