@@ -32,6 +32,10 @@ Please make sure the intallation is valid and the application starts properly!
 If you need further help check the "KNIME Beginner's Luck" book uploaded on Moodle or ask help on Slack!
 
 
+## Prerequisite: Installing Postman 
+
+Install Postman from here: [https://www.postman.com/downloads/](https://www.postman.com/downloads/)
+
 
 ## Prerequisite: Self preparation at home
 * Read "KNIME Beginner's Luck" book uploaded on Moodle from 18 to 54. 
@@ -60,7 +64,8 @@ If you need further help check the "KNIME Beginner's Luck" book uploaded on Mood
 <br/>
 
 >## End-to-end example
-> [Source file 1](https://github.com/CEU-Economics-and-Business/ECBS-5146-Different-Shapes-of-Data/blob/master/artifacts/knime/fips.csv)
+> [Source file](https://github.com/CEU-Economics-and-Business/ECBS-5146-Different-Shapes-of-Data/blob/master/artifacts/knime/fips.csv)
+> [Source API](https://www.ncdc.noaa.gov/cdo-web/webservices/v2)
 >
 > [End result](https://github.com/CEU-Economics-and-Business/ECBS-5146-Different-Shapes-of-Data/blob/master/artifacts/knime/ceu2020-ver2.knwf)
 >
