@@ -62,5 +62,19 @@ Extra points:
 - Using API in the project
 - Anything special not covered during the course but, makes sense in the project context
 
-### Submission 
-Submit one GitHub link to Moodle when you are ready. 
+
+### Submission and deadlines
+
+11th of December 2020 EOD - Every material should be committed to GitHub. Link to GitHub should be provided into the Google Sheet already shared (Term project teams)
+
+12th of December 2020 17:00 - 19:30 - Teams will present their results into a Zoom session. (Use the Zoom link from Moodle)
+* The order of presentation will be by team number
+* Every team will have 7 minutes for presentations, followed by 7 minutes Q&A
+
+
+
+
+
+
+
+
