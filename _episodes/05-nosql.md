@@ -509,11 +509,9 @@ http://de.ceudata.net:8081/solr/flightdelays/select?d=2&facet.field=ORIG_CITY_st
 (https://cloudfront-files-1.publicintegrity.org/offshoreleaks/neo4j/guide/index.html)
 
  <br/>
-#### Exercise interface: [http://ceudsd.net:8080 ](http://ceudsd.net:8080)
+#### Exercise interface: [https://sandbox.neo4j.com/](https://sandbox.neo4j.com/)
 
-To connect you need to tick "do not use Bolt" in the Settings: [Screenshot help](https://github.com/salacika/DE2DSD/blob/main/nosql/neo4j.png?raw=true)
-
-Username/Password will be distributed during class. Ask on Slack if you haven't got one. 
+Register and start a sandbox with "Panama Papers by ICIJ"
 
 <br/><br/>
 
@@ -633,38 +631,4 @@ LIMIT 10
 {: .challenge}
 
 
-<br/>
-#### Node analytics
 
-Return all node labels
-```
-MATCH (n)
-RETURN DISTINCT labels(n) 
-```
-{: .language-cypher}
-
-Same as before, but using "WITH" 
-```
-MATCH (n)
-WITH labels(n) AS type
-RETURN DISTINCT type
-```
-{: .language-cypher}
-
-
-Show the average degree by node type:
-```
-MATCH (n)
-WITH labels(n) AS type, size( (n)--() ) AS degree
-RETURN type, round(avg(degree)) AS avg
-```
-{: .language-cypher}
-
-Calculate the degree and clustering_coefficient of a node:
-```
-MATCH (a:Officer {name: "Portcullis TrustNet (Samoa) Limited"})--(b)
-WITH a, count(DISTINCT b) AS n
-MATCH (a)--()-[r]-()--(a)
-RETURN n as degree, count(DISTINCT r) AS clustering_coefficient
-```
-{: .language-cypher}
