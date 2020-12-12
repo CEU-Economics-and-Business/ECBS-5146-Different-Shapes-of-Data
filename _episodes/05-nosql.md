@@ -70,7 +70,7 @@ Username/Password will be distributed during class. Ask on Slack if you haven't 
 #### Connect to Redis with Python (Use Zeppelin notebook with Python interpreter)
 ```
 import redis
-r = redis.Redis(host='dsd-redis.4phq3b.ng.0001.euw1.cache.amazonaws.com', port=6379)
+r = redis.Redis(host='something', port=something)
 ```
 {: .language-python}
 
@@ -164,7 +164,7 @@ Username/Password will be distributed during class. Ask on Slack if you haven't 
 ```
 import pymongo
 import pprint
-mongo = pymongo.MongoClient("mongodb://xxx:27017")
+mongo = pymongo.MongoClient("mongodb://something:something")
 ```
 {: .language-python}
 
