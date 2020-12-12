@@ -40,8 +40,6 @@ keypoints:
 >
 > [Redis](#redis)
 >
-> [InfluxDB](#influx)
->
 > [MongoDB](#mongo)
 >
 > [Solr](#solr)
@@ -134,130 +132,6 @@ r.mget('one','three')
 
 > ## REDIS Exercise 
 > USING THE DOCUMENTATION, FIND HOW TO DELETE A VALUE BY KEY AND HOW TO CHECK THE EXISTENCE OF A KEY.
-{: .challenge}
-
-
-
-
-<br/><br/><br/>
-<a name="influx"/>
-## InfluxDB
-
-#### Links to help you
-[https://docs.influxdata.com/influxdb/v1.0/query_language/data_exploration/](https://docs.influxdata.com/influxdb/v1.0/query_language/data_exploration/)
-
-[https://docs.influxdata.com/influxdb/v1.0/query_language/math_operators/](https://docs.influxdata.com/influxdb/v1.0/query_language/math_operators/)
-
-[https://docs.influxdata.com/influxdb/v1.0/query_language/functions/](https://docs.influxdata.com/influxdb/v1.0/query_language/functions/)
-
-<br/>
-
-#### Exercise interface: [http://ceudsd.net:8082](http://ceudsd.net:8082)
-
-To connect you need to apply connection Settings: [Screenshot help](https://github.com/salacika/DE2DSD/blob/main/nosql/influx.png?raw=true)
-
-<br/><br/>
-
-#### Schema exploration
-Let’s explore the databases in this Influx DBMS:
-```
-SHOW DATABASES
-```
-{: .language-sql}
-
-Notice “NOAA_water_database” database in the list.  Similar list you get, if you use the top banner database selector. Please select “NOAA_water_database” in this banner.
-
-Now, let’s see the tables in this DB. In Influx tables are called “measurements”.
-
-```
-SHOW MEASUREMENTS
-```
-{: .language-sql}
-
-The columns here are called fields and tags. From your perspective, there is not much difference between them (in reality tags can be accessed faster). These 2 commands are listing the column names for all measurements:
-
-```
-SHOW FIELD KEYS 
-```
-{: .language-sql}
-
-```
-SHOW TAG KEYS 
-```
-{: .language-sql}
-
-#### Data Exploration
-
-Simple SELECT:
-```
-SELECT * FROM h2o_feet
-```
-{: .language-sql}
-
-LIMIT function:
-```
-SELECT * FROM h2o_feet LIMIT 5
-```
-{: .language-sql}
-
-ORDER BY:
-```
-SELECT * FROM h2o_feet ORDER BY time DESC LIMIT 10
-```
-{: .language-sql}
-
-SELECT specified columns:
-```
-SELECT location,water_level FROM h2o_feet LIMIT 10
-```
-{: .language-sql}
-
-Let’s try a where clause:
-```
-SELECT *  FROM h2o_feet WHERE location = 'santa_monica' LIMIT 10
-```
-{: .language-sql}
-
-> ## INFLUX Exercise 1 
-> HOW MANY “DEGREE” MEASUREMENT POINTS WE HAVE IN H2O_TEMPERATURE?
-{: .challenge}
-
-> ## INFLUX Exercise 2 
-> LIST THE DISTINCT LEVEL DESCRIPTORS FOR H2O_FEET?
-{: .challenge}
-
-MEAN as aggregation function:
-
-```
-SELECT MEAN(water_level) FROM h2o_feet GROUP BY location 
-```
-{: .language-sql}
-
-> ## INFLUX Exercise 3 
-> BETWEEN 2015-08-19 AND 2015-08-27 HOW MANY DAILY H2O_FEET MEASUREMENTS WERE DONE IN 'coyote_creek'
-{: .challenge}
-
-#### Advanced Data Exploration
-
-Arithmetic SELECT:
-```
-SELECT (water_level * 2) + 4 from h2o_feet LIMIT 10
-```
-{: .language-sql}
-
-Some statistical functions:
-```
-SELECT SPREAD(water_level) FROM h2o_feet
-SELECT STDDEV(water_level) FROM h2o_feet
-SELECT PERCENTILE(water_level,5) FROM h2o_feet WHERE location = 'coyote_creek'
-```
-{: .language-sql}
-
-The value 1.148 is larger than 5% of the values in water_level where location equals coyote_creek.
-
-
-> ## INFLUX Exercise4 
-> HOW MUCH IS THE AVERAGE H2O TEMPERATURE BY LOCATION ?
 {: .challenge}
 
 
