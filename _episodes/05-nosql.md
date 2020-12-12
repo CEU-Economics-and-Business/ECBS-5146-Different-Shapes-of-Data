@@ -61,7 +61,7 @@ keypoints:
 
 <br>
 
-#### Exercise interface: [http://ceudsd.net](http://ceudsd.net) (Apache Zeppelin)
+#### Exercise interface: [http://de.ceudata.net](http://de.ceudata.net) (Apache Zeppelin)
 
 Username/Password will be distributed during class. Ask on Slack if you haven't got one. 
 
