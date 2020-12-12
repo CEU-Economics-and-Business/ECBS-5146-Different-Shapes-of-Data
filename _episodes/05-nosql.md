@@ -284,7 +284,7 @@ SOLR has different connectors to programming languages. For simple query testing
 
 The simplest query (the result is limited by default to 10):
 ```
-[http://de.ceudata.net:8081/solr/flightdelays/select?q=*:*](http://de.ceudata.net:8081/solr/flightdelays/select?q=*:*)
+http://de.ceudata.net:8081/solr/flightdelays/select?q=*:*
 ```
 {: .output}
 
@@ -303,7 +303,7 @@ List records from the last 10 years where tail number is N520JB:
 
 
 ```
-[http://de.ceudata.net:8081/solr/flightdelays/select?fl=DISTANCE,ORIG_CITY,DEST_CITY&q=TAIL_NUMBER:N838UA AND DATE:[NOW-10YEARS TO *]&sort=DISTANCE desc&rows=5](http://de.ceudata.net:8081/solr/flightdelays/select?fl=DISTANCE,ORIG_CITY,DEST_CITY&q=TAIL_NUMBER:N838UA AND DATE:[NOW-10YEARS TO *]&sort=DISTANCE desc&rows=5)
+http://de.ceudata.net:8081/solr/flightdelays/select?fl=DISTANCE,ORIG_CITY,DEST_CITY&q=TAIL_NUMBER:N838UA AND DATE:[NOW-10YEARS TO *]&sort=DISTANCE desc&rows=5
 ```
 {: .output}
 
@@ -321,7 +321,7 @@ SELECT distance,orig_city,dest_city FROM flightdelays
 #### String search / Fuzzy search
 List records where tail numbers starting with any character, followed by “2”, followed by 2 any character, followed by "jb". Display only tail number in the result set:
 ```
-[http://de.ceudata.net:8081/solr/flightdelays/select?fl=TAIL_NUMBER&q=TAIL_NUMBER:?8???a](http://de.ceudata.net:8081/solr/flightdelays/select?fl=TAIL_NUMBER&q=TAIL_NUMBER:?8???a)
+http://de.ceudata.net:8081/solr/flightdelays/select?fl=TAIL_NUMBER&q=TAIL_NUMBER:?8???a
 ```
 {: .output}
 
@@ -329,7 +329,7 @@ Fuzzy searches is based on the Damerau-Levenshtein Distance or Edit Distance alg
 
 In the next example we list records with destination city close to "columbas" by distance of 2. The distance referred to here is the number of term movements needed to match the specified phrase.
 ```
-[http://de.ceudata.net:8081/solr/flightdelays/select?fl=DEST_CITY&q=DEST_CITY:kolumbas~2](http://de.ceudata.net:8081/solr/flightdelays/select?fl=DEST_CITY&q=DEST_CITY:kolumbas~2)
+http://de.ceudata.net:8081/solr/flightdelays/select?fl=DEST_CITY&q=DEST_CITY:kolumbas~2
 ```
 {: .output}
 
@@ -338,7 +338,7 @@ In the next example we list records with destination city close to "columbas" by
 
 Same as before, but this time return back distinct destination cities as well:
 ```
-[http://de.ceudata.net:8081/solr/flightdelays/select?q=DEST_CITY:Boise~3&facet.field=DEST_CITY_str&facet=on&rows=0](http://de.ceudata.net:8081/solr/flightdelays/select?q=DEST_CITY:Boise~3&facet.field=DEST_CITY_str&facet=on&rows=0)
+http://de.ceudata.net:8081/solr/flightdelays/select?q=DEST_CITY:Boise~3&facet.field=DEST_CITY_str&facet=on&rows=0
 ```
 {: .output}
 
@@ -360,7 +360,7 @@ SELECT dest_city, COUNT(*) FROM flightdelays
 Return back records within a circle defined by center point of 39.85,-104.66 [lat,lon] and diameter of 2 kilometer. Display only ORIG_CITY and ORIG_LOCATION_p in the result set and facests for ORIG_CITY_str.
 
 ```
-[http://de.ceudata.net:8081/solr/flightdelays/select?d=2&facet.field=ORIG_CITY_str&facet=on&fl=ORIG_CITY,ORIG_LOCATION_p,&fq={!geofilt}&pt=39.85,-104.66&q=*:*&sfield=ORIG_LOCATION_p](http://de.ceudata.net:8081/solr/flightdelays/select?d=2&facet.field=ORIG_CITY_str&facet=on&fl=ORIG_CITY,ORIG_LOCATION_p,&fq={!geofilt}&pt=39.85,-104.66&q=*:*&sfield=ORIG_LOCATION_p)
+http://de.ceudata.net:8081/solr/flightdelays/select?d=2&facet.field=ORIG_CITY_str&facet=on&fl=ORIG_CITY,ORIG_LOCATION_p,&fq={!geofilt}&pt=39.85,-104.66&q=*:*&sfield=ORIG_LOCATION_p
 ```
 {: .output}
 
