@@ -1,7 +1,6 @@
 ---
 title: Data warehouse architecture
 teaching: 90
-exercises: 70
 questions:
 - As analyst, you would like to create a dedicated analytical data layer for your analytics. How would you do that?
 objectives:
@@ -10,7 +9,11 @@ objectives:
 - Building an ETL pipeline using MySQL Triggers and Events
 - Building data marts with MySQL View
 keypoints:
-- \#DATA WAREHOUSE ARCHITECTURE  \#VIEWS  \#TRIGGERS  \#ETL  \#DATA MARTS
+- \#DATA WAREHOUSE ARCHITECTURE  
+- \#VIEWS  
+- \#TRIGGERS  
+- \#ETL  
+- \#DATA MARTS
 ---
 
 

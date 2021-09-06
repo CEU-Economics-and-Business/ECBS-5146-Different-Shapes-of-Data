@@ -1,7 +1,6 @@
 ---
 title: Stored Procedures
-teaching: 70
-exercises: 35
+teaching: 90
 questions:
 - As analyst, you are working on DB with corrupted data. Cleaning/fixing it requires extensive business logic. 
 - As analyst, you are running several very similar and heavy(long) queries, which differs from each other only by a few parameters. Maintaining these queries is a nightmare.
@@ -13,7 +12,9 @@ objectives:
 - Understanding the advantages and disadvantages of stored procedures
 - Example with fixing data
 keypoints:
-- \#STORED PROCEDURES \#REUSE CODE \#CLEANING DATA. 
+- \#STORED PROCEDURES 
+- \#REUSE CODE 
+- \#CLEANING DATA
 
 ---
 

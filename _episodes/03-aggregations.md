@@ -1,7 +1,6 @@
 ---
 title: Aggregations
-teaching: 70
-exercises: 35
+teaching: 90
 questions:
 - As analyst, one the most important operation you do, is data aggregation. How SQL supports data aggregation?
 objectives:
@@ -11,7 +10,9 @@ objectives:
 - Introduce the functions related to grouping
 - Present examples and exercise aggregation and grouping
 keypoints:
-- \#CONDITIONAL LOGIC \#AGGREGATING \#GROUPING
+- \#CONDITIONAL LOGIC 
+- \#AGGREGATING 
+- \#GROUPING
 ---
 
 

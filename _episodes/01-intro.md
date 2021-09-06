@@ -1,7 +1,6 @@
 ---
 title: Course intro. First steps in SQL. 
-teaching: 70
-exercises: 35
+teaching: 90
 questions:
 - As analyst, you are asked to perform analytics on data set, stored in a database.
 - As analyst, you got data from various sources (eg. csv, access to an external db or db dump). You would like to setup your own database, loading the data from external sources, so that you can perform analytics on it.
@@ -15,7 +14,11 @@ objectives:
 - Creating and exploring the first MySQL database
 - Understanding how to backup and restore a database
 keypoints:
-- \#INTRO \#LOCAL ENVIRONMENT \#BASIC SQL \#YOUR FIRST DATABASE \#DUMPS
+- \#INTRO 
+- \#LOCAL ENVIRONMENT 
+- \#BASIC SQL 
+- \#YOUR FIRST DATABASE 
+- \#DUMPS
 
 ---
 

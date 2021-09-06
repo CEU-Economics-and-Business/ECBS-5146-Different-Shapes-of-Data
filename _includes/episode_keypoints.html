@@ -3,9 +3,9 @@
 {% endcomment %}
 <blockquote class="keypoints">
   <h2>Keywords</h2>
-  <ul>
+ 
     {% for keypoint in page.keypoints %}
-    <li>{{ keypoint|markdownify }}</li>
+    {{ keypoint|markdownify }}
     {% endfor %}
-  </ul>
+  
 </blockquote>

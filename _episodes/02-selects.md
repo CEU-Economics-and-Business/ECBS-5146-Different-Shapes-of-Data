@@ -1,7 +1,6 @@
 ---
 title: DB administration. Queries. 
-teaching: 70
-exercises: 35
+teaching: 90
 questions:
 - As analyst, you would like to make sure your data stored, can be accessed only by authorized persons.
 - As analyst, you would like to query your database, to obtain data required for your analytics.
@@ -11,7 +10,11 @@ objectives:
 - Understanding datatypes
 - Present examples and exercise querying databases 
 keypoints:
-- \#ALTERING DB \#SECURITY \#DATA TYPES \#LOGICAL OPERATORS \#FILTERING
+- \#ALTERING DB 
+- \#SECURITY 
+- \#DATA TYPES 
+- \#LOGICAL OPERATORS 
+- \#FILTERING
 ---
 
 
