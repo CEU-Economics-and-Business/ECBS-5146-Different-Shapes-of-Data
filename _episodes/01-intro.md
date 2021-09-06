@@ -7,6 +7,7 @@ questions:
 - As analyst, you got data from various sources (eg. csv, access to an external db or db dump). You would like to setup your own database, loading the data from external sources, so that you can perform analytics on it.
 - What do you need to know to perform these tasks?
 objectives:
+- Keywords - INTRO. LOCAL ENVIRONMENT. BASIC SQL. YOUR FIRST DATABASE. DUMPS.
 - Setting the context - evolution of digital persistency 1950-2010
 - Introducing the basic terms, in context of SQL
 - Writing the first SQL
