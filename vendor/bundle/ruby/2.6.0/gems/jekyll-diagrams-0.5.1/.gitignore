@@ -1,0 +1,7 @@
+/.bundle/
+/Gemfile.lock
+/doc/
+/pkg/
+/test/dest/
+/test/fixtures/.jekyll-cache/
+/tmp/

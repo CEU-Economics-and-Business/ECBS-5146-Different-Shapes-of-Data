@@ -104,3 +104,5 @@ plugins:
   - jekyll-redirect-from
   - jekyll-paginate
   - jekyll-diagrams
+
+exclude: [vendor]

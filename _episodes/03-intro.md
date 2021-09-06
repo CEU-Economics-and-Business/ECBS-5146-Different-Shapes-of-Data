@@ -23,7 +23,7 @@ objectives:
 
 
 > ## Table of Content
-> [Lecture PPTX](/ECBS-5146-Different-Shapes-of-Data/artifacts/intro/intro.pptx)
+> [Lecture PPTX](/artifacts/intro/intro.pptx)
 >
 > [SQL in 6 minutes](#sql5)
 >
@@ -89,7 +89,7 @@ ORDER BY o.OrderDate DESC, o.OrderID;
 <a name="firstdb"/>
 
 ## First look on MySQL and MySQL Workbench
-[Screenshot help](/ECBS-5146-Different-Shapes-of-Data/artifacts/intro/connect.png)
+[Screenshot help](/artifacts/intro/connect.png)
 
 
 <br/><br/>
@@ -172,7 +172,7 @@ SHOW VARIABLES LIKE "secure_file_priv";
 {: .language-sql}
 
 
-Copy [birdstrikes_small.csv](/ECBS-5146-Different-Shapes-of-Data/artifacts/intro/birdstrikes_small.csv) in the folder resulted in the previous command. 
+Copy [birdstrikes_small.csv](/artifacts/intro/birdstrikes_small.csv) in the folder resulted in the previous command. 
 
 Then load CSV data into the table with this command:
 ```
@@ -210,7 +210,7 @@ DESCRIBE birdstrikes;
 ```
 {: .language-sql}
 
-![Database diagram](/ECBS-5146-Different-Shapes-of-Data/artifacts/intro/db_model.png)
+![Database diagram](/artifacts/intro/db_model.png)
 
 
 Retriving data stored in birdstrikes
@@ -237,13 +237,14 @@ SELECT airline,cost FROM birdstrikes;
 <a name="dump"/>
 
 ## Dumping a database with MySQL Workbench
-[Screenshot help](/ECBS-5146-Different-Shapes-of-Data/artifacts/intro/dumo.png)
+[Screenshot help](/artifacts/intro/dump.png)
 
 
 <br/><br/><br/>
 <a name="homework"/>
 
 >## Homework 1
+>
 >* Import a relational data set of your choosing into your local instance. 
 >* Requirements:
 >	* find a data set worth to analyze later (prepares you for the term project)
