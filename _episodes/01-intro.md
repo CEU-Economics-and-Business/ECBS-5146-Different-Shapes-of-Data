@@ -90,7 +90,7 @@ ORDER BY o.OrderDate DESC, o.OrderID;
 [Screenshot help](/ECBS-5146-Different-Shapes-of-Data/artifacts/intro/connect.png)
 
 
-<br/><br/><br/>
+<br/><br/>
 <a name="firslook"/>
 ## Your first local MySQL Database 
 
@@ -115,7 +115,7 @@ USE firstdb;
 ```
 {: .language-sql}
 
-<br/>
+<br/><br/>
 #### Deleting a database
 
 Execute twice
@@ -142,7 +142,7 @@ USE firstdb;
 ```
 {: .language-sql}
 
-<br/>
+<br/><br/>
 #### Loading CSV into a table
 
 Let's create a table:
