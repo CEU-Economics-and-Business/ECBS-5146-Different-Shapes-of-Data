@@ -96,6 +96,7 @@ ORDER BY o.OrderDate DESC, o.OrderID
 
 #### Create your first database / schema
 `CREATE SCHEMA firstdb;`
+{: .language-sql}
 
 SQL is not case sensitive:
 
