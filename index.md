@@ -12,7 +12,7 @@ permalink: index.html  # Is the only page that doesn't follow the pattern /:path
 {% endfor %}
 
 > ## Prerequisites
-> Students should have taken Informatics Pre-Session and Data Engineering 1.
+> Students should take ECBS5154 - Mathematics and Informatics Pre-session for Business Analytics
 > 
 {: .prereq}
 
