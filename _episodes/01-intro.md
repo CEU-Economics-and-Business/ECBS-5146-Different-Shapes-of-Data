@@ -25,6 +25,8 @@ objectives:
 > ## Table of Content
 > [Lecture PPTX](/ECBS-5146-Different-Shapes-of-Data/artifacts/intro/intro.pptx)
 >
+> [SQL in 6 minutes](#sql5)
+>
 > [First look on MySQL and MySQL Workbench](#firslook)
 >
 > [Your first local MySQL Database](#firstdb)
@@ -42,7 +44,7 @@ objectives:
 
 <br/><br/>
 <a name="sql5"/>
-## SQL in 5 minutes
+## SQL in 6 minutes
 
 
 
