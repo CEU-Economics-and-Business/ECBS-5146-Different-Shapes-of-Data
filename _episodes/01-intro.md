@@ -45,3 +45,12 @@ Browse to [https://www.w3schools.com/sql/trysql.asp?filename=trysql_op_in)](http
 SELECT * FROM customers;
 ```
 {: .language-sql}
+
+#### Query 2
+```
+SELECT supplierName, COUNT(*) AS 'number of products' FROM suppliers
+INNER JOIN products
+	ON products.SupplierID = suppliers.SupplierID
+GROUP BY suppliers.SupplierID;
+```
+{: .language-sql}
