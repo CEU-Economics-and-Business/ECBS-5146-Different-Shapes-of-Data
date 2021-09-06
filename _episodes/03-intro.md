@@ -45,7 +45,7 @@ objectives:
 <br/><br/>
 <a name="sql5"/>
 
-## SQL in 9 minutes
+## SQL in 10 minutes
 
 
 
@@ -85,3 +85,7 @@ ORDER BY o.OrderDate DESC, o.OrderID;
 {: .language-sql}
 
 
+weiuryeruifhrkfherkgvf
+wefgewrgwregrth
+<br/>
+rewgerg
