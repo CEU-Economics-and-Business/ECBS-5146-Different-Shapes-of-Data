@@ -45,7 +45,7 @@ objectives:
 <br/><br/>
 <a name="sql5"/>
 
-## SQL in 8 minutes
+## SQL in 9 minutes
 
 
 
@@ -84,8 +84,4 @@ ORDER BY o.OrderDate DESC, o.OrderID;
 ```
 {: .language-sql}
 
-<br/><br/><br/>
-<a name="firstdb"/>
-
-## First look on MySQL and MySQL Workbench
 
