@@ -35,7 +35,7 @@ keypoints:
 
 <br/><br/>
 <a name="sql5"/>
-## SQL in 5x1 minutes
+## SQL in 5x2 minutes
 
 
 
@@ -43,8 +43,12 @@ Browse to https://www.w3schools.com/sql/trysql.asp?filename=trysql_op_in
 
 
 #### Query 1
-`SELECT * FROM customers;`
+```
+SELECT * FROM customers;
+```
 {: .language-sql}
+
+<br/>
 
 #### Query 2
 ```
@@ -54,6 +58,8 @@ INNER JOIN products
 GROUP BY suppliers.SupplierID;
 ```
 {: .language-sql}
+
+<br/>
 
 #### Query 3
 ```
@@ -71,6 +77,21 @@ HAVING Basket >= 1000
 ORDER BY o.OrderDate DESC, o.OrderID
 ```
 {: .language-sql}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 {% include mermaid.html %}
 
