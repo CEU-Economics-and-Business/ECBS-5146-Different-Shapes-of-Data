@@ -17,8 +17,3 @@ permalink: index.html  # Is the only page that doesn't follow the pattern /:path
 {: .prereq}
 
 {% include links.md %}
-
-## Contributors
-{% for contributors in site.data.syllabus.contributors %}
-{{ contributors.bio }}
-{% endfor %}
