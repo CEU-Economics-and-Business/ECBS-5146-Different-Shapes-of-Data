@@ -1,14 +1,14 @@
 code: ECBS 5146
 title: "Data Engineering 2: Different Shapes of Data"
 contributors:
-    -   name: Miklós Koren
-        bio: Miklós Koren is professor of economics at CEU, senior research fellow at the Institute of Economics, and research fellow of the Centre for Economic Policy Research. He is the founder of the Business Analytics MSc program and the CEU MicroData research group. His research focuses on how talent and technology jointly determine business success. Professor Koren has more than two decades of experience with data and coding. He is a certified Carpentries Instructor.
-        email: korenm@ceu.edu    
-        office: N13 213 (Budapest)
     -   name: László Salló
         bio: Laszlo Sallo is an IT Manager with Software Engineering background. Over the past 20+ years, he participated in more than 150 international projects. Currently he is serving as Delivery Manager for EPAM Systems, leading a data related project portfolio, combining his skills in Agile Project Management and Data Engineering.  Laszlo holds an M.S. in Business Analytics from Central European University. He is instructor of CEU since 2016. 
         email: "sallol@ceu.edu"     
         office: ""
+    -   name: Miklós Koren
+        bio: Miklós Koren is professor of economics at CEU, senior research fellow at the Institute of Economics, and research fellow of the Centre for Economic Policy Research. He is the founder of the Business Analytics MSc program and the CEU MicroData research group. His research focuses on how talent and technology jointly determine business success. Professor Koren has more than two decades of experience with data and coding. He is a certified Carpentries Instructor.
+        email: korenm@ceu.edu    
+        office: N13 213 (Budapest)
 instructors:
     -   name: László Salló
         bio: Laszlo Sallo is an IT Manager with Software Engineering background. Over the past 20+ years, he participated in more than 150 international projects. Currently he is serving as Delivery Manager for EPAM Systems, leading a data related project portfolio, combining his skills in Agile Project Management and Data Engineering.  Laszlo holds an M.S. in Business Analytics from Central European University. He is instructor of CEU since 2016. 
