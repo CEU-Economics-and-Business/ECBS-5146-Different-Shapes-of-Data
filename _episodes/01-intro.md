@@ -95,28 +95,42 @@ ORDER BY o.OrderDate DESC, o.OrderID
 
 
 #### Create your first database / schema
-`CREATE SCHEMA firstdb;`
+```
+CREATE SCHEMA firstdb;
+```
 {: .language-sql}
 
 SQL is not case sensitive:
 
-`create schema FIRSTDB;`
+```
+create schema FIRSTDB;
+```
+{: .language-sql}
 
 For the next commands, make sure the created db is selected
 
-`USE firstdb;`
+```
+USE firstdb;
+```
+{: .language-sql}
 
 #### Deleting a database
 
 Execute twice
 
-`DROP SCHEMA firstdb;`
+```
+DROP SCHEMA firstdb;
+```
+{: .language-sql}
 
 `Note` second time you will get and error because the db is already deleted with the first one. 
 
 Try this instead
 
-`DROP SCHEMA IF EXISTS firstdb;`
+```
+DROP SCHEMA IF EXISTS firstdb;
+```
+{: .language-sql}
 
 Lets recreate the db again
 
@@ -124,6 +138,7 @@ Lets recreate the db again
 CREATE SCHEMA firstdb;
 USE firstdb;
 ```
+{: .language-sql}
 
 #### Loading CSV into a table
 
@@ -142,11 +157,13 @@ bird_size VARCHAR(16),
 cost INTEGER NOT NULL,
 speed INTEGER,PRIMARY KEY(id));
 ```
+{: .language-sql}
 
 This table is empty, we need to fill in with data. This time we will load a csv file into the table. For security reason, CSV loading is limited, so you need to copy the CSV file in a place indicated by this command:
 ```
 SHOW VARIABLES LIKE "secure_file_priv";
 ```
+{: .language-sql}
 
 Copy https://github.com/salacika/DE1SQL/blob/master/SQL1/birdstrikes_small.csv in the folder resulted in the previous command. 
 
@@ -162,6 +179,7 @@ SET
 reported_date = nullif(@v_reported_date, ''),
 speed = nullif(@v_speed, '');
 ```
+{: .language-sql}
 
 
 <br/><br/><br/>
@@ -171,24 +189,39 @@ speed = nullif(@v_speed, '');
 
 List the table(s) of your database
 
-`SHOW TABLES;`
+```
+SHOW TABLES;
+```
+{: .language-sql}
 
 List the structure of a table
 
-`DESCRIBE birdstrikes;`
+```
+DESCRIBE birdstrikes;
+```
+{: .language-sql}
 
 ![Database diagram](/SQL1/db_model.png)
 
 
 Retriving data stored in birdstrikes
 
-`SELECT * FROM birdstrikes;`
+```
+SELECT * FROM birdstrikes;
+```
+{: .language-sql}
 
 Select certain field(s)
 
-`SELECT cost FROM birdstrikes;`
+```
+SELECT cost FROM birdstrikes;
+```
+{: .language-sql}
 
-`SELECT airline,cost FROM birdstrikes;`
+```
+SELECT airline,cost FROM birdstrikes;
+```
+{: .language-sql}
 
 
 <br/><br/><br/>
