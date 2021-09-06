@@ -6,9 +6,14 @@ permalink: index.html  # Is the only page that doesn't follow the pattern /:path
 
 {% include gh_variables.html %}
 
-## Instructors
+## Instructor
 {% for instructor in site.data.syllabus.instructors %}
-{{ instructor.bio }}
+{{ instructor.email }}
+{% endfor %}
+
+## Contributors
+{% for contributors in site.data.syllabus.contributors %}
+{{ contributors.bio }}
 {% endfor %}
 
 > ## Prerequisites
@@ -18,7 +23,3 @@ permalink: index.html  # Is the only page that doesn't follow the pattern /:path
 
 {% include links.md %}
 
-## Contributors
-{% for contributors in site.data.syllabus.contributors %}
-{{ contributors.bio }}
-{% endfor %}
