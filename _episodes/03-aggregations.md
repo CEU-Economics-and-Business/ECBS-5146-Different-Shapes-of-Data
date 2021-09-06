@@ -26,6 +26,14 @@ keypoints:
 {: .discussion}
   
 
+<br/><br/><br/>
+<a name="db"/>
+## Chapter's database
+
+No need to load new data, in this chapter we will use only the birdstrikes table loaded in the last chapter:
+
+
+![Database diagram]({{ page.root }}/artifacts/intro/db_model.png)
 
 
 <br/><br/><br/>

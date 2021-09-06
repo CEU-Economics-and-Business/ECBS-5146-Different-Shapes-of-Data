@@ -28,11 +28,11 @@ keypoints:
 <a name="setup"/>
 ## Session setup
 
-Install [sample database](/SQL5/sampledatabase_create.sql?raw=true) script. Credit: https://www.mysqltutorial.org/mysql-sample-database.aspx
+Install [sample database]({{ page.root }}/artifacts/joins/sampledatabase_create.sql) script. Credit: https://www.mysqltutorial.org/mysql-sample-database.aspx
 
 <br/><br/>
 #### Database diagram
-![Database diagram](/SQL5/sampledatabase_diagram.png)
+![Database diagram]({{ page.root }}/artifacts/joins/sampledatabase_diagram.png)
 
 <br/><br/><br/>
 <a name="inner"/>
