@@ -1,5 +1,5 @@
 ---
-title: Course intro
+title: Course intro. First steps in SQL. 
 teaching: 70
 exercises: 35
 questions:
