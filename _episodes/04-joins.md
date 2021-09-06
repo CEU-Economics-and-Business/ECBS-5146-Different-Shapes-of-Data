@@ -10,12 +10,9 @@ objectives:
 - Introducing a larger relational database
 - Understanding the difference between different joins
 - Present examples and exercise joins
+keypoints:
+- \#RELATIONAL DATASETS \#JOINS
 ---
-
-
-> ## Keywords
-> RELATIONAL DATASETS. JOINS.
-{: .discussion}
 
 
 > ## Table of Content

@@ -10,12 +10,10 @@ objectives:
 - Introduction to database security
 - Understanding datatypes
 - Present examples and exercise querying databases 
+keypoints:
+- \#ALTERING DB \#SECURITY \#DATA TYPES \#LOGICAL OPERATORS \#FILTERING
 ---
 
-
-> ## Keywords
-> ALTERING DB. SECURITY. DATA TYPES. LOGICAL OPERATORS. FILTERING.
-{: .discussion}
 
 
 > ## Table of Content

@@ -10,12 +10,10 @@ objectives:
 - Introduce the most used aggregation functions
 - Introduce the functions related to grouping
 - Present examples and exercise aggregation and grouping
+keypoints:
+- \#CONDITIONAL LOGIC \#AGGREGATING \#GROUPING
 ---
 
-
-> ## Keywords
-> CONDITIONAL LOGIC. AGGREGATING. GROUPING.
-{: .discussion}
 
 
 > ## Table of Content

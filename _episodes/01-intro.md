@@ -14,12 +14,10 @@ objectives:
 - Understanding how to work in Workbench
 - Creating and exploring the first MySQL database
 - Understanding how to backup and restore a database
+keypoints:
+- \#INTRO \#LOCAL ENVIRONMENT \#BASIC SQL \#YOUR FIRST DATABASE \#DUMPS
+
 ---
-
-
-> ## Keywords
-> INTRO. LOCAL ENVIRONMENT. BASIC SQL. YOUR FIRST DATABASE. DUMPS.
-{: .discussion}
 
 
 > ## Table of Content
@@ -45,7 +43,7 @@ objectives:
 <br/><br/>
 <a name="sql5"/>
 
-## SQL in 11 minutes
+## SQL in 6 minutes
 
 
 
