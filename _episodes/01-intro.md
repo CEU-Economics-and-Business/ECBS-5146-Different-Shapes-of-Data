@@ -25,6 +25,27 @@ keypoints:
 
 ---
 
+> ## Table of Content
+> [Lecture](/ECBS-5146-Different-Shapes-of-Data/blob/master/artifacts/intro/intro.pptx)
+>
+> [Redis](#redis)
+>
+> [MongoDB](#mongo)
+>
+> [Solr](#solr)
+>
+> [Neo4j](#neo4j)
+{: .discussion}
+  
+
+
+https://github.com/CEU-Economics-and-Business/ECBS-5146-Different-Shapes-of-Data/blob/master/artifacts/intro/intro.pptx
+
+<br/><br/>
+<a name="redis"/>
+## Redis
+
+
 {% include mermaid.html %}
 
 > ## Reading (recommended)
