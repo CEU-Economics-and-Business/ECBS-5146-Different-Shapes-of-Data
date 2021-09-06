@@ -8,7 +8,7 @@ permalink: index.html  # Is the only page that doesn't follow the pattern /:path
 
 ## Instructor
 {% for instructor in site.data.syllabus.instructors %}
-{{ instructor.email }}
+{{ instructor.name }} - {{ instructor.email }}
 {% endfor %}
 
 ## Contributors
