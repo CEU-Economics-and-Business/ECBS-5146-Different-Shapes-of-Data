@@ -6,9 +6,6 @@ questions:
 - As analyst, you are asked to perform analytics on data set, stored in a database.
 - As analyst, you got data from various sources (eg. csv, access to an external db or db dump). You would like to setup your own database, loading the data from external sources, so that you can perform analytics on it.
 - What do you need to know to perform these tasks?
-
-
-
 objectives:
 - Setting the context - evolution of digital persistency 1950-2010
 - Introducing the basic terms, in context of SQL
@@ -17,16 +14,13 @@ objectives:
 - Understanding how to work in Workbench
 - Creating and exploring the first MySQL database
 - Understanding how to backup and restore a database
-
 keypoints:
 - INTRO. LOCAL ENVIRONMENT. BASIC SQL. YOUR FIRST DATABASE. DUMPS.
-
-
-
+- Bla
 ---
 
 > ## Table of Content
-> [Lecture](/ECBS-5146-Different-Shapes-of-Data/blob/master/artifacts/intro/intro.pptx)
+> [Lecture](/ECBS-5146-Different-Shapes-of-Data/artifacts/intro/intro.pptx)
 >
 > [Redis](#redis)
 >
