@@ -7,8 +7,7 @@ questions:
 - As analyst, you got data from various sources (eg. csv, access to an external db or db dump). You would like to setup your own database, loading the data from external sources, so that you can perform analytics on it.
 - What do you need to know to perform these tasks?
 
-keypoints:
-- INTRO. LOCAL ENVIRONMENT. BASIC SQL. YOUR FIRST DATABASE. DUMPS.
+
 
 objectives:
 - Setting the context - evolution of digital persistency 1950-2010
@@ -18,6 +17,9 @@ objectives:
 - Understanding how to work in Workbench
 - Creating and exploring the first MySQL database
 - Understanding how to backup and restore a database
+
+keypoints:
+- INTRO. LOCAL ENVIRONMENT. BASIC SQL. YOUR FIRST DATABASE. DUMPS.
 
 
 
