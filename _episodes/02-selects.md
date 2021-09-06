@@ -39,7 +39,7 @@ keypoints:
 No need to load new data, in this chapter we will use only the birdstrikes table loaded in the last chapter:
 
 
-![Database diagram](/artifacts/intro/db_model.png)
+![Database diagram]({{ page.root }}/artifacts/intro/db_model.png)
 
 <br/><br/><br/>
 <a name="altering"/>
