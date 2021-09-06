@@ -218,6 +218,6 @@ LEFT JOIN orderDetails d
 >    - city
 >    - country
 >    - orderDate
->* Upload the solution on GitHub in folder called HW4 
->* Submit GitHub link to moodle when you are ready
+> * Upload your solution to your GitHub repo in a folder called HW4
+> * Submit GitHub repo link to moodle when you are ready
 {: .challenge} 

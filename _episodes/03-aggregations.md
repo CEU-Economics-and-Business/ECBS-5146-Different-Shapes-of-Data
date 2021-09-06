@@ -214,10 +214,10 @@ SELECT AVG(speed) AS avg_speed,state FROM birdstrikes GROUP BY state HAVING ROUN
 <br/><br/>
 <a name="homework"/>
 >## Homework 3
->* Upload the solution of exercise 1 to 6 on GitHub in folder called HW3 
->* Submit GitHub link to moodle when you are ready
+>* Upload the solution of exercise 1-6 to your GitHub repo in a folder called HW3
 >* Make sure to submit both the SQL statements and answers to the questions
 >* The required data format for submission is a .sql file
+>* Submit GitHub repo link to moodle when you are ready
 {: .challenge} 
 
 

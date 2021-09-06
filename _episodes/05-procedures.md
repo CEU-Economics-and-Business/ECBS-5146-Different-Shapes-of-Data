@@ -31,15 +31,14 @@ keypoints:
 {: .discussion}
   
 
-<br/><br/><br/>
+<br/><br/>
 <a name="setup"/>
 ## Session setup
 
-Install [sample database](/SQL5/sampledatabase_create.sql?raw=true) script. Credit: https://www.mysqltutorial.org/mysql-sample-database.aspx
+No need to load new data, in this chapter we will use the same sample db we used in the last chapter:
 
-<br/><br/>
-#### Database diagram
-![Database diagram](/SQL5/sampledatabase_diagram.png)
+![Database diagram]({{ page.root }}/artifacts/joins/sampledatabase_diagram.png)
+
 
 <br/><br/>
 <a name="basic"/>
@@ -422,6 +421,6 @@ SELECT * FROM fixed_customers where country = 'USA';
 
 >## Homework 5
 >* Continue the last script: complete the US local phones to international using the city code. Hint: for this you need to find a data source with domestic prefixes mapped to cities, import as a table to the database and add new business logic to the procedure.
->* Upload the solution on GitHub in folder called HW5 
->* Submit GitHub link to moodle when you are ready
+>* Upload the solution to your GitHub repo in a folder called HW5
+>* Submit GitHub repo link to moodle when you are ready
 {: .challenge} 
