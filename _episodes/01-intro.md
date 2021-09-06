@@ -46,7 +46,7 @@ objectives:
 
 
 
-Browse to [https://www.w3schools.com/sql/trysql.asp?filename=trysql_op_in)](https://www.w3schools.com/sql/trysql.asp?filename=trysql_op_in)
+Browse to [https://www.w3schools.com/sql/trysql.asp?filename=trysql_op_in](https://www.w3schools.com/sql/trysql.asp?filename=trysql_op_in)
 
 
 #### Query 1
@@ -77,7 +77,7 @@ FROM Orders AS o
 GROUP BY o.OrderID,
          o.ShipperID
 HAVING Basket >= 1000
-ORDER BY o.OrderDate DESC, o.OrderID
+ORDER BY o.OrderDate DESC, o.OrderID;
 ```
 {: .language-sql}
 
@@ -87,7 +87,8 @@ ORDER BY o.OrderDate DESC, o.OrderID
 <br/><br/><br/>
 <a name="firstdb"/>
 ## First look on MySQL and MySQL Workbench
-[Screenshot help](https://github.com/salacika/DE1SQL/blob/master/SQL1/connect.png?raw=true)
+[Screenshot help](/ECBS-5146-Different-Shapes-of-Data/artifacts/intro/connect.png)
+
 
 <br/><br/><br/>
 <a name="firslook"/>
@@ -114,6 +115,7 @@ USE firstdb;
 ```
 {: .language-sql}
 
+<br/>
 #### Deleting a database
 
 Execute twice
@@ -140,6 +142,7 @@ USE firstdb;
 ```
 {: .language-sql}
 
+<br/>
 #### Loading CSV into a table
 
 Let's create a table:
@@ -165,7 +168,8 @@ SHOW VARIABLES LIKE "secure_file_priv";
 ```
 {: .language-sql}
 
-Copy https://github.com/salacika/DE1SQL/blob/master/SQL1/birdstrikes_small.csv in the folder resulted in the previous command. 
+
+Copy [birdstrikes_small.csv](/ECBS-5146-Different-Shapes-of-Data/artifacts/intro/birdstrikes_small.csv) in the folder resulted in the previous command. 
 
 Then load CSV data into the table with this command:
 ```
@@ -201,7 +205,7 @@ DESCRIBE birdstrikes;
 ```
 {: .language-sql}
 
-![Database diagram](/SQL1/db_model.png)
+![Database diagram](/ECBS-5146-Different-Shapes-of-Data/artifacts/intro/db_model.png)
 
 
 Retriving data stored in birdstrikes
