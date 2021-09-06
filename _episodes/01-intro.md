@@ -35,14 +35,16 @@ keypoints:
 
 <br/><br/>
 <a name="sql5"/>
-## SQL in 5x minutes
+## SQL in 5x1 minutes
 
-{: .output}
+
 
 Browse to https://www.w3schools.com/sql/trysql.asp?filename=trysql_op_in
 
+
 #### Query 1
 `SELECT * FROM customers;`
+{: .language-sql}
 
 #### Query 2
 ```
@@ -51,6 +53,7 @@ INNER JOIN products
 	ON products.SupplierID = suppliers.SupplierID
 GROUP BY suppliers.SupplierID;
 ```
+{: .language-sql}
 
 #### Query 3
 ```
