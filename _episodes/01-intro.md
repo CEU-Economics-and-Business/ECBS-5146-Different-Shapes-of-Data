@@ -42,7 +42,7 @@ objectives:
 
 <br/><br/>
 <a name="sql5"/>
-## SQL in 5x5 minutes
+## SQL in 5 minutes
 
 
 
