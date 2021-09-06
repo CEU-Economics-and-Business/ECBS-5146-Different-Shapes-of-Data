@@ -44,6 +44,7 @@ objectives:
 
 <br/><br/>
 <a name="sql5"/>
+
 ## SQL in 6 minutes
 
 
