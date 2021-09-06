@@ -24,7 +24,7 @@ keypoints:
 
 
 > ## Table of Content
-> [Lecture PPTX](/artifacts/intro/intro.pptx)
+> [Lecture PPTX]({{ page.root }}/artifacts/intro/intro.pptx)
 >
 > [SQL in 6 minutes](#sql5)
 >
@@ -90,7 +90,7 @@ ORDER BY o.OrderDate DESC, o.OrderID;
 <a name="firstdb"/>
 
 ## First look on MySQL and MySQL Workbench
-[Screenshot help](/artifacts/intro/connect.png)
+[Screenshot help]({{ page.root }}/artifacts/intro/connect.png)
 
 
 <br/><br/>
@@ -173,7 +173,7 @@ SHOW VARIABLES LIKE "secure_file_priv";
 {: .language-sql}
 
 
-Copy [birdstrikes_small.csv](/artifacts/intro/birdstrikes_small.csv) in the folder resulted in the previous command. 
+Copy [birdstrikes_small.csv]({{ page.root }}/artifacts/intro/birdstrikes_small.csv) in the folder resulted in the previous command. 
 
 Then load CSV data into the table with this command:
 ```
@@ -211,7 +211,7 @@ DESCRIBE birdstrikes;
 ```
 {: .language-sql}
 
-![Database diagram](/artifacts/intro/db_model.png)
+![Database diagram]({{ page.root }}/artifacts/intro/db_model.png)
 
 
 Retriving data stored in birdstrikes
@@ -237,7 +237,7 @@ SELECT airline,cost FROM birdstrikes;
 <br/><br/><br/>
 <a name="dump"/>
 
-## Dumping a database with MySQL Workbenchx
+## Dumping a database with MySQL Workbench
 [Screenshot help]({{ page.root }}/artifacts/intro/dump.png)
 
 
