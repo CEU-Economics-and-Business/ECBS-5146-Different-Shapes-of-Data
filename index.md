@@ -11,6 +11,11 @@ permalink: index.html  # Is the only page that doesn't follow the pattern /:path
 {{ instructor.bio }}
 {% endfor %}
 
+## Contributors
+{% for contributors in site.data.syllabus.contributors %}
+{{ contributors.bio }}
+{% endfor %}
+
 > ## Prerequisites
 > Students should take ECBS5154 - Mathematics and Informatics Pre-session for Business Analytics
 > 
@@ -18,7 +23,3 @@ permalink: index.html  # Is the only page that doesn't follow the pattern /:path
 
 {% include links.md %}
 
-## Contributors
-{% for contributors in site.data.syllabus.contributors %}
-{{ contributors.bio }}
-{% endfor %}
