@@ -15,9 +15,6 @@ objectives:
 - Understanding how to work in Workbench
 - Creating and exploring the first MySQL database
 - Understanding how to backup and restore a database
-keypoints:
-- sqdew
-- Bla
 ---
 
 > ## Table of Content
