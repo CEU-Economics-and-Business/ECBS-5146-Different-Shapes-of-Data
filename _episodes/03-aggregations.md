@@ -203,10 +203,8 @@ SELECT AVG(speed) AS avg_speed,state FROM birdstrikes GROUP BY state HAVING ROUN
 > What the highest AVG speed of the states with names less than 5 characters?
 {: .challenge} 
 
+
 <br/><br/>
-
-
-<br/><br/><br/>
 <a name="homework"/>
 >## Homework 3
 >* Upload the solution of exercise 1 to 6 on GitHub in folder called HW3 

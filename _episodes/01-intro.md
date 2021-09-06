@@ -237,10 +237,10 @@ SELECT airline,cost FROM birdstrikes;
 <a name="dump"/>
 
 ## Dumping a database with MySQL Workbench
-[Screenshot help](artifacts/intro/dump.png)
+[Screenshot help](../artifacts/intro/dump.png)
 
 
-<br/><br/><br/>
+<br/><br/>
 <a name="homework"/>
 
 >## Homework 1

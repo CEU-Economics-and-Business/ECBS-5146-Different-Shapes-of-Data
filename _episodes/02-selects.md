@@ -484,7 +484,7 @@ SELECT * FROM birdstrikes where flight_date BETWEEN "2000-01-01" AND "2000-01-03
 {: .challenge} 
 
 
-<br/><br/><br/>
+<br/><br/>
 <a name="homework"/>
 > ## Homework 2
 > * Upload the solution of exercise 1-5 to your GitHub repo in a folder called HW2
