@@ -84,5 +84,10 @@ ORDER BY o.OrderDate DESC, o.OrderID;
 ```
 {: .language-sql}
 
+<br/><br/><br/>
+<a name="firstdb"/>
+
+## First look on MySQL and MySQL Workbench
+[Screenshot help](/ECBS-5146-Different-Shapes-of-Data/artifacts/intro/connect.png)
 
 Alma
