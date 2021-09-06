@@ -37,6 +37,8 @@ keypoints:
 <a name="sql5"/>
 ## SQL in 5 minutes
 
+{: .output}
+
 Browse to https://www.w3schools.com/sql/trysql.asp?filename=trysql_op_in
 
 #### Query 1
@@ -65,7 +67,7 @@ GROUP BY o.OrderID,
 HAVING Basket >= 1000
 ORDER BY o.OrderDate DESC, o.OrderID
 ```
-
+{: .language-sql}
 
 {% include mermaid.html %}
 
