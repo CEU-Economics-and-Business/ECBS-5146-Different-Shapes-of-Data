@@ -18,7 +18,7 @@ objectives:
 ---
 
 > ## Table of Content
-> [Lecture](/ECBS-5146-Different-Shapes-of-Data/artifacts/intro/intro.pptx)
+> [Lecture PPTX](/ECBS-5146-Different-Shapes-of-Data/artifacts/intro/intro.pptx)
 >
 > [SQL in 5 Minutes](#sql5)
 >
@@ -37,7 +37,7 @@ objectives:
 
 
 
-Browse to https://www.w3schools.com/sql/trysql.asp?filename=trysql_op_in
+Browse to [https://www.w3schools.com/sql/trysql.asp?filename=trysql_op_in)](https://www.w3schools.com/sql/trysql.asp?filename=trysql_op_in)
 
 
 #### Query 1
