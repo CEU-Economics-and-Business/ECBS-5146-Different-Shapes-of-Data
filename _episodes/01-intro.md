@@ -88,6 +88,7 @@ ORDER BY o.OrderDate DESC, o.OrderID;
 
 <br/><br/><br/>
 <a name="firstdb"/>
+
 ## First look on MySQL and MySQL Workbench
 [Screenshot help](/ECBS-5146-Different-Shapes-of-Data/artifacts/intro/connect.png)
 
@@ -189,6 +190,7 @@ speed = nullif(@v_speed, '');
 
 
 <br/><br/><br/>
+
 <a name="explore"/>
 ## Exploring your first database
 
@@ -232,6 +234,7 @@ SELECT airline,cost FROM birdstrikes;
 
 <br/><br/><br/>
 <a name="dump"/>
+
 ## Dumping a database with MySQL Workbench
 [Screenshot help](/ECBS-5146-Different-Shapes-of-Data/artifacts/intro/dumo.png)
 
