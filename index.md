@@ -6,7 +6,7 @@ permalink: index.html  # Is the only page that doesn't follow the pattern /:path
 
 {% include gh_variables.html %}
 
-## Instructors
+## Instructor
 {% for instructor in site.data.syllabus.instructors %}
 {{ instructor.bio }}
 {% endfor %}
