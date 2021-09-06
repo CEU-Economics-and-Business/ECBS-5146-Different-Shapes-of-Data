@@ -85,13 +85,174 @@ ORDER BY o.OrderDate DESC, o.OrderID;
 {: .language-sql}
 
 
-weiuryeruifhrkfherkgvf
-wefgewrgwregrth
-<br/>
-rewgerg
-
 <br/><br/><br/>
 <a name="firstdb"/>
 
 ## First look on MySQL and MySQL Workbench
 [Screenshot help](/ECBS-5146-Different-Shapes-of-Data/artifacts/intro/connect.png)
+
+
+<br/><br/>
+<a name="firslook"/>
+
+## Your first local MySQL Database 
+
+
+#### Create your first database / schema
+```
+CREATE SCHEMA firstdb;
+```
+{: .language-sql}
+
+SQL is not case sensitive:
+
+```
+create schema FIRSTDB;
+```
+{: .language-sql}
+
+For the next commands, make sure the created db is selected
+
+```
+USE firstdb;
+```
+{: .language-sql}
+
+<br/><br/>
+#### Deleting a database
+
+Execute twice
+
+```
+DROP SCHEMA firstdb;
+```
+{: .language-sql}
+
+`Note` second time you will get and error because the db is already deleted with the first one. 
+
+Try this instead
+
+```
+DROP SCHEMA IF EXISTS firstdb;
+```
+{: .language-sql}
+
+Lets recreate the db again
+
+```
+CREATE SCHEMA firstdb;
+USE firstdb;
+```
+{: .language-sql}
+
+<br/><br/>
+#### Loading CSV into a table
+
+Let's create a table:
+```
+CREATE TABLE birdstrikes 
+(id INTEGER NOT NULL,
+aircraft VARCHAR(32),
+flight_date DATE NOT NULL,
+damage VARCHAR(16) NOT NULL,
+airline VARCHAR(255) NOT NULL,
+state VARCHAR(255),
+phase_of_flight VARCHAR(32),
+reported_date DATE,
+bird_size VARCHAR(16),
+cost INTEGER NOT NULL,
+speed INTEGER,PRIMARY KEY(id));
+```
+{: .language-sql}
+
+This table is empty, we need to fill in with data. This time we will load a csv file into the table. For security reason, CSV loading is limited, so you need to copy the CSV file in a place indicated by this command:
+```
+SHOW VARIABLES LIKE "secure_file_priv";
+```
+{: .language-sql}
+
+
+Copy [birdstrikes_small.csv](/ECBS-5146-Different-Shapes-of-Data/artifacts/intro/birdstrikes_small.csv) in the folder resulted in the previous command. 
+
+Then load CSV data into the table with this command:
+```
+LOAD DATA INFILE 'c:/ProgramData/MySQL/MySQL Server 8.0/Uploads/birdstrikes_small.csv' 
+INTO TABLE birdstrikes 
+FIELDS TERMINATED BY ';' 
+LINES TERMINATED BY '\r\n' 
+IGNORE 1 LINES 
+(id, aircraft, flight_date, damage, airline, state, phase_of_flight, @v_reported_date, bird_size, cost, @v_speed)
+SET
+reported_date = nullif(@v_reported_date, ''),
+speed = nullif(@v_speed, '');
+```
+{: .language-sql}
+
+
+<br/><br/><br/>
+
+<a name="explore"/>
+
+## Exploring your first database
+
+
+List the table(s) of your database
+
+```
+SHOW TABLES;
+```
+{: .language-sql}
+
+List the structure of a table
+
+```
+DESCRIBE birdstrikes;
+```
+{: .language-sql}
+
+![Database diagram](/ECBS-5146-Different-Shapes-of-Data/artifacts/intro/db_model.png)
+
+
+Retriving data stored in birdstrikes
+
+```
+SELECT * FROM birdstrikes;
+```
+{: .language-sql}
+
+Select certain field(s)
+
+```
+SELECT cost FROM birdstrikes;
+```
+{: .language-sql}
+
+```
+SELECT airline,cost FROM birdstrikes;
+```
+{: .language-sql}
+
+
+<br/><br/><br/>
+<a name="dump"/>
+
+## Dumping a database with MySQL Workbench
+[Screenshot help](/ECBS-5146-Different-Shapes-of-Data/artifacts/intro/dumo.png)
+
+
+<br/><br/><br/>
+<a name="homework"/>
+
+>## Homework 1
+>* Import a relational data set of your choosing into your local instance. 
+>
+>* Requirements:
+>	* find a data set worth to analyze later (prepares you for the term project)
+>	* no restriction on the type of data source, can be excel, csv, another db, sql file etc
+>	* pay attention on the relational nature of the set, advised to find a structure of 3+ interlinked table 
+>	* do not use this: https://www.mysqltutorial.org/mysql-sample-database.aspx (because we will use it later in the course)
+>	* hint: you can find various open datasets on the internet, like here: https://data.worldbank.org/
+>
+>* Create a public GitHub repo. Save your artifacts (possible sources like csv, sql file ) in a folder called HW1.
+>* Submit GitHub link to moodle when you are ready
+{: .challenge} 
