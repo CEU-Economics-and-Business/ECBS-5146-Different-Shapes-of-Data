@@ -252,6 +252,7 @@ SELECT airline,cost FROM birdstrikes;
 >	* pay attention on the relational nature of the set, advised to find a structure of 3+ interlinked table 
 >	* do not use this: https://www.mysqltutorial.org/mysql-sample-database.aspx (because we will use it later in the course)
 >	* hint: you can find various open datasets on the internet, like here: https://data.worldbank.org/
->* Create a public GitHub repo. Save your artifacts (possible sources like csv, sql file ) in a folder called HW1.
->* Submit GitHub link to moodle when you are ready
+>* Create a public GitHub repo. This repo will be used for all homeworks and term project in this course. 
+>* Save your artifacts (possible sources like csv, sql file ) in a folder called HW1. 
+>* Submit GitHub repo link to moodle when you are ready
 {: .challenge} 
