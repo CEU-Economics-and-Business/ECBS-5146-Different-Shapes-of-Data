@@ -1,0 +1,18 @@
+language: ruby
+cache: bundler
+rvm:
+  - 2.4
+  - 2.5
+  - 2.6
+
+addons:
+  apt:
+    packages:
+      - graphviz
+      - python3
+      - python3-pip
+      - python3-setuptools
+
+before_install:
+  - sudo pip3 install blockdiag seqdiag actdiag nwdiag
+  - gem update --system && gem install bundler

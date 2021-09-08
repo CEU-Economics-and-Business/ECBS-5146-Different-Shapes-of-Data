@@ -6,14 +6,20 @@ permalink: index.html  # Is the only page that doesn't follow the pattern /:path
 
 {% include gh_variables.html %}
 
-## Instructors
+## Instructor
 {% for instructor in site.data.syllabus.instructors %}
-{{ instructor.bio }}
+{{ instructor.name }} ({{ instructor.email }})
+{% endfor %}
+
+## Contributors
+{% for contributors in site.data.syllabus.contributors %}
+{{ contributors.bio }}
 {% endfor %}
 
 > ## Prerequisites
-> Students should have taken Informatics Pre-Session and Data Engineering 1.
+> Students should take ECBS5154 - Mathematics and Informatics Pre-session for Business Analytics
 > 
 {: .prereq}
 
 {% include links.md %}
+
