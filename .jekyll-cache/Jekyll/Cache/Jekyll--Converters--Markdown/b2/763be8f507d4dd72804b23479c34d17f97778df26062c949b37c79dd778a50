@@ -1,0 +1,192 @@
+I"ê;<blockquote class="discussion">
+  <h2 id="table-of-content">Table of Content</h2>
+  <p><a href="../artifacts/intro/intro.pptx">Lecture PPTX</a></p>
+
+  <p><a href="#sql5">SQL in 6 minutes</a></p>
+
+  <p><a href="#firslook">First look on MySQL and MySQL Workbench</a></p>
+
+  <p><a href="#firstdb">Your first local MySQL Database</a></p>
+
+  <p><a href="#explore">Exploring your first database</a></p>
+
+  <p><a href="#dump">Dumping and restoring a database with MySQL Workbench</a></p>
+
+  <p><a href="#homework">Homework</a></p>
+</blockquote>
+
+<p><br /><br />
+<a name="sql5"></a></p>
+
+<h2 id="sql-in-6-minutes">SQL in 6 minutes</h2>
+
+<p>Browse to <a href="https://www.w3schools.com/sql/trysql.asp?filename=trysql_op_in">https://www.w3schools.com/sql/trysql.asp?filename=trysql_op_in</a></p>
+
+<h4 id="query-1">Query 1</h4>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">customers</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h4 id="query-2">Query 2</h4>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">supplierName</span><span class="p">,</span> <span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="k">AS</span> <span class="s1">'number of products'</span> <span class="k">FROM</span> <span class="n">suppliers</span>
+<span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">products</span>
+	<span class="k">ON</span> <span class="n">products</span><span class="p">.</span><span class="n">SupplierID</span> <span class="o">=</span> <span class="n">suppliers</span><span class="p">.</span><span class="n">SupplierID</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">suppliers</span><span class="p">.</span><span class="n">SupplierID</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h4 id="query-3">Query 3</h4>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> 	<span class="n">o</span><span class="p">.</span><span class="n">OrderDate</span><span class="p">,</span>
+       	<span class="n">o</span><span class="p">.</span><span class="n">OrderID</span><span class="p">,</span>
+       	<span class="n">o</span><span class="p">.</span><span class="n">ShipperID</span><span class="p">,</span>
+       	<span class="n">ROUND</span><span class="p">(</span><span class="k">SUM</span><span class="p">(</span><span class="n">od</span><span class="p">.</span><span class="n">Quantity</span> <span class="o">*</span> <span class="n">p</span><span class="p">.</span><span class="n">Price</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span> <span class="k">AS</span> <span class="n">Basket</span><span class="p">,</span>
+	<span class="k">CASE</span> <span class="k">WHEN</span> <span class="n">od</span><span class="p">.</span><span class="n">Quantity</span> <span class="o">&lt;</span> <span class="mi">30</span> <span class="k">THEN</span> <span class="s1">'SMALLQ'</span> <span class="k">ELSE</span> <span class="s1">'HIGHQ'</span> <span class="k">END</span> <span class="k">as</span> <span class="n">QuantityLabel</span>
+<span class="k">FROM</span> <span class="n">Orders</span> <span class="k">AS</span> <span class="n">o</span>
+     <span class="k">LEFT</span> <span class="k">JOIN</span> <span class="n">OrderDetails</span> <span class="k">AS</span> <span class="n">od</span> <span class="k">ON</span> <span class="n">od</span><span class="p">.</span><span class="n">OrderID</span> <span class="o">=</span> <span class="n">o</span><span class="p">.</span><span class="n">OrderID</span>
+     <span class="k">INNER</span> <span class="k">JOIN</span> <span class="p">(</span> <span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">Products</span> <span class="k">WHERE</span> <span class="n">Price</span> <span class="o">&gt;=</span> <span class="mi">100</span> <span class="p">)</span> <span class="k">AS</span> <span class="n">p</span> <span class="k">on</span> <span class="n">p</span><span class="p">.</span><span class="n">ProductID</span> <span class="o">=</span> <span class="n">od</span><span class="p">.</span><span class="n">ProductID</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">o</span><span class="p">.</span><span class="n">OrderID</span><span class="p">,</span>
+         <span class="n">o</span><span class="p">.</span><span class="n">ShipperID</span>
+<span class="k">HAVING</span> <span class="n">Basket</span> <span class="o">&gt;=</span> <span class="mi">1000</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">o</span><span class="p">.</span><span class="n">OrderDate</span> <span class="k">DESC</span><span class="p">,</span> <span class="n">o</span><span class="p">.</span><span class="n">OrderID</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p><br /><br /><br />
+<a name="firstdb"></a></p>
+
+<h2 id="first-look-on-mysql-and-mysql-workbench">First look on MySQL and MySQL Workbench</h2>
+<p><a href="../artifacts/intro/connect.png">Screenshot help</a></p>
+
+<p><br /><br />
+<a name="firslook"></a></p>
+
+<h2 id="your-first-local-mysql-database">Your first local MySQL Database</h2>
+
+<h4 id="create-your-first-database--schema">Create your first database / schema</h4>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">SCHEMA</span> <span class="n">firstdb</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>SQL is not case sensitive:</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">create</span> <span class="k">schema</span> <span class="n">FIRSTDB</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>For the next commands, make sure the created db is selected</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">USE</span> <span class="n">firstdb</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p><br /><br /></p>
+<h4 id="deleting-a-database">Deleting a database</h4>
+
+<p>Execute twice</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">DROP</span> <span class="k">SCHEMA</span> <span class="n">firstdb</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">Note</code> second time you will get and error because the db is already deleted with the first one.</p>
+
+<p>Try this instead</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">DROP</span> <span class="k">SCHEMA</span> <span class="n">IF</span> <span class="k">EXISTS</span> <span class="n">firstdb</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Lets recreate the db again</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">SCHEMA</span> <span class="n">firstdb</span><span class="p">;</span>
+<span class="n">USE</span> <span class="n">firstdb</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p><br /><br /></p>
+<h4 id="loading-csv-into-a-table">Loading CSV into a table</h4>
+
+<p>Let‚Äôs create a table:</p>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">birdstrikes</span> 
+<span class="p">(</span><span class="n">id</span> <span class="nb">INTEGER</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+<span class="n">aircraft</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">32</span><span class="p">),</span>
+<span class="n">flight_date</span> <span class="nb">DATE</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+<span class="n">damage</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+<span class="n">airline</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+<span class="k">state</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span>
+<span class="n">phase_of_flight</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">32</span><span class="p">),</span>
+<span class="n">reported_date</span> <span class="nb">DATE</span><span class="p">,</span>
+<span class="n">bird_size</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">16</span><span class="p">),</span>
+<span class="n">cost</span> <span class="nb">INTEGER</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+<span class="n">speed</span> <span class="nb">INTEGER</span><span class="p">,</span><span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">(</span><span class="n">id</span><span class="p">));</span>
+</code></pre></div></div>
+
+<p>This table is empty, we need to fill in with data. This time we will load a csv file into the table. For security reason, CSV loading is limited, so you need to copy the CSV file in a place indicated by this command:</p>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SHOW</span> <span class="n">VARIABLES</span> <span class="k">LIKE</span> <span class="nv">"secure_file_priv"</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Copy <a href="../artifacts/intro/birdstrikes_small.csv">birdstrikes_small.csv</a> in the folder resulted in the previous command.</p>
+
+<p>Then load CSV data into the table with this command:</p>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">LOAD</span> <span class="k">DATA</span> <span class="n">INFILE</span> <span class="s1">'c:/ProgramData/MySQL/MySQL Server 8.0/Uploads/birdstrikes_small.csv'</span> 
+<span class="k">INTO</span> <span class="k">TABLE</span> <span class="n">birdstrikes</span> 
+<span class="n">FIELDS</span> <span class="n">TERMINATED</span> <span class="k">BY</span> <span class="s1">';'</span> 
+<span class="n">LINES</span> <span class="n">TERMINATED</span> <span class="k">BY</span> <span class="s1">'</span><span class="se">\r\n</span><span class="s1">'</span> 
+<span class="k">IGNORE</span> <span class="mi">1</span> <span class="n">LINES</span> 
+<span class="p">(</span><span class="n">id</span><span class="p">,</span> <span class="n">aircraft</span><span class="p">,</span> <span class="n">flight_date</span><span class="p">,</span> <span class="n">damage</span><span class="p">,</span> <span class="n">airline</span><span class="p">,</span> <span class="k">state</span><span class="p">,</span> <span class="n">phase_of_flight</span><span class="p">,</span> <span class="o">@</span><span class="n">v_reported_date</span><span class="p">,</span> <span class="n">bird_size</span><span class="p">,</span> <span class="n">cost</span><span class="p">,</span> <span class="o">@</span><span class="n">v_speed</span><span class="p">)</span>
+<span class="k">SET</span>
+<span class="n">reported_date</span> <span class="o">=</span> <span class="k">nullif</span><span class="p">(</span><span class="o">@</span><span class="n">v_reported_date</span><span class="p">,</span> <span class="s1">''</span><span class="p">),</span>
+<span class="n">speed</span> <span class="o">=</span> <span class="k">nullif</span><span class="p">(</span><span class="o">@</span><span class="n">v_speed</span><span class="p">,</span> <span class="s1">''</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p><br /><br /><br /></p>
+
+<p><a name="explore"></a></p>
+
+<h2 id="exploring-your-first-database">Exploring your first database</h2>
+
+<p>List the table(s) of your database</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SHOW</span> <span class="n">TABLES</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>List the structure of a table</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">DESCRIBE</span> <span class="n">birdstrikes</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p><img src="../artifacts/intro/db_model.png" alt="Database diagram" /></p>
+
+<p>Retriving data stored in birdstrikes</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">birdstrikes</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Select certain field(s)</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">cost</span> <span class="k">FROM</span> <span class="n">birdstrikes</span><span class="p">;</span>
+</code></pre></div></div>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">airline</span><span class="p">,</span><span class="n">cost</span> <span class="k">FROM</span> <span class="n">birdstrikes</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p><br /><br /><br />
+<a name="dump"></a></p>
+
+<h2 id="dumping-a-database-with-mysql-workbench">Dumping a database with MySQL Workbench</h2>
+<p><a href="../artifacts/intro/dump.png">Screenshot help</a></p>
+
+<p><br /><br />
+<a name="homework"></a></p>
+
+<blockquote class="challenge">
+  <h2 id="homework-1">Homework 1</h2>
+
+  <ul>
+    <li>Import a relational data set of your choosing into your local instance.</li>
+    <li>Requirements:
+      <ul>
+        <li>find a data set worth to analyze later (prepares you for the term project)</li>
+        <li>no restriction on the type of data source, can be excel, csv, another db, sql file etc</li>
+        <li>pay attention on the relational nature of the set, advised to find a structure of 3+ interlinked table</li>
+        <li>do not use this: https://www.mysqltutorial.org/mysql-sample-database.aspx (because we will use it later in the course)</li>
+        <li>hint: you can find various open datasets on the internet, like here: https://data.worldbank.org/</li>
+      </ul>
+    </li>
+    <li>Create a public GitHub repo. This repo will be used for all homeworks and term project in this course.</li>
+    <li>Save your artifacts (possible sources like csv, sql file ) in a folder called HW1.</li>
+    <li>Submit GitHub repo link to moodle when you are ready</li>
+  </ul>
+</blockquote>
+:ET

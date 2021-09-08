@@ -1,5 +1,5 @@
 current directory: /Users/salacika/Documents/GitHub/ECBS-5146-Different-Shapes-of-Data/vendor/bundle/ruby/2.6.0/gems/sassc-2.4.0/ext
-/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/bin/ruby -I /System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/lib/ruby/2.6.0 -r ./siteconf20210906-21450-23si0x.rb extconf.rb
+/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/bin/ruby -I /System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/lib/ruby/2.6.0 -r ./siteconf20210908-1732-avnnyj.rb extconf.rb
 creating Makefile
 
 current directory: /Users/salacika/Documents/GitHub/ECBS-5146-Different-Shapes-of-Data/vendor/bundle/ruby/2.6.0/gems/sassc-2.4.0/ext
@@ -67,6 +67,15 @@ compiling ./libsass/src/sass_values.cpp
 compiling ./libsass/src/source.cpp
 compiling ./libsass/src/source_map.cpp
 compiling ./libsass/src/stylesheet.cpp
-make: *** [stylesheet.o] Terminated: 15
+compiling ./libsass/src/to_value.cpp
+compiling ./libsass/src/units.cpp
+compiling ./libsass/src/utf8_string.cpp
+compiling ./libsass/src/util.cpp
+compiling ./libsass/src/util_string.cpp
+compiling ./libsass/src/values.cpp
+linking shared-object sassc/libsass.bundle
+ld: warning: directory not found for option '-L/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.5.Internal.sdk/usr/local/lib'
 
-make failed, uncaught signal 15
+current directory: /Users/salacika/Documents/GitHub/ECBS-5146-Different-Shapes-of-Data/vendor/bundle/ruby/2.6.0/gems/sassc-2.4.0/ext
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 libsass.bundle ./.gem.20210908-1732-pkjtq7/sassc

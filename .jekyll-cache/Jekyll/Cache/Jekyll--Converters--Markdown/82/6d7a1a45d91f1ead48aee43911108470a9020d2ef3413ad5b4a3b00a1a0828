@@ -1,0 +1,41 @@
+I"Ž<h2 id="prerequisite-installing-postman">Prerequisite: Installing Postman</h2>
+
+<p>Install Postman from here: <a href="https://www.postman.com/downloads/">https://www.postman.com/downloads/</a></p>
+
+<h2 id="anatomy-of-a-url">Anatomy of a URL</h2>
+
+<p><img src="https://pbs.twimg.com/media/ECA-PX3XsAAdaOs?format=jpg&amp;name=large" alt="How URLs work by Julia Evans" /></p>
+
+<h2 id="getting-data-from-internet">Getting data from internet</h2>
+
+<h4 id="web-scraping">Web scraping</h4>
+<ul>
+  <li>Data scraping used for extracting data from websites</li>
+  <li>Its is not the most robust way to get data (website might change, legal issues)</li>
+  <li>Anyway sometimes this is the only way to get the data</li>
+  <li>Beyond the scope of this course, you will have lessons later in the program</li>
+</ul>
+
+<h4 id="data-through-apis">Data through APIs</h4>
+<ul>
+  <li>Right way to offer data</li>
+  <li>Instead of a webpage, server returns a flat file in various formats (csv, json etc)</li>
+  <li>Simplest way is REST</li>
+  <li>Sometimes is password protected</li>
+</ul>
+
+<h2 id="using-eurostat-api">Using Eurostat API</h2>
+
+<p>Eurostat is offering a wide range of databases: <a href="https://ec.europa.eu/eurostat/web/main/data/database">https://ec.europa.eu/eurostat/web/main/data/database</a></p>
+
+<ul>
+  <li>
+    <p>Navigate to: Data navigation tree &gt; Database by themes &gt; General and regional statistics	&gt; City statistics (urb) &gt; Cities and greater cities (urb_cgc) &gt; Population on 1 January by age groups and sex - cities and greater cities (urb_cpop1)</p>
+  </li>
+  <li>
+    <p>Click on Data Browser and youâ€™ll get this: <a href="https://ec.europa.eu/eurostat/databrowser/view/urb_cpop1/default/table?lang=en">https://ec.europa.eu/eurostat/databrowser/view/urb_cpop1/default/table?lang=en</a></p>
+  </li>
+</ul>
+
+<p>https://ec.europa.eu/eurostat/web/json-and-unicode-web-services/getting-started/rest-request</p>
+:ET

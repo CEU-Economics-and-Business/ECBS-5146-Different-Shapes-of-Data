@@ -1,5 +1,5 @@
 ---
-title: Aggregations
+title: Aggregations.
 teaching: 90
 questions:
 - As analyst, one the most important operation you do, is data aggregation. How SQL supports data aggregation?

@@ -1,15 +1,16 @@
 ---
-title: Joins
+title: Data modeling. Joins.
 teaching: 90
 questions:
 - In normalized database, the data is structured in a way to avoid data redundancy and support consistency. As analyst, this structure is not always the best fit for analytics. Most of the time you need to merge one or more tables to get the required data set. Joins is offering a solution for this problem.
 objectives:
-- Understanding the difference between Operational and Analytical data layer
-- Introducing Data Warehouse architectures
+- Understanding the basics of data modelling
+- Practicing data modelling
 - Introducing a larger relational database
 - Understanding the difference between different joins
 - Present examples and exercise joins
 keypoints:
+- \#DATA MODELLING
 - \#RELATIONAL DATASETS 
 - \#JOINS
 ---

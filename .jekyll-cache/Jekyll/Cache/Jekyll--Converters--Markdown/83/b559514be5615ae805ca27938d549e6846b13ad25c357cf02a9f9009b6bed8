@@ -1,0 +1,572 @@
+I"��<h1 id="reading">Reading</h1>
+<ol>
+  <li><a href="https://ceulearning.ceu.edu/pluginfile.php/412982/mod_folder/content/0/Martin%20Kleppmann%20-%20Designing%20Data%20Intensive%20Applications.pdf?forcedownload=1">Chapter 4 (pages 107-112)</a> of Kleppmann 2016.</li>
+  <li>Joel Spolsky’s <a href="https://www.joelonsoftware.com/2003/10/08/the-absolute-minimum-every-software-developer-absolutely-positively-must-know-about-unicode-and-character-sets-no-excuses/">essay on Unicode</a></li>
+  <li><a href="https://curl.haxx.se/docs/httpscripting.html"><code class="language-plaintext highlighter-rouge">curl</code> tutorial</a></li>
+  <li>Laiacano, Adam. 2012. “(Re)Organizing the Web’s Data.” in McCallum, Q. Ethan (ed), “Bad Data Handbook.” O’Reilly.</li>
+  <li><a href="http://swcarpentry.github.io/shell-novice/05-loop/index.html">For loops</a> and <a href="http://swcarpentry.github.io/shell-novice/06-script/index.html">shell scripts</a></li>
+</ol>
+
+<h1 id="setup">Setup</h1>
+<ol>
+  <li>If you use Windows, install <a href="https://git-scm.com/download/win">Git Bash</a> and the <a href="https://github.com/swcarpentry/windows-installer/releases/download/v0.3/SWCarpentryInstaller.exe">Software Carpentry Installer</a>, following <a href="https://www.youtube.com/watch?v=339AEqk9c-8">these instructions</a>. If you use Mac or Linux, you don’t need to download these.</li>
+  <li><a href="https://stedolan.github.io/jq/download/">Download jq</a>, a command-line JSON processor.</li>
+  <li>Make sure you have a <a href="https://carpentries.github.io/workshop-template/#editor">text editor</a> you are comfortable working with.</li>
+</ol>
+
+<h1 id="getting-data-from-the-web">Getting data from the web</h1>
+
+<p><img src="https://pbs.twimg.com/media/ECA-PX3XsAAdaOs?format=jpg&amp;name=large" alt="How URLs work by Julia Evans" /></p>
+
+<p>Get the page at <a href="https://scrapethissite.com/">https://scrapethissite.com/pages/simple/</a> using <code class="language-plaintext highlighter-rouge">curl</code>.</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl https://scrapethissite.com/pages/simple/ <span class="nt">-o</span> index.html
+</code></pre></div></div>
+
+<p>This saves <code class="language-plaintext highlighter-rouge">index.html</code>, which is an XML document. Well, HTML, but proper XHTMLs are a subset of XML.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bash-5.0<span class="nv">$ </span><span class="nb">head </span>index.html 
+&lt;<span class="o">!</span>doctype html&gt;
+&lt;html <span class="nv">lang</span><span class="o">=</span><span class="s2">"en"</span><span class="o">&gt;</span>
+  &lt;<span class="nb">head</span><span class="o">&gt;</span>
+    &lt;meta <span class="nv">charset</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="o">&gt;</span>
+    &lt;title&gt;Countries of the World: A Simple Example | Scrape This Site | A public sandbox <span class="k">for </span>learning web scraping&lt;/title&gt;
+    &lt;<span class="nb">link </span><span class="nv">rel</span><span class="o">=</span><span class="s2">"icon"</span> <span class="nb">type</span><span class="o">=</span><span class="s2">"image/png"</span> <span class="nv">href</span><span class="o">=</span><span class="s2">"/static/images/scraper-icon.png"</span> /&gt;
+
+    &lt;meta <span class="nv">name</span><span class="o">=</span><span class="s2">"viewport"</span> <span class="nv">content</span><span class="o">=</span><span class="s2">"width=device-width, initial-scale=1.0"</span><span class="o">&gt;</span>
+    &lt;meta <span class="nv">name</span><span class="o">=</span><span class="s2">"description"</span> <span class="nv">content</span><span class="o">=</span><span class="s2">"A single page that lists information about all the countries in the world. Good for those just get started with web scraping."</span><span class="o">&gt;</span>
+</code></pre></div></div>
+
+<p>We can save to a different file using the <code class="language-plaintext highlighter-rouge">-o</code> option.</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl https://scrapethissite.com/pages/simple/ <span class="nt">-o</span> otherfile.xhtml
+</code></pre></div></div>
+
+<p>We will not study HTML parsing, the Bad Data Habdbook and <a href="https://scrapethissite.com/">https://scrapethissite.com/</a> provides good lessons.</p>
+
+<blockquote class="discussion">
+  <h2 id="steps-of-web-scraping">Steps of web scraping</h2>
+  <ol>
+    <li>Reconnaissance
+      <ul>
+        <li>Site permissions, <code class="language-plaintext highlighter-rouge">robots.txt</code></li>
+        <li>Structure of content</li>
+      </ul>
+    </li>
+    <li>Get the data
+      <ul>
+        <li>For loops and wgets</li>
+        <li>Save the raw data as it is</li>
+      </ul>
+    </li>
+    <li>Parse the data
+      <ul>
+        <li>Process HTML (grep, regex, XML parsers)</li>
+        <li>Often you need more URLs from here</li>
+      </ul>
+    </li>
+    <li>Update local data base</li>
+  </ol>
+</blockquote>
+
+<h3 id="get-data-about-contracts-with-the-city-of-győr">Get data about contracts with the city of Győr</h3>
+
+<p><a href="http://onkormanyzat.gyor.hu/cikklista/uvegzseb.html/1-oldal"><code class="language-plaintext highlighter-rouge">http://onkormanyzat.gyor.hu/cikklista/uvegzseb.html/1-oldal</code></a></p>
+
+<ol>
+  <li>The contents of <a href="http://onkormanyzat.gyor.hu/robots.txt"><code class="language-plaintext highlighter-rouge">http://onkormanyzat.gyor.hu/robots.txt</code></a>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>User-agent: *
+Disallow: /adatok
+Disallow: /data/files
+Allow: /
+</code></pre></div>    </div>
+    <p>The URLs we want to scrape are at <code class="language-plaintext highlighter-rouge">/cikk</code>, so we are good to go. Also make sure the check any legal language about restrictions. Note that Hungarian copyright law allows you to make copies of published website content <strong>for research purposes</strong>.</p>
+  </li>
+  <li>Find the patterns in URLs <code class="language-plaintext highlighter-rouge">http://onkormanyzat.gyor.hu/cikklista/uvegzseb.html/{}-oldal</code>.</li>
+</ol>
+
+<p>Write a for loop in bash.</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for </span>page <span class="k">in</span> <span class="o">{</span>1..129<span class="o">}</span>
+<span class="k">do
+    </span><span class="nb">echo</span> <span class="nv">$page</span>
+<span class="k">done</span>
+</code></pre></div></div>
+
+<p>We can also put this in a script.</p>
+
+<p>Using the URL pattern we discovered,</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for </span>page <span class="k">in</span> <span class="o">{</span>1..5<span class="o">}</span>
+<span class="k">do
+    </span>curl http://onkormanyzat.gyor.hu/cikklista/uvegzseb.html/<span class="nv">$page</span><span class="nt">-oldal</span> <span class="nt">-o</span> <span class="nv">$page</span>.html
+<span class="k">done</span>
+</code></pre></div></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bash-5.0<span class="nv">$ </span><span class="nb">ls</span> <span class="nt">-lh</span>
+total 84440
+<span class="nt">-rw-r--r--</span>  1 koren  staff    41K Dec  3 05:43 1.html
+<span class="nt">-rw-r--r--</span>  1 koren  staff    42K Dec  3 05:43 2.html
+<span class="nt">-rw-r--r--</span>  1 koren  staff    42K Dec  3 05:43 3.html
+<span class="nt">-rw-r--r--</span>  1 koren  staff    42K Dec  3 05:43 4.html
+<span class="nt">-rw-r--r--</span>  1 koren  staff    42K Dec  3 05:43 5.html
+</code></pre></div></div>
+
+<p>The content of <a href="https://publicpay.ca.gov/robots.txt"><code class="language-plaintext highlighter-rouge">https://publicpay.ca.gov/robots.txt</code></a></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>User-agent: *
+Disallow: /ScriptResource.axd
+Disallow: /scriptresource.axd
+Disallow: /WebResource.axd
+Disallow: /webresource.axd
+Disallow: /Reserved.ReportViewerWebControl.axd
+Disallow: /reserved.reportviewerwebcontrol.axd
+</code></pre></div></div>
+
+<blockquote class="challenge">
+  <h2 id="exercise">Exercise</h2>
+  <p>Write a shell script to download all years of wage the for the <a href="https://publicpay.ca.gov/Reports/RawExport.aspx">California Superior Court</a>. (Optional: unzip the files.)</p>
+  <blockquote class="solution">
+    <h2 id="solution">Solution</h2>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for </span>year <span class="k">in</span> <span class="o">{</span>2013..2019<span class="o">}</span>
+<span class="k">do
+   </span>curl <span class="s2">"https://publicpay.ca.gov/RawExport/</span><span class="k">${</span><span class="nv">year</span><span class="k">}</span><span class="s2">_SuperiorCourt.zip"</span> <span class="nt">-o</span> <span class="k">${</span><span class="nv">year</span><span class="k">}</span>.zip
+   unzip <span class="k">${</span><span class="nv">year</span><span class="k">}</span>.zip
+<span class="k">done</span>
+</code></pre></div>    </div>
+  </blockquote>
+</blockquote>
+
+<h1 id="data-serialization">Data Serialization</h1>
+<p>With Data Structures (to be discussed later), we organize our data to optimize performance in lookup, matching, or other analytics question. But for storing data and sharing them with others, we have to convert them into a sequence of bytes.</p>
+
+<p>Take, for example, a binary tree. We have to convert <img src="https://upload.wikimedia.org/wikipedia/commons/d/da/Binary_search_tree.svg" alt="" /> into</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>080310010614040713
+</code></pre></div></div>
+<p>or something similar.</p>
+
+<blockquote class="discussion">
+  <h2 id="binary-vs-text-based">Binary vs text based</h2>
+  <p>Binary formats have the benefits of taking less storage space and (potentially) being optimized for fast reading and writing. But they may require specialized software to work with. By contrast, text-based formats are more easily exchanged with other users on other systems.</p>
+
+  <p>You can get the best of both worlds by compressing your text-based representation. For example, all .xslx files are ZIP-compressed archives of a bunch of machine- and human-readbale XML files. Much easier to read and write than Microsoft’s earlier Excel Binary Format (.xls).</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bash-5.0<span class="nv">$ </span><span class="nb">cp </span>seller.xlsx seller.zip
+bash-5.0<span class="nv">$ </span>unzip seller.zip 
+Archive:  seller.zip
+  inflating: _rels/.rels             
+  inflating: docProps/app.xml        
+  inflating: docProps/core.xml       
+  inflating: xl/_rels/workbook.xml.rels  
+  inflating: xl/styles.xml           
+  inflating: xl/workbook.xml         
+  inflating: <span class="o">[</span>Content_Types].xml     
+  inflating: xl/worksheets/sheet1.xml  
+  inflating: xl/sharedStrings.xml  
+</code></pre></div>  </div>
+</blockquote>
+
+<h1 id="exploring-files">Exploring files</h1>
+<blockquote class="challenge">
+  <h2 id="exercise-1">Exercise</h2>
+  <p>Get the following three tables with <code class="language-plaintext highlighter-rouge">curl</code> from <code class="language-plaintext highlighter-rouge">https://github.com/CEU-Economics-and-Business/ECBS-5146-Different-Shapes-of-Data/raw/master/data/ted/*.csv</code>: <code class="language-plaintext highlighter-rouge">seller</code>, <code class="language-plaintext highlighter-rouge">buyer</code>, <code class="language-plaintext highlighter-rouge">lot</code>.</p>
+</blockquote>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bash-5.0<span class="nv">$ </span><span class="nb">pwd</span>
+/Users/koren/Downloads/data-architecture
+bash-5.0<span class="nv">$ </span><span class="nb">ls</span> <span class="nt">-l</span>
+total 22392
+<span class="nt">-rw-r--r--</span>@ 1 koren  staff  4038665 Nov 17 17:33 buyer.csv
+<span class="nt">-rw-r--r--</span>@ 1 koren  staff  4738428 Nov 17 17:33 lot.csv
+<span class="nt">-rw-r--r--</span>@ 1 koren  staff  2680572 Nov 17 17:33 seller.csv
+</code></pre></div></div>
+
+<p>If you are not in the folder where you exported the tables, navigate there using <code class="language-plaintext highlighter-rouge">cd</code>.</p>
+
+<p>The command <code class="language-plaintext highlighter-rouge">ls</code> not only shows us the files in the folder, but also their size. We can display file sizes in human readable form by turning on the <code class="language-plaintext highlighter-rouge">h</code> option of <code class="language-plaintext highlighter-rouge">ls</code>,</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bash-5.0<span class="nv">$ </span><span class="nb">ls</span> <span class="nt">-lh</span>
+total 22392
+<span class="nt">-rw-r--r--</span>@ 1 koren  staff   3.9M Nov 17 17:33 buyer.csv
+<span class="nt">-rw-r--r--</span>@ 1 koren  staff   4.5M Nov 17 17:33 lot.csv
+<span class="nt">-rw-r--r--</span>@ 1 koren  staff   2.6M Nov 17 17:33 seller.csv
+</code></pre></div></div>
+
+<p>It is good to review the size of a file before attempting to open it.</p>
+
+<h1 id="comma-separated-values">Comma Separated Values</h1>
+<p>The <a href="https://en.wikipedia.org/wiki/Comma-separated_values#Standardization">CSV format</a> is a standard plain text format for tabular data.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ID_AWARD,ID_LOT_AWARDED,CAE_NAME,ISO_COUNTRY_CODE
+8447168,,European Commission-Directorate General for Energy,LU
+8447171,,"European Commission, Directorate-General for Environment",BE
+8447173,,Gemeinde Unterföhring,DE
+8448129,,Verwaltungsgemeinschaft Altfraunhofen,DE
+8448343,,Verbandsgemeindewerke St. Goar-Oberwesel,DE
+8448585,,Barmherzige Brüder gemeinnützige Krankenhaus GmbH,DE
+8448586,,Barmherzige Brüder gemeinnützige Krankenhaus GmbH,DE
+8448609,1,IT.NRW,DE
+8448610,2,IT.NRW,DE
+</code></pre></div></div>
+
+<p>The first row (“header”), contains the column names. There are not other metadata, notably we do not know the data types in each column.</p>
+
+<p>Subsequent rows are a comma-separated list of cells.</p>
+
+<p>Note that the third row, because the column <code class="language-plaintext highlighter-rouge">CAE_NAME</code> contains a comma, is escaped with double quotes. Otherwise, quotes are unnecessary for strings.</p>
+
+<p>Because one observation is one line, it is easy to count the number of observations in a .csv file. (An exception is if a long text field includes line breaks.)</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bash-5.0<span class="nv">$ </span><span class="nb">wc</span> <span class="nt">-l</span> buyer.csv 
+   58003 buyer.csv
+</code></pre></div></div>
+
+<p>The file <code class="language-plaintext highlighter-rouge">buyer.csv</code> includes 58003 lines, one of which is the header. It hence has 58002 observations.</p>
+
+<blockquote class="challenge">
+  <h2 id="exercise-2">Exercise</h2>
+  <p>What is the number of observations in the <code class="language-plaintext highlighter-rouge">seller</code> table?</p>
+  <blockquote class="solution">
+    <h2 id="solution-1">Solution</h2>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bash-5.0<span class="nv">$ </span><span class="nb">wc</span> <span class="nt">-l</span> seller.csv 
+   61702 seller.csv
+</code></pre></div>    </div>
+    <p>There are 61,701 observations in <code class="language-plaintext highlighter-rouge">seller.csv</code>.</p>
+  </blockquote>
+</blockquote>
+
+<p>We can explore large .csv files by checking their first few lines. The bash command <code class="language-plaintext highlighter-rouge">head</code> can do exactly this.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bash-5.0<span class="nv">$ </span><span class="nb">head </span>seller.csv 
+ID_AWARD,ID_LOT_AWARDED,WIN_NAME,WIN_COUNTRY_CODE
+8447168,,Dialogika GmbH,DE
+8447171,,Ecologic Institute gemeinnützige GmbH,DE
+8448828,,Josef Meier GmbH &amp;amp<span class="p">;</span> Co. KG Hoch- und Tiefbau,DE
+8450085,,Ingenieurbüro Grohmann GmbH,DE
+8450155,,Harnisch Creative Planning GmbH,DE
+8450240,,Rupprecht Consult Forschung und Beratung GmbH,DE
+8452251,1,Architekten Hermann Kaufmann ZT GmbH,AT
+8452254,4,Brückner Dietz GmbH,DE
+8455072,3,Heraeus Medical GmbH,DE
+</code></pre></div></div>
+
+<p>We can set how many lines to show with the <code class="language-plaintext highlighter-rouge">-n</code> option. This can be used to create a smaller (non-random!) sample to explore with our favorite spreadsheet editor.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bash-5.0$ head -n2 seller.csv 
+ID_AWARD,ID_LOT_AWARDED,WIN_NAME,WIN_COUNTRY_CODE
+8447168,,Dialogika GmbH,DE
+</code></pre></div></div>
+
+<blockquote class="challenge">
+  <h2 id="exercise-3">Exercise</h2>
+  <p>Create a 1000-row sample from <code class="language-plaintext highlighter-rouge">seller.csv</code>. Recall that you can redirect the output of a bash command to a file with <code class="language-plaintext highlighter-rouge">&gt; output.txt</code> (or whatever file name you give). Make sure your file name ends in .csv so that you can open it with a spreadsheet editor.</p>
+  <blockquote class="solution">
+    <h2 id="solution-2">Solution</h2>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bash-5.0<span class="nv">$ </span><span class="nb">head</span> <span class="nt">-n1000</span> seller.csv <span class="o">&gt;</span> seller-1000.csv
+bash-5.0<span class="nv">$ </span><span class="nb">ls</span> <span class="nt">-lh</span>
+total 22496
+<span class="nt">-rw-r--r--</span>@ 1 koren  staff   3.9M Nov 17 17:33 buyer.csv
+<span class="nt">-rw-r--r--</span>@ 1 koren  staff   4.5M Nov 17 17:33 lot.csv
+<span class="nt">-rw-r--r--</span>  1 koren  staff    50K Nov 17 18:00 seller-1000.csv
+<span class="nt">-rw-r--r--</span>@ 1 koren  staff   2.6M Nov 17 17:33 seller.csv
+</code></pre></div>    </div>
+  </blockquote>
+</blockquote>
+
+<h1 id="character-encoding">Character encoding</h1>
+
+<h3 id="libre-office-gives-you-complete-control-over-your-csv-files">Libre Office gives you complete control over your .csv files</h3>
+<p><img src="/fig/libre-office-open-csv.png" alt="Libre Office gives you complete control over your .csv files" /></p>
+
+<h3 id="make-sure-you-select-the-corrent-encoding">Make sure you select the corrent encoding</h3>
+<p><img src="/fig/libre-office-wrong-encoding.png" alt="Make sure you select the corrent encoding" /></p>
+
+<h3 id="you-can-also-open-a-csv-file-in-a-text-editor">You can also open a .csv file in a text editor</h3>
+<p><img src="/fig/sublime-text-csv.png" alt="You can also open a .csv file in a text editor" /></p>
+
+<blockquote class="challenge">
+  <h2 id="exercise-4">Exercise</h2>
+  <p>Download the <a href="https://www.berlin.de/berlin-im-ueberblick/geschichte/berlin-im-nationalsozialismus/verbannte-buecher/suche/index.php/index/all.csv?q="><em>Verbannten Bücher</em> dataset</a> in .csv. Open it in Excel. What is wrong? Display the contents in the shell using <code class="language-plaintext highlighter-rouge">head</code>.</p>
+  <blockquote class="solution">
+    <h2 id="solution-3">Solution</h2>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bash-5.0$ head all.csv 
+"id";"ssflag";"pagenumberinocrdocument";"authorfirstname";"authorlastname";"title";"firsteditionpublisher";"firsteditionpublicationplace";"firsteditionpublicationyear";"secondeditionpublisher";"secondeditionpublicationplace";"secondeditionpublicationyear";"additionalinfos";"ocrresult"
+"70526";"2";"0";"Adler";"Alfred";"Praxis und Theorie der Individualpsychologie";"Bergmann";"München";"1930";"";"";"";"";"Adler, Alfred: Praxis und Theorie der Individualpsychologie. München: Bergmann 1930. "
+"70527";"2";"2";"Bruno";"Adler";"Sämtliche Schriften";"";"";"";"";"";"";"";"Adler, Bruno: Sämtliche Schriften."
+"70528";"2";"2";"Felix";"Adler";"Der Moralunterricht der Kinder";"Dümmler";"Berlin";"1894";"";"";"";"";"Adler, Felix: Der Moralunterricht der Kinder. Berlin: Dümmler 1894."
+"70529";"2";"2";"Friedrich (Wolfgang)";"Adler";"Sämtliche Schriften";"";"";"";"";"";"";"";"Adler, Friedrich (Wolfgang): Sämtliche Schriften."
+"70530";"2";"2";"Georg";"Adler";"Sämtliche Schriften";"";"";"";"";"";"";"";"Adler, Georg: Sämtliche Schriften."
+"70531";"2";"2";"Max";"Adler";"Sämtliche Schriften";"";"";"";"";"";"";"";"Adler, Max: Sämtliche Schriften."
+"70532";"2";"2";"Otto";"Adler";"Sämtliche Schriften";"";"";"";"";"";"";"";"Adler, Otto: Sämtliche Schriften."
+"70533";"2";"2";"Viktor";"Adler";"Sämtliche Schriften";"";"";"";"";"";"";"";"Adler, Viktor: Sämtliche Schriften."
+"70534";"2";"2";"";"Adolf, Gustav (Pseud.)";"Syphilis. Einstundenspiel aus der Nachkriegszeit";"Jensen";"Swinemünde";"1921";"";"";"";"";"Adolf, Gustav (Pseud.): Syphilis. Einstundenspiel aus der Nachkriegszeit. Swinemünde: Jensen 1921."
+</code></pre></div>    </div>
+    <p>This is actually semicolon-separated, not comma separated.</p>
+  </blockquote>
+</blockquote>
+
+<p>Practically everything can read .csv. Here is how to do it in Python.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">csv</span>
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">csv</span><span class="p">.</span><span class="n">reader</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s">'seller.csv'</span><span class="p">,</span> <span class="s">'rt'</span><span class="p">)):</span>
+  <span class="k">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+<span class="c1"># can also read the headers from the first line
+</span><span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">csv</span><span class="p">.</span><span class="n">DictReader</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s">'seller.csv'</span><span class="p">,</span> <span class="s">'rt'</span><span class="p">)):</span>
+  <span class="k">print</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s">'WIN_NAME'</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="s">'WIN_COUNTRY_CODE'</span><span class="p">])</span>
+</code></pre></div></div>
+
+<h1 id="json-javascript-object-notation">JSON (Javascript Object Notation)</h1>
+<p>Export the seller table from <code class="language-plaintext highlighter-rouge">DE.sqlite</code> in JSON using “File”, “Export”, “Table to JSON”.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bash-5.0<span class="nv">$ </span><span class="nb">ls</span> <span class="nt">-lh</span>
+total 64440
+<span class="nt">-rw-r--r--</span>@ 1 koren  staff   879K Nov 17 19:13 all.csv
+<span class="nt">-rw-r--r--</span>@ 1 koren  staff   3.9M Nov 17 17:33 buyer.csv
+<span class="nt">-rw-r--r--</span>  1 koren  staff    10M Nov 17 19:21 buyer.json
+<span class="nt">-rw-r--r--</span>@ 1 koren  staff   4.5M Nov 17 17:33 lot.csv
+<span class="nt">-rw-r--r--</span>  1 koren  staff    50K Nov 17 18:00 seller-1000.csv
+<span class="nt">-rw-r--r--</span>@ 1 koren  staff   2.6M Nov 17 17:33 seller.csv
+<span class="nt">-rw-r--r--</span>  1 koren  staff   9.4M Nov 17 19:21 seller.json
+</code></pre></div></div>
+
+<p>Note that <code class="language-plaintext highlighter-rouge">seller.json</code> is much larger than <code class="language-plaintext highlighter-rouge">seller.csv</code>, because of the special boilerplate characters <code class="language-plaintext highlighter-rouge">[], {}</code> and extra indentation for better viewing.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bash-5.0<span class="nv">$ </span><span class="nb">head </span>seller.json 
+<span class="o">[</span>
+    <span class="o">{</span>
+        <span class="s2">"ID_AWARD"</span>: 8447168,
+        <span class="s2">"ID_LOT_AWARDED"</span>: <span class="s2">""</span>,
+        <span class="s2">"WIN_COUNTRY_CODE"</span>: <span class="s2">"DE"</span>,
+        <span class="s2">"WIN_NAME"</span>: <span class="s2">"Dialogika GmbH"</span>
+    <span class="o">}</span>,
+    <span class="o">{</span>
+        <span class="s2">"ID_AWARD"</span>: 8447171,
+        <span class="s2">"ID_LOT_AWARDED"</span>: <span class="s2">""</span>,
+</code></pre></div></div>
+
+<p>In JSON, you can have string and numeric <em>literals</em>, <em>lists</em> (arrays) and <em>dictionaries</em> (objects). (See <a href="http://www.json.org/">full definition</a>.)</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>["apple", "banana", "plum"]
+</code></pre></div></div>
+
+<p>You have to use double quotes to write strings, single quotes are not acceptable.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{"name": "apple", "type": "fruit", "quantity": 2, "unit": "kg"}
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[
+  { "name": "apple", 
+    "type": "fruit", 
+    "quantity": 2, 
+    "unit": "kg"},
+  { "name": "carrot", 
+    "type": "vegetable", 
+    "quantity": 1, 
+    "unit": "kg"}
+]
+</code></pre></div></div>
+<p>You can use whitespace to make JSON more readable, but pay attention to limiting commas.</p>
+
+<blockquote class="challenge">
+  <h2 id="exercise-5">Exercise</h2>
+  <p>What is wrong with the following JSON string? You can put it in a <a href="https://codebeautify.org/jsonvalidator">JSON validator</a> to check.</p>
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[
+ "fruits": [
+  {name: "apple", color: 'red'},
+  {name: "banana", color: 'yellow'},
+  ]
+</code></pre></div>  </div>
+  <blockquote class="solution">
+    <h2 id="solution-4">Solution</h2>
+    <ol>
+      <li>Outside parantheses should be curly to create an <em>object</em>, not an <em>array</em>.</li>
+      <li>Dictionary keys (<code class="language-plaintext highlighter-rouge">name</code>, <code class="language-plaintext highlighter-rouge">color</code>) are not quoted.</li>
+      <li>Do not use single quotes.</li>
+      <li>Last element in an array cannot be followed by comma.</li>
+      <li>No closing bracket for object.</li>
+    </ol>
+  </blockquote>
+</blockquote>
+
+<blockquote class="discussion">
+  <h2 id="json-on-the-web">JSON on the web</h2>
+  <p>JSON has become the de facto standard for data sharing between web applications, maybe because of its link to JavaScript, which is the standard frontend language. It is easy to parse and process.</p>
+</blockquote>
+
+<h2 id="a-json-document">A JSON document</h2>
+<p>Take the first JSON document in the <em>Offene Register</em> data.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+  "all_attributes": {
+    "_registerArt": "HRB",
+    "_registerNummer": "150148",
+    "additional_data": {
+      "AD": true,
+      "CD": true,
+      "DK": true,
+      "HD": false,
+      "SI": true,
+      "UT": true,
+      "VÖ": false
+    },
+    "federal_state": "Hamburg",
+    "native_company_number": "Hamburg HRB 150148",
+    "registered_office": "Hamburg",
+    "registrar": "Hamburg"
+  },
+  "company_number": "K1101R_HRB150148",
+  "current_status": "currently registered",
+  "jurisdiction_code": "de",
+  "name": "olly UG (haftungsbeschränkt)",
+  "officers": [
+    {
+      "name": "Oliver Keunecke",
+      "other_attributes": {
+        "city": "Hamburg",
+        "firstname": "Oliver",
+        "flag": "vertretungsberechtigt gemäß allgemeiner Vertretungsregelung",
+        "lastname": "Keunecke"
+      },
+      "position": "Geschäftsführer",
+      "start_date": "2018-02-06",
+      "type": "person"
+    }
+  ],
+  "registered_address": "Waidmannstraße 1, 22769 Hamburg.",
+  "retrieved_at": "2018-11-09T18:03:03Z"
+}
+</code></pre></div></div>
+
+<p>This is a <em>denormalized</em> data, containing all the relevant relations of the firm.</p>
+
+<blockquote class="callout">
+  <h2 id="json-lines">JSON lines</h2>
+  <p>Because arrays and objects in JSON have to end with <code class="language-plaintext highlighter-rouge">]</code> or <code class="language-plaintext highlighter-rouge">}</code>, we cannot really finish processing a JSON file until we read it all in memory. This can be limiting for large files.</p>
+
+  <p><a href="http://jsonlines.org/">JSON lines</a> to the rescue. In a .jsonl file, each line stores a valid JSON document.</p>
+</blockquote>
+
+<h1 id="yaml">YAML</h1>
+<p><a href="https://yaml.org/">YAML</a> is essentially JSON for humans. It replaces brackets and other boilerplate with human-readable whitespace. <a href="https://ceu-economics-and-business.github.io/ECBS-5148-Data-Architecture/04-serialization/index.html#yaml">YAML is my favorite</a>, but we will omit it here.</p>
+
+<h2 id="xml">XML</h2>
+<p>XML, <a href="https://en.wikipedia.org/wiki/XML">Extensible Markup Language</a>, is an early but robust format for serializing structured documents.</p>
+
+<p>The logic is similar to JSON, but the terminology is a bit different and XML has richer features.</p>
+
+<p>Each XML document has to have a root <em>element</em>. Indeed each string or number literal has to be embedded in either an <em>element</em> or an <em>attribute</em> (see later).</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;basket&gt;
+  &lt;fruit&gt;apple&lt;/fruit&gt;
+  &lt;fruit&gt;banana&lt;/fruit&gt;
+  &lt;fruit&gt;plum&lt;/fruit&gt;
+&lt;/basket&gt;
+</code></pre></div></div>
+
+<p>There is no need to quote strings. The indentation is optional, but improves legibility.</p>
+
+<p>The child elements can have different <em>tags</em>.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;item&gt;
+  &lt;name&gt;apple&lt;/name&gt;
+  &lt;type&gt;fruit&lt;/type&gt;
+  &lt;quantity&gt;2&lt;/quantity&gt;
+  &lt;unit&gt;kg&lt;/unit&gt;
+&lt;/item&gt;
+</code></pre></div></div>
+<p>If there is only one of each type of child, they can also be encoded as <em>attributes</em>.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;item name="apple" type="fruit" quantity="2" unit="kg"&gt;&lt;/item&gt;
+</code></pre></div></div>
+<p>Note that double quotes even for numbers. When there is nothing between the opening and closing tag, we can write <code class="language-plaintext highlighter-rouge">&lt;item/&gt;</code> such as</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;item name="apple" type="fruit" quantity="2" unit="kg"/&gt;
+</code></pre></div></div>
+<p>It is a matter of choice if we put a piece of data as a child element or as an attribute. Attributes are unique (like keys of a dictionary), but child elements are not. The following is valid XML, for example, but your user will be baffled by the type of fruit you are looking for.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;item&gt;
+  &lt;name&gt;apple&lt;/name&gt;
+  &lt;type&gt;fruit&lt;/type&gt;
+  &lt;quantity&gt;2&lt;/quantity&gt;
+  &lt;unit&gt;kg&lt;/unit&gt;
+  &lt;name&gt;banana&lt;/name&gt;
+&lt;/item&gt;
+</code></pre></div></div>
+<p>By contrast, <code class="language-plaintext highlighter-rouge">&lt;item name="apple" name="banana"/&gt;</code> is invalid. You can validate <a href="https://codebeautify.org/xmlvalidator">XML online</a>.</p>
+
+<p>The natural distinction is to use entities as elements and attributes as, well, attributes.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;basket&gt;
+  &lt;item name="apple" type="fruit" quantity="2" unit="kg"/&gt;
+  &lt;item name="carrot" type="vegetable" quantity="1" unit="kg"/&gt;
+&lt;/basket&gt;
+</code></pre></div></div>
+<p>Or, in a fuller example:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;company company_number="K1101R_HRB150148" current_status="currently registered" jurisdiction_code="de" name="olly UG (haftungsbeschränkt)" registered_address="Waidmannstraße 1, 22769 Hamburg." retrieved_at="2018-11-09T18:03:03Z"&gt;
+  &lt;all_attributes&gt;
+    &lt;_registerArt&gt;HRB&lt;/_registerArt&gt;
+    &lt;_registerNummer&gt;150148&lt;/_registerNummer&gt;
+    &lt;additional_data&gt;
+      &lt;AD&gt;true&lt;/AD&gt;
+      &lt;CD&gt;true&lt;/CD&gt;
+      &lt;DK&gt;true&lt;/DK&gt;
+      &lt;HD&gt;false&lt;/HD&gt;
+      &lt;SI&gt;true&lt;/SI&gt;
+      &lt;UT&gt;true&lt;/UT&gt;
+      &lt;VÖ&gt;false&lt;/VÖ&gt;
+    &lt;/additional_data&gt;
+    &lt;federal_state&gt;Hamburg&lt;/federal_state&gt;
+    &lt;native_company_number&gt;Hamburg HRB 150148&lt;/native_company_number&gt;
+    &lt;registered_office&gt;Hamburg&lt;/registered_office&gt;
+    &lt;registrar&gt;Hamburg&lt;/registrar&gt;
+  &lt;/all_attributes&gt;
+  &lt;officers&gt;
+    &lt;officer name="Oliver Keunecke" position="Geschäftsführer" start_date="2018-02-06" type="person"&gt;
+      &lt;other_attributes&gt;
+        &lt;city&gt;Hamburg&lt;/city&gt;
+        &lt;firstname&gt;Oliver&lt;/firstname&gt;
+        &lt;flag&gt;vertretungsberechtigt gemäß allgemeiner Vertretungsregelung&lt;/flag&gt;
+        &lt;lastname&gt;Keunecke&lt;/lastname&gt;
+      &lt;/other_attributes&gt;
+    &lt;/officer&gt;
+  &lt;/officers&gt;
+&lt;/company&gt;
+</code></pre></div></div>
+
+<blockquote class="callout">
+  <h2 id="watch-your-language">Watch your language</h2>
+  <p>JSON has <em>arrays</em> and <em>objects</em>. Objects have <em>names</em> and <em>values</em>. XML has <em>elements</em>. Elements are made of <em>tags</em>, <em>content</em>, and potentially, <em>attributes</em>.</p>
+</blockquote>
+
+<blockquote class="challenge">
+  <h2 id="exercise-6">Exercise</h2>
+  <p>Represent the following binary tree in a JSON object, using the “word”, “left” and “right” tags.
+<a href="https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggVERcbiAgICBsb3ZlIC0tPnxsZWZ0fCBhdXRob3JpdHlcbiAgICBsb3ZlIC0tPnxyaWdodHwgdHJvdXNlcnNcbiAgICB0cm91c2VycyAtLT58bGVmdHwgY3V0IiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQiLCJ0aGVtZVZhcmlhYmxlcyI6eyJiYWNrZ3JvdW5kIjoid2hpdGUiLCJwcmltYXJ5Q29sb3IiOiIjRUNFQ0ZGIiwic2Vjb25kYXJ5Q29sb3IiOiIjZmZmZmRlIiwidGVydGlhcnlDb2xvciI6ImhzbCg4MCwgMTAwJSwgOTYuMjc0NTA5ODAzOSUpIiwicHJpbWFyeUJvcmRlckNvbG9yIjoiaHNsKDI0MCwgNjAlLCA4Ni4yNzQ1MDk4MDM5JSkiLCJzZWNvbmRhcnlCb3JkZXJDb2xvciI6ImhzbCg2MCwgNjAlLCA4My41Mjk0MTE3NjQ3JSkiLCJ0ZXJ0aWFyeUJvcmRlckNvbG9yIjoiaHNsKDgwLCA2MCUsIDg2LjI3NDUwOTgwMzklKSIsInByaW1hcnlUZXh0Q29sb3IiOiIjMTMxMzAwIiwic2Vjb25kYXJ5VGV4dENvbG9yIjoiIzAwMDAyMSIsInRlcnRpYXJ5VGV4dENvbG9yIjoicmdiKDkuNTAwMDAwMDAwMSwgOS41MDAwMDAwMDAxLCA5LjUwMDAwMDAwMDEpIiwibGluZUNvbG9yIjoiIzMzMzMzMyIsInRleHRDb2xvciI6IiMzMzMiLCJtYWluQmtnIjoiI0VDRUNGRiIsInNlY29uZEJrZyI6IiNmZmZmZGUiLCJib3JkZXIxIjoiIzkzNzBEQiIsImJvcmRlcjIiOiIjYWFhYTMzIiwiYXJyb3doZWFkQ29sb3IiOiIjMzMzMzMzIiwiZm9udEZhbWlseSI6IlwidHJlYnVjaGV0IG1zXCIsIHZlcmRhbmEsIGFyaWFsIiwiZm9udFNpemUiOiIxNnB4IiwibGFiZWxCYWNrZ3JvdW5kIjoiI2U4ZThlOCIsIm5vZGVCa2ciOiIjRUNFQ0ZGIiwibm9kZUJvcmRlciI6IiM5MzcwREIiLCJjbHVzdGVyQmtnIjoiI2ZmZmZkZSIsImNsdXN0ZXJCb3JkZXIiOiIjYWFhYTMzIiwiZGVmYXVsdExpbmtDb2xvciI6IiMzMzMzMzMiLCJ0aXRsZUNvbG9yIjoiIzMzMyIsImVkZ2VMYWJlbEJhY2tncm91bmQiOiIjZThlOGU4IiwiYWN0b3JCb3JkZXIiOiJoc2woMjU5LjYyNjE2ODIyNDMsIDU5Ljc3NjUzNjMxMjglLCA4Ny45MDE5NjA3ODQzJSkiLCJhY3RvckJrZyI6IiNFQ0VDRkYiLCJhY3RvclRleHRDb2xvciI6ImJsYWNrIiwiYWN0b3JMaW5lQ29sb3IiOiJncmV5Iiwic2lnbmFsQ29sb3IiOiIjMzMzIiwic2lnbmFsVGV4dENvbG9yIjoiIzMzMyIsImxhYmVsQm94QmtnQ29sb3IiOiIjRUNFQ0ZGIiwibGFiZWxCb3hCb3JkZXJDb2xvciI6ImhzbCgyNTkuNjI2MTY4MjI0MywgNTkuNzc2NTM2MzEyOCUsIDg3LjkwMTk2MDc4NDMlKSIsImxhYmVsVGV4dENvbG9yIjoiYmxhY2siLCJsb29wVGV4dENvbG9yIjoiYmxhY2siLCJub3RlQm9yZGVyQ29sb3IiOiIjYWFhYTMzIiwibm90ZUJrZ0NvbG9yIjoiI2ZmZjVhZCIsIm5vdGVUZXh0Q29sb3IiOiJibGFjayIsImFjdGl2YXRpb25Cb3JkZXJDb2xvciI6IiM2NjYiLCJhY3RpdmF0aW9uQmtnQ29sb3IiOiIjZjRmNGY0Iiwic2VxdWVuY2VOdW1iZXJDb2xvciI6IndoaXRlIiwic2VjdGlvbkJrZ0NvbG9yIjoicmdiYSgxMDIsIDEwMiwgMjU1LCAwLjQ5KSIsImFsdFNlY3Rpb25Ca2dDb2xvciI6IndoaXRlIiwic2VjdGlvbkJrZ0NvbG9yMiI6IiNmZmY0MDAiLCJ0YXNrQm9yZGVyQ29sb3IiOiIjNTM0ZmJjIiwidGFza0JrZ0NvbG9yIjoiIzhhOTBkZCIsInRhc2tUZXh0TGlnaHRDb2xvciI6IndoaXRlIiwidGFza1RleHRDb2xvciI6IndoaXRlIiwidGFza1RleHREYXJrQ29sb3IiOiJibGFjayIsInRhc2tUZXh0T3V0c2lkZUNvbG9yIjoiYmxhY2siLCJ0YXNrVGV4dENsaWNrYWJsZUNvbG9yIjoiIzAwMzE2MyIsImFjdGl2ZVRhc2tCb3JkZXJDb2xvciI6IiM1MzRmYmMiLCJhY3RpdmVUYXNrQmtnQ29sb3IiOiIjYmZjN2ZmIiwiZ3JpZENvbG9yIjoibGlnaHRncmV5IiwiZG9uZVRhc2tCa2dDb2xvciI6ImxpZ2h0Z3JleSIsImRvbmVUYXNrQm9yZGVyQ29sb3IiOiJncmV5IiwiY3JpdEJvcmRlckNvbG9yIjoiI2ZmODg4OCIsImNyaXRCa2dDb2xvciI6InJlZCIsInRvZGF5TGluZUNvbG9yIjoicmVkIiwibGFiZWxDb2xvciI6ImJsYWNrIiwiZXJyb3JCa2dDb2xvciI6IiM1NTIyMjIiLCJlcnJvclRleHRDb2xvciI6IiM1NTIyMjIiLCJjbGFzc1RleHQiOiIjMTMxMzAwIiwiZmlsbFR5cGUwIjoiI0VDRUNGRiIsImZpbGxUeXBlMSI6IiNmZmZmZGUiLCJmaWxsVHlwZTIiOiJoc2woMzA0LCAxMDAlLCA5Ni4yNzQ1MDk4MDM5JSkiLCJmaWxsVHlwZTMiOiJoc2woMTI0LCAxMDAlLCA5My41Mjk0MTE3NjQ3JSkiLCJmaWxsVHlwZTQiOiJoc2woMTc2LCAxMDAlLCA5Ni4yNzQ1MDk4MDM5JSkiLCJmaWxsVHlwZTUiOiJoc2woLTQsIDEwMCUsIDkzLjUyOTQxMTc2NDclKSIsImZpbGxUeXBlNiI6ImhzbCg4LCAxMDAlLCA5Ni4yNzQ1MDk4MDM5JSkiLCJmaWxsVHlwZTciOiJoc2woMTg4LCAxMDAlLCA5My41Mjk0MTE3NjQ3JSkifX0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9"><img src="https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggVERcbiAgICBsb3ZlIC0tPnxsZWZ0fCBhdXRob3JpdHlcbiAgICBsb3ZlIC0tPnxyaWdodHwgdHJvdXNlcnNcbiAgICB0cm91c2VycyAtLT58bGVmdHwgY3V0IiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQiLCJ0aGVtZVZhcmlhYmxlcyI6eyJiYWNrZ3JvdW5kIjoid2hpdGUiLCJwcmltYXJ5Q29sb3IiOiIjRUNFQ0ZGIiwic2Vjb25kYXJ5Q29sb3IiOiIjZmZmZmRlIiwidGVydGlhcnlDb2xvciI6ImhzbCg4MCwgMTAwJSwgOTYuMjc0NTA5ODAzOSUpIiwicHJpbWFyeUJvcmRlckNvbG9yIjoiaHNsKDI0MCwgNjAlLCA4Ni4yNzQ1MDk4MDM5JSkiLCJzZWNvbmRhcnlCb3JkZXJDb2xvciI6ImhzbCg2MCwgNjAlLCA4My41Mjk0MTE3NjQ3JSkiLCJ0ZXJ0aWFyeUJvcmRlckNvbG9yIjoiaHNsKDgwLCA2MCUsIDg2LjI3NDUwOTgwMzklKSIsInByaW1hcnlUZXh0Q29sb3IiOiIjMTMxMzAwIiwic2Vjb25kYXJ5VGV4dENvbG9yIjoiIzAwMDAyMSIsInRlcnRpYXJ5VGV4dENvbG9yIjoicmdiKDkuNTAwMDAwMDAwMSwgOS41MDAwMDAwMDAxLCA5LjUwMDAwMDAwMDEpIiwibGluZUNvbG9yIjoiIzMzMzMzMyIsInRleHRDb2xvciI6IiMzMzMiLCJtYWluQmtnIjoiI0VDRUNGRiIsInNlY29uZEJrZyI6IiNmZmZmZGUiLCJib3JkZXIxIjoiIzkzNzBEQiIsImJvcmRlcjIiOiIjYWFhYTMzIiwiYXJyb3doZWFkQ29sb3IiOiIjMzMzMzMzIiwiZm9udEZhbWlseSI6IlwidHJlYnVjaGV0IG1zXCIsIHZlcmRhbmEsIGFyaWFsIiwiZm9udFNpemUiOiIxNnB4IiwibGFiZWxCYWNrZ3JvdW5kIjoiI2U4ZThlOCIsIm5vZGVCa2ciOiIjRUNFQ0ZGIiwibm9kZUJvcmRlciI6IiM5MzcwREIiLCJjbHVzdGVyQmtnIjoiI2ZmZmZkZSIsImNsdXN0ZXJCb3JkZXIiOiIjYWFhYTMzIiwiZGVmYXVsdExpbmtDb2xvciI6IiMzMzMzMzMiLCJ0aXRsZUNvbG9yIjoiIzMzMyIsImVkZ2VMYWJlbEJhY2tncm91bmQiOiIjZThlOGU4IiwiYWN0b3JCb3JkZXIiOiJoc2woMjU5LjYyNjE2ODIyNDMsIDU5Ljc3NjUzNjMxMjglLCA4Ny45MDE5NjA3ODQzJSkiLCJhY3RvckJrZyI6IiNFQ0VDRkYiLCJhY3RvclRleHRDb2xvciI6ImJsYWNrIiwiYWN0b3JMaW5lQ29sb3IiOiJncmV5Iiwic2lnbmFsQ29sb3IiOiIjMzMzIiwic2lnbmFsVGV4dENvbG9yIjoiIzMzMyIsImxhYmVsQm94QmtnQ29sb3IiOiIjRUNFQ0ZGIiwibGFiZWxCb3hCb3JkZXJDb2xvciI6ImhzbCgyNTkuNjI2MTY4MjI0MywgNTkuNzc2NTM2MzEyOCUsIDg3LjkwMTk2MDc4NDMlKSIsImxhYmVsVGV4dENvbG9yIjoiYmxhY2siLCJsb29wVGV4dENvbG9yIjoiYmxhY2siLCJub3RlQm9yZGVyQ29sb3IiOiIjYWFhYTMzIiwibm90ZUJrZ0NvbG9yIjoiI2ZmZjVhZCIsIm5vdGVUZXh0Q29sb3IiOiJibGFjayIsImFjdGl2YXRpb25Cb3JkZXJDb2xvciI6IiM2NjYiLCJhY3RpdmF0aW9uQmtnQ29sb3IiOiIjZjRmNGY0Iiwic2VxdWVuY2VOdW1iZXJDb2xvciI6IndoaXRlIiwic2VjdGlvbkJrZ0NvbG9yIjoicmdiYSgxMDIsIDEwMiwgMjU1LCAwLjQ5KSIsImFsdFNlY3Rpb25Ca2dDb2xvciI6IndoaXRlIiwic2VjdGlvbkJrZ0NvbG9yMiI6IiNmZmY0MDAiLCJ0YXNrQm9yZGVyQ29sb3IiOiIjNTM0ZmJjIiwidGFza0JrZ0NvbG9yIjoiIzhhOTBkZCIsInRhc2tUZXh0TGlnaHRDb2xvciI6IndoaXRlIiwidGFza1RleHRDb2xvciI6IndoaXRlIiwidGFza1RleHREYXJrQ29sb3IiOiJibGFjayIsInRhc2tUZXh0T3V0c2lkZUNvbG9yIjoiYmxhY2siLCJ0YXNrVGV4dENsaWNrYWJsZUNvbG9yIjoiIzAwMzE2MyIsImFjdGl2ZVRhc2tCb3JkZXJDb2xvciI6IiM1MzRmYmMiLCJhY3RpdmVUYXNrQmtnQ29sb3IiOiIjYmZjN2ZmIiwiZ3JpZENvbG9yIjoibGlnaHRncmV5IiwiZG9uZVRhc2tCa2dDb2xvciI6ImxpZ2h0Z3JleSIsImRvbmVUYXNrQm9yZGVyQ29sb3IiOiJncmV5IiwiY3JpdEJvcmRlckNvbG9yIjoiI2ZmODg4OCIsImNyaXRCa2dDb2xvciI6InJlZCIsInRvZGF5TGluZUNvbG9yIjoicmVkIiwibGFiZWxDb2xvciI6ImJsYWNrIiwiZXJyb3JCa2dDb2xvciI6IiM1NTIyMjIiLCJlcnJvclRleHRDb2xvciI6IiM1NTIyMjIiLCJjbGFzc1RleHQiOiIjMTMxMzAwIiwiZmlsbFR5cGUwIjoiI0VDRUNGRiIsImZpbGxUeXBlMSI6IiNmZmZmZGUiLCJmaWxsVHlwZTIiOiJoc2woMzA0LCAxMDAlLCA5Ni4yNzQ1MDk4MDM5JSkiLCJmaWxsVHlwZTMiOiJoc2woMTI0LCAxMDAlLCA5My41Mjk0MTE3NjQ3JSkiLCJmaWxsVHlwZTQiOiJoc2woMTc2LCAxMDAlLCA5Ni4yNzQ1MDk4MDM5JSkiLCJmaWxsVHlwZTUiOiJoc2woLTQsIDEwMCUsIDkzLjUyOTQxMTc2NDclKSIsImZpbGxUeXBlNiI6ImhzbCg4LCAxMDAlLCA5Ni4yNzQ1MDk4MDM5JSkiLCJmaWxsVHlwZTciOiJoc2woMTg4LCAxMDAlLCA5My41Mjk0MTE3NjQ3JSkifX0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9" alt="" /></a></p>
+
+  <blockquote class="solution">
+    <h2 id="solution-5">Solution</h2>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+  "word": "love",
+  "left": {
+    "word": "authority"
+  },
+  "right": {
+    "word": "trousers",
+    "left": {
+      "word": "cut"
+    }
+  }
+}
+</code></pre></div>    </div>
+  </blockquote>
+</blockquote>
+
+<blockquote class="challenge">
+  <h2 id="exercise-7">Exercise</h2>
+  <p>Do the same in XML, using an attribute if you can.</p>
+  <blockquote class="solution">
+    <h2 id="solution-6">Solution</h2>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;?xml version="1.0" encoding="UTF-8" ?&gt;
+&lt;root word="love"&gt;
+    &lt;left word="authority"&gt;&lt;/left&gt;
+    &lt;right word="trousers"&gt;
+        &lt;left word="cut"&gt;&lt;/left&gt;
+    &lt;/right&gt;
+&lt;/root&gt;
+</code></pre></div>    </div>
+  </blockquote>
+</blockquote>
+
+<blockquote class="discussion">
+  <h2 id="xml-vs-json-vs-yaml">XML vs JSON vs YAML</h2>
+  <p>XML is very powerful and extremely widely used as a data interchange format. You can set up XML schemas to validate XML documents. There are even XML database engines. However, it uses a lot of boilerplate (closing tags, for example) and is an eyesore. JSON is much easier on the eyes and YAML is best for humans. Since YAML is not that widely used, JSON seems a good compromise.</p>
+</blockquote>
+
+:ET

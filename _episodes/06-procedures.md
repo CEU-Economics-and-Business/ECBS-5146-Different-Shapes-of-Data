@@ -1,5 +1,5 @@
 ---
-title: Stored Procedures
+title: Stored Procedures.
 teaching: 90
 questions:
 - As analyst, you are working on DB with corrupted data. Cleaning/fixing it requires extensive business logic. 

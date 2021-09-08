@@ -1,0 +1,51 @@
+I"�<p><br /><br /></p>
+
+<h2 id="prerequisite-installing-knime-analytics-platform-not-the-server-part">Prerequisite: Installing KNIME Analytics Platform (Not the server part!)</h2>
+
+<p>Download KNIME for (Window/Linux/Mac) from: <a href="https://www.knime.com/downloads/download-knime">https://www.knime.com/downloads/download-knime</a></p>
+
+<p>Please make sure the intallation is valid and the application starts properly!</p>
+
+<p>If you need further help check the “KNIME Beginner’s Luck” book uploaded on Moodle or ask help on Slack!</p>
+
+<h2 id="prerequisite-installing-postman">Prerequisite: Installing Postman</h2>
+
+<p>Install Postman from here: <a href="https://www.postman.com/downloads/">https://www.postman.com/downloads/</a></p>
+
+<h2 id="prerequisite-self-preparation-at-home">Prerequisite: Self preparation at home</h2>
+<ul>
+  <li>Read “KNIME Beginner’s Luck” book uploaded on Moodle from 18 to 54.</li>
+  <li>Do the exercises from these pages.</li>
+  <li>Check the content of all 4 KNIME related books uploaded on Moodle</li>
+</ul>
+
+<h2 id="introducing-knime">Introducing KNIME</h2>
+
+<h4 id="why-knime">Why KNIME?</h4>
+<p><a href="https://www.kdnuggets.com/2019/02/gartner-2019-mq-data-science-machine-learning-changes.html">Data Science and ML Platforms (Gartner 2019)</a></p>
+
+<p><br /></p>
+
+<h4 id="knime-ecosystem">KNIME Ecosystem</h4>
+<p><a href="https://github.com/salacika/DE2DSD/tree/main/knime/pictures/Picture3.png">Picture</a></p>
+
+<p><br /></p>
+
+<h4 id="knime-nodes-classification">KNIME Nodes Classification</h4>
+<p><a href="https://github.com/salacika/DE2DSD/tree/main/knime/pictures/Picture2.png">Picture</a></p>
+
+<p><br /></p>
+
+<blockquote class="challenge">
+  <h2 id="end-to-end-example">End-to-end example</h2>
+  <p><a href="https://github.com/CEU-Economics-and-Business/ECBS-5146-Different-Shapes-of-Data/blob/master/artifacts/knime/fips.csv">Source file</a></p>
+
+  <p><a href="https://www.ncdc.noaa.gov/cdo-web/webservices/v2">Source API</a></p>
+
+  <p><a href="https://github.com/CEU-Economics-and-Business/ECBS-5146-Different-Shapes-of-Data/blob/master/artifacts/knime/ceu2020-ver2.knwf">End result</a></p>
+
+</blockquote>
+
+<p><br /><br /></p>
+
+:ET

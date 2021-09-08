@@ -1,0 +1,368 @@
+I"eh<blockquote class="discussion">
+  <h2 id="table-of-content">Table of Content</h2>
+  <p><a href="#setup">Session setup</a><br />
+<a href="#basic">A basic stored procedure</a><br />
+<a href="#parameter">A stored procedures with parameters</a><br />
+<a href="#if">Example with IF and declaring variables</a><br />
+<a href="#loops">Iterating with LOOP</a><br />
+<a href="#cursor">Iterating trough a table with CURSOR</a><br />
+<a href="#advantages">Advantages/disadvantages of stored procedures</a><br />
+<a href="#homework">Homework</a></p>
+</blockquote>
+
+<p><br /><br />
+<a name="setup"></a></p>
+<h2 id="session-setup">Session setup</h2>
+
+<p>No need to load new data, in this chapter we will use the same sample db we used in the last chapter:</p>
+
+<p><img src="../artifacts/joins/sampledatabase_diagram.png" alt="Database diagram" /></p>
+
+<p><br /><br />
+<a name="basic"></a></p>
+<h2 id="a-basic-stored-procedure">A basic stored procedure</h2>
+
+<h4 id="creating-the-stored-procedure">Creating the stored procedure</h4>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">DROP</span> <span class="k">PROCEDURE</span> <span class="n">IF</span> <span class="k">EXISTS</span> <span class="n">GetAllProducts</span><span class="p">;</span>
+
+<span class="k">DELIMITER</span> <span class="o">//</span>
+
+<span class="k">CREATE</span> <span class="k">PROCEDURE</span> <span class="n">GetAllProducts</span><span class="p">()</span>
+<span class="k">BEGIN</span>
+	<span class="k">SELECT</span> <span class="o">*</span>  <span class="k">FROM</span> <span class="n">products</span><span class="p">;</span>
+<span class="k">END</span> <span class="o">//</span>
+
+<span class="k">DELIMITER</span> <span class="p">;</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">NOTE1:</code> Mind the delimiter: the default delimiter in SQL is “;”. In a stored procedure, you’ll have potentially multiple statements ending with “;” - so you need the define a second delimiter to end the whole stored procedure. On the end of the routine, we will set the default delimiter back to “;”</p>
+
+<p><code class="language-plaintext highlighter-rouge">NOTE2:</code> You cannot edit a stored procedure, once created, you need to drop and recreate: <code class="language-plaintext highlighter-rouge">DROP PROCEDURE IF EXISTS ...</code></p>
+
+<p><br /><br /></p>
+<h4 id="executing-the-stored-procedure">Executing the stored procedure</h4>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CALL</span> <span class="n">GetAllProducts</span><span class="p">();</span>
+</code></pre></div></div>
+
+<p><br /><br /><br />
+<a name="paramter"></a></p>
+<h2 id="a-stored-procedures-with-parameters">A stored procedures with parameters</h2>
+
+<h4 id="input-parameter-with-in">Input parameter with IN</h4>
+
+<p>The following example creates a stored procedure that finds all offices that locate in a country specified by the input parameter countryName</p>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">DROP</span> <span class="k">PROCEDURE</span> <span class="n">IF</span> <span class="k">EXISTS</span> <span class="n">GetOfficeByCountry</span><span class="p">;</span>
+
+<span class="k">DELIMITER</span> <span class="o">//</span>
+
+<span class="k">CREATE</span> <span class="k">PROCEDURE</span> <span class="n">GetOfficeByCountry</span><span class="p">(</span>
+	<span class="k">IN</span> <span class="n">countryName</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="k">BEGIN</span>
+	<span class="k">SELECT</span> <span class="o">*</span> 
+ 		<span class="k">FROM</span> <span class="n">offices</span>
+			<span class="k">WHERE</span> <span class="n">country</span> <span class="o">=</span> <span class="n">countryName</span><span class="p">;</span>
+<span class="k">END</span> <span class="o">//</span>
+<span class="k">DELIMITER</span> <span class="p">;</span>
+</code></pre></div></div>
+
+<p><br /><br /></p>
+<h4 id="executing-with-multiple-parameters">Executing with multiple parameters</h4>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CALL</span> <span class="n">GetOfficeByCountry</span><span class="p">(</span><span class="s1">'USA'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CALL</span> <span class="n">GetOfficeByCountry</span><span class="p">(</span><span class="s1">'France'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CALL</span> <span class="n">GetOfficeByCountry</span><span class="p">();</span>
+</code></pre></div></div>
+<p>You will get error, because the paramter is mandatory</p>
+
+<p><br /><br /></p>
+<blockquote class="challenge">
+  <h2 id="exercise1"><code class="language-plaintext highlighter-rouge">Exercise1</code></h2>
+  <p>Create a stored procedure which displays the first X entries of payment table. X is IN parameter for the procedure.</p>
+</blockquote>
+<p><br /><br /></p>
+
+<h4 id="output-parameter-with-out">Output parameter with OUT</h4>
+
+<p>The following stored procedure returns the number of orders by order status.</p>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">DROP</span> <span class="k">PROCEDURE</span> <span class="n">IF</span> <span class="k">EXISTS</span> <span class="n">GetOrderCountByStatus</span><span class="p">;</span>
+
+<span class="k">DELIMITER</span> <span class="err">$$</span>
+
+<span class="k">CREATE</span> <span class="k">PROCEDURE</span> <span class="n">GetOrderCountByStatus</span> <span class="p">(</span>
+	<span class="k">IN</span>  <span class="n">orderStatus</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">25</span><span class="p">),</span>
+	<span class="k">OUT</span> <span class="n">total</span> <span class="nb">INT</span>
+<span class="p">)</span>
+<span class="k">BEGIN</span>
+	<span class="k">SELECT</span> <span class="k">COUNT</span><span class="p">(</span><span class="n">orderNumber</span><span class="p">)</span>
+	<span class="k">INTO</span> <span class="n">total</span>
+	<span class="k">FROM</span> <span class="n">orders</span>
+	<span class="k">WHERE</span> <span class="n">status</span> <span class="o">=</span> <span class="n">orderStatus</span><span class="p">;</span>
+<span class="k">END</span><span class="err">$$</span>
+<span class="k">DELIMITER</span> <span class="p">;</span>
+</code></pre></div></div>
+
+<p><br /><br /></p>
+<h4 id="executing-the-procedure-and-displaying-the-result">Executing the procedure and displaying the result</h4>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CALL</span> <span class="n">GetOrderCountByStatus</span><span class="p">(</span><span class="s1">'Shipped'</span><span class="p">,</span><span class="o">@</span><span class="n">total</span><span class="p">);</span>
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">total</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p><br /><br /></p>
+<blockquote class="challenge">
+  <h2 id="exercise2"><code class="language-plaintext highlighter-rouge">Exercise2</code></h2>
+  <p>Create a stored procedure which returns the amount for Xth entry of payment table. X is IN parameter for the procedure. Display the returned amount.</p>
+</blockquote>
+
+<p><br /><br /></p>
+
+<h4 id="using-the-inout-parameter">Using the INOUT parameter</h4>
+
+<p>In this example, the stored procedure SetCounter()  accepts one INOUT  parameter ( counter ) and one IN parameter ( inc ). It increases the counter ( counter ) by the value of specified by the inc parameter.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">DROP</span> <span class="k">PROCEDURE</span> <span class="n">IF</span> <span class="k">EXISTS</span> <span class="n">SetCounter</span><span class="p">;</span>
+
+<span class="k">DELIMITER</span> <span class="err">$$</span>
+
+<span class="k">CREATE</span> <span class="k">PROCEDURE</span> <span class="n">SetCounter</span><span class="p">(</span>
+	<span class="k">INOUT</span> <span class="n">counter</span> <span class="nb">INT</span><span class="p">,</span>
+    	<span class="k">IN</span> <span class="n">inc</span> <span class="nb">INT</span>
+<span class="p">)</span>
+<span class="k">BEGIN</span>
+	<span class="k">SET</span> <span class="n">counter</span> <span class="o">=</span> <span class="n">counter</span> <span class="o">+</span> <span class="n">inc</span><span class="p">;</span>
+<span class="k">END</span><span class="err">$$</span>
+<span class="k">DELIMITER</span> <span class="p">;</span>
+</code></pre></div></div>
+
+<p><br /><br /></p>
+<h4 id="initializing-the-input-parameter-and-repeating-the-execution-and-displaying-result-several-times">Initializing the input parameter and repeating the execution and displaying result several times</h4>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SET</span> <span class="o">@</span><span class="n">counter</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="k">CALL</span> <span class="n">SetCounter</span><span class="p">(</span><span class="o">@</span><span class="n">counter</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span> 
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">counter</span><span class="p">;</span>
+<span class="k">CALL</span> <span class="n">SetCounter</span><span class="p">(</span><span class="o">@</span><span class="n">counter</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span> 
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">counter</span><span class="p">;</span>
+<span class="k">CALL</span> <span class="n">SetCounter</span><span class="p">(</span><span class="n">counter</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span> 
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">counter</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p><br /><br /><br />
+<a name="if"></a></p>
+<h2 id="example-with-if-and-declaring-variables">Example with IF and declaring variables</h2>
+
+<p>The IF syntax can have different forms:</p>
+<ul>
+  <li>IF-THEN</li>
+  <li>IF-THEN-ELSE</li>
+  <li>IF-THEN-ELSEIF-ELSE</li>
+</ul>
+
+<p>Assigning Customer Level based on credit. Mind the usage of credit variable used the procedure.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">DROP</span> <span class="k">PROCEDURE</span> <span class="n">IF</span> <span class="k">EXISTS</span> <span class="n">GetCustomerLevel</span><span class="p">;</span>
+
+<span class="k">DELIMITER</span> <span class="err">$$</span>
+
+<span class="k">CREATE</span> <span class="k">PROCEDURE</span> <span class="n">GetCustomerLevel</span><span class="p">(</span>
+    	<span class="k">IN</span>  <span class="n">pCustomerNumber</span> <span class="nb">INT</span><span class="p">,</span> 
+    	<span class="k">OUT</span> <span class="n">pCustomerLevel</span>  <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="k">BEGIN</span>
+	<span class="k">DECLARE</span> <span class="n">credit</span> <span class="nb">DECIMAL</span> <span class="k">DEFAULT</span> <span class="mi">0</span><span class="p">;</span>
+
+	<span class="k">SELECT</span> <span class="n">creditLimit</span> 
+		<span class="k">INTO</span> <span class="n">credit</span>
+			<span class="k">FROM</span> <span class="n">customers</span>
+				<span class="k">WHERE</span> <span class="n">customerNumber</span> <span class="o">=</span> <span class="n">pCustomerNumber</span><span class="p">;</span>
+
+	<span class="n">IF</span> <span class="n">credit</span> <span class="o">&gt;</span> <span class="mi">50000</span> <span class="k">THEN</span>
+		<span class="k">SET</span> <span class="n">pCustomerLevel</span> <span class="o">=</span> <span class="s1">'PLATINUM'</span><span class="p">;</span>
+	<span class="k">ELSE</span>
+		<span class="k">SET</span> <span class="n">pCustomerLevel</span> <span class="o">=</span> <span class="s1">'NOT PLATINUM'</span><span class="p">;</span>
+	<span class="k">END</span> <span class="n">IF</span><span class="p">;</span>
+<span class="k">END</span><span class="err">$$</span>
+<span class="k">DELIMITER</span> <span class="p">;</span>
+
+</code></pre></div></div>
+
+<p><br /><br /></p>
+<h4 id="execution-for-a-specific-customer">Execution for a specific customer</h4>
+
+<p>Calling the stored procedure for customer number 447  and show the value of the OUT parameter pCustomerLevel:</p>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CALL</span> <span class="n">GetCustomerLevel</span><span class="p">(</span><span class="mi">447</span><span class="p">,</span> <span class="o">@</span><span class="k">level</span><span class="p">);</span>
+<span class="k">SELECT</span> <span class="o">@</span><span class="k">level</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Note: CASE instruction is also available. We will skip CASE because you can do the same with IF. Sometimes CASE looks nicer or might be even faster for the interpreter.</p>
+
+<p><br /><br /></p>
+<blockquote class="challenge">
+  <h2 id="exercise3"><code class="language-plaintext highlighter-rouge">Exercise3</code></h2>
+  <p>Create a stored procedure which returns category of a given row. Row number is IN parameter, while category is OUT parameter. Display the returned category. 
+CAT1 - amount &gt; 100.000, CAT2 - amount &gt; 10.000, CAT3 - amount &lt;= 10.000</p>
+</blockquote>
+
+<p><br /><br /><br />
+<a name="loops"></a></p>
+<h2 id="iterating-with-loop">Iterating with LOOP</h2>
+
+<p>Basic loop counting to 5 and display it:</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">DROP</span> <span class="k">PROCEDURE</span> <span class="n">IF</span> <span class="k">EXISTS</span> <span class="n">LoopDemo</span><span class="p">;</span>
+
+<span class="k">DELIMITER</span> <span class="err">$$</span>
+<span class="k">CREATE</span> <span class="k">PROCEDURE</span> <span class="n">LoopDemo</span><span class="p">()</span>
+<span class="k">BEGIN</span>
+	<span class="k">DECLARE</span> <span class="n">x</span>  <span class="nb">INT</span><span class="p">;</span>
+    
+	<span class="k">SET</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        
+	<span class="n">myloop</span><span class="p">:</span> <span class="n">LOOP</span> 
+	           
+		<span class="k">SET</span>  <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+    		<span class="k">SELECT</span> <span class="n">x</span><span class="p">;</span>
+           
+		<span class="n">IF</span>  <span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span> <span class="k">THEN</span>
+			<span class="n">LEAVE</span> <span class="n">myloop</span><span class="p">;</span>
+         	<span class="k">END</span>  <span class="n">IF</span><span class="p">;</span>
+         
+	<span class="k">END</span> <span class="n">LOOP</span> <span class="n">myloop</span><span class="p">;</span>
+<span class="k">END</span><span class="err">$$</span>
+<span class="k">DELIMITER</span> <span class="p">;</span>
+</code></pre></div></div>
+
+<p><br /><br /></p>
+<h4 id="execution-and-tweaks">Execution and tweaks:</h4>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CALL</span> <span class="n">LoopDemo</span><span class="p">();</span>
+</code></pre></div></div>
+
+<p>Displaying with SELECT is not ideal if you have a long loop. You better create a simple log table named “messages” and write your logs into it:</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">messages</span> <span class="p">(</span><span class="n">message</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>and add the next line instead of <code class="language-plaintext highlighter-rouge">SELECT x;</code>:</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">messages</span> <span class="k">SELECT</span> <span class="n">CONCAT</span><span class="p">(</span><span class="s1">'x:'</span><span class="p">,</span><span class="n">x</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>also add <code class="language-plaintext highlighter-rouge">TRUNCATE messages;</code> before the loop.</p>
+
+<p>After re-execution check messages:</p>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">messages</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Note: You can you other interating commands instead of LOOP, such as WHILE, REPEAT, but similarly to IF/CASE, with the LOOP you can cover every case.</p>
+
+<p><br /><br /><br />
+<a name="cursor"></a></p>
+<h2 id="iterating-trough-a-table-with-cursor">Iterating trough a table with CURSOR</h2>
+
+<h4 id="fixing-us-phones-in-customer-table">Fixing US phones in customer table</h4>
+<p>The aim of the next snippet is to add the international prefix to US domestic format.</p>
+
+<p>These are the possible formats in US:</p>
+<ul>
+  <li>754-3010 Local</li>
+  <li>(541) 754-3010 Domestic</li>
+  <li>+1-541-754-3010 International</li>
+  <li>1-541-754-3010 Dialed in the US</li>
+</ul>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">DROP</span> <span class="k">PROCEDURE</span> <span class="n">IF</span> <span class="k">EXISTS</span> <span class="n">FixUSPhones</span><span class="p">;</span> 
+
+<span class="k">DELIMITER</span> <span class="err">$$</span>
+
+<span class="k">CREATE</span> <span class="k">PROCEDURE</span> <span class="n">FixUSPhones</span> <span class="p">()</span>
+<span class="k">BEGIN</span>
+	<span class="k">DECLARE</span> <span class="n">finished</span> <span class="nb">INTEGER</span> <span class="k">DEFAULT</span> <span class="mi">0</span><span class="p">;</span>
+	<span class="k">DECLARE</span> <span class="n">phone</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span> <span class="k">DEFAULT</span> <span class="nv">"x"</span><span class="p">;</span>
+	<span class="k">DECLARE</span> <span class="n">customerNumber</span> <span class="nb">INT</span> <span class="k">DEFAULT</span> <span class="mi">0</span><span class="p">;</span>
+    	<span class="k">DECLARE</span> <span class="n">country</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span> <span class="k">DEFAULT</span> <span class="nv">""</span><span class="p">;</span>
+
+	<span class="c1">-- declare cursor for customer</span>
+	<span class="k">DECLARE</span> <span class="n">curPhone</span>
+		<span class="k">CURSOR</span> <span class="k">FOR</span> 
+            		<span class="k">SELECT</span> <span class="n">customers</span><span class="p">.</span><span class="n">customerNumber</span><span class="p">,</span> <span class="n">customers</span><span class="p">.</span><span class="n">phone</span><span class="p">,</span> <span class="n">customers</span><span class="p">.</span><span class="n">country</span> 
+				<span class="k">FROM</span> <span class="n">classicmodels</span><span class="p">.</span><span class="n">customers</span><span class="p">;</span>
+
+	<span class="c1">-- declare NOT FOUND handler</span>
+	<span class="k">DECLARE</span> <span class="k">CONTINUE</span> <span class="k">HANDLER</span> 
+        <span class="k">FOR</span> <span class="k">NOT</span> <span class="k">FOUND</span> <span class="k">SET</span> <span class="n">finished</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+
+	<span class="k">OPEN</span> <span class="n">curPhone</span><span class="p">;</span>
+    
+    	<span class="c1">-- create a copy of the customer table </span>
+	<span class="k">DROP</span> <span class="k">TABLE</span> <span class="n">IF</span> <span class="k">EXISTS</span> <span class="n">classicmodels</span><span class="p">.</span><span class="n">fixed_customers</span><span class="p">;</span>
+	<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">classicmodels</span><span class="p">.</span><span class="n">fixed_customers</span> <span class="k">LIKE</span> <span class="n">classicmodels</span><span class="p">.</span><span class="n">customers</span><span class="p">;</span>
+	<span class="k">INSERT</span> <span class="n">fixed_customers</span> <span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">classicmodels</span><span class="p">.</span><span class="n">customers</span><span class="p">;</span>
+
+	<span class="n">fixPhone</span><span class="p">:</span> <span class="n">LOOP</span>
+		<span class="k">FETCH</span> <span class="n">curPhone</span> <span class="k">INTO</span> <span class="n">customerNumber</span><span class="p">,</span><span class="n">phone</span><span class="p">,</span> <span class="n">country</span><span class="p">;</span>
+		<span class="n">IF</span> <span class="n">finished</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">THEN</span> 
+			<span class="n">LEAVE</span> <span class="n">fixPhone</span><span class="p">;</span>
+		<span class="k">END</span> <span class="n">IF</span><span class="p">;</span>
+		 
+		<span class="c1">-- insert into messages select concat('country is: ', country, ' and phone is: ', phone);</span>
+         
+		<span class="n">IF</span> <span class="n">country</span> <span class="o">=</span> <span class="s1">'USA'</span>  <span class="k">THEN</span>
+			<span class="n">IF</span> <span class="n">phone</span> <span class="k">NOT</span> <span class="k">LIKE</span> <span class="s1">'+%'</span> <span class="k">THEN</span>
+				<span class="n">IF</span> <span class="k">LENGTH</span><span class="p">(</span><span class="n">phone</span><span class="p">)</span> <span class="o">=</span> <span class="mi">10</span> <span class="k">THEN</span> 
+					<span class="k">SET</span>  <span class="n">phone</span> <span class="o">=</span> <span class="n">CONCAT</span><span class="p">(</span><span class="s1">'+1'</span><span class="p">,</span><span class="n">phone</span><span class="p">);</span>
+					<span class="k">UPDATE</span> <span class="n">classicmodels</span><span class="p">.</span><span class="n">fixed_customers</span> 
+						<span class="k">SET</span> <span class="n">fixed_customers</span><span class="p">.</span><span class="n">phone</span><span class="o">=</span><span class="n">phone</span> 
+							<span class="k">WHERE</span> <span class="n">fixed_customers</span><span class="p">.</span><span class="n">customerNumber</span> <span class="o">=</span> <span class="n">customerNumber</span><span class="p">;</span>
+                		<span class="k">END</span> <span class="n">IF</span><span class="p">;</span>    
+			<span class="k">END</span> <span class="n">IF</span><span class="p">;</span>
+       		 <span class="k">END</span> <span class="n">IF</span><span class="p">;</span>
+
+	<span class="k">END</span> <span class="n">LOOP</span> <span class="n">fixPhone</span><span class="p">;</span>
+	<span class="k">CLOSE</span> <span class="n">curPhone</span><span class="p">;</span>
+
+<span class="k">END</span><span class="err">$$</span>
+<span class="k">DELIMITER</span> <span class="p">;</span>
+</code></pre></div></div>
+
+<p>Execute the procedure:</p>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CALL</span> <span class="n">FixUSPhones</span><span class="p">();</span>
+</code></pre></div></div>
+
+<p>Check the resulted new table:</p>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">fixed_customers</span> <span class="k">where</span> <span class="n">country</span> <span class="o">=</span> <span class="s1">'USA'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p><br /><br /><br />
+<a name="advantages"></a></p>
+<h2 id="advantagesdisadvantages-of-stored-procedures">Advantages/disadvantages of stored procedures</h2>
+
+<h4 id="advantages">Advantages</h4>
+<ul>
+  <li>Embedded processing, no need to extract data to process it with an external procedural language or tool - this is potentially faster and reduces network traffic</li>
+  <li>Maintainable code, avoiding duplicates</li>
+  <li>Better security, better control over data access</li>
+</ul>
+
+<h4 id="disadvantages">Disadvantages</h4>
+<ul>
+  <li>Impact over server resources (CPU, memory)</li>
+  <li>Debugging / Trouble shooting  is not the most advanced</li>
+  <li>Overall the business logic written in stored procedures can be written easier/nicer in other languages</li>
+</ul>
+
+<p><br /><br /><br />
+<a name="homework"></a></p>
+
+<blockquote class="challenge">
+  <h2 id="homework-5">Homework 5</h2>
+  <ul>
+    <li>Continue the last script: complete the US local phones to international using the city code. Hint: for this you need to find a data source with domestic prefixes mapped to cities, import as a table to the database and add new business logic to the procedure.</li>
+    <li>Upload the solution to your GitHub repo in a folder called HW5</li>
+    <li>Submit GitHub repo link to moodle when you are ready</li>
+  </ul>
+</blockquote>
+:ET

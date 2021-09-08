@@ -1,5 +1,5 @@
 ---
-title: Data warehouse architecture
+title: Data warehouse architectures.
 teaching: 90
 questions:
 - As analyst, you would like to create a dedicated analytical data layer for your analytics. How would you do that?

@@ -1,0 +1,197 @@
+I"S<h2 id="data">Data</h2>
+
+<ol>
+
+  <li>
+      Gemeente Amsterdam, 2018. <a href="https://maps.amsterdam.nl/open_geodata/?k=52">"WONINGWAARDE 2018 INFLATIE"</a>. Amsterdam property values [FIXME: we will not use GIS]. License: open data.
+  </li>
+
+  <li>
+      Ajuntament de Barcelona, 2016. <a href="https://opendata-ajuntament.barcelona.cat/data/ca/dataset/habitatges-us-turistic">"Habitatges d'ús turístic de la ciutat de Barcelona"</a>. Tourist accommodation addresses in Barcelona. License: CC-BY-4.0.
+  </li>
+
+  <li>
+      BerlinOnline Stadtportal GmbH &amp; Co KG, 2018. <a href="https://daten.berlin.de/datensaetze/liste-der-verbannten-b%C3%BCcher-0">"Liste der verbannten Bücher"</a>. List of book titles prohibited by Nazis. License: CC-BY-3.0.
+  </li>
+
+  <li>
+      Agencia Estatal de Administración Tributaria, 2019. <a href="https://datos.gob.es/catalogo/e00004401-estadistica-de-comercio-exterior">"Datos estadísticos de Comercio Exterior"</a>. External trade statistics of Spanish Customs Office. License: .
+  </li>
+
+  <li>
+      Open Knowledge Foundation Deutschland e.V., 2019. <a href="https://offeneregister.de/#">"OffeneRegister.de"</a>. German company register data. License: CC-BY-4.0.
+  </li>
+
+  <li>
+      Federal Highway Administration of the U.S. Department of Transportation, 2019. <a href="https://www.fhwa.dot.gov/bridge/nbi.cfm">"National Bridge Inventory"</a>. Geocoordinates and structural state of all highway bridges in the U.S.. License: .
+  </li>
+
+  <li>
+      European Commission, 2018. <a href="https://data.europa.eu/euodp/en/data/dataset/ted-csv/resource/99798664-6cf7-4429-b53c-4ecac59f1b6a">"Tenders Electronic Daily"</a>. Public procurement notices. License: CC-BY-4.0.
+  </li>
+
+  <li>
+      California State Controller, 2019. <a href="https://publicpay.ca.gov/">"Government Compensation in California"</a>. Salary of every public employee in California. License: public domain.
+  </li>
+
+  <li>
+      NYC Department of Parks and Recreation, 2016. <a href="https://www.nycgovparks.org/trees/treescount">"Street Tree Census"</a>. Tree data collected by volunteers about individual trees in NYC. License: open data.
+  </li>
+
+  <li>
+      New York Police Department, 2014. <a href="https://data.cityofnewyork.us/Public-Safety/NYPD-Motor-Vehicle-Collisions-Crashes/h9gi-nx95">"NYPD Motor Vehicle Collisions - Crashes"</a>. Time and location of NYC motor vehicle accidents. License: open data.
+  </li>
+
+  <li>
+      NYC Taxi and Limousine Commission, 2019. <a href="https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page">"TLC Trip Records Data"</a>. Pickup and dropoff location, time and charge of each NYC taxi trip. License: open data.
+  </li>
+
+  <li>
+      Bureau of Transportation Statistics, 2019. <a href="https://www.transtats.bts.gov/DatabaseInfo.asp?DB_ID=125">"Airline Origin and Destination Survey (DB1B)"</a>. The Airline Origin and Destination Survey (DB1B) is a 10% sample of airline tickets from reporting carriers collected by the Office of Airline Information of the Bureau of Transportation Statistics. Data includes origin, destination and other itinerary details of passengers transported. This database is used to determine air traffic patterns, air carrier market shares and passenger flows.. License: .
+  </li>
+
+</ol>
+
+<h2 id="tools">Tools</h2>
+<ol>
+
+  
+  <li>
+      <a href="https://sqlite.org/index.html">SQLite</a>. Practice SQL queries.
+  </li>
+  
+
+  
+  <li>
+      <a href="http://openrefine.org/">OpenRefine</a>. Practice Entity Resolution.
+  </li>
+  
+
+  
+
+  
+  <li>
+      <a href="">wget</a>. Download data from the web.
+  </li>
+  
+
+  
+
+  
+  <li>
+      <a href="https://stedolan.github.io/jq/">jq</a>. Read and process JSON data in the command line.
+  </li>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <li>
+      <a href="https://mermaidjs.github.io/#/">mermaid</a>. Create flow charts and other diagrams from simple text syntax.
+  </li>
+  
+
+  
+
+</ol>
+
+<h2 id="technologies">Technologies</h2>
+<ol>
+
+  
+
+  
+
+  
+
+  
+
+  
+  <li>
+      <a href="">bash</a>. Automate tasks we do often.
+  </li>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <li>
+      <a href="https://en.wikipedia.org/wiki/Comma-separated_values">CSV</a>. Store data in human readable, portable form.
+  </li>
+  
+
+  
+  <li>
+      <a href="https://frictionlessdata.io/specs/data-package/">Data Package</a>. Codify metadata and resource description.
+  </li>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <li>
+      <a href="https://www.json.org/">JSON</a>. Store structure data with less boilerplate.
+  </li>
+  
+
+  
+
+  
+
+  
+  <li>
+      <a href="https://en.wikipedia.org/wiki/YAML">YAML</a>. Store structured data in human readable format.
+  </li>
+  
+
+  
+
+  
+
+</ol>
+
+:ET

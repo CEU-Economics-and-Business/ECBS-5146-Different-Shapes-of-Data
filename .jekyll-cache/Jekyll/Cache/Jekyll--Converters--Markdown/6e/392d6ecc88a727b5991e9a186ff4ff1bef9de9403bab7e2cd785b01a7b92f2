@@ -1,0 +1,25 @@
+I"©<h2 id="glossary">Glossary</h2>
+
+<p>The glossary would go here, formatted as:</p>
+
+<div class="language-plaintext source highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{:auto_ids}
+key word 1
+:   explanation 1
+
+key word 2
+:   explanation 2
+</code></pre></div></div>
+
+<p>(<code class="language-plaintext highlighter-rouge">{:auto_ids}</code> is needed at the start
+so that Jekyll will automatically generate a unique ID for each item
+to allow other pages to hyperlink to specific glossary entries.)
+This renders as:</p>
+
+<dl>
+  <dt id="key-word-1">key word 1</dt>
+  <dd>explanation 1</dd>
+  <dt id="key-word-2">key word 2</dt>
+  <dd>explanation 2</dd>
+</dl>
+
+:ET

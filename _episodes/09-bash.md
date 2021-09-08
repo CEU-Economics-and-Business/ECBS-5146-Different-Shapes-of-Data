@@ -1,7 +1,6 @@
 ---
-title: "Command Line Exercises"
-teaching: 10
-exercises: 60
+title: Command Line Exercises.
+teaching: 90
 questions:
 - What tool a data analyst can use to explore the content of a large data file? (e.g. a large CSV with hundreds of thousands of lines)
 - What tool a data analyst can use to modify the content of a large data file?
