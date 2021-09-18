@@ -2,7 +2,7 @@ code: ECBS 5146
 title: "Data Engineering 2: Different Shapes of Data"
 contributors:
     -   name: László Salló
-        bio: Laszlo Sallo is an IT Manager with Software Engineering background. Over the past 20+ years, he participated in more than 150 international projects. Currently he is serving as Delivery Manager for EPAM Systems, leading a data related project portfolio, combining his skills in Agile Project Management and Data Engineering.  Laszlo holds an M.S. in Business Analytics from Central European University. He is instructor of CEU since 2016. 
+        bio: László Salló is an IT Manager with Software Engineering background. Over the past 20+ years, he participated in more than 150 international projects. Currently he is serving as Delivery Manager for EPAM Systems, leading a data related project portfolio, combining his skills in Agile Project Management and Data Engineering.  Laszlo holds an M.S. in Business Analytics from Central European University. He is instructor of CEU since 2016. 
         email: "sallol@ceu.edu"     
         office: ""
     -   name: Miklós Koren
@@ -10,9 +10,13 @@ contributors:
         email: korenm@ceu.edu    
         office: N13 213 (Budapest)
 instructors:
-    -   name: László Salló
-        bio: László Salló is an IT Manager with Software Engineering background. Over the past 20+ years, he participated in more than 150 international projects. Currently he is serving as Delivery Manager for EPAM Systems, leading a data related project portfolio, combining his skills in Agile Project Management and Data Engineering.  Laszlo holds an M.S. in Business Analytics from Central European University. He is instructor of CEU since 2016. 
-        email: "sallol@ceu.edu"     
+    -   name: László Salló 
+        bio: 
+        email: "sallol@ceu.edu" 
+        office: ""
+    -   name: Sándor Budai [Teaching assistant]
+        bio: 
+        email: "budais@ceu.edu"     
         office: ""
 credits:
     us: 2
