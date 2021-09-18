@@ -305,16 +305,19 @@ SELECT * FROM birdstrikes WHERE state = 'Alabama';
 
 <br/><br/><br/>
 <a name="datatypes"/>
+
 ## Data types
 
-![Data types](/artifacts/selects/data_types.png)
+![Data types]({{ page.root }}/artifacts/selects/data_types.png)
+
 
 
 <br/><br/><br/>
 <a name="operators"/>
 ## Comparison Operators
 
-![Data types](/artifacts/selects/ops.png)
+![Operators]({{ page.root }}/artifacts/selects/ops.png)
+
 
 
 
