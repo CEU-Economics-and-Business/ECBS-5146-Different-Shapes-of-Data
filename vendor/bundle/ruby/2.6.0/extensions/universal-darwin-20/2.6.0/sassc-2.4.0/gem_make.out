@@ -1,12 +1,12 @@
-current directory: /Users/salacika/Documents/GitHub/ECBS-5146-Different-Shapes-of-Data/vendor/bundle/ruby/2.6.0/gems/sassc-2.4.0/ext
-/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/bin/ruby -I /System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/lib/ruby/2.6.0 -r ./siteconf20210908-1732-avnnyj.rb extconf.rb
+current directory: /Users/Laszlo_Sallo/Documents/GitHub/ECBS-5146-Different-Shapes-of-Data/vendor/bundle/ruby/2.6.0/gems/sassc-2.4.0/ext
+/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/bin/ruby -I /Library/Ruby/Site/2.6.0 -r ./siteconf20210918-3135-amh1f.rb extconf.rb
 creating Makefile
 
-current directory: /Users/salacika/Documents/GitHub/ECBS-5146-Different-Shapes-of-Data/vendor/bundle/ruby/2.6.0/gems/sassc-2.4.0/ext
-make "DESTDIR=" clean
+current directory: /Users/Laszlo_Sallo/Documents/GitHub/ECBS-5146-Different-Shapes-of-Data/vendor/bundle/ruby/2.6.0/gems/sassc-2.4.0/ext
+make DESTDIR\= clean
 
-current directory: /Users/salacika/Documents/GitHub/ECBS-5146-Different-Shapes-of-Data/vendor/bundle/ruby/2.6.0/gems/sassc-2.4.0/ext
-make "DESTDIR="
+current directory: /Users/Laszlo_Sallo/Documents/GitHub/ECBS-5146-Different-Shapes-of-Data/vendor/bundle/ruby/2.6.0/gems/sassc-2.4.0/ext
+make DESTDIR\=
 compiling ./libsass/src/ast.cpp
 compiling ./libsass/src/ast2c.cpp
 compiling ./libsass/src/ast_fwd_decl.cpp
@@ -76,6 +76,6 @@ compiling ./libsass/src/values.cpp
 linking shared-object sassc/libsass.bundle
 ld: warning: directory not found for option '-L/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.5.Internal.sdk/usr/local/lib'
 
-current directory: /Users/salacika/Documents/GitHub/ECBS-5146-Different-Shapes-of-Data/vendor/bundle/ruby/2.6.0/gems/sassc-2.4.0/ext
-make "DESTDIR=" install
-/usr/bin/install -c -m 0755 libsass.bundle ./.gem.20210908-1732-pkjtq7/sassc
+current directory: /Users/Laszlo_Sallo/Documents/GitHub/ECBS-5146-Different-Shapes-of-Data/vendor/bundle/ruby/2.6.0/gems/sassc-2.4.0/ext
+make DESTDIR\= install
+/usr/bin/install -c -m 0755 libsass.bundle ./.gem.20210918-3135-1hsonar/sassc

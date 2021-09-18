@@ -13,29 +13,22 @@ Gem::Specification.new do |s|
   s.homepage = "https://github.com/jekyll/jekyll-redirect-from".freeze
   s.licenses = ["MIT".freeze]
   s.required_ruby_version = Gem::Requirement.new(">= 2.4.0".freeze)
-  s.rubygems_version = "3.0.3".freeze
+  s.rubygems_version = "3.2.27".freeze
   s.summary = "Seamlessly specify multiple redirection URLs for your pages and posts".freeze
 
-  s.installed_by_version = "3.0.3" if s.respond_to? :installed_by_version
+  s.installed_by_version = "3.2.27" if s.respond_to? :installed_by_version
 
   if s.respond_to? :specification_version then
     s.specification_version = 4
+  end
 
-    if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<jekyll>.freeze, [">= 3.3", "< 5.0"])
-      s.add_development_dependency(%q<bundler>.freeze, [">= 0"])
-      s.add_development_dependency(%q<jekyll-sitemap>.freeze, ["~> 1.0"])
-      s.add_development_dependency(%q<rake>.freeze, ["~> 12.0"])
-      s.add_development_dependency(%q<rspec>.freeze, ["~> 3.5"])
-      s.add_development_dependency(%q<rubocop-jekyll>.freeze, ["~> 0.10"])
-    else
-      s.add_dependency(%q<jekyll>.freeze, [">= 3.3", "< 5.0"])
-      s.add_dependency(%q<bundler>.freeze, [">= 0"])
-      s.add_dependency(%q<jekyll-sitemap>.freeze, ["~> 1.0"])
-      s.add_dependency(%q<rake>.freeze, ["~> 12.0"])
-      s.add_dependency(%q<rspec>.freeze, ["~> 3.5"])
-      s.add_dependency(%q<rubocop-jekyll>.freeze, ["~> 0.10"])
-    end
+  if s.respond_to? :add_runtime_dependency then
+    s.add_runtime_dependency(%q<jekyll>.freeze, [">= 3.3", "< 5.0"])
+    s.add_development_dependency(%q<bundler>.freeze, [">= 0"])
+    s.add_development_dependency(%q<jekyll-sitemap>.freeze, ["~> 1.0"])
+    s.add_development_dependency(%q<rake>.freeze, ["~> 12.0"])
+    s.add_development_dependency(%q<rspec>.freeze, ["~> 3.5"])
+    s.add_development_dependency(%q<rubocop-jekyll>.freeze, ["~> 0.10"])
   else
     s.add_dependency(%q<jekyll>.freeze, [">= 3.3", "< 5.0"])
     s.add_dependency(%q<bundler>.freeze, [">= 0"])
