@@ -2,8 +2,8 @@
 title: DB administration. Queries. 
 teaching: 90
 questions:
-- As analyst, you would like to make sure your data stored, can be accessed only by authorized persons.
-- As analyst, you would like to query your database, to obtain data required for your analytics.
+- How do you make sure your data stored, can be accessed only by authorized persons?
+- How you query your database to obtain data required for your analytics?
 objectives:
 - Understanding the options of altering a db
 - Introduction to database security

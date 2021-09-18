@@ -1,0 +1,7 @@
+EMPLOYEE
+DATA
+Data:100,"Thomas",Sales,5000
+Data:200,"Jason",Technology,5500
+300,"Mayla",Technology,7000
+400,"Nisha",Marketing,9500
+Data:500,"Randy",Technology,6000

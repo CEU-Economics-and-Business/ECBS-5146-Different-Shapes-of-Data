@@ -2,7 +2,8 @@
 title: Data modeling. Joins.
 teaching: 90
 questions:
-- In normalized database, the data is structured in a way to avoid data redundancy and support consistency. As analyst, this structure is not always the best fit for analytics. Most of the time you need to merge one or more tables to get the required data set. Joins is offering a solution for this problem.
+- How do you design/model a database?
+- In normalized database, the data is structured in a way to avoid data redundancy and support consistency. As analyst, this structure is not always the best fit for analytics. How do you merge one or more tables to get the required data set?
 objectives:
 - Understanding the basics of data modelling
 - Practicing data modelling

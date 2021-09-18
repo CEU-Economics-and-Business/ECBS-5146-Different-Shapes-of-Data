@@ -6,9 +6,6 @@ SHOW TABLES;
 DESCRIBE birdstrikes.birdstrikes;
 
 
-
-
-
 -- ALTERING DB
 -- copy table (structure)
 CREATE TABLE new_birdstrikes LIKE birdstrikes;

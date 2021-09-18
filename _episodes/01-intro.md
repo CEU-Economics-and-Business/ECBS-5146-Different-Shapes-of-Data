@@ -5,8 +5,6 @@ questions:
 - What is data engineering and why it is important for data analysts? 
 - How to access a data set, stored in a database?
 - How to load various data files (eg. csv) into database?
-- As analyst, you got data from various sources (eg. csv, access to an external db or db dump). You would like to setup your own database, loading the data from external sources, so that you can perform analytics on it.
-- What do you need to know to perform these tasks?
 objectives:
 - Setting the context - evolution of digital persistency 1950-2010
 - Introducing the basic terms, in context of SQL
@@ -40,10 +38,6 @@ keypoints:
 >
 > [Homework](#homework)  
 {: .discussion}
-  
-
-
-
 
 <br/><br/>
 <a name="sql5"/>
@@ -168,11 +162,25 @@ speed INTEGER,PRIMARY KEY(id));
 ```
 {: .language-sql}
 
-This table is empty, we need to fill in with data. This time we will load a csv file into the table. For security reason, CSV loading is limited, so you need to copy the CSV file in a place indicated by this command:
+This table is empty, we need to fill in with data.
+
+ This time we will load a csv file into the table. For security reason, CSV loading is limited, so you need to copy the CSV file in a place indicated by this command:
+
 ```
 SHOW VARIABLES LIKE "secure_file_priv";
 ```
 {: .language-sql}
+
+also the next command should give you "ON"
+
+```
+SHOW VARIABLES LIKE "local_infile";
+```
+{: .language-sql}
+
+<br/>
+#### Plan A
+If "local_infile" is "ON" and "secure_file_priv" is not "NULL"
 
 
 Copy [birdstrikes_small.csv]({{ page.root }}/artifacts/intro/birdstrikes_small.csv) in the folder resulted in the previous command. 
@@ -190,6 +198,11 @@ reported_date = nullif(@v_reported_date, ''),
 speed = nullif(@v_speed, '');
 ```
 {: .language-sql}
+
+<br/>
+#### Plan B
+
+If "local_infile" is not "ON" or "secure_file_priv" is NULL, you need to change my.cnf (Mac,Linux) or my.ini (Windows). This is an advanced operation, so as plan B: download [birdstrikes.sql]({{ page.root }}/artifacts/intro/birdstrikes.sql) and Open SQL Script in MySQLWorkbench, then execute. 
 
 
 <br/><br/><br/>
@@ -241,6 +254,19 @@ SELECT airline,cost FROM birdstrikes;
 
 ## Dumping a database with MySQL Workbench
 [Screenshot help]({{ page.root }}/artifacts/intro/dump.png)
+
+
+
+
+<br/><br/><br/>
+>## Ninja challenge
+>
+>* Load lines starting with "Data:" in [ninja.txt]({{ page.root }}/artifacts/intro/ninja.txt) into a table.
+>* Further requirements:
+>	* Divide the last column with 1000 during the load
+>	* " signs should be removed during the load
+>	* Dump the table and send to me in mail with the sql script. 
+{: .challenge} 
 
 
 <br/><br/>

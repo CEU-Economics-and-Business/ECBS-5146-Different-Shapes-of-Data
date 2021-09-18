@@ -2,36 +2,17 @@
 title: Setup
 ---
 
-## Data
+## Part 1 (Chapter 1-6)
 
-<ol>
-{% for data in site.data.dataset %}
-  <li>
-      {{ data.publisher }}, {{ data.date_published }}. <a href="{{ data.documentation_url }}">"{{ data.name }}"</a>. {{ data.description }}. License: {{ data.license }}.
-  </li>
-{% endfor %}
-</ol>
+#### Tools
+[MySQL Community Server](https://dev.mysql.com/downloads/)
 
-## Tools 
-<ol>
-{% for tool in site.data.tool %}
-  {% if tool.use == "1" and tool.type == "tool" %}
-  <li>
-      <a href="{{ tool.documentation_url }}">{{ tool.name }}</a>. {{ tool.purpose }}.
-  </li>
-  {% endif %}
-{% endfor %}
-</ol>
+[MySQL Workbench](https://dev.mysql.com/downloads/)
 
-## Technologies
-<ol>
-{% for tool in site.data.tool %}
-  {% if tool.use == "1" and tool.type == "technology" %}
-  <li>
-      <a href="{{ tool.documentation_url }}">{{ tool.name }}</a>. {{ tool.purpose }}.
-  </li>
-  {% endif %}
-{% endfor %}
-</ol>
+<br/><br/>
 
+#### Datasets
+All datasets used in this part are included in the appropriate chapters.
+
+<br/><br/>
 {% include links.md %}
