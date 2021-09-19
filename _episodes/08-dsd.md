@@ -6,7 +6,11 @@ questions:
 objectives:
 - 
 keypoints:
-- \
+- \#CSV
+- \#XML
+- \#JSON
+- \#API
+- \#POSTMAN
 
 ---
 
