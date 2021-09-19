@@ -15,8 +15,9 @@ objectives:
 - Understand cloud-based systems
 - Practice creation of a RDBMS in AWS
 keypoints:
-- As analyst, you need to understand the architectural challenges of data ecosystems, so that later you can choose the right environment for your analytics. 
-- As analyst, you need to setup a central cloud based RDBMS so that you can perform your work in a team setup. 
+- \#SERVER ARCHITECTURES 
+- \#CLOUD
+- \#SQL SWISSKNIFE
 ---
 
 ## Data architectural tradeoffs from engineering perspective
@@ -24,7 +25,7 @@ keypoints:
 [Lecture](https://github.com/salacika/DE2DSD/blob/main/tradeoffs/tradeoffs.pptx)
 
 
-## Installing MySQL in AWS
+## Installing MySQL in AWS Cloud
 
 Getting insights in AWS cloud, has to major goals:
 * A data system in cloud enables collaboration during the execution of your term project

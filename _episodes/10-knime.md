@@ -3,7 +3,8 @@ title: Knime.
 teaching: 90
 questions:
 - How the data science landscape looks like in regard to tools?
-- How to implement an end-to-end data analytics workflow?
+- How to implement an end-to-end data analytics workflow integrated with multiple sources?
+- How to do rapid prototype a data analytics workflow with low code tools, opposed to using a programing language (R,Python etc)?
 
 objectives:
 - Introducing KNIME as data analytics tool
@@ -11,8 +12,10 @@ objectives:
 - End-to-end (from data acquisition to visualization) practice exercise
 
 keypoints:
-- As analyst, you might want to use an end-to-end data analytics tool (with integration of multiple data sources, data pipelines, advanced analytics etc)
-- As analyst, rapid prototyping of your data analytics workflow, opposed to using a programing language (R,Python etc), might be a valuable asset
+- \#DATA SCIENCE BY GARTNER
+- \#KNIME 
+- \#EUROSTAT WORKFLOW
+- \#CLIMATE WORKFLOW
 
 ---
 
