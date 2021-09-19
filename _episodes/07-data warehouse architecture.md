@@ -2,7 +2,8 @@
 title: Data warehouse architectures.
 teaching: 90
 questions:
-- As analyst, you would like to create a dedicated analytical data layer for your analytics. How would you do that?
+- What is a Data Warehouse?
+- As analyst, how can you create a simple analytical platform using SQL DB?
 objectives:
 - Understanding data warehouse architectures
 - Building a denormalized analytical data store 

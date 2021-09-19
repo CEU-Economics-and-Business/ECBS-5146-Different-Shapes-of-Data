@@ -2,8 +2,9 @@
 title: Stored Procedures.
 teaching: 90
 questions:
-- As analyst, you are working on DB with corrupted data. Cleaning/fixing it requires extensive business logic. 
-- As analyst, you are running several very similar and heavy(long) queries, which differs from each other only by a few parameters. Maintaining these queries is a nightmare.
+- How can simplify the maintainable of long queries with similarities?
+- How can you build business logic with SQL?
+- How can you clean/fix a database with corrupted/bad quality data unfit for you analytics?
 objectives:
 - Introducing procedural elements of SQL databases
 - Introducing Stored Procedures with parameters

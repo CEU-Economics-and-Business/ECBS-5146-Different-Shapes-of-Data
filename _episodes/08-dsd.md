@@ -2,9 +2,15 @@
 title: Different Shapes of Data. APIs.
 teaching: 90
 questions:
--
+- What the popular flat file formats used by data analysts?
+- How I get data from the internet?
 objectives:
-- 
+- Familiarize popular data file format
+- Build data files in different formats
+- Understanding URLs used on the internet
+- Introducing APIs as data sources
+- Exercise REST APIs
+
 keypoints:
 - \#CSV
 - \#XML
