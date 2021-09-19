@@ -16,26 +16,31 @@ objectives:
 - Introducing Appache Zeppelin
 - Practice with Redis
 - Introducing Time Series DBMS 
-- Practice with InfluxDB
 - Introducing Document Stores
-- Practice with MongoDB
+- Practice of MongoDB with Airbnb data
 - Introducing Column Stores
 - Introducing Search Engines
-- Practice with Solr
+- Practice of Solr with Kaggle Flight data
 - Introducing Graph DBMS
-- Practice with Neo4J
+- Practice of Neo4J with Paradise Papers
 
 keypoints:
-- To go beyond tabular data, we need other technologies than RDBMS
-- NoSQL solutions build for high scalability, simplified consistency, finer control over availability could be a solution to persist different shapes of data
-- Hundreds, even thousands of NoSQL solution are available, the best way to orient ourselves in this jungle, is to learn the main families
+- \#BASE
+- \#NOSQL FAMILIES
+- \#APACHE ZEPPELIN
+- \#REDIS
+- \#MONGO
+- \#SOLR
+- \#NETWORK SCIENCE
+- \#NEO4J
+- \#PARADISE PAPERS
 
 
 
 ---
 
 > ## Table of Content
-> [Lecture](https://github.com/salacika/DE2DSD/blob/main/nosql/nosql.pptx)
+> [Lecture PPTX]({{ page.root }}/artifacts/nosql/nosql.pptx)
 >
 > [Redis](#redis)
 >

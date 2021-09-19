@@ -18,12 +18,26 @@ keypoints:
 - \#SERVER ARCHITECTURES 
 - \#CLOUD
 - \#SQL SWISSKNIFE
+- \#NOSQL
+- \#SCHEMALESS
+- \#BEYOND TABULAR
 ---
 
-## Data architectural tradeoffs from engineering perspective
 
-[Lecture](https://github.com/salacika/DE2DSD/blob/main/tradeoffs/tradeoffs.pptx)
 
+
+> ## Table of Content
+> [Lecture PPTX]({{ page.root }}/artifacts/tradeoff/tradeoffs.pptx)
+>
+> [Installing MySQL in AWS Cloud](#aws)
+>
+> [Homework](#homework)  
+{: .discussion}
+
+
+
+<br/><br/>
+<a name="aws"/>
 
 ## Installing MySQL in AWS Cloud
 
@@ -33,6 +47,11 @@ Getting insights in AWS cloud, has to major goals:
 
 
 [Tutorial](https://github.com/salacika/DE2DSD/tree/main/tradeoffs/AWS)
+
+
+
+<br/><br/>
+<a name="homework"/>
 
 <br><br>
 
