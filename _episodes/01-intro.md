@@ -134,7 +134,7 @@ DROP SCHEMA IF EXISTS firstdb;
 ```
 {: .language-sql}
 
-Lets recreate the db again
+Let's recreate the db again
 
 ```
 CREATE SCHEMA firstdb;
@@ -202,7 +202,7 @@ speed = nullif(@v_speed, '');
 <br/>
 #### Plan B
 
-If "local_infile" is not "ON" or "secure_file_priv" is NULL, you need to change my.cnf (Mac,Linux) or my.ini (Windows). This is an advanced operation, so as plan B: download [birdstrikes.sql]({{ page.root }}/artifacts/intro/birdstrikes.sql) and Open SQL Script in MySQLWorkbench, then execute. 
+If "local_infile" is not "ON" or "secure_file_priv" is NULL, you need to change my.cnf (Mac,Linux) or my.ini (Windows). This is an advanced operation, so as plan B: download [birdstrikes.sql]({{ page.root }}/artifacts/intro/birdstrikes.sql) and Open SQL Script in MySQL Workbench, then execute. 
 
 
 <br/><br/><br/>
@@ -229,7 +229,7 @@ DESCRIBE birdstrikes;
 ![Database diagram]({{ page.root }}/artifacts/intro/db_model.png)
 
 
-Retriving data stored in birdstrikes
+Retrieving data stored in birdstrikes
 
 ```
 SELECT * FROM birdstrikes;

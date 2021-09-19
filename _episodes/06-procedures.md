@@ -4,12 +4,12 @@ teaching: 90
 questions:
 - How can simplify the maintainable of long queries with similarities?
 - How can you build business logic with SQL?
-- How can you clean/fix a database with corrupted/bad quality data unfit for you analytics?
+- How can you clean/fix a database with corrupted/bad quality data unfit for your analytics?
 objectives:
 - Introducing procedural elements of SQL databases
 - Introducing Stored Procedures with parameters
 - Introducing IF/LOOP/CURSOR
-- Understanding the difference of processing data in the database vs outside of of database engine
+- Understanding the difference of processing data in the database vs. outside of database engine
 - Understanding the advantages and disadvantages of stored procedures
 - Example with fixing data
 keypoints:
@@ -316,7 +316,7 @@ SELECT * FROM messages;
 ```
 {: .language-sql}
 
-Note: You can you other interating commands instead of LOOP, such as WHILE, REPEAT, but similarly to IF/CASE, with the LOOP you can cover every case. 
+Note: You can you other iterative commands instead of LOOP, such as WHILE, REPEAT, but similarly to IF/CASE, with the LOOP you can cover every case. 
 
 
 <br/><br/><br/>

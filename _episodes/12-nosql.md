@@ -13,7 +13,7 @@ objectives:
 - Understanding SQL VS NoSQL
 - Understanding NoSQL families 
 - Introducing Key-Value Stores
-- Introducing Appache Zeppelin
+- Introducing Apache Zeppelin
 - Practice with Redis
 - Introducing Time Series DBMS 
 - Introducing Document Stores

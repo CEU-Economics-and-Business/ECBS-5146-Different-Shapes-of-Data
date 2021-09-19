@@ -167,7 +167,7 @@ DELIMITER ;
 
 <br/><br/>
 >## `Exercise1` 
->Copy the birdstrikes structure into a new tabe called birdstrikes2. Insert into birdstrikes2 the line where id is 10.
+>Copy the birdstrikes structure into a new table called birdstrikes2. Insert into birdstrikes2 the line where id is 10.
 > Hints:
 >* Use the samples from Chapter2 for copy
 >* For insert use the format like: INSERT INTO bla SELECT blabla

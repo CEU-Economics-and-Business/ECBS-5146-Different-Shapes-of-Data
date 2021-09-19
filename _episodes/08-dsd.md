@@ -18,6 +18,7 @@ keypoints:
 - \#API
 - \#POSTMAN
 - \#EUROSTAT API
+- \#WORLDBANK API
 
 ---
 
@@ -58,7 +59,7 @@ Eurostat is offering a wide range of databases: [https://ec.europa.eu/eurostat/w
 
 * Click on Data Explorer (second icon) and you'll get this: [https://appsso.eurostat.ec.europa.eu/nui/show.do?dataset=urb_cpop1&lang=en](https://appsso.eurostat.ec.europa.eu/nui/show.do?dataset=urb_cpop1&lang=en)
 
-* Check the dimensions of this dataset, play arond with slicing and dicing
+* Check the dimensions of this dataset, play around with slicing and dicing
 
 * Browse to [https://ec.europa.eu/eurostat/web/json-and-unicode-web-services/getting-started/rest-request](https://ec.europa.eu/eurostat/web/json-and-unicode-web-services/getting-started/rest-request) and read it carefully.
 
@@ -72,7 +73,7 @@ Eurostat is offering a wide range of databases: [https://ec.europa.eu/eurostat/w
 
 * Try this URL in a browser. What do you see?
 
-* The more convenienet way to work with REST APIs is Postman. Lets paste the previous URL in postman.
+* The more convenient way to work with REST APIs is Postman. Lets paste the previous URL in postman.
 
 
 

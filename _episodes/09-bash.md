@@ -29,7 +29,7 @@ Instructions for Windows:
 
 Instructions for Mac:
 * You should have Git installed by default
-* Open a Terminal appilcation and type: `git --version` - if you get back something like `git version 2.24.3 (Apple Git-128)` you should be ok. 
+* Open a Terminal application and type: `git --version` - if you get back something like `git version 2.24.3 (Apple Git-128)` you should be ok. 
 * If you don't have git or you have an older version, type `brew install git`
 
 
