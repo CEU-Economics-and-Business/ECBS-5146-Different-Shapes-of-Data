@@ -39,6 +39,16 @@ keypoints:
 > [Homework](#homework)  
 {: .discussion}
 
+
+<br><br>
+<a name="setup"/>
+> ## Prerequisites for this chapter
+>   * Install:  [MySQL Community Server](https://dev.mysql.com/downloads/), [MySQL Workbench](https://dev.mysql.com/downloads/) 
+{: .prereq} 
+
+
+
+
 <br/><br/>
 <a name="sql5"/>
 

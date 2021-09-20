@@ -18,19 +18,26 @@ keypoints:
 
 ---
 
-## Setup
 
-For this exercise we will use Git. 
+<br><br>
+<a name="setup"/>
 
-Instructions for Windows: 
-* Install Git for Windows: <https://gitforwindows.org/> 
-* This installs Git bash too. More info on Git bash: <https://www.atlassian.com/git/tutorials/git-bash>
-* Please run and check (and double check) that Git Bash works properly. Type `pwd` and see if you get a response.
+> ## Prerequisites for this chapter
+>In this chapter we will use Git bash. 
+>
+>**Instructions for Windows:** 
+>* Install Git for Windows: <https://gitforwindows.org/> 
+>* This installs Git bash too. More info on Git bash: <https://www.atlassian.com/git/tutorials/git-bash>
+>* Please run and check (and double check) that Git Bash works properly. Type `pwd` and see if you get a response.
+>
+>**Instructions for Mac:**
+>* You should have Git installed by default
+>* Open a Terminal application and type: `git --version` - if you get back something like `git version 2.24.3 (Apple Git-128)` you should be ok. 
+>* If you don't have git or you have an older version, type `brew install git`
+{: .prereq} 
 
-Instructions for Mac:
-* You should have Git installed by default
-* Open a Terminal application and type: `git --version` - if you get back something like `git version 2.24.3 (Apple Git-128)` you should be ok. 
-* If you don't have git or you have an older version, type `brew install git`
+
+
 
 
 ## Preparing the exercise artifacts

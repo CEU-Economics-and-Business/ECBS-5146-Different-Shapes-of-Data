@@ -19,15 +19,23 @@ keypoints:
 
 > ## Table of Content 
 > [Lecture PPTX]({{ page.root }}/artifacts/joins/joins.pptx)  
-> [Session setup](#setup)  
+> [Data modeling](#model)  
 > [INNER joins](#inner)  
 > [SELF joins](#self)  
 > [LEFT joins](#left)  
 > [Homework](#homework)    
 {: .discussion}
   
-<br/><br/><br/>
+
+<br><br>
 <a name="setup"/>
+> ## Prerequisites for this chapter
+>   Load [sample database]({{ page.root }}/artifacts/joins/sampledatabase_create.sql) script into your local MySQL instance. [[Credit]](https://www.mysqltutorial.org/mysql-sample-database.aspx)
+{: .prereq} 
+
+
+<br/><br/><br/>
+<a name="model"/>
 ## Data modeling
 
 There are many types of data models: hierarchical, network, relational etc. Today we will focus on Relational Data modeling.
@@ -45,14 +53,10 @@ Several technics can be used for modeling. Today we will use the most widespread
 {: .challenge} 
 
 
-<br/><br/><br/>
-<a name="setup"/>
-## Session setup
 
-Install [sample database]({{ page.root }}/artifacts/joins/sampledatabase_create.sql) script. Credit: https://www.mysqltutorial.org/mysql-sample-database.aspx
 
 <br/><br/>
-#### Database diagram
+## Sample database diagram
 ![Database diagram]({{ page.root }}/artifacts/joins/sampledatabase_diagram.png)
 
 <br/><br/><br/>

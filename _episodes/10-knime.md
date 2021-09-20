@@ -24,20 +24,24 @@ keypoints:
 
 <br/><br/>
 
-## Prerequisite: Installing KNIME Analytics Platform (Not the server part!)
+
+> ## Prerequisites for this chapter
+>**Installing KNIME Analytics Platform**  
+>* Download KNIME for (Window/Linux/Mac) from: [https://www.knime.com/downloads/download-knime](https://www.knime.com/downloads/download-knime)
+>* Please make sure the installation is valid and the application starts properly!
+>* If you need further help check the "KNIME Beginner's Luck" book uploaded on Moodle or ask help on Slack!
+>
+>**Self preparation at home**
+>* Read "KNIME Beginner's Luck" book uploaded on Moodle from page 18 to 54. 
+>* Do the exercises from these pages. 
+>* Check the content of all 4 KNIME related books uploaded on Moodle
+{: .prereq} 
 
 
-Download KNIME for (Window/Linux/Mac) from: [https://www.knime.com/downloads/download-knime](https://www.knime.com/downloads/download-knime)
-
-Please make sure the intallation is valid and the application starts properly!
-
-If you need further help check the "KNIME Beginner's Luck" book uploaded on Moodle or ask help on Slack!
 
 
-## Prerequisite: Self preparation at home
-* Read "KNIME Beginner's Luck" book uploaded on Moodle from 18 to 54. 
-* Do the exercises from these pages. 
-* Check the content of all 4 KNIME related books uploaded on Moodle
+Self preparation at home
+
 
 
 
