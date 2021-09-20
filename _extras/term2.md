@@ -3,7 +3,7 @@ title: Term project 2
 ---
 
 ### Format
-The term project will delivered in teams, consisting 3 students each. 
+The term project will delivered in teams, consisting 4 students each. (We will use the support group breakdown)
 
 ### Goal
 
