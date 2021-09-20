@@ -155,6 +155,8 @@ USE firstdb;
 <br/><br/>
 #### Loading CSV into a table
 
+**Note:** If you are not familiar with CSV file format, read the CSV section [here]({{ page.root }}/08-dsd/index.html#csv)  
+
 Let's create a table:
 ```
 CREATE TABLE birdstrikes 
