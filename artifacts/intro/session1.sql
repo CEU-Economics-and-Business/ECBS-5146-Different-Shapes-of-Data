@@ -45,7 +45,7 @@ SHOW VARIABLES LIKE "local_infile";
 LOAD DATA INFILE '/tmp/birdstrikes_small.csv' 
 INTO TABLE birdstrikes 
 FIELDS TERMINATED BY ';' 
-LINES TERMINATED BY '\r\n' 
+LINES TERMINATED BY '\n' 
 IGNORE 1 LINES 
 (id, aircraft, flight_date, damage, airline, state, phase_of_flight, @v_reported_date, bird_size, cost, @v_speed)
 SET
