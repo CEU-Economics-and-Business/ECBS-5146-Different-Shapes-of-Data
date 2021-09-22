@@ -67,11 +67,12 @@ DROP TABLE IF EXISTS new_birdstrikes;
 <br/><br/>
 #### Create table
 
-```
-CREATE TABLE employee (id INTEGER NOT NULL, employee_name VARCHAR(255) NOT NULL, PRIMARY KEY(id));`
-DESCRIBE employee;
-```
-{: .language-sql}
+
+<br/>
+> ## `Exercise1` 
+> Based on the previous chapter, create a table called "employee" with two columns: "id" and "employee_name". NULL values should not be accepted for these 2 columns. 
+{: .challenge} 
+
 
 <br/><br/>
 #### Insert new rows (records)
@@ -227,7 +228,7 @@ SELECT * FROM birdstrikes LIMIT 10,1;
 
 
 <br/><br/>
-> ## `Exercise1` 
+> ## `Exercise2` 
 > What state figures in the 145th line of our database?
 {: .challenge} 
 
@@ -260,7 +261,7 @@ SELECT state, cost FROM birdstrikes ORDER BY cost DESC;
 
 
 <br/><br/>
-> ## `Exercise2` 
+> ## `Exercise3` 
 > What is flight_date of the latest birstrike in this database?
 {: .challenge} 
 
@@ -287,7 +288,7 @@ SELECT DISTINCT airline, damage FROM birdstrikes;
 
 
 <br/><br/>
-> ## `Exercise3` 
+> ## `Exercise4` 
 > What was the cost of the 50th most expensive damage?
 {: .challenge} 
 
@@ -451,7 +452,7 @@ SELECT * FROM birdstrikes where cost BETWEEN 20 AND 40;
 
 
 <br/><br/>
-> ## `Exercise4` 
+> ## `Exercise5` 
 > What state figures in the 2nd record, if you filter out all records which have no state and no bird_size specified?
 {: .challenge} 
 
@@ -483,7 +484,7 @@ SELECT * FROM birdstrikes where flight_date BETWEEN "2000-01-01" AND "2000-01-03
 
 
 <br/><br/>
-> ## `Exercise5` 
+> ## `Exercise6` 
 > How many days elapsed between the current date and the flights happening in week 52, for incidents from Colorado? (Hint: use NOW, DATEDIFF, WEEKOFYEAR)
 {: .challenge} 
 
@@ -491,7 +492,7 @@ SELECT * FROM birdstrikes where flight_date BETWEEN "2000-01-01" AND "2000-01-03
 <br/><br/>
 <a name="homework"/>
 > ## Homework 2
-> * Upload the solution of exercise 1-5 to your GitHub repo in a folder called HW2
+> * Upload the solution of exercise 1-6 to your GitHub repo in a folder called HW2
 > * Make sure to submit both the SQL statements and answers to the questions
 > * The required data format for submission is a .sql file
 > * Submit GitHub repo link to moodle when you are ready
