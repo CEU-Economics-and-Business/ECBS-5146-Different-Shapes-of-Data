@@ -3,8 +3,14 @@ USE birdstrikes;
 
 SHOW TABLES;
 
-DESCRIBE birdstrikes.birdstrikes;
+DESCRIBE birdstrikes;
 
+-- content of birdstrikes
+SELECT * FROM birdstrikes;
+
+-- retrive certain field(s):
+SELECT cost FROM birdstrikes;
+SELECT airline,cost FROM birdstrikes;
 
 -- ALTERING DB
 -- copy table (structure)
@@ -77,6 +83,8 @@ SELECT * FROM birdstrikes LIMIT 10;
 -- list the first 1 record, after the the first 10
 SELECT * FROM birdstrikes LIMIT 10,1;
 
+SELECT state FROM birdstrikes LIMIT 144,1;
+
 -- Exercise1: What state figures in the 145th line of our database?
 
 -- ordering data
@@ -94,7 +102,7 @@ SELECT DISTINCT state FROM birdstrikes;
 -- unique pairs
 SELECT DISTINCT airline, damage FROM birdstrikes ORDER BY airline;
 
--- Exercise3: What was the cost of the 50th most expensive damage?
+-- Exercise4: What was the cost of the 50th most expensive damage?
 
 -- filtering
 SELECT * FROM birdstrikes WHERE state = 'Alabama';
@@ -134,7 +142,7 @@ SELECT * FROM birdstrikes WHERE state IN ('Alabama', 'Missouri','New York','Alas
 
 -- LENGTH
 -- listing states with 5 characters
-SELECT DISTINCT(state) FROM birdstrikes WHERE LENGTH(state) = 5;
+SELECT DISTINCT state FROM birdstrikes WHERE LENGTH(state) = 5;
 
 
 
@@ -169,7 +177,6 @@ SELECT * FROM birdstrikes WHERE flight_date >= '2000-01-01' AND flight_date <= '
 SELECT * FROM birdstrikes where flight_date BETWEEN "2000-01-01" AND "2000-01-03";
 
 -- Exercise5:  How many days elapsed between the current date and the flights happening in week 52, for incidents from Colorado? (Hint: use NOW, DATEDIFF, WEEKOFYEAR)
-
 
 
 

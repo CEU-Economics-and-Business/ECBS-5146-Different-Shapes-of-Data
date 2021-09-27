@@ -53,6 +53,7 @@ speed = nullif(@v_speed, ''),
 reported_date = nullif(@v_reported_date, '');
 
 
+
 -- EXPLORING DB
 
 -- list tables
