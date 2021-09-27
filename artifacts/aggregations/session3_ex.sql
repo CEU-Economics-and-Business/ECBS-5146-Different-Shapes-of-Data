@@ -4,7 +4,7 @@ SELECT aircraft, airline,speed,IF(speed < 100 OR SPEED IS NULL,'LOW SPEED','HIGH
 
 
 -- Exercise2: How many distinct 'aircraft' we have in the database?
-SELECT COUNT(DISTINCT(aircraft)) FROM  birdstrikes;
+SELECT COUNT(DISTINCT aircraft) FROM  birdstrikes;
 -- 3
 
 

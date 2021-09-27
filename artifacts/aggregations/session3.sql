@@ -1,4 +1,6 @@
 
+USE birdstrikes;
+
 -- CASE
 
 SELECT * FROM birdstrikes.birdstrikes;
@@ -31,8 +33,13 @@ SELECT COUNT(reported_date) FROM birdstrikes;
 
 
 -- DISTINCT COUNT
+
+SELECT DISTINCT state FROM birdstrikes;
+
 -- how many distinct states we have
-SELECT COUNT(DISTINCT(state)) FROM birdstrikes;
+SELECT COUNT(DISTINCT state) FROM birdstrikes;
+
+-- Exercise2: How many distinct 'aircraft' we have in the database?
 
 
 -- MAX, AVG, SUM
@@ -74,6 +81,12 @@ SELECT state,AVG(speed) AS avg_speed FROM birdstrikes GROUP BY state HAVING ROUN
 SELECT state,AVG(speed) AS avg_speed FROM birdstrikes WHERE state='Idaho' GROUP BY state HAVING ROUND(avg_speed) = 50;
 
 -- Exercise6: What the highest AVG speed of the states with names less than 5 characters?
+
+
+
+
+
+
 
 
 

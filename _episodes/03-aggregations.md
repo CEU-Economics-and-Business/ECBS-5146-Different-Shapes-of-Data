@@ -106,14 +106,14 @@ SELECT COUNT(reported_date) FROM birdstrikes;
 How do we list all distinct states? (Remember last seminar!)
 
 ```
-SELECT DISTINCT(state) FROM birdstrikes;
+SELECT DISTINCT state FROM birdstrikes;
 ```
 {: .language-sql}
 
 Count number of distinct states
 
 ```
-SELECT COUNT(DISTINCT(state)) FROM birdstrikes;
+SELECT COUNT(DISTINCT state) FROM birdstrikes;
 ```
 {: .language-sql}
 
