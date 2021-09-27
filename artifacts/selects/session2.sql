@@ -23,9 +23,8 @@ SELECT * FROM new_birdstrikes;
 DROP TABLE IF EXISTS new_birdstrikes;
 
 -- create table
-CREATE TABLE employee (id INTEGER NOT NULL, employee_name VARCHAR(255) NOT NULL, PRIMARY KEY(id));
-DESCRIBE employee;
-SELECT * FROM employee;
+
+-- Exercise1: Based on the previous chapter, create a table called “employee” with two columns: “id” and “employee_name”. NULL values should not be accepted for these 2 columns.
 
 -- insert new rows (records)
 INSERT INTO employee (id,employee_name) VALUES(1,'Student1');
@@ -85,14 +84,14 @@ SELECT * FROM birdstrikes LIMIT 10,1;
 
 SELECT state FROM birdstrikes LIMIT 144,1;
 
--- Exercise1: What state figures in the 145th line of our database?
+-- Exercise2: What state figures in the 145th line of our database?
 
 -- ordering data
 SELECT state, cost FROM birdstrikes ORDER BY cost;
 SELECT state, cost FROM birdstrikes ORDER BY state, cost ASC;
 SELECT state, cost FROM birdstrikes ORDER BY cost DESC;
 
--- Exercise2: What is flight_date of the latest birstrike in this database?
+-- Exercise3: What is flight_date of the latest birstrike in this database?
 
 -- unique values
 SELECT DISTINCT damage FROM birdstrikes;
@@ -162,7 +161,7 @@ SELECT * FROM birdstrikes where cost BETWEEN 20 AND 40;
 
 -- bird_size IS NOT NULL
 
--- Exercise4: What state figures in the 2nd record, if you filter out all records which have no state and no bird_size specified?
+-- Exercise5: What state figures in the 2nd record, if you filter out all records which have no state and no bird_size specified?
 
 
 
@@ -176,7 +175,7 @@ SELECT * FROM birdstrikes WHERE flight_date >= '2000-01-01' AND flight_date <= '
 -- BETWEEN
 SELECT * FROM birdstrikes where flight_date BETWEEN "2000-01-01" AND "2000-01-03";
 
--- Exercise5:  How many days elapsed between the current date and the flights happening in week 52, for incidents from Colorado? (Hint: use NOW, DATEDIFF, WEEKOFYEAR)
+-- Exercise6:  How many days elapsed between the current date and the flights happening in week 52, for incidents from Colorado? (Hint: use NOW, DATEDIFF, WEEKOFYEAR)
 
 
 
