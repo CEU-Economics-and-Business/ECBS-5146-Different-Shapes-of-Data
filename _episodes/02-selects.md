@@ -391,7 +391,7 @@ SELECT * FROM birdstrikes WHERE state = 'Alabama' OR state = 'Missouri';
 Filtering out nulls and empty strings
 
 ```
-SELECT DISTINCT(state) FROM birdstrikes WHERE state IS NOT NULL AND state != '' ORDER BY state;
+SELECT DISTINCT state FROM birdstrikes WHERE state IS NOT NULL AND state != '' ORDER BY state;
 ```
 {: .language-sql}
 
