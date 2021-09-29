@@ -144,7 +144,7 @@ ON left_table.id = another_table.id;
 <br/>
 
 >## `Exercise3` 
-> We want to how the employees are performing. Join orders, customers and employees and return orderDate,lastName, firstName
+> We want to know how the employees are performing. Join orders, customers and employees and return orderDate,lastName, firstName
 {: .challenge} 
 
 <br/><br/><br/>
