@@ -1,6 +1,8 @@
 
 USE birdstrikes;
 
+
+
 -- CASE
 
 SELECT * FROM birdstrikes.birdstrikes;
@@ -53,6 +55,9 @@ SELECT (AVG(speed)*1.852) as avg_kmh FROM birdstrikes;
 -- how many observation days we have in birdstrikes
 SELECT DATEDIFF(MAX(reported_date),MIN(reported_date)) from birdstrikes;
 
+SELECT MAX(reported_date) from birdstrikes;
+SELECT MIN(reported_date) from birdstrikes;
+
 -- Exercise3: What was the lowest speed of aircrafts starting with 'H'
 
 -- GROUP BY
@@ -73,7 +78,7 @@ SELECT state, aircraft, SUM(cost) AS sum FROM birdstrikes WHERE state !='' GROUP
 SELECT state, AVG(speed) AS avg_speed FROM birdstrikes GROUP BY state ;
 
 -- and you want only avg_speed=50
-SELECT state,AVG(speed) AS avg_speed FROM birdstrikes GROUP BY state WHERE ROUND(avg_speed) = 50;
+SELECT state,ROUND(AVG(speed)) AS avg_speed FROM birdstrikes GROUP BY state WHERE ROUND(avg_speed) = 50;
 
 SELECT state,AVG(speed) AS avg_speed FROM birdstrikes GROUP BY state HAVING ROUND(avg_speed) = 50;
 
