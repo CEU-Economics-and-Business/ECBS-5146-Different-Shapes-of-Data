@@ -168,7 +168,7 @@ ORDER BY
 {: .language-sql}
 
 <br/><br/>
->## `Exercise41` 
+>## `Question` 
 > Why President is not in the list?
 {: .challenge} 
 
