@@ -108,7 +108,7 @@ USING(productline);
 <br/><br/>
 #### Select specific columns
 ```
-SELECT t1.productLine, t2.textDescription
+SELECT t1.productName, t1.productLine, t2.textDescription
 FROM products t1
 INNER JOIN productlines t2 
 ON t1.productline = t2.productline;
@@ -144,7 +144,7 @@ ON left_table.id = another_table.id;
 <br/>
 
 >## `Exercise3` 
-> We want to how the employees are performing. Join orders, customers and employees and return orderDate,lastName, firstName
+> We want to know how the employees are performing. Join orders, customers and employees and return orderDate,lastName, firstName
 {: .challenge} 
 
 <br/><br/><br/>
@@ -168,7 +168,7 @@ ORDER BY
 {: .language-sql}
 
 <br/><br/>
->## `Exercise4` 
+>## `Question` 
 > Why President is not in the list?
 {: .challenge} 
 
