@@ -108,7 +108,7 @@ USING(productline);
 <br/><br/>
 #### Select specific columns
 ```
-SELECT t1.productLine, t2.textDescription
+SELECT t1.productName, t1.productLine, t2.textDescription
 FROM products t1
 INNER JOIN productlines t2 
 ON t1.productline = t2.productline;
