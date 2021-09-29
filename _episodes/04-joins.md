@@ -84,23 +84,26 @@ ON products.productline = productlines.productline;
 ```
 {: .language-sql}
 
-Same thing, but now with USING:
-```
-SELECT t1.productLine, t2.textDescription
-FROM products t1
-INNER JOIN productlines t2 
-USING(productline);
-```
-{: .language-sql}
 
 Same thing with aliasing:
 ```
 SELECT *
 FROM products t1
 INNER JOIN productlines t2 
+ON t1.productline = t2.productline;
+```
+{: .language-sql}
+
+Same thing, but now with USING:
+```
+SELECT *
+FROM products 
+INNER JOIN productlines 
 USING(productline);
 ```
 {: .language-sql}
+
+
 
 <br/><br/>
 #### Select specific columns
