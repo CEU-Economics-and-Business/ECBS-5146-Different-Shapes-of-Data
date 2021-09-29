@@ -5,20 +5,20 @@ FROM products
 INNER JOIN productlines  
 ON products.productline = productlines.productline;
 
--- aliasing
-SELECT t1.productLine, t2.textDescription
+-- same with aliasing
+SELECT *
 FROM products t1
 INNER JOIN productlines t2 
 ON t1.productline = t2.productline;
 
--- using
-SELECT t1.productLine, t2.textDescription
-FROM products t1
-INNER JOIN productlines t2 
+-- same with using
+SELECT *
+FROM products 
+INNER JOIN productlines 
 USING(productline);
 
 -- specific columns
-SELECT t1.productLine, t2.textDescription
+SELECT t1.productName, t1.productLine, t2.textDescription
 FROM products t1
 INNER JOIN productlines t2 
 ON t1.productline = t2.productline;
@@ -27,7 +27,19 @@ ON t1.productline = t2.productline;
 
 -- Exercise2: Join all fields of order and orderdetails. Display only orderNumber, status and sum of totalsales (quantityOrdered * priceEach) for each orderNumber.
 
--- Exercise3: We want to how the employees are performing. Join orders, customers and employees and return orderDate,lastName, firstName
+
+
+-- multiple inner join
+
+SELECT *
+FROM left_table
+INNER JOIN right_table
+ON left_table.id = right_table.id
+INNER JOIN another_table
+ON left_table.id = another_table.id;
+
+
+-- Exercise3: We want to know how the employees are performing. Join orders, customers and employees and return orderDate,lastName, firstName
 
 
 
@@ -49,6 +61,17 @@ ORDER BY
 
 -- LEFT
 
+-- compare with INNER join. See count on INNER and LEFT JOIN:    
+SELECT
+  COUNT(*)
+FROM
+    customers c
+INNER JOIN orders o 
+    ON c.customerNumber = o.customerNumber; 
+    
+-- difference between LEFT and INNER join: The previous example returns all customers including the customers who have no order. If a customer has no order, the values in the column orderNumber and status are NULL. 
+
+
 -- returns customer info and related orders:
 SELECT
     c.customerNumber,
@@ -60,15 +83,8 @@ FROM
 LEFT JOIN orders o 
     ON c.customerNumber = o.customerNumber;
     
--- compare with INNER join. See count on INNER and LEFT JOIN:    
-SELECT
-  COUNT(*)
-FROM
-    customers c
-INNER JOIN orders o 
-    ON c.customerNumber = o.customerNumber;    
 
--- difference between LEFT and INNER join: The previous example returns all customers including the customers who have no order. If a customer has no order, the values in the column orderNumber and status are NULL. 
+
 
     
 -- WHERE 
