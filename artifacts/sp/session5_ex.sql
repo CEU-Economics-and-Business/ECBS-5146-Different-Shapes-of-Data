@@ -92,16 +92,15 @@ BEGIN
 	myloop: LOOP 
 	           
 		SET  x = x + 1;
-		SELECT x;
+    		SELECT x;
            
-		IF  (x = 5) THEN LEAVE myloop;
-		END  IF;
+		IF  (x = 5) THEN
+			LEAVE myloop;
+         	END  IF;
          
 	END LOOP myloop;
 END$$
 DELIMITER ;
-
-CALL LoopDemo();
 
 
 
