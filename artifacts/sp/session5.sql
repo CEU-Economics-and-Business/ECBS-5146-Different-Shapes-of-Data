@@ -10,7 +10,7 @@ DELIMITER //
 CREATE PROCEDURE GetAllProducts()
 BEGIN
 	SELECT *  FROM products;
-    SELECT *  FROM orders;
+    SELECT *  FROM offices;
 END //
 
 DELIMITER ;
@@ -60,9 +60,10 @@ BEGIN
 END$$
 DELIMITER ;
 
+SELECT DISTINCT status FROM orders;
+
 CALL GetOrderCountByStatus('Shipped',@total);
 
-CALL anotherProc(@total);
 SELECT @total;
 
 
@@ -77,7 +78,7 @@ DELIMITER $$
 
 CREATE PROCEDURE SetCounter(
 	INOUT counter INT,
-    	IN inc INT
+	IN inc INT
 )
 BEGIN
 	SET counter = counter + inc;
@@ -121,7 +122,13 @@ DELIMITER ;
 CALL GetCustomerLevel(447, @level);
 SELECT @level;
 
+CALL GetCustomerLevel(112, @level);
+SELECT @level;
+
 -- Exercise3:  Create a stored procedure which returns category of a given row. Row number is IN parameter, while category is OUT parameter. Display the returned category. CAT1 - amount > 100.000, CAT2 - amount > 10.000, CAT3 - amount <= 10.000
+
+
+
 
 -- LOOP
 USE classicmodels;
@@ -138,6 +145,7 @@ BEGIN
 	END LOOP myloop;
  END$$
 DELIMITER ;
+
 CALL LoopDemo();
 
 -- LEAVE myloop;
