@@ -19,6 +19,7 @@ keypoints:
 
 
 > ## Table of Content
+>[Lecture PPTX]({{ page.root }}/artifacts/dw/dw.pptx)  
 >[Session setup](#setup)  
 >[Creating the analytical data store](#dw)  
 >[Events to schedule ETL jobs](#jobs)  
