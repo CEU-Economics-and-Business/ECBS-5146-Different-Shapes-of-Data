@@ -78,5 +78,30 @@ DELIMITER ;
 CALL GetCategoryOfXthPayments(18,@category);
 SELECT @category;
 
+-- Exercise4: Create a loop which counts to 5 and displays the actual count in each step as SELECT (eg. SELECT x) 
+
+DROP PROCEDURE IF EXISTS LoopDemo;
+
+DELIMITER $$
+CREATE PROCEDURE LoopDemo()
+BEGIN
+	DECLARE x  INT;
+    
+	SET x = 0;
+        
+	myloop: LOOP 
+	           
+		SET  x = x + 1;
+		SELECT x;
+           
+		IF  (x = 5) THEN LEAVE myloop;
+		END  IF;
+         
+	END LOOP myloop;
+END$$
+DELIMITER ;
+
+CALL LoopDemo();
+
 
 

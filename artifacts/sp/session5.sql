@@ -150,7 +150,7 @@ CALL LoopDemo();
 
 -- LEAVE myloop;
 
--- Exercise: Create a loop which counts to 5 and displays the actual count in each step as SELECT (eg. SELECT x) 
+-- Exercise4: Create a loop which counts to 5 and displays the actual count in each step as SELECT (eg. SELECT x) 
 
 DROP PROCEDURE IF EXISTS LoopDemo;
 
