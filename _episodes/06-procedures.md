@@ -25,7 +25,8 @@ keypoints:
 >[A basic stored procedure](#basic)  
 >[A stored procedures with parameters](#parameter)  
 >[Example with IF and declaring variables](#if)  
->[Iterating with LOOP](#loops)  
+>[Iterating with LOOP](#loops)
+>[Debugging/Logging](#log)    
 >[Iterating trough a table with CURSOR](#cursor)  
 >[Advantages/disadvantages of stored procedures](#advantages)  
 >[Homework](#homework)   
@@ -260,7 +261,7 @@ Note: CASE instruction is also available. We will skip CASE because you can do t
 <a name="loops"/>
 ## Iterating with LOOP
 
-Basic loop counting to 5 and display it:
+A basic loop:
 
 ```
 DROP PROCEDURE IF EXISTS LoopDemo;
@@ -268,33 +269,29 @@ DROP PROCEDURE IF EXISTS LoopDemo;
 DELIMITER $$
 CREATE PROCEDURE LoopDemo()
 BEGIN
-	DECLARE x  INT;
-    
-	SET x = 0;
-        
+      
 	myloop: LOOP 
-	           
-		SET  x = x + 1;
-    		SELECT x;
-           
-		IF  (x = 5) THEN
-			LEAVE myloop;
-         	END  IF;
-         
+		SELECT * FROM offices;
+        LEAVE myloop;
 	END LOOP myloop;
-END$$
+ END$$
 DELIMITER ;
-```
-{: .language-sql}
 
-<br/><br/>
-#### Execution and tweaks:
-```
 CALL LoopDemo();
 ```
 {: .language-sql}
 
-Displaying with SELECT is not ideal if you have a long loop. You better create a simple log table named "messages" and write your logs into it:
+<br/><br/>
+>## `Exercise4` 
+> Create a loop which counts to 5 and displays the actual count in each step as SELECT (eg. SELECT x) 
+{: .challenge} 
+
+<br/><br/>
+<a name="log"/>
+## Debugging/Logging
+
+
+As you could see in Exercise4, displaying with SELECT is not ideal if you have a long loop. You better create a simple log table named "messages" and write your logs into it:
 
 ```
 CREATE TABLE messages (message varchar(100) NOT NULL);
