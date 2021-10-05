@@ -270,11 +270,13 @@ DELIMITER $$
 CREATE PROCEDURE LoopDemo()
 BEGIN
       
-	myloop: LOOP 
+	ceuloop: LOOP
 		SELECT * FROM offices;
-        LEAVE myloop;
-	END LOOP myloop;
- END$$
+		IF TRUE THEN
+			LEAVE ceuloop;
+		END IF;
+	END LOOP ceuloop;
+END$$
 DELIMITER ;
 
 CALL LoopDemo();
@@ -283,7 +285,7 @@ CALL LoopDemo();
 
 <br/><br/>
 >## `Exercise4` 
-> Create a loop which counts to 5 and displays the actual count in each step as SELECT (eg. SELECT x) 
+> Create a loop which counts to 5 and displays the actual count in each step as SELECT (eg. SELECT count) 
 {: .challenge} 
 
 <br/><br/>
@@ -313,12 +315,56 @@ SELECT * FROM messages;
 ```
 {: .language-sql}
 
-Note: You can you other iterative commands instead of LOOP, such as WHILE, REPEAT, but similarly to IF/CASE, with the LOOP you can cover every case. 
+Note: You can you other iterative commands instead of LOOP, but with the LOOP you can cover every case. 
 
 
 <br/><br/><br/>
 <a name="cursor"/>
 ## Iterating trough a table with CURSOR
+
+<br>
+![Database diagram]({{ page.root }}/artifacts/sp/mysql-cursor.png)
+<br>
+
+#### Listing phones of customers:
+```
+DROP PROCEDURE IF EXISTS CursorDemo;
+
+DELIMITER $$
+CREATE PROCEDURE CursorDemo()
+BEGIN
+	DECLARE phone varchar(50);
+	DECLARE finished INTEGER DEFAULT 0;
+	-- DECLARE CURSOR
+	DECLARE curPhone CURSOR FOR SELECT customers.phone FROM classicmodels.customers;
+	DECLARE CONTINUE HANDLER FOR NOT FOUND SET finished = 1;
+	-- OPEN CURSOR
+	OPEN curPhone;
+	TRUNCATE messages;
+	myloop: LOOP
+		-- FETCH CURSOR
+		FETCH curPhone INTO phone;
+		INSERT INTO messages SELECT CONCAT('phone:',phone);
+		IF finished = 1 THEN LEAVE myloop;
+		END IF;
+	END LOOP myloop;
+	-- CLOSE CURSOR
+	CLOSE curPhone;
+END$$
+DELIMITER ;
+
+
+CALL CursorDemo();
+
+SELECT * FROM messages;
+```
+{: .language-sql}
+
+<br/><br/>
+>## `Exercise5` 
+> Loop through orders table. Fetch orderNumber + shippedDate. Write in both fields into messages as one line.
+{: .challenge} 
+<br/><br/>
 
 #### Fixing US phones in customer table 
 The aim of the next snippet is to add the international prefix to US domestic format.

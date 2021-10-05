@@ -149,16 +149,16 @@ BEGIN
       
 	ceuloop: LOOP 
 		SELECT * FROM offices;
-        IF TRUE THEN
+        
+		IF TRUE THEN
 			LEAVE ceuloop;
-		END  IF;
+		END IF;
 	END LOOP ceuloop;
  END$$
 DELIMITER ;
 
 CALL LoopDemo();
 
--- LEAVE myloop;
 
 -- Exercise4: Create a loop which counts to 5 and displays the actual count in each step as SELECT (eg. SELECT x) 
 
@@ -207,28 +207,28 @@ DELIMITER $$
 CREATE PROCEDURE CursorDemo()
 BEGIN
 	
-    DECLARE phone varchar(50) DEFAULT "blabla";
+    DECLARE phone varchar(50);
     DECLARE finished INTEGER DEFAULT 0;
     DECLARE curPhone CURSOR FOR SELECT customers.phone FROM classicmodels.customers;
-    DECLARE CONTINUE HANDLER  FOR NOT FOUND SET finished = 1;
+    DECLARE CONTINUE HANDLER FOR NOT FOUND SET finished = 1;
 	OPEN curPhone;
-    TRUNCATE messages;
-	myloop: LOOP 
+	TRUNCATE messages;
+	myloop: LOOP
 		FETCH curPhone INTO phone;
-        INSERT INTO messages SELECT CONCAT('phone:',phone);
-        
+		INSERT INTO messages SELECT CONCAT('phone:',phone);
 		IF finished = 1 THEN LEAVE myloop;
 		END IF;
-         
 	END LOOP myloop;
+	CLOSE curPhone;
 END$$
 DELIMITER ;
 
-SELECT * FROM messages;
 
 CALL CursorDemo();
 
--- Exercise: Loop through orders table. Fetch orderNumber + shippedDate. Write in both fields into messages as one line.alter
+SELECT * FROM messages;
+
+-- Exercise5: Loop through orders table. Fetch orderNumber + shippedDate. Write in both fields into messages as one line.
 
 -- Extra exercise: take a look at the next example with FixUSPhones on Git. Try to solve the Homework. 
 
