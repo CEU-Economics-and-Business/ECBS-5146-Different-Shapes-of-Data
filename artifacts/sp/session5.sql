@@ -147,10 +147,12 @@ DELIMITER $$
 CREATE PROCEDURE LoopDemo()
 BEGIN
       
-	myloop: LOOP 
+	ceuloop: LOOP 
 		SELECT * FROM offices;
-        LEAVE myloop;
-	END LOOP myloop;
+        IF TRUE THEN
+			LEAVE ceuloop;
+		END  IF;
+	END LOOP ceuloop;
  END$$
 DELIMITER ;
 
