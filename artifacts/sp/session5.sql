@@ -32,9 +32,11 @@ CREATE PROCEDURE GetOfficeByCountry(
 BEGIN
 	SELECT * 
  		FROM offices
-			WHERE country = countryName;
+			WHERE offices.country = countryName;
 END //
 DELIMITER ;
+
+
 
 CALL GetOfficeByCountry('USA'); 
 CALL GetOfficeByCountry('France'); 
@@ -50,22 +52,28 @@ DELIMITER $$
 
 CREATE PROCEDURE GetOrderCountByStatus (
 	IN  orderStatus VARCHAR(25),
-	OUT total INT
+	OUT countx INT
 )
 BEGIN
+	SET countx = countx + 1;
 	SELECT COUNT(orderNumber)
-	INTO total
+    INTO countx
 	FROM orders
 	WHERE status = orderStatus;
 END$$
 DELIMITER ;
 
-SELECT DISTINCT status FROM orders;
+CALL GetOrderCountByStatus('Shipped',@blabla);
 
-CALL GetOrderCountByStatus('Shipped',@total);
 
-SELECT @total;
+SELECT @blabla;
 
+SELECT * from offices where officeCode = @blabla;
+
+
+SELECT COUNT(orderNumber)
+	FROM orders
+	WHERE status = 'Shipped';
 
 -- Exercise2: Create a stored procedure which returns the amount for Xth entry of payment table. X is IN parameter for the procedure. Display the returned amount.
 
@@ -139,10 +147,12 @@ DELIMITER $$
 CREATE PROCEDURE LoopDemo()
 BEGIN
       
-	myloop: LOOP 
+	ceuloop: LOOP 
 		SELECT * FROM offices;
-        LEAVE myloop;
-	END LOOP myloop;
+        IF TRUE THEN
+			LEAVE ceuloop;
+		END  IF;
+	END LOOP ceuloop;
  END$$
 DELIMITER ;
 

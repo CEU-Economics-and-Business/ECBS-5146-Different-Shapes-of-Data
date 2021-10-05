@@ -42,7 +42,7 @@ SELECT @amount;
 
 
 
--- Exercise3:  Create a stored procedure which returns category of a given row. Row number is IN parameter, while category is OUT parameter. Display the returned category. CAT1 - amount > 100.000, CAT2 - amount > 10.000, CAT3 - amount <= 10.000
+-- Exercise3:  Create a stored procedure which returns category of a given row in payments. Row number is IN parameter, while category is OUT parameter. Display the returned category. CAT1 - amount > 100.000, CAT2 - amount > 10.000, CAT3 - amount <= 10.000
 
 DROP PROCEDURE IF EXISTS GetCategoryOfXthPayments;
 
@@ -54,11 +54,8 @@ CREATE PROCEDURE GetCategoryOfXthPayments(
 )
 
 BEGIN
-
 	DECLARE xthamount DECIMAL(10,2) DEFAULT 0;
-    
 	SET x = x-1;
-    
 	SELECT amount 
 		INTO xthamount
 			FROM payments
