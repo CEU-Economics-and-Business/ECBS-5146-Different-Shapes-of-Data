@@ -158,7 +158,7 @@ SELECT @total;
 
 <br/><br/>
 >## `Exercise2` 
-> Create a stored procedure which returns the amount for Xth entry of payment table. X is IN parameter for the procedure. Display the returned amount.
+> Create a stored procedure which returns the amount for Xth entry of payment table. X is IN, amount is OUT parameter for the procedure. Display the returned amount.
 {: .challenge} 
 
 <br/><br/>
@@ -192,7 +192,7 @@ CALL SetCounter(@counter,1);
 SELECT @counter;
 CALL SetCounter(@counter,1); 
 SELECT @counter;
-CALL SetCounter(counter,1); 
+CALL SetCounter(@counter,1); 
 SELECT @counter;
 ```
 {: .language-sql}
@@ -251,7 +251,7 @@ Note: CASE instruction is also available. We will skip CASE because you can do t
 
 <br/><br/>
 >## `Exercise3` 
-> Create a stored procedure which returns category of a given row. Row number is IN parameter, while category is OUT parameter. Display the returned category. 
+> Create a stored procedure which returns category of a given row in payments. Row number is IN parameter, while category is OUT parameter. Display the returned category. 
 > CAT1 - amount > 100.000, CAT2 - amount > 10.000, CAT3 - amount <= 10.000
 {: .challenge} 
 
