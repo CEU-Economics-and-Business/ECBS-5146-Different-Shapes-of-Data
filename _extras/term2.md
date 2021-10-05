@@ -65,9 +65,9 @@ Extra points:
 
 ### Submission and deadlines
 
-10th of November - Every material should be committed to GitHub. Link to GitHub will be provided into the Team Google Sheet  (Term project teams)
+16th of November - Every material should be committed to GitHub. Link to GitHub will be provided into the Team Google Sheet  (Term project teams)
 
-12th of November - Teams will present their results:
+18th of November - Teams will present their results:
 * The order of presentation will be by team number
 * Every team will have 7 minutes for presentations, followed by 7 minutes Q&A
 

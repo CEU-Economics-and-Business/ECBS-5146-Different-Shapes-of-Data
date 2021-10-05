@@ -230,17 +230,6 @@ SELECT * FROM messages;
 
 -- Exercise5: Loop through orders table. Fetch orderNumber + shippedDate. Write in both fields into messages as one line.
 
--- Extra exercise: take a look at the next example with FixUSPhones on Git. Try to solve the Homework. 
-
-CREATE TABLE new_order LIKE orders;
-
-DROP TABLE new_order;
-
-CREATE TABLE new_order AS SELECT * FROM orders;
-
--- Exercise: Create a stored procedure which creates a table called "product_sales" using the select from HW4.
-
-
 
 DROP PROCEDURE IF EXISTS FixUSPhones; 
 
