@@ -1,14 +1,78 @@
 
+
+
+
+
+
+
 USE classicmodels;
+
+
+SELECT * 
+FROM 
+	orders
+INNER JOIN
+	orderdetails USING (orderNumber);
+
+
+SELECT 
+   orders.orderNumber AS SalesId, 
+   orderdetails.priceEach AS Price, 
+   orderdetails.quantityOrdered AS Unit,
+   orders.orderDate AS Date,
+   WEEK(orders.orderDate) as WeekOfYear
+FROM
+	orders
+INNER JOIN
+	orderdetails USING (orderNumber);
+    
+    
+SELECT 
+   orders.orderNumber AS SalesId, 
+   orderdetails.priceEach AS Price, 
+   orderdetails.quantityOrdered AS Unit,
+   orders.orderDate AS Date,
+   WEEK(orders.orderDate) as WeekOfYear,
+	products.productName AS Product,
+	products.productLine As Brand  
+FROM
+	orders
+INNER JOIN
+	orderdetails USING (orderNumber)
+INNER JOIN
+	products USING (productCode);
+
+
+
+SELECT 
+   orders.orderNumber AS SalesId, 
+   orderdetails.priceEach AS Price, 
+   orderdetails.quantityOrdered AS Unit,
+   products.productName AS Product,
+   products.productLine As Brand,   
+   customers.city As City,
+   customers.country As Country,   
+   orders.orderDate AS Date,
+   WEEK(orders.orderDate) as WeekOfYear
+FROM
+	orders
+INNER JOIN
+	orderdetails USING (orderNumber)
+INNER JOIN
+	products USING (productCode)
+INNER JOIN
+	customers USING (customerNumber);
+
+
+
+
+-- Copy table 
 
 CREATE TABLE new_order LIKE orders;
 
 DROP TABLE new_order;
 
 CREATE TABLE new_order AS SELECT * FROM orders;
-
--- Exercise: Create a stored procedure which creates a table called "product_sales" using the select from HW4.
-
 
 
 
@@ -63,6 +127,8 @@ SET GLOBAL event_scheduler = ON;
 SET GLOBAL event_scheduler = OFF;
 
 
+TRUNCATE messages;
+
 DELIMITER $$
 
 CREATE EVENT CreateProductSalesStoreEvent
@@ -78,9 +144,9 @@ DELIMITER ;
 
 SHOW EVENTS;
 
+SELECT * FROM messages;
+
 DROP EVENT IF EXISTS CreateProductSalesStoreEvent;
-
-
 
 
 
