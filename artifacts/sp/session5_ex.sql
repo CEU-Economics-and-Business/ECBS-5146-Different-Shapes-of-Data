@@ -75,6 +75,10 @@ DELIMITER ;
 CALL GetCategoryOfXthPayments(18,@category);
 SELECT @category;
 
+
+
+USE classicmodels;
+
 -- Exercise4: Create a loop which counts to 5 and displays the actual count in each step as SELECT (eg. SELECT x) 
 
 DROP PROCEDURE IF EXISTS LoopDemo;
@@ -82,14 +86,12 @@ DROP PROCEDURE IF EXISTS LoopDemo;
 DELIMITER $$
 CREATE PROCEDURE LoopDemo()
 BEGIN
-	DECLARE x  INT;
+	DECLARE x  INT DEFAULT 0;
     
-	SET x = 0;
-        
 	myloop: LOOP 
 	           
 		SET  x = x + 1;
-    		SELECT x;
+		SELECT x;
            
 		IF  (x = 5) THEN
 			LEAVE myloop;
@@ -99,5 +101,35 @@ BEGIN
 END$$
 DELIMITER ;
 
+CALL LoopDemo();
+
+-- ex5
+
+DROP PROCEDURE IF EXISTS fetch_ordernum_shippeddate;
+DELIMITER $$
+CREATE PROCEDURE fetch_ordernum_shippeddate()
+BEGIN
+	DECLARE ordernum INT;
+	DECLARE shippeddate DATE;
+    DECLARE finished INTEGER DEFAULT 0;
+	-- DECLARE CURSOR
+	DECLARE cursor1 CURSOR FOR SELECT orders.customerNumber, orders.shippedDate FROM classicmodels.orders;
+	DECLARE CONTINUE HANDLER FOR NOT FOUND SET finished = 1;
+	-- OPEN CURSOR
+	OPEN cursor1;
+	TRUNCATE messages;
+	myloop: LOOP
+		-- FETCH CURSOR
+		FETCH cursor1 INTO ordernum, shippeddate;
+		INSERT INTO messages SELECT CONCAT(ordernum, ":", COALESCE(shippeddate,''));
+		IF finished = 1 THEN LEAVE myloop;
+		END IF;
+	END LOOP myloop;
+	-- CLOSE CURSOR
+	CLOSE cursor1;
+END$$
+DELIMITER ;
+CALL fetch_ordernum_shippeddate();
+SELECT * FROM messages;
 
 

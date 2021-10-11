@@ -173,13 +173,9 @@ DROP PROCEDURE IF EXISTS LoopDemo;
 DELIMITER $$
 CREATE PROCEDURE LoopDemo()
 BEGIN
-	DECLARE x  INT;
-    
-	SET x = 0;
-     
+	DECLARE x  INT DEFAULT 0;
 	TRUNCATE messages;
 	myloop: LOOP 
-	           
 		SET  x = x + 1;
     	INSERT INTO messages SELECT CONCAT('x:',x);
            
@@ -192,7 +188,6 @@ END$$
 DELIMITER ;
 
 CALL LoopDemo();
-
 SELECT * FROM messages;
 
 
