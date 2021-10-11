@@ -1,0 +1,36 @@
+<bookstore>
+    <book category="COOKING">
+        <titles>
+            <title lang="en">Everyday Italian</title>
+        </titles>
+        <authors>
+            <author>Giada De Laurentiis</author>
+        </authors>
+        <year>2005</year>
+        <price>30.00</price>
+        <available>TRUE</available>
+    </book>
+    <book category="CHILDREN">
+        <titles>
+            <title lang="en">Harry Potter</title>
+        </titles>
+        <authors>
+            <author>J K. Rowling</author>
+        </authors>
+        <price>29.99</price>
+        <available>FALSE</available>
+    </book>
+    <book category="DATA">
+        <titles>
+            <title lang="en">The Data Warehouse Toolkit</title>
+            <title lang="hu">Adattárház eszközök</title>
+        </titles>
+        <authors>
+            <author>Ralph Kimball</author>
+            <author>Margy Ross</author>
+        </authors>
+        <year>2002</year>
+        <price>87</price>
+        <available>TRUE</available>
+    </book>
+</bookstore>  

@@ -205,11 +205,161 @@ keypoints:
 <a name="json"/>
 ## *.json
 
-TBD
+* JSON is an acronym for **JavaScript Object Notation**, is an open standard format, which is lightweight and text-based, designed explicitly for human-readable data interchange.
+
+* Despite of having *JavaScript* in the name, JSON is a coding language independent format
+
+* JSON is the most widespread standard for exchanging data on the web, therefore, mastering it is key for data analysts.
+
+<br><br>
+
+> ## Example - The previous Variation 3 in JSON
+>```
+>{
+>    "persons": [
+>        {
+>            "first name": "Kate",
+>            "last name": "Middleton",
+>            "job title": "Princess"
+>        },
+>        {
+>            "first name": "Bill",
+>            "last name": "Gates",
+>            "job title": "Retired"
+>        },
+>        {
+>            "first name": "Roland",
+>            "last name": "McDonalds",
+>            "job title": "Clown"
+>        }
+>    ]
+>}
+>```
+>{: .language-json}
+{:.callout}
+
+
+
+<br><br>
+
+> ## JSON validation
+> Learning JSON takes time and practice. The learning curve is higher than in case of CSV or XML. 
+> 
+> In this learning process a validation tool could be really handy: [https://jsonformatter.curiousconcept.com/#](https://jsonformatter.curiousconcept.com/#). Use this to validate the JSON structures you are creating during the exercises. 
+{:.keypoints}
+
+
+<br><br>
+
+> ## Elements of JSON format: Key/Value data
+> In the heart of JSON is the key value data represented like this:
+>```
+>"key":"value"
+>```
+>{: .language-json}
+> **key** - is represented by a string enclosed in single or double quotation marks.
+>  
+> **value** - is typically represented a data type. 
+>{: .language-json}
+{:.callout}
+
+<br><br>
+
+> ## Elements of JSON format: Data types
+> A value can use the following data types:  
+>  <br>
+>  
+> **Strings**: Characters that are enclosed in single or double quotation marks. Example: 
+>```
+>"name":"Mickey"
+>```
+>{: .language-json}
+> **Number**: A number could be integer or decimal, positive or negative. Example: 
+>``` 
+> "year of birth":1989 
+>```
+>{: .language-json}
+> **Booleans**: The Boolean value could be either true or false without any quotation marks. Example:
+>``` 
+>"human":true 
+>```
+>{: .language-json}
+> **Null**: Here, null means nothing without any quotation marks. Example:
+>``` 
+>"known illness":null 
+>```
+>{: .language-json}
+{:.callout}
+
+
+
+<br><br>
+
+> ## Elements of JSON format: The JSON Object
+> Objects are JSON elements that are enclosed in curly brackets. In objects, keys and values are separated by a colon ':', pairs are separated by comma. 
+> This is the smallest JSON possible (one JSON Object with one key/value):
+>```
+>{"key":"value"}
+>```
+>{: .language-json}
+> Now, here is a JSON Object with two key/value:
+>```
+>{"key1":"value1","key2":"value2"}
+>```
+>{: .language-json}
+>
+> Besides the data types above, a value can be a JSON Object as well (nesting):
+>```
+>{"key1":{"key2":"value2"}}
+>```
+>{: .language-json}
+{:.callout}
+
+<br><br>
+
+
+
+
+
+> ## Elements of JSON format: The JSON Arrays
+> To complicate further, besides the data types and JSON Objects a value can be an array as well. Arrays are the lists that are represented by the square brackets, and the values have commas in between them. The value of an array can be the well known data types or JSON objects or another array. We can also mix these i.e., a single array can have strings, boolean, numbers or objects:
+>```
+>{"example1":[1, 2, 7.8, 5, 9, 10]}
+>{"example2":["red", "yellow", "green"]}
+>{"example3":[{"key1":30}, {"key2":40}]}
+>{"example4":[1,2,[56,57]]}
+>{"example5":[8, "hello", null, true, {"key1":30}]}
+>```
+>{: .language-json}
+{:.callout}
+
+<br><br>
+
+
+
+> ## Elements of JSON format: The JSON Document
+> The root element (top of the tree hierarchy) in a .json file should be always one JSON object or a JSON Array. This said the following JSON document is invalid:
+>```
+>{"key1":"value1"},{"key2":"value2"}
+>```
+>{: .language-json}
+> but this one is valid:
+>```
+>[{"key1":"value1"},{"key2":"value2"}]
+>```
+>{: .language-json}
+{:.callout}
+
+
 
 <br/><br/><br/>
->## JSON exercise
-> TBD 
+>## `Exercise 1` XML to JSON exercise
+> Convert [bookstore.xml]({{ page.root }}/artifacts/dsd/bookstore.xml)  to JSON.
+{: .challenge} 
+
+<br/><br/>
+>## `Exercise 2` JSON design exercise
+> Create a JSON file which represents best the information we stored for "University" DB (Students, Programs, Courses etc)
 {: .challenge} 
 
 <a name="url"/>
@@ -254,8 +404,17 @@ TBD
 
 
 <br/><br/><br/>
->## Exercise - Worldbank API
-> TBD 
+>## `Exercise 3` - Worldbank API
+> Using World Bank Data API, request "GDP per capita, PPP (current international $)" [indicator:NY.GDP.PCAP.PP.CD] for all 266 countries and regions.  
+>
+> Hints:
+> * The information requested is from "World Development Indicators" dataset, which can be browsed [here](https://databank.worldbank.org/reports.aspx?ReportId=131306&Type=Table)
+> * More details in the API you can find [here](https://datahelpdesk.worldbank.org/knowledgebase/articles/898581-api-basic-call-structures)
+{: .challenge} 
+
+<br/><br/>
+>## `Exercise 4` - Worldbank API Advanced
+> Using World Bank Data API, request "CO2 emissions (metric tons per capita)" [indicator:EN.ATM.CO2E.PC] between 2000 and 2002 for EU,Hungary, USA and China. 
 {: .challenge} 
 
 
