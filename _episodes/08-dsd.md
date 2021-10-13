@@ -97,7 +97,7 @@ keypoints:
 
 > ## Example
 >```
->First Name;Last Name;Job Title
+>First Name,Last Name,Job Title
 >Kate,Middleton,Princess
 >Bill,Gates,Retired
 >Ronald,McDonald,Clown
