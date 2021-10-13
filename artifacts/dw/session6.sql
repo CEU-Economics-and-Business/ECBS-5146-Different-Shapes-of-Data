@@ -27,12 +27,15 @@ INNER JOIN
 	orderdetails USING (orderNumber);
     
     
+    
+    
+    
 SELECT 
-   orders.orderNumber AS SalesId, 
-   orderdetails.priceEach AS Price, 
-   orderdetails.quantityOrdered AS Unit,
-   orders.orderDate AS Date,
-   WEEK(orders.orderDate) as WeekOfYear,
+	orders.orderNumber AS SalesId, 
+	orderdetails.priceEach AS Price, 
+	orderdetails.quantityOrdered AS Unit,
+	orders.orderDate AS Date,
+	WEEK(orders.orderDate) as WeekOfYear,
 	products.productName AS Product,
 	products.productLine As Brand  
 FROM
@@ -130,7 +133,6 @@ SET GLOBAL event_scheduler = OFF;
 TRUNCATE messages;
 
 DELIMITER $$
-
 CREATE EVENT CreateProductSalesStoreEvent
 ON SCHEDULE EVERY 1 MINUTE
 STARTS CURRENT_TIMESTAMP
@@ -205,6 +207,7 @@ BEGIN
 END $$
 DELIMITER ;
 
+SHOW TRIGGERS;
 
 
 SELECT * FROM product_sales ORDER BY SalesId;
@@ -220,9 +223,9 @@ SELECT * FROM messages;
 
 SELECT * FROM product_sales WHERE product_sales.SalesId = 16;
 
--- DELETE FROM classicmodels.product_sales WHERE SalesId=16;
--- DELETE FROM classicmodels.orderdetails WHERE orderNumber=16;
--- DELETE FROM classicmodels.orders WHERE orderNumber=16;
+DELETE FROM classicmodels.product_sales WHERE product_sales.SalesId=16;
+DELETE FROM classicmodels.orderdetails WHERE orderNumber=16;
+DELETE FROM classicmodels.orders WHERE orderNumber=16;
 
 
 -- VIEWS AS DATAMARTS
@@ -236,7 +239,7 @@ SELECT * FROM Vintage_Cars;
 
 DROP VIEW IF EXISTS USA;
 
-CREATE VIEW `USA` AS
+CREATE VIEW USA AS
 	SELECT * FROM product_sales WHERE country = 'USA';
     
 SELECT * FROM USA;
