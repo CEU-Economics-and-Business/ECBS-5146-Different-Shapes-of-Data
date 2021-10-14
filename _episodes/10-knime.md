@@ -69,11 +69,13 @@ Self preparation at home
 >
 > [Source API](https://www.ncdc.noaa.gov/cdo-web/webservices/v2)
 >
-> [End result]({{ page.root }}/artifacts/knime/weather-ver2021.knwf)
+> [Final KNIME Workflow]({{ page.root }}/artifacts/knime/weather-ver2021.knwf)
 >
 {: .challenge}
 
 ![wind]({{ page.root }}/artifacts/knime/wind.png)
+
+[Result on sample of 999 records]({{ page.root }}/artifacts/knime/result.png)
 
 <br/><br/>
 
