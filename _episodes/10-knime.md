@@ -65,13 +65,15 @@ Self preparation at home
 <br/>
 
 >## End-to-end example
-> [Source file](https://github.com/CEU-Economics-and-Business/ECBS-5146-Different-Shapes-of-Data/blob/master/artifacts/knime/fips.csv)
+> [Source file (fips.csv)]({{ page.root }}/artifacts/knime/fips.csv)
 >
 > [Source API](https://www.ncdc.noaa.gov/cdo-web/webservices/v2)
 >
-> [End result](https://github.com/CEU-Economics-and-Business/ECBS-5146-Different-Shapes-of-Data/blob/master/artifacts/knime/ceu2020-ver2.knwf)
+> [End result]({{ page.root }}/artifacts/knime/weather-ver2021.knwf)
 >
 {: .challenge}
+
+![wind]({{ page.root }}/artifacts/knime/wind.png)
 
 <br/><br/>
 
