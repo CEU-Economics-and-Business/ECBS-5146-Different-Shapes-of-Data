@@ -50,8 +50,3 @@ Washington,FIPS:53
 West Virginia,FIPS:54
 Wisconsin,FIPS:55
 Wyoming,FIPS:56
-
-
-https://www.ncdc.noaa.gov/cdo-web/api/v2/data?datasetid=GHCND&datatypeid=AWND&limit=1&startdate=2000-01-02&enddate=2000-01-02&locationid=06
-https://www.ncdc.noaa.gov/cdo-web/api/v2/data?datasetid=GHCND&datatypeid=AWND&limit=1&startdate=2000-01-02&enddate=2000-01-02&locationid=FIPS:06
-https://www.ncdc.noaa.gov/cdo-web/api/v2/data?datasetid=GHCND&datatypeid=AWND&limit=1&startdate=2000-01-02&enddate=2000-01-02&locationid=FIPS:06
