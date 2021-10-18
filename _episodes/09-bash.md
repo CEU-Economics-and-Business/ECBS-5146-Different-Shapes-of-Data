@@ -253,7 +253,7 @@ totalcount=0
 
 for i in "${dictionary[@]}"; 
 do
-	((wordcount=$(grep -o -c $i $1)))
+	((wordcount=$(grep -c $i $1)))
 	((totalcount+=$wordcount))
 	echo $i:$wordcount
 done
