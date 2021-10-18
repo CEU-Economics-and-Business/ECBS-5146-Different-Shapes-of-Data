@@ -1,2 +1,0 @@
-6;;2000-01-01;No damage;UNKNOWN;New York;;;Medium;0;
-7;Airplane;2000-01-01;Caused damage;US CUSTOMS AND BORDER PROTECTION;Florida;En Route;;Large;0;1000
