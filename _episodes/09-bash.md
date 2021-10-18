@@ -151,7 +151,7 @@ wc birdstrikes.csv
 shows only the line count
 
 > ## Exercise 2
-> How many words we have in the first 10 lines of birdstrikes?
+> How many words we have in the first 10 lines of Hamlet.txt?
 {: .challenge}
 
 > ## Exercise 3
@@ -188,7 +188,7 @@ head -5 new.csv
 
 
 > ## Exercise 4
-> Write 17th record of *state* and the *bird size* columns from birdstrikes, in file called *onerepublic.csv*. What is the result if run 'cat onerepublic.csv'?
+> Write *state* and the *bird size* columns of the 17th record from birdstrikes, in file called *onerepublic.csv*. What is the result if run 'cat onerepublic.csv'?
 {: .challenge}
 
 ## Sorting
