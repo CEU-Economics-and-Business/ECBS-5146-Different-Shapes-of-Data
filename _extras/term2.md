@@ -3,7 +3,7 @@ title: Term project 2
 ---
 
 ### Format
-The term project will delivered in [teams]({{ page.root }}/_extras_/Groups.xlsx), consisting 4 students each. )
+The term project will delivered in [teams]({{ page.root }}/_extras/Groups.xlsx), consisting 4 students each. 
 
 ### Goal
 
