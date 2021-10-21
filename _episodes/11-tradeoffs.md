@@ -27,7 +27,7 @@ keypoints:
 
 
 > ## Table of Content
-> [Lecture PPTX]({{ page.root }}/artifacts/tradeoff/tradeoffs.pptx)
+> [Lecture PPTX]({{ page.root }}/artifacts/tradeoffs/tradeoffs.pptx)
 >
 > [Installing MySQL in AWS Cloud](#aws)
 >
