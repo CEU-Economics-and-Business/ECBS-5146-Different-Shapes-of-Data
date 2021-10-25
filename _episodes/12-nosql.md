@@ -470,14 +470,16 @@ USING (relationship)
 {: .language-sql}
 
 
-Find the Officers called "aliyev" and Entities related to them:
+Find the Officers associated "the duchy of lancaster" and Entities related to them:
 ```
 MATCH (o:Officer) 
-WHERE toLower(o.name) CONTAINS "aliyev"
+WHERE toLower(o.name) CONTAINS "the duchy of lancaster"
 MATCH (o)-[r]-(c:Entity)
 RETURN o,r,c
 ```
 {: .language-cypher}
+
+
 
 Same, but this time return only "DIRECTOR_OF" relations:
 ```
@@ -487,6 +489,30 @@ MATCH (o)-[r:DIRECTOR_OF]-(c:Entity)
 RETURN o,r,c
 ```
 {: .language-cypher}
+
+
+MATCH (o:Officer) 
+WHERE toLower(o.name) CONTAINS "the duchy of lancaster"
+MATCH p=(o)-[r:OFFICER_OF *..2]-()
+RETURN p
+
+MATCH (o:Officer) 
+WHERE toLower(o.name) CONTAINS "the duchy of lancaster"
+MATCH p=(o)-[*..2]-(e:Address)
+RETURN p
+
+MATCH (o:Officer) 
+WHERE toLower(o.name) CONTAINS "the duchy of lancaster"
+MATCH p=(o)-[*..1]-()
+RETURN p
+
+MATCH (o:Officer) 
+WHERE toLower(o.name) CONTAINS "the duchy of lancaster"
+RETURN o
+
+MATCH p=(o:Officer)-[*..2]-()
+WHERE o.name CONTAINS "Ross"
+RETURN p
 
 
 
