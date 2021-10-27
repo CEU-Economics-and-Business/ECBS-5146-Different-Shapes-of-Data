@@ -389,7 +389,7 @@ http://de.ceudata.net:8081/solr/flightdelays/select?d=2&facet.field=ORIG_CITY_st
  <br/>
 #### Exercise interface: [https://sandbox.neo4j.com/](https://sandbox.neo4j.com/)
 
-Register and start a sandbox with "Panama Papers by ICIJ"
+Register and start a sandbox with "Paradise Papers by ICIJ"
 
 <br/><br/>
 
@@ -453,8 +453,8 @@ Find the Officers and the Entities linked to them (double MATCH)
 
 ```
 MATCH (o:Officer) 
-MATCH (o)-[r]-(c:Entity)
-RETURN o,r,c
+MATCH p=(o)-[r]-(c:Entity)
+RETURN p
 LIMIT 50
 ```
 {: .language-cypher}
@@ -470,50 +470,26 @@ USING (relationship)
 {: .language-sql}
 
 
-Find the Officers associated "the duchy of lancaster" and Entities related to them:
+Find the nodes associated "the duchy of lancaster":
 ```
 MATCH (o:Officer) 
 WHERE toLower(o.name) CONTAINS "the duchy of lancaster"
-MATCH (o)-[r]-(c:Entity)
-RETURN o,r,c
-```
-{: .language-cypher}
+MATCH p=(o)-[r]-(c)
+RETURN p
 
-
-
-Same, but this time return only "DIRECTOR_OF" relations:
-```
-MATCH (o:Officer) 
-WHERE toLower(o.name) CONTAINS "aliyev"
-MATCH (o)-[r:DIRECTOR_OF]-(c:Entity)
-RETURN o,r,c
 ```
 {: .language-cypher}
 
 
+
+Same, but this time return the nodes 2 hops away:
+```
 MATCH (o:Officer) 
 WHERE toLower(o.name) CONTAINS "the duchy of lancaster"
-MATCH p=(o)-[r:OFFICER_OF *..2]-()
+MATCH p=(o)-[*..2]-(c)
 RETURN p
-
-MATCH (o:Officer) 
-WHERE toLower(o.name) CONTAINS "the duchy of lancaster"
-MATCH p=(o)-[*..2]-(e:Address)
-RETURN p
-
-MATCH (o:Officer) 
-WHERE toLower(o.name) CONTAINS "the duchy of lancaster"
-MATCH p=(o)-[*..1]-()
-RETURN p
-
-MATCH (o:Officer) 
-WHERE toLower(o.name) CONTAINS "the duchy of lancaster"
-RETURN o
-
-MATCH p=(o:Officer)-[*..2]-()
-WHERE o.name CONTAINS "Ross"
-RETURN p
-
+```
+{: .language-cypher}
 
 
 
