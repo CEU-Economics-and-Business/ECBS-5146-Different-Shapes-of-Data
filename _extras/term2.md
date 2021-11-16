@@ -65,7 +65,7 @@ Extra points:
 
 ### Submission and deadlines
 
-16th of November - Every material should be committed to GitHub. Link to GitHub will be provided into the Team Google Sheet  (Term project teams)
+16th of November - Every material should be committed to GitHub. Submit GitHub link to Moodle when you are ready. 
 
 18th of November - Teams will present their results:
 * The order of presentation will be by team number
