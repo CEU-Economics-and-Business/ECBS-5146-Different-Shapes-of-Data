@@ -55,4 +55,4 @@ Extra points:
 - Anything special not covered during the course but makes sense in the project context
 
 ### Submission 
-Submit GitHub link to Moodle when you are ready. The deadline for the term project is 31th of October, EOD. 
+Submit the GitHub link to Moodle when you are ready. The deadline for the term project is xxx, EOD. 
