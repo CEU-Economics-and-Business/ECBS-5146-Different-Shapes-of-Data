@@ -10,7 +10,7 @@ objectives:
 - Introducing the basic terms, in context of SQL
 - Writing the first SQL
 - Setting local MYSQL / Workbench (Expected to be done prior to the course)
-- Understanding how to work in Workbench
+- Understanding how to work in MySQL Workbench
 - Creating and exploring the first MySQL database
 - Understanding how to backup and restore a database
 keypoints:
