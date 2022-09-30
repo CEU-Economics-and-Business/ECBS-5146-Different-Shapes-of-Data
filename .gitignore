@@ -4,8 +4,8 @@
 .ipynb_checkpoints
 .sass-cache
 __pycache__
-_site
 .Rproj.user
+_site
 .Rhistory
 .RData
 vendor/
