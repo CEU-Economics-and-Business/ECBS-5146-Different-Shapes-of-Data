@@ -414,7 +414,7 @@ keypoints:
 
 <br/><br/>
 >## `Exercise 4` - Worldbank API Advanced
-> Using World Bank Data API, request "CO2 emissions (metric tons per capita)" [indicator:EN.ATM.CO2E.PC] between 2000 and 2002 for EU,Hungary, USA and China. 
+> Using World Bank Data API, request "CO2 emissions (metric tons per capita)" between 2000 and 2002 for EU,Hungary, USA and China. 
 {: .challenge} 
 
 
