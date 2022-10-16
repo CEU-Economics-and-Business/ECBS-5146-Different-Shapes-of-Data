@@ -397,7 +397,7 @@ keypoints:
 >* Now lets build our first query with this: [https://ec.europa.eu/eurostat/web/query-builder/getting-started/generate-new-query](https://ec.europa.eu/eurostat/web/query-builder/getting-started/generate-new-query)
 >* Insert the db name: "urb_cpop1" and click next
 >* Now you can specify some dimension values like: Geo selection > Fixed > Bruxelles and indic_ur > DE1003V - Population on the 1st of January, female
->* Click "Generate query filter" and you'll get this URL: [http://ec.europa.eu/eurostat/wdds/rest/data/v2.1/json/en/urb_cpop1?indic_ur=DE1003V&cities=BE001C1&precision=1](http://ec.europa.eu/eurostat/wdds/rest/data/v2.1/json/en/urb_cpop1?indic_ur=DE1003V&cities=BE001C1&precision=1)
+>* Click "Generate query filter" and you'll get this URL: [http://ec.europa.eu/eurostat/wdds/rest/data/v2.1/json/en/urb_cpop1?indic_ur=DE1003V&cities=BE001C&precision=1](http://ec.europa.eu/eurostat/wdds/rest/data/v2.1/json/en/urb_cpop1?indic_ur=DE1003V&cities=BE001C&precision=1)
 >* Try this URL in a browser. What do you see?
 >* The more convenient way to work with REST APIs is Postman. Lets paste the previous URL in postman.
 {:.callout}
