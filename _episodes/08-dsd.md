@@ -408,7 +408,7 @@ keypoints:
 > Using World Bank Data API, request "GDP per capita, PPP (current international $)" [indicator:NY.GDP.PCAP.PP.CD] for all 266 countries and regions.  
 >
 > Hints:
-> * The information requested is from "World Development Indicators" dataset, which can be browsed [here](https://databank.worldbank.org/reports.aspx?ReportId=131306&Type=Table)
+> * The information requested is from "World Development Indicators" dataset, which can be browsed [here](https://datacatalog.worldbank.org/search/dataset/0037712/World-Development-Indicators)
 > * More details in the API you can find [here](https://datahelpdesk.worldbank.org/knowledgebase/articles/898581-api-basic-call-structures)
 {: .challenge} 
 
