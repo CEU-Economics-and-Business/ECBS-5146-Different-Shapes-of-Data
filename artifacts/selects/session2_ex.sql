@@ -2,12 +2,38 @@
 -- Exercise1: Based on the previous chapter, create a table called “employee” with two columns: “id” and “employee_name”. NULL values should not be accepted for these 2 columns.
 
 CREATE TABLE employee (id INTEGER NOT NULL, employee_name VARCHAR(255) NOT NULL, PRIMARY KEY(id));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+SELECT * FROM birdstrikes LIMIT -1;
+
+
+
+
+
+
+
 DESCRIBE employee;
 SELECT * FROM employee;
 
 -- Exercise2: What state figures in the 145th line of our database?
 SELECT * FROM birdstrikes LIMIT 145;
-SELECT * FROM birdstrikes LIMIT 144,10;
+SELECT * FROM birdstrikes LIMIT 144,1;
 -- Tennessee
 
 

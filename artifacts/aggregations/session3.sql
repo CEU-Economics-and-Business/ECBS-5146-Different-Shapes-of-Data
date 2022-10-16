@@ -83,7 +83,8 @@ SELECT state,ROUND(AVG(speed)) AS avg_speed FROM birdstrikes GROUP BY state WHER
 SELECT state,AVG(speed) AS avg_speed FROM birdstrikes GROUP BY state HAVING ROUND(avg_speed) = 50;
 
 -- before aggragetion filter
-SELECT state,AVG(speed) AS avg_speed FROM birdstrikes WHERE state='Idaho' GROUP BY state HAVING ROUND(avg_speed) = 50;
+SELECT state,AVG(speed) AS avg_speed FROM birdstrikes WHERE state='Idaho' 
+GROUP BY state HAVING ROUND(avg_speed) = 50;
 
 -- Exercise6: What the highest AVG speed of the states with names less than 5 characters?
 

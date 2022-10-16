@@ -12,9 +12,17 @@ SELECT * FROM birdstrikes;
 SELECT cost FROM birdstrikes;
 SELECT airline,cost FROM birdstrikes;
 
+
+
+
+-- START HERE
+USE birdstrikes;
+
 -- ALTERING DB
 -- copy table (structure)
-CREATE TABLE new_birdstrikes LIKE birdstrikes;
+CREATE TABLE apple.new_birdstrikes LIKE birdstrikes;
+
+
 SHOW TABLES;
 DESCRIBE new_birdstrikes;
 SELECT * FROM new_birdstrikes;
@@ -67,6 +75,8 @@ DESCRIBE birdstrikes;
 
 -- SELECTS
 
+USE birdstrikes;
+
 -- create a new column
 SELECT *, speed/2 FROM birdstrikes;
 
@@ -79,6 +89,8 @@ SELECT *, speed/2 AS halfspeed FROM birdstrikes;
 -- list the first 10 records
 SELECT * FROM birdstrikes LIMIT 10;
 
+
+
 -- list the first 1 record, after the the first 10
 SELECT * FROM birdstrikes LIMIT 10,1;
 
@@ -88,6 +100,8 @@ SELECT state FROM birdstrikes LIMIT 144,1;
 
 -- ordering data
 SELECT state, cost FROM birdstrikes ORDER BY cost;
+
+
 SELECT state, cost FROM birdstrikes ORDER BY state, cost ASC;
 SELECT state, cost FROM birdstrikes ORDER BY cost DESC;
 

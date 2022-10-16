@@ -4,6 +4,8 @@
 -- create  database / schema
 CREATE SCHEMA firstdb;
 
+CREATE SCHEMA apple;
+
 -- not case sensitive
 create schema FIRSTDB;
 
@@ -34,6 +36,8 @@ bird_size VARCHAR(16),
 cost INTEGER NOT NULL,
 speed INTEGER,
 PRIMARY KEY(id));
+
+SELECT * FROM birdstrikes;
 
 -- the place from where is allowed to load a CSV
 SHOW VARIABLES LIKE "secure_file_priv";
@@ -67,6 +71,7 @@ SELECT * FROM birdstrikes;
 
 -- retrive certain field(s):
 SELECT cost FROM birdstrikes;
+
 SELECT airline,cost FROM birdstrikes;
 
 -- dump

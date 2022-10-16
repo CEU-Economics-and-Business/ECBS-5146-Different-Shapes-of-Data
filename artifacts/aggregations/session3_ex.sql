@@ -36,7 +36,7 @@ SELECT aircraft,MIN(speed) FROM birdstrikes WHERE aircraft LIKE 'H%';
 -- 9 
 
 -- Exercise4: Which phase_of_flight has the least of incidents?
-SELECT phase_of_flight, COUNT(*) AS count FROM birdstrikes GROUP BY phase_of_flight ORDER BY count LIMIT 1;
+SELECT phase_of_flight, COUNT(*) as count FROM birdstrikes GROUP BY phase_of_flight ORDER BY count LIMIT 1;
 -- Taxi
 
 -- Exercise5: What is the rounded highest average cost by phase_of_flight?
