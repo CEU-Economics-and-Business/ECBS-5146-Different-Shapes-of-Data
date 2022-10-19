@@ -407,7 +407,7 @@ RETURN n.name LIMIT 25
 <br/>
 In SQL, this would be something like:
 ```
-SELECT n.name FROM Officer AS n LIMIT 25;
+SELECT n.name FROM Entity AS n LIMIT 25;
 ```
 {: .language-sql}
 
