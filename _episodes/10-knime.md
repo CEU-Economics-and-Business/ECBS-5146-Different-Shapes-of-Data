@@ -69,7 +69,7 @@ Self preparation at home
 >
 > [Source API](https://www.ncdc.noaa.gov/cdo-web/webservices/v2)
 >
-> [Final KNIME Workflow]({{ page.root }}/artifacts/knime/weather-ver2021.knwf)
+> [Final KNIME Workflow]({{ page.root }}/artifacts/knime/weather-ver2022.knwf)
 >
 {: .challenge}
 
