@@ -7,10 +7,9 @@ DROP PROCEDURE IF EXISTS GetAllProducts;
 
 DELIMITER //
 
-CREATE PROCEDURE GetAllProducts()
+CREATE PROCEDURE GetAllProducts(OUT bla INT)
 BEGIN
 	SELECT *  FROM products;
-    SELECT *  FROM offices;
 END //
 
 DELIMITER ;
@@ -26,23 +25,20 @@ DROP PROCEDURE IF EXISTS GetOfficeByCountry;
 
 DELIMITER //
 
-CREATE PROCEDURE GetOfficeByCountry(
-	IN countryName VARCHAR(255)
-)
+CREATE PROCEDURE GetOfficeByCountry(IN blah VARCHAR(255))
 BEGIN
 	SELECT * 
  		FROM offices
-			WHERE offices.country = countryName;
+			WHERE offices.country = blah;
 END //
 DELIMITER ;
-
-
 
 CALL GetOfficeByCountry('USA'); 
 CALL GetOfficeByCountry('France'); 
 CALL GetOfficeByCountry();
 
--- Exercise1: Create a stored procedure which displays the first X entries of payment table. X is IN parameter for the procedure.
+-- Exercise1: Create a stored procedure which displays 
+-- the first X entries of payment table. X is IN parameter for the procedure.
 
 -- OUT
 
@@ -55,7 +51,8 @@ CREATE PROCEDURE GetOrderCountByStatus (
 	OUT countx INT
 )
 BEGIN
-	SET countx = countx + 1;
+	-- SET countx = countx + 1;
+    
 	SELECT COUNT(orderNumber)
     INTO countx
 	FROM orders
@@ -63,17 +60,17 @@ BEGIN
 END$$
 DELIMITER ;
 
-CALL GetOrderCountByStatus('Shipped',@blabla);
+CALL GetOrderCountByStatus('Shipped',@zzzz);
+
+SELECT @zzzz;
 
 
-SELECT @blabla;
-
-SELECT * from offices where officeCode = @blabla;
 
 
-SELECT COUNT(orderNumber)
-	FROM orders
-	WHERE status = 'Shipped';
+
+
+SELECT * from offices where officeCode = @zzzz;
+
 
 -- Exercise2: Create a stored procedure which returns the amount for Xth entry of payment table. X is IN parameter for the procedure. Display the returned amount.
 

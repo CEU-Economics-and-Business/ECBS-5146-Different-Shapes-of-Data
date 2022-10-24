@@ -216,8 +216,8 @@ SELECT COUNT(*) FROM product_sales;
 
 TRUNCATE messages;
 
-INSERT INTO orders  VALUES(16,'2020-10-01','2020-10-01','2020-10-01','Done','',131);
-INSERT INTO orderdetails  VALUES(16,'S18_1749','1','10',1);
+INSERT INTO orders  VALUES(161,'2020-10-01','2020-10-01','2020-10-01','Done','',131);
+INSERT INTO orderdetails  VALUES(161,'S18_1749','1','10',1);
 
 SELECT * FROM messages;
 
@@ -237,6 +237,10 @@ CREATE VIEW `Vintage_Cars` AS
 
 SELECT * FROM Vintage_Cars;
 
+
+
+
+
 DROP VIEW IF EXISTS USA;
 
 CREATE VIEW USA AS
@@ -246,7 +250,8 @@ SELECT * FROM USA;
 
 
 
--- Exercise2: Create a view, which contains product_sales rows of 2003 and 2005. How many row has the resulting view?
+-- Exercise2: Create a view, which contains product_sales rows of 2003 and 2005. 
+-- How many row has the resulting view?
 
 
 

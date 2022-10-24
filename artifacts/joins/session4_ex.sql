@@ -2,7 +2,7 @@
 
 -- Exercise1: Join all fields of order and orderdetails
 SELECT * 
-FROM orders 
+FROM orders
 INNER JOIN orderdetails 
 ON orders.orderNumber = orderdetails.orderNumber;
 

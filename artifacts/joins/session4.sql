@@ -1,4 +1,6 @@
 
+USE classicmodels;
+
 -- INNER
 SELECT * 
 FROM products 
@@ -25,7 +27,7 @@ ON t1.productline = t2.productline;
 
 -- Exercise1: Join all fields of order and orderdetails
 
--- Exercise2: Join all fields of order and orderdetails. Display only orderNumber, status and sum of totalsales (quantityOrdered * priceEach) for each orderNumber.
+-- Exercise2: Join order and orderdetails. Display only orderNumber, status and sum of totalsales (quantityOrdered * priceEach) for each orderNumber.
 
 
 
@@ -39,7 +41,8 @@ INNER JOIN another_table
 ON left_table.id = another_table.id;
 
 
--- Exercise3: We want to know how the employees are performing. Join orders, customers and employees and return orderDate,lastName, firstName
+-- Exercise3: We want to know how the employees are performing. 
+-- Join orders, customers and employees and return orderDate,lastName, firstName
 
 
 
@@ -66,7 +69,7 @@ SELECT
   COUNT(*)
 FROM
     customers c
-INNER JOIN orders o 
+LEFT JOIN orders o 
     ON c.customerNumber = o.customerNumber; 
     
 -- difference between LEFT and INNER join: The previous example returns all customers including the customers who have no order. If a customer has no order, the values in the column orderNumber and status are NULL. 

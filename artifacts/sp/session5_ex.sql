@@ -28,11 +28,8 @@ CREATE PROCEDURE GetAmountForXthPayments(
 	IN x INT,
     OUT amountout DECIMAL(10,2)
 )
-
 BEGIN
-
 	SET x = x-1;
-    
 	SELECT amount INTO amountout FROM payments LIMIT x,1;
 END //
 DELIMITER ;
