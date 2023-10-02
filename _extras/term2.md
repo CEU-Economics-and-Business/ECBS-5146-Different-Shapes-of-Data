@@ -65,9 +65,9 @@ Extra points:
 
 ### Submission and deadlines
 
-xxx - Every material should be committed to GitHub. Submit the GitHub link to Moodle when you are ready. 
+8th December - Every material should be committed to GitHub. Submit the GitHub link to Moodle when you are ready. 
 
-xxx - Teams will present their results online:
+10th December - Teams will present their results online:
 * The order of presentation will be by team number
 * Every team will have 7 minutes for presentations, followed by 7 minutes Q&A
 
