@@ -3,31 +3,6 @@
 
 CREATE TABLE employee (id INTEGER NOT NULL, employee_name VARCHAR(255) NOT NULL, PRIMARY KEY(id));
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-SELECT * FROM birdstrikes LIMIT -1;
-
-
-
-
-
-
-
 DESCRIBE employee;
 SELECT * FROM employee;
 

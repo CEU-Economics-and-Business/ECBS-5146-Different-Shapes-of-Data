@@ -1,30 +1,9 @@
 
-USE birdstrikes;
-
-SELECT aircraft, airline, speed FROM  birdstrikes ORDER BY speed;
-
-
-
-
-
-
-
-
-SELECT aircraft, airline,speed
-	FROM  birdstrikes 
-	ORDER BY speed_category;
-
-
 -- Exercise1: Do the same with speed. If speed is NULL or speed < 100 create a "LOW SPEED" category, otherwise, mark as "HIGH SPEED". Use IF instead of CASE!
 SELECT aircraft, airline,speed,
 	IF(speed < 100 OR SPEED IS NULL,'LOW SPEED','HIGH SPEED') AS speed_category  
 	FROM  birdstrikes 
 	ORDER BY speed_category;
-    
-    
-
-IF(condition,'TRUE','FALSE')
-
 
 -- Exercise2: How many distinct 'aircraft' we have in the database?
 SELECT COUNT(DISTINCT aircraft) FROM  birdstrikes;
