@@ -10,10 +10,6 @@ instructors:
         bio: 
         email: "sallol@ceu.edu" 
         office: ""
-    -   name: Sandor Budai [Teaching assistant]
-        bio: 
-        email: "budais@ceu.edu"     
-        office: ""
 credits:
     us: 2
     ects: 4
