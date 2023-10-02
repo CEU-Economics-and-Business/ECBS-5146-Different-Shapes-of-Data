@@ -144,11 +144,11 @@ DROP SCHEMA IF EXISTS firstdb;
 ```
 {: .language-sql}
 
-Let's recreate the db again
+Let's create a db again
 
 ```
-CREATE SCHEMA firstdb;
-USE firstdb;
+CREATE SCHEMA birdstrikes;
+USE birdstrikes;
 ```
 {: .language-sql}
 
