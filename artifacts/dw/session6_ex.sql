@@ -27,7 +27,7 @@ INSERT INTO birdstrikes2 SELECT * FROM  birdstrikes WHERE id=10;
 
 DROP VIEW IF EXISTS Year_2003and2005;
 
-CREATE VIEW `Year_2003and2005` AS
+CREATE VIEW Year_2003and2005 AS
 SELECT * FROM product_sales WHERE product_sales.Date LIKE '2003%' OR product_sales.Date LIKE '2005%';
 
 SELECT COUNT(*) FROM classicmodels.year_2003and2005;
