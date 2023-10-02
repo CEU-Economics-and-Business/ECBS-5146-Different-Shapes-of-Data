@@ -273,7 +273,7 @@ SELECT airline,cost FROM birdstrikes;
 <br/><br/><br/>
 >## Ninja challenge
 >
->* Load lines starting with "Data:" in [ninja.txt]({{ page.root }}/artifacts/intro/ninja.txt) into a table.
+>* Load lines starting with "Data:" from [ninja.txt]({{ page.root }}/artifacts/intro/ninja.txt) into a table.
 >* Further requirements:
 >	* Divide the last column with 1000 during the load
 >	* " signs should be removed during the load
