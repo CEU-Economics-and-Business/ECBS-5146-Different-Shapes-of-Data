@@ -44,10 +44,10 @@ keypoints:
 
 There are many types of data models: hierarchical, network, relational etc. Today we will focus on Relational Data modeling.
 
-Several technics can be used for modeling. Today we will use the most widespread: Entity–relationship modelling (ERM).
+Several techniques can be used for modeling. Today we will use the most widespread: Entity–relationship modelling (ERM).
 
 >## `Modelling game - University` 
-> Let's model in a group of 3 a data structure of a university. Mandatory elements: program, program coordinator, course, prerequisite course, student, instructor.
+> Let's model in a group of 3 a data structure of a University. Mandatory elements: Program, Program Coordinator, Course, Prerequisite Course, Student, Instructor.
 {: .challenge} 
 
 
