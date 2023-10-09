@@ -148,31 +148,6 @@ ON left_table.id = another_table.id;
 {: .challenge} 
 
 <br/><br/><br/>
-<a name="self"/>
-
-## SELF JOIN
-
-Employee table represents a hierarchy, which can be flattened with a self join. The next query displays the Manager, Direct report pairs:
-
-```
-SELECT 
-    CONCAT(m.lastName, ', ', m.firstName) AS Manager,
-    CONCAT(e.lastName, ', ', e.firstName) AS 'Direct report'
-FROM
-    employees e
-INNER JOIN employees m ON 
-    m.employeeNumber = e.reportsTo
-ORDER BY 
-    Manager;
-```
-{: .language-sql}
-
-<br/><br/>
->## `Question` 
-> Why President is not in the list?
-{: .challenge} 
-
-<br/><br/><br/>
 <a name="left"/>
 
 ## LEFT JOIN
@@ -209,7 +184,7 @@ SELECT
     productCode
 FROM
     orders o
-LEFT JOIN orderDetails 
+INNER JOIN orderDetails 
     USING (orderNumber)
 WHERE
     orderNumber = 10123;
@@ -219,7 +194,7 @@ WHERE
 <br/><br/>
 #### ON 
 
-In the next query, the WHERE clause is added to ON, yet, it will have a different meaning. In this case, the query returns all orders but only the order 10123 will have line items associated with it, as in the following statement:
+The next query gives the same result yet, the mechanism behind is very different: WHERE does the filtering (o.orderNumber = 10123) <i>after</i> the join is executed, while in case of ON, the join will happen on the specified subset (o.orderNumber = 10123)
 ```
 SELECT 
     o.orderNumber, 
@@ -227,11 +202,37 @@ SELECT
     productCode
 FROM
     orders o
-LEFT JOIN orderDetails d 
+INNER JOIN orderDetails d 
     ON o.orderNumber = d.orderNumber AND 
        o.orderNumber = 10123;
 ```
 {: .language-sql}
+
+
+<br/><br/><br/>
+<a name="self"/>
+
+## SELF JOIN
+
+Employee table represents a hierarchy, which can be flattened with a self join. The next query displays the Manager, Direct report pairs:
+
+```
+SELECT 
+    CONCAT(m.lastName, ', ', m.firstName) AS Manager,
+    CONCAT(e.lastName, ', ', e.firstName) AS 'Direct report'
+FROM
+    employees e
+INNER JOIN employees m ON 
+    m.employeeNumber = e.reportsTo
+ORDER BY 
+    Manager;
+```
+{: .language-sql}
+
+<br/><br/>
+>## `Question` 
+> Why President is not in the list?
+{: .challenge} 
 
 <br/><br/>
 <a name="homework"/>
