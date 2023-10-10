@@ -33,6 +33,10 @@ keypoints:
 >   Load [sample database]({{ page.root }}/artifacts/joins/sampledatabase_create.sql) script into your local MySQL instance. [[Credit]](https://www.mysqltutorial.org/mysql-sample-database.aspx)
 {: .prereq} 
 
+<br/><br/>
+## Sample database diagram
+![Database diagram]({{ page.root }}/artifacts/joins/sampledatabase_diagram.png)
+
 
 <br/><br/><br/>
 <a name="model"/>
@@ -40,24 +44,15 @@ keypoints:
 
 There are many types of data models: hierarchical, network, relational etc. Today we will focus on Relational Data modeling.
 
-Several technics can be used for modeling. Today we will use the most widespread: Entity–relationship modelling (ERM).
+Several techniques can be used for modeling. Today we will use the most widespread: Entity–relationship modelling (ERM).
 
 >## `Modelling game - University` 
-> Let's model together a data structure of a university. 
-{: .challenge} 
-
-<br/><br/>
-
->## `Modelling game - Hospital` 
-> Let's model in group of 3 a data structure of a hospital. 
+> Let's model in a group of 3 a data structure of a University. Mandatory elements: Program, Program Coordinator, Course, Prerequisite Course, Student, Instructor.
 {: .challenge} 
 
 
 
 
-<br/><br/>
-## Sample database diagram
-![Database diagram]({{ page.root }}/artifacts/joins/sampledatabase_diagram.png)
 
 <br/><br/><br/>
 <a name="inner"/>
