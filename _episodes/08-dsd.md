@@ -391,9 +391,9 @@ keypoints:
 >## Example - Eurostat API 
 >Eurostat is offering a wide range of databases: [https://ec.europa.eu/eurostat/web/main/data/database](https://ec.europa.eu/eurostat/web/main/data/database)
 >* Navigate to: Data navigation tree > Detailed datasets > General and regional statistics	> City statistics (urb) > Cities and greater cities (urb_cgc) > Population on 1 January by age groups and sex - cities and greater cities (urb_cpop1)
->* Click on Data Browser (1st icon) and you'll get this: [[https://appsso.eurostat.ec.europa.eu/nui/show.do?dataset=urb_cpop1&lang=en](https://ec.europa.eu/eurostat/databrowser/view/urb_cpop1/default/table?lang=en)]
+>* Click on Data Browser (1st icon) and you'll get this: [https://appsso.eurostat.ec.europa.eu/nui/show.do?dataset=urb_cpop1&lang=en](https://ec.europa.eu/eurostat/databrowser/view/urb_cpop1/default/table?lang=en)
 >* Check the dimensions of this dataset, play around with slicing and dicing
->* Browse to [[https://ec.europa.eu/eurostat/web/query-builder/getting-started/rest-request](https://wikis.ec.europa.eu/display/EUROSTATHELP/API+-+Getting+started+with+statistics+API)](https://wikis.ec.europa.eu/display/EUROSTATHELP/API+-+Getting+started+with+statistics+API)] and read it carefully.
+>* Browse to [https://ec.europa.eu/eurostat/web/query-builder/getting-started/rest-request](https://wikis.ec.europa.eu/display/EUROSTATHELP/API+-+Getting+started+with+statistics+API) and read it carefully.
 >* Now lets build our first query with this: [https://ec.europa.eu/eurostat/web/query-builder/getting-started/query-builder](https://ec.europa.eu/eurostat/web/query-builder/tool)]
 >* Insert the db name: "urb_cpop1" and click next
 >* Now you can specify some dimension values like: Geo selection > Fixed > Bruxelles AND DE1003V - Population on the 1st of January, female
