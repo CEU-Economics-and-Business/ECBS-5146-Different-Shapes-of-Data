@@ -141,6 +141,14 @@ event_body
 {: .language-sql}
 
 
+<br/><br/>
+>## `Exercise3` 
+>create a scheduler which writes the current time in messages in every second
+{: .challenge} 
+
+<br/><br/>
+
+
 Event which is calling CreateProductSalesStore every 1 minute in the next 1 hour. 
 ```
 DELIMITER $$
@@ -195,7 +203,7 @@ DELIMITER ;
 {: .language-sql}
 
 <br/><br/>
->## `Exercise2` 
+>## `Exercise3` 
 >Copy the birdstrikes structure into a new table called birdstrikes2. Insert into birdstrikes2 the line where id is 10.
 > Hints:
 >* Use the samples from Chapter2 for copy
@@ -326,7 +334,7 @@ SELECT * FROM product_sales WHERE country = 'USA';
 
 <br/><br/>
 
->## `Exercise3` 
+>## `Exercise4` 
 > Create a view, which contains product_sales rows of 2003 and 2005.
 {: .challenge} 
 
