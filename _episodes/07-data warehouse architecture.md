@@ -131,6 +131,15 @@ SET GLOBAL event_scheduler = OFF;
 ```
 {: .language-sql}
 
+Format:
+```
+CREATE EVENT [IF NOT EXIST] event_name
+ON SCHEDULE schedule
+DO
+event_body
+```
+{: .language-sql}
+
 
 Event which is calling CreateProductSalesStore every 1 minute in the next 1 hour. 
 ```
