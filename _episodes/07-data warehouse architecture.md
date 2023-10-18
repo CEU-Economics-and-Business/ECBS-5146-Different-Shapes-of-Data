@@ -42,7 +42,26 @@ No need to load new data, in this chapter we will use the same sample db we used
 <a name="dw"/>
 ## Creating the analytical data store
 
+
+```
+CREATE TABLE new_order LIKE orders;
+
+DROP TABLE new_order;
+
+CREATE TABLE new_order AS SELECT * FROM orders;
+```
+{: .language-sql}
+
+
+
+<br/><br/>
+>## `Exercise1` 
+>Create a physical copy of birdstrikes with records where state is Oklahoma
+{: .challenge} 
+
 We will use a query created in Homework 3. This creates a denormalized snapshot of the operational tables for product_sales subject. We will embed the creation in a stored procedure. 
+
+
 
 ```
 DROP PROCEDURE IF EXISTS CreateProductSalesStore;
@@ -167,7 +186,7 @@ DELIMITER ;
 {: .language-sql}
 
 <br/><br/>
->## `Exercise1` 
+>## `Exercise2` 
 >Copy the birdstrikes structure into a new table called birdstrikes2. Insert into birdstrikes2 the line where id is 10.
 > Hints:
 >* Use the samples from Chapter2 for copy
@@ -298,7 +317,7 @@ SELECT * FROM product_sales WHERE country = 'USA';
 
 <br/><br/>
 
->## `Exercise2` 
+>## `Exercise3` 
 > Create a view, which contains product_sales rows of 2003 and 2005.
 {: .challenge} 
 
