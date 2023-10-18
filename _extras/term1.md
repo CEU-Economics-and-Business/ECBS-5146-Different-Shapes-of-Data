@@ -49,7 +49,7 @@ Reproducibility: the project should be reproducible in a straightforward manner.
 -	Reproducibility **15 points**
 
 Extra points:
-- Events / Triggers
+- Triggers
 - Testing
 - Materialized Views 
 - Anything special not covered during the course but makes sense in the project context
