@@ -390,14 +390,14 @@ keypoints:
 <a name="euro"/>
 >## Example - Eurostat API 
 >Eurostat is offering a wide range of databases: [https://ec.europa.eu/eurostat/web/main/data/database](https://ec.europa.eu/eurostat/web/main/data/database)
->* Navigate to: Data navigation tree > Database by themes > General and regional statistics	> City statistics (urb) > Cities and greater cities (urb_cgc) > Population on 1 January by age groups and sex - cities and greater cities (urb_cpop1)
->* Click on Data Explorer (second icon) and you'll get this: [https://appsso.eurostat.ec.europa.eu/nui/show.do?dataset=urb_cpop1&lang=en](https://appsso.eurostat.ec.europa.eu/nui/show.do?dataset=urb_cpop1&lang=en)
+>* Navigate to: Data navigation tree > Detailed datasets > General and regional statistics	> City statistics (urb) > Cities and greater cities (urb_cgc) > Population on 1 January by age groups and sex - cities and greater cities (urb_cpop1)
+>* Click on Data Browser (1st icon) and you'll get this: [https://appsso.eurostat.ec.europa.eu/nui/show.do?dataset=urb_cpop1&lang=en](https://ec.europa.eu/eurostat/databrowser/view/urb_cpop1/default/table?lang=en)
 >* Check the dimensions of this dataset, play around with slicing and dicing
->* Browse to [https://ec.europa.eu/eurostat/web/query-builder/getting-started/rest-request](https://ec.europa.eu/eurostat/web/query-builder/getting-started/rest-request) and read it carefully.
->* Now lets build our first query with this: [https://ec.europa.eu/eurostat/web/query-builder/getting-started/query-builder](https://ec.europa.eu/eurostat/web/query-builder/getting-started/query-builder)
+>* Browse to [https://wikis.ec.europa.eu/display/EUROSTATHELP/API+-+Getting+started+with+statistics+API](https://wikis.ec.europa.eu/display/EUROSTATHELP/API+-+Getting+started+with+statistics+API) and read it carefully.
+>* Now lets build our first query with this: [https://ec.europa.eu/eurostat/web/query-builder/getting-started/query-builder](https://ec.europa.eu/eurostat/web/query-builder/tool)
 >* Insert the db name: "urb_cpop1" and click next
->* Now you can specify some dimension values like: Geo selection > Fixed > Bruxelles and indic_ur > DE1003V - Population on the 1st of January, female
->* Click "Generate query filter" and you'll get this URL: [http://ec.europa.eu/eurostat/wdds/rest/data/v2.1/json/en/urb_cpop1?indic_ur=DE1003V&cities=BE001C&precision=1](http://ec.europa.eu/eurostat/wdds/rest/data/v2.1/json/en/urb_cpop1?indic_ur=DE1003V&cities=BE001C&precision=1)
+>* Now you can specify some dimension values like: Geo selection > Fixed > Bruxelles AND DE1003V - Population on the 1st of January, female
+>* Click "Generate query filter" and you'll get this URL: [https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/urb_cpop1?format=JSON&indic_ur=DE1003V&cities=BE001C&lang=en](https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/urb_cpop1?format=JSON&indic_ur=DE1003V&cities=BE001C&lang=en)
 >* Try this URL in a browser. What do you see?
 >* The more convenient way to work with REST APIs is Postman. Lets paste the previous URL in postman.
 {:.callout}
