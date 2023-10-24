@@ -16,11 +16,11 @@ The term project will delivered in [teams]({{ page.root }}/artifacts/groups.xlsx
 
 
 * Combine at least two distinct datasets
-* Use an example dataset or bring your own
-* Persist at least one dataset in a database (SQL or NoSQL)
+* Persist at least one dataset in a database (SQL or NoSQL) the rest can be loaded directly from a file
+* Use an API to enrich your data
 * Build an ETL data pipeline with Knime 
 * Do some data cleaning
-* Do some basic analytics or visualization on the end of the pipeline
+* Do some basic analytics or visualization at the end of the pipeline
 
 
 
@@ -28,17 +28,15 @@ The term project will delivered in [teams]({{ page.root }}/artifacts/groups.xlsx
 The project artifacts should be stored and handed over in a folder "Term2" in a GitHub repo (One repo of a team member)
 
 The main artifact submitted is a 4-6 page report (including figures and data citation), with the following requirements:
-* documents the solution provided
-* documents the the technical choices made
-* documents the data model (ER diagram for RDBMS)
-* documents the analytics and/or visualization
-* indicates which team member did what in the project
-* can be a README in your git folder
+* document the solution provided
+* document the technical choices made
+* document the data model (ER diagram for RDBMS)
+* document the analytics and/or visualization
 
 
 Artifacts to be submitted:
 * Term project report
-* Power point presentation - material for a few minutes presentation
+* Powerpoint presentation - material for a few minutes of presentation
 * Knime workflow file
 * Source files 
 * Script (or instructions) of data persistence (sql file in case of a RDBMS)
@@ -50,24 +48,25 @@ Reproducibility: the project should be reproducible in a straightforward manner.
 -	Fitness of the input dataset to the purpose **5 points**
 -	Complexity of the input data set **5 points**
 -	Usage of concepts used in the class **10 points**
-- 	Knime pipeline **20 points**
-- 	Using database **10 points**
--	Delivery: Naming, structure **10 points**
--	Delivery: Report **15 points**
--	Delivery: Presentation **10 points**
--	Reproducibility **15 points**
+- 	Knime pipeline **15 points**
+- 	Using database(s) **10 points**
+- 	API as data source **10 points**
+-	Delivery: Naming, structure **5 points**
+-	Delivery: Report **10 points**
+-	Delivery: Presentation **20 points**
+-	Reproducibility **10 points**
 
 Extra points:
 - Using NoSQL in the project
-- Using API in the project
+- Using cloud instead of local servers
 - Anything special not covered during the course but, makes sense in the project context
 
 
 ### Submission and deadlines
 
-8th December - Every material should be committed to GitHub. Submit the GitHub link to Moodle when you are ready. 
+5th December - Every material should be committed to GitHub. Submit the GitHub link to Moodle when you are ready. 
 
-10th December - Teams will present their results online:
+7th December (17:00 - 20:00) - Teams will present their results online on Zoom:
 * The order of presentation will be by team number
 * Every team will have 7 minutes for presentations, followed by 7 minutes Q&A
 
