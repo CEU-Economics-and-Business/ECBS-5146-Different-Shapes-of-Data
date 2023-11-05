@@ -65,13 +65,13 @@ keypoints:
 
 <br>
 
-#### Exercise interface: [http://de.ceudata.net](http://de.ceudata.net) (Apache Zeppelin)
+#### Exercise interface: [http://54.220.44.197](http://54.220.44.197) (Jupyter Notebook)
 
-Username/Password will be distributed during class. Ask on Slack if you haven't got one. 
+Username/Password will be distributed during class. Ask on Teams if you haven't got one. 
 
 <br/><br/>
 
-#### Connect to Redis with Python (Use Zeppelin notebook with Python interpreter)
+#### Connect to Redis with Python 
 ```
 import redis
 r = redis.Redis(host='something', port=something)
@@ -156,14 +156,8 @@ r.mget('one','three')
 
 <br/>
 
-#### Exercise interface: [http://de.ceudata.net](http://de.ceudata.net) (Apache Zeppelin)
 
-Username/Password will be distributed during class. Ask on Slack if you haven't got one. 
-<br/><br/>
-
-<br/>
-
-#### Connect to MongoDB with Python (Use Zeppelin notebook with Python interpreter)
+#### Connect to MongoDB with Python 
 
 ```
 import pymongo
