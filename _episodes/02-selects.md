@@ -485,7 +485,7 @@ SELECT * FROM birdstrikes where flight_date BETWEEN "2000-01-01" AND "2000-01-03
 
 <br/><br/>
 > ## `Exercise6` 
-> How many days elapsed between the current date and the flights happening in week 52, for incidents from Colorado? (Hint: use NOW, DATEDIFF, WEEKOFYEAR)
+> How many days elapsed between the current date and the flights happening in week 7, for incidents from Colorado? (Hint: use NOW, DATEDIFF, WEEKOFYEAR)
 {: .challenge} 
 
 
