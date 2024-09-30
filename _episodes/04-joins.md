@@ -69,7 +69,7 @@ ON left_table.id = right_table.id;
 
 <br/><br/>
 #### Basic forms
-Join all fields of products and productlines details
+Join all fields but only matching records of products and productlines details
 
 ```
 SELECT * 
