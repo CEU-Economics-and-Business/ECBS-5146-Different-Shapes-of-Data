@@ -45,7 +45,7 @@ No need to load new data, in this chapter we will use only the birdstrikes table
 Syntax form
 
 ```
-CASE expression
+CASE 
     WHEN test THEN result
     …
     ELSE otherResult
