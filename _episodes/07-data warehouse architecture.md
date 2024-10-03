@@ -143,7 +143,7 @@ event_body
 
 <br/><br/>
 >## `Exercise2` 
->create a scheduler which writes the current time in messages in every second
+>Create a scheduler which writes the current time in messages in every second
 {: .challenge} 
 
 <br/><br/>
