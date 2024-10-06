@@ -29,18 +29,8 @@ keypoints:
 >**Installing KNIME Analytics Platform**  
 >* Download KNIME for (Window/Linux/Mac) from: [https://www.knime.com/downloads/download-knime](https://www.knime.com/downloads/download-knime)
 >* Please make sure the installation is valid and the application starts properly!
->* If you need further help check the "KNIME Beginner's Luck" book uploaded on Moodle or ask help on Slack!
->
->**Self preparation at home**
->* Read "KNIME Beginner's Luck" book uploaded on Moodle from page 18 to 54. 
->* Do the exercises from these pages. 
->* Check the content of all 4 KNIME related books uploaded on Moodle
+>* Play around with the UI and review the [Getting Started Guide]([https://www.knime.com/downloads/download-knime](https://www.knime.com/getting-started-guide)) 
 {: .prereq} 
-
-
-
-
-Self preparation at home
 
 
 
