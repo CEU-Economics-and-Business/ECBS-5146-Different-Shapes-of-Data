@@ -42,7 +42,11 @@ keypoints:
 
 [Data Science and ML Platforms (Gartner 2024)](https://azure.microsoft.com/en-us/blog/microsoft-is-a-leader-in-the-2024-gartner-magic-quadrant-for-data-science-and-machine-learning-platforms/)
 
+Data Science and ML Platforms (Gartner 2019)
+[Data Science and ML Platforms (Gartner 2019)](https://www.kdnuggets.com/images/gartner-mq-data-science-ml-platforms-2019-640.jpg)
 
+Data Science and ML Platforms (Gartner 2024)
+[Data Science and ML Platforms (Gartner 2024)](https://azure.microsoft.com/en-us/blog/wp-content/uploads/2024/06/MQ-Data-Science-and-Machine-Learning.webp)
  
 
 <br/>
