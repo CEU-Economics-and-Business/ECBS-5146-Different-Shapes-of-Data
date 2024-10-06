@@ -108,7 +108,7 @@ CALL CreateProductSalesStore();
 <a name="jobs"/>
 ## Events to schedule ETL jobs
 
-Event engine runs scheduled jobs/tasks. We can us it for scheduling ETL processes. 
+Event engine runs scheduled jobs/tasks. We can use it for scheduling ETL processes. 
 
 Basics on how to check the state of the scheduler. Check if scheduler is running 
 
