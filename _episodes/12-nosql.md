@@ -226,22 +226,14 @@ customers.count_documents({"name": "John"})
 <br/>
 
 
-#### Insert 
-Insert a row with another John into the new collection
+#### Distinct
+
+Insert a row with another John into the new collection and then 
+find the customers called "John" which address starts with "Bos" and print out distinct addresses.
 
 ```
 id = customers.insert_one({ "name": "John", "address": "Boole 01" }).inserted_id
-```
-{: .language-python}
 
-<br/>
-
-
-#### Distinct
-
-Find the customers called "John" which address starts with "Boston" and print out distinct addresses.
-
-```
 for customer in customers.find({"name":"John","address": {"$regex": "^Boston"}}).distinct("address"):
     pprint.pprint(customer)
 ```
