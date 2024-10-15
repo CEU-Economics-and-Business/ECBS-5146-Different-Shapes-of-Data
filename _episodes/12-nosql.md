@@ -65,7 +65,7 @@ keypoints:
 
 <br>
 
-#### Exercise interface: [http://34.243.146.179](http://34.243.146.179) (Jupyter Notebook)
+#### Exercise interface: [http://de1.ceudsd.com](http://de1.ceudsd.com) (Jupyter Notebook)
 
 Username/Password will be distributed during class. Ask on Teams if you haven't got one. 
 
@@ -272,7 +272,7 @@ for listing in airbnb.find({ "address.country": "Spain" }).limit(10):
 
 <br/>
 
-#### Exercise interface: [http://34.243.146.179:8081/solr/#/flightdelays/query](http://34.243.146.179:8081/solr/#/flightdelays/query)
+#### Exercise interface: [http://solr.ceudsd.com/solr/#/flightdelays/query](http://solr.ceudsd.com/solr/#/flightdelays/query)
 
 <br/><br/>
 
