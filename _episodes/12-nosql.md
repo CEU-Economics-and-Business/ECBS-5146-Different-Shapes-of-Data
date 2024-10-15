@@ -386,6 +386,7 @@ http://solr.ceudsd.com/solr/flightdelays/select?d=2&facet.field=ORIG_CITY_str&fa
 > HOW MANY FLIGHTS ARRIVED IN SAN FRANCISCO WITH NO DELAY ALTHOUGH THEY DEPARTED AT LEAST 50 MINS BEHIND THE SCHEDULE?
 {: .challenge}
 
+<br/><br/>
 
 #### Connect to SOLR with Python 
 
@@ -404,7 +405,8 @@ solr = pysolr.Solr('http://localhost:8081/solr/flightdelays',auth=HTTPBasicAuth(
 ```
 results = solr.search('*:*')
 for result in results:
-    pprint.pprint(result)```
+    pprint.pprint(result)
+```
 {: .language-python}
 
 <br/>
@@ -412,11 +414,11 @@ for result in results:
 
 List records from the last 10 years where tail number is N520JB:
 
-
 ```
 results = solr.search('TAIL_NUMBER:N838UA AND DATE:[NOW-10YEARS TO *]',fl="DISTANCE,ORIG_CITY,DEST_CITY",sort="DISTANCE desc",rows=10)
 for result in results:
-    pprint.pp(result,width=50)```
+    pprint.pp(result,width=50)
+```
 {: .language-python}
 
 
