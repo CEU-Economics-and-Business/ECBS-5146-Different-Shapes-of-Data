@@ -145,7 +145,7 @@ r.mget('laszlo_sallo_one','laszlo_sallo_three')
 <a name="mongo"/>
 ## MongoDB
 
-
+#### [Exercise notebook]({{ page.root }}/artifacts/nosql/mongo_class.ipynb) 
 
 #### Links to help you
 
