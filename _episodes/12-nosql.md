@@ -135,6 +135,7 @@ r.mget('laszlo_sallo_one','laszlo_sallo_three')
 ```
 {: .language-python}
 
+<br/>
 > ## REDIS Exercise 
 > USING THE DOCUMENTATION, FIND HOW TO DELETE A VALUE BY KEY AND HOW TO CHECK THE EXISTENCE OF A KEY.
 {: .challenge}
@@ -265,6 +266,8 @@ for listing in airbnb.find({ "address.country": "Spain" }).limit(10):
 ```
 {: .language-python}
 
+<br/>
+
 > ## MONGO Exercise 
 > COUNT HOW MANY AIRBNB LISTINGS WE HAVE IN THE SAMPLE DATABASE HAVING "COUNTRY_CODE" "US" OR "ADDRESS.MARKET" STARTWITH "M" (USE MONGODB DOCUMENTATION)
 >> ## Solution
@@ -382,6 +385,8 @@ http://solr.ceudsd.com/solr/flightdelays/select?d=2&facet.field=ORIG_CITY_str&fa
 ```
 {: .output}
 
+<br/>
+
 > ## SOLR Exercise 
 > HOW MANY FLIGHTS ARRIVED IN SAN FRANCISCO WITH NO DELAY ALTHOUGH THEY DEPARTED AT LEAST 50 MINS BEHIND THE SCHEDULE?
 {: .challenge}
@@ -429,16 +434,22 @@ for result in results:
 
 #### Links to help you
 
-(https://neo4j.com/developer/cypher-query-language/)
+[https://neo4j.com/developer/cypher-query-language/](https://neo4j.com/developer/cypher-query-language/)
 
-(http://neo4j.com/docs/developer-manual/current/cypher/)
+[http://neo4j.com/docs/developer-manual/current/cypher/](http://neo4j.com/docs/developer-manual/current/cypher/)
 
-(https://cloudfront-files-1.publicintegrity.org/offshoreleaks/neo4j/guide/index.html)
+[https://neo4j.com/blog/analyzing-paradise-papers-neo4j/](https://neo4j.com/blog/analyzing-paradise-papers-neo4j/)
 
- <br/>
+
+<br/>
 #### Exercise interface: [https://sandbox.neo4j.com/](https://sandbox.neo4j.com/)
 
+<br/>
 Register and start a sandbox with "Paradise Papers by ICIJ"
+
+
+#### [Exercise notebook]({{ page.root }}/artifacts/nosql/neo4j_class.ipynb) 
+
 
 <br/><br/>
 
@@ -477,7 +488,7 @@ SELECT o.countries FROM officer AS o WHERE o.countries LIKE '%Hungary%';
 {: .language-sql}
 
 
-
+<br/>
 
 > ## NEO4J Exercise 1 
 > RETURN THE FIRST 10 ADDRESS NODES
@@ -555,9 +566,49 @@ LIMIT 10
 ```
 {: .language-cypher}
 
+<br/>
 > ## NEO4J Exercise 5 
 > LIST THE NAME AND NUMBER CONNECTIONS OF THE TOP 10 MOST CONNECTED OFFICERS FROM BULGARIA.WHO IS THE NO1?
 {: .challenge}
+
+
+<br/><br/>
+
+#### Connect to neo4j with Python 
+
+```
+from neo4j import GraphDatabase, basic_auth
+
+driver = GraphDatabase.driver("neo4j://18.208.109.82:7687", auth=basic_auth("neo4j", "overlays-consoles-regulations"))
+```
+{: .language-python}
+
+<br/>
+#### Query and display
+
+```
+cypher_query = '''
+MATCH (o:Officer)
+WHERE o.countries CONTAINS $country
+RETURN o.name as name
+LIMIT 10
+'''
+
+with driver.session(database="neo4j") as session:
+  results = session.execute_read(lambda tx: tx.run(cypher_query,country="Hungary").data())
+    
+  for record in results:
+    print(record['name'])
+```
+{: .language-python}
+
+<br/>
+#### Close connection
+
+```
+driver.close()
+```
+{: .language-python}
 
 
 
