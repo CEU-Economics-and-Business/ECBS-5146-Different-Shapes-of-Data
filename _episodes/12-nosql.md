@@ -157,33 +157,38 @@ r.mget('laszlo_sallo_one','laszlo_sallo_three')
 
 <br/>
 
+#### [Exercise notebook]({{ page.root }}/artifacts/nosql/mongo_class.ipynb) 
+
+<br/>
 
 #### Connect to MongoDB with Python 
 
 ```
 import pymongo
 import pprint
-mongo = pymongo.MongoClient("mongodb://something:something")
+mongo = pymongo.MongoClient("mongodb://localhost:27017")
 ```
 {: .language-python}
 
 <br/>
-#### Select a database and a collection
+#### Select a database
 
-If database or collection does not exist, will be created with the first data write (eg. insert line)
+If database does not exist, will be created with the first data write (eg. insert line)
 
 ```
 db = mongo["mydatabase"]
-customers = db["customers"]
 ```
 {: .language-python}
 
 <br/>
-#### List collections stored in the database
+#### Create a collection
+
 ```
-db.list_collection_names()
+customers = db["laszlo_sallo"]
 ```
 {: .language-python}
+
+
 
 <br/>
 #### Insert a document
@@ -219,6 +224,19 @@ customers.count_documents({"name": "John"})
 {: .language-python}
 
 <br/>
+
+
+#### Insert 
+Insert a row with another John into the new collection
+
+```
+id = customers.insert_one({ "name": "John", "address": "Boole 01" }).inserted_id
+```
+{: .language-python}
+
+<br/>
+
+
 #### Distinct
 
 Find the customers called "John" which address starts with "Boston" and print out distinct addresses.
@@ -226,6 +244,13 @@ Find the customers called "John" which address starts with "Boston" and print ou
 ```
 for customer in customers.find({"name":"John","address": {"$regex": "^Boston"}}).distinct("address"):
     pprint.pprint(customer)
+```
+{: .language-python}
+
+<br/>
+#### List collections stored in the database
+```
+db.list_collection_names()
 ```
 {: .language-python}
 
