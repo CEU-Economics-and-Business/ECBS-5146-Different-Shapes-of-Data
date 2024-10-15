@@ -11,3 +11,4 @@ _site
 vendor/
 Gemfile.lock
 .jekyll-cache/
+artifacts/sp/Untitled.mwb

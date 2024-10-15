@@ -65,7 +65,8 @@ keypoints:
 
 <br>
 
-#### Exercise interface: [http://34.243.146.179](http://34.243.146.179) (Jupyter Notebook)
+#### Exercise interface: [http://de1.ceudsd.com](http://de1.ceudsd.com) (Jupyter Notebook)
+#### [Exercise notebook]({{ page.root }}/artifacts/nosql/redis_class.ipynb) 
 
 Username/Password will be distributed during class. Ask on Teams if you haven't got one. 
 
@@ -74,51 +75,51 @@ Username/Password will be distributed during class. Ask on Teams if you haven't 
 #### Connect to Redis with Python 
 ```
 import redis
-r = redis.Redis(host='something', port=something)
+r = redis.Redis(host='localhost', port=8082)
 ```
 {: .language-python}
 
 #### Set a value with a key
 ```
-r.set('foo', 'bar')
+r.set('laszlo_sallo', 'bar')
 ```
 {: .language-python}
 
 #### Get value by key
 ```
-r.get('foo')
+r.get('laszlo_sallo')
 ```
 {: .language-python}
 
 #### Overwrite with expiration
 ```
-r.set('foo','bar2',ex=5)
+r.set('laszlo_sallo','efwefwefgwerg',ex=5)
 ```
 {: .language-python}
 
 #### Is it there?
 ```
-r.get('foo')
+r.get('laszlo_sallo')
 ```
 {: .language-python}
 
 #### Set a number
 ```
-r.set("something", 10)
-r.get('something')
+r.set('laszlo_sallo_nr', 10)
+r.get('laszlo_sallo_nr')
 ```
 {: .language-python}
 
 #### Increase number value
 ```
-r.incr("something")
-r.get('something')
+r.incr("laszlo_sallo_nr")
+r.get('laszlo_sallo_nr')
 ```
 {: .language-python}
 
 #### Store multiple key-value
 ```
-r.mset({'one': 1, 'two': 2, 'three': 3})
+r.mset({'laszlo_sallo_one': 1, 'laszlo_sallo_two': 2, 'laszlo_sallo_three': 3})
 ```
 {: .language-python}
 
@@ -130,7 +131,7 @@ r.keys()
 
 #### Retrieve multiple values by key
 ```
-r.mget('one','three')
+r.mget('laszlo_sallo_one','laszlo_sallo_three')
 ```
 {: .language-python}
 
@@ -272,7 +273,7 @@ for listing in airbnb.find({ "address.country": "Spain" }).limit(10):
 
 <br/>
 
-#### Exercise interface: [http://34.243.146.179:8081/solr/#/flightdelays/query](http://34.243.146.179:8081/solr/#/flightdelays/query)
+#### Exercise interface: [http://solr.ceudsd.com/solr/#/flightdelays/query](http://solr.ceudsd.com/solr/#/flightdelays/query)
 
 <br/><br/>
 

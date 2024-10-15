@@ -108,7 +108,7 @@ CALL CreateProductSalesStore();
 <a name="jobs"/>
 ## Events to schedule ETL jobs
 
-Event engine runs scheduled jobs/tasks. We can us it for scheduling ETL processes. 
+Event engine runs scheduled jobs/tasks. We can use it for scheduling ETL processes. 
 
 Basics on how to check the state of the scheduler. Check if scheduler is running 
 
@@ -142,8 +142,8 @@ event_body
 
 
 <br/><br/>
->## `Exercise3` 
->create a scheduler which writes the current time in messages in every second
+>## `Exercise2` 
+>Create a scheduler which writes the current time in messages in every second
 {: .challenge} 
 
 <br/><br/>
