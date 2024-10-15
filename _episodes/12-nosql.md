@@ -387,6 +387,39 @@ http://solr.ceudsd.com/solr/flightdelays/select?d=2&facet.field=ORIG_CITY_str&fa
 {: .challenge}
 
 
+#### Connect to SOLR with Python 
+
+```
+import pysolr
+from requests.auth import HTTPBasicAuth
+import pprint
+
+solr = pysolr.Solr('http://localhost:8081/solr/flightdelays',auth=HTTPBasicAuth('xxx','xxx'))
+```
+{: .language-python}
+
+<br/>
+#### Query the first 10 records
+
+```
+results = solr.search('*:*')
+for result in results:
+    pprint.pprint(result)```
+{: .language-python}
+
+<br/>
+#### A more complicated query
+
+List records from the last 10 years where tail number is N520JB:
+
+
+```
+results = solr.search('TAIL_NUMBER:N838UA AND DATE:[NOW-10YEARS TO *]',fl="DISTANCE,ORIG_CITY,DEST_CITY",sort="DISTANCE desc",rows=10)
+for result in results:
+    pprint.pp(result,width=50)```
+{: .language-python}
+
+
 
 <br/><br/><br/>
 <a name="neo4j"/>
