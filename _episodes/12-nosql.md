@@ -74,7 +74,7 @@ Username/Password will be distributed during class. Ask on Teams if you haven't 
 #### Connect to Redis with Python 
 ```
 import redis
-r = redis.Redis(host='something', port=something)
+r = redis.Redis(host='localhost', port=8082)
 ```
 {: .language-python}
 
