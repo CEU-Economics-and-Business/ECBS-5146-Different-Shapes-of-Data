@@ -66,6 +66,7 @@ keypoints:
 <br>
 
 #### Exercise interface: [http://de1.ceudsd.com](http://de1.ceudsd.com) (Jupyter Notebook)
+#### [Exercise notebook]({{ page.root }}/artifacts/nosql/redis.ipynb) 
 
 Username/Password will be distributed during class. Ask on Teams if you haven't got one. 
 
