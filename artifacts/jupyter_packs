@@ -1,3 +1,5 @@
 pymongo
 redis
 mysql-connector-python
+oracledb
+pysolr
