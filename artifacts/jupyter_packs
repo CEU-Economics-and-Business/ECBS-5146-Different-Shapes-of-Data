@@ -2,3 +2,4 @@ pymongo
 redis
 mysql-connector-python
 pysolr
+neo4j
