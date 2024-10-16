@@ -3,7 +3,7 @@ title: Term project 2
 ---
 
 ### Format
-The term project will delivered in [teams]({{ page.root }}/artifacts/groups.xlsx), consisting 4 students each. 
+The term project will delivered in [teams](https://docs.google.com/spreadsheets/d/1wX6jej0qF4ZmeDZDAHclCaTftKjYiAq8LUpAyDT1Fac/edit?usp=sharing), consisting 4 students each. 
 
 ### Goal
 
@@ -64,9 +64,9 @@ Extra points:
 
 ### Submission and deadlines
 
-5th December - Every material should be committed to GitHub. Submit the GitHub link to Moodle when you are ready. 
+4th December - Every material should be committed to GitHub. Submit the GitHub link to Moodle when you are ready. 
 
-7th December (17:00 - 20:00) - Teams will present their results online on Zoom:
+6th December (17:00 - 20:00) - Teams will present their results online on Teams:
 * The order of presentation will be by team number
 * Every team will have 7 minutes for presentations, followed by 7 minutes Q&A
 
