@@ -46,8 +46,6 @@ Getting insights in AWS cloud, has to major goals:
 * Introducing cloud in practice, helps students to understand the next lecture
 
 
-[Tutorial](https://github.com/salacika/DE2DSD/tree/main/tradeoffs/AWS)
-
 
 
 <br/><br/>

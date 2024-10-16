@@ -13,7 +13,7 @@ objectives:
 - Understanding SQL VS NoSQL
 - Understanding NoSQL families 
 - Introducing Key-Value Stores
-- Introducing Apache Zeppelin
+- Introducing Jupyter Notebook
 - Practice with Redis
 - Introducing Time Series DBMS 
 - Introducing Document Stores
@@ -27,7 +27,7 @@ objectives:
 keypoints:
 - \#BASE
 - \#NOSQL FAMILIES
-- \#APACHE ZEPPELIN
+- \#JUPYTER NOTEBOOK
 - \#REDIS
 - \#MONGO
 - \#SOLR
@@ -65,7 +65,8 @@ keypoints:
 
 <br>
 
-#### Exercise interface: [http://34.243.146.179](http://34.243.146.179) (Jupyter Notebook)
+#### Exercise interface: [http://de1.ceudsd.com](http://de1.ceudsd.com) (Jupyter Notebook)
+#### [Exercise notebook]({{ page.root }}/artifacts/nosql/redis_class.ipynb) 
 
 Username/Password will be distributed during class. Ask on Teams if you haven't got one. 
 
@@ -74,51 +75,51 @@ Username/Password will be distributed during class. Ask on Teams if you haven't 
 #### Connect to Redis with Python 
 ```
 import redis
-r = redis.Redis(host='something', port=something)
+r = redis.Redis(host='localhost', port=8082)
 ```
 {: .language-python}
 
 #### Set a value with a key
 ```
-r.set('foo', 'bar')
+r.set('laszlo_sallo', 'bar')
 ```
 {: .language-python}
 
 #### Get value by key
 ```
-r.get('foo')
+r.get('laszlo_sallo')
 ```
 {: .language-python}
 
 #### Overwrite with expiration
 ```
-r.set('foo','bar2',ex=5)
+r.set('laszlo_sallo','efwefwefgwerg',ex=5)
 ```
 {: .language-python}
 
 #### Is it there?
 ```
-r.get('foo')
+r.get('laszlo_sallo')
 ```
 {: .language-python}
 
 #### Set a number
 ```
-r.set("something", 10)
-r.get('something')
+r.set('laszlo_sallo_nr', 10)
+r.get('laszlo_sallo_nr')
 ```
 {: .language-python}
 
 #### Increase number value
 ```
-r.incr("something")
-r.get('something')
+r.incr("laszlo_sallo_nr")
+r.get('laszlo_sallo_nr')
 ```
 {: .language-python}
 
 #### Store multiple key-value
 ```
-r.mset({'one': 1, 'two': 2, 'three': 3})
+r.mset({'laszlo_sallo_one': 1, 'laszlo_sallo_two': 2, 'laszlo_sallo_three': 3})
 ```
 {: .language-python}
 
@@ -130,10 +131,11 @@ r.keys()
 
 #### Retrieve multiple values by key
 ```
-r.mget('one','three')
+r.mget('laszlo_sallo_one','laszlo_sallo_three')
 ```
 {: .language-python}
 
+<br/>
 > ## REDIS Exercise 
 > USING THE DOCUMENTATION, FIND HOW TO DELETE A VALUE BY KEY AND HOW TO CHECK THE EXISTENCE OF A KEY.
 {: .challenge}
@@ -156,33 +158,38 @@ r.mget('one','three')
 
 <br/>
 
+#### [Exercise notebook]({{ page.root }}/artifacts/nosql/mongo_class.ipynb) 
+
+<br/>
 
 #### Connect to MongoDB with Python 
 
 ```
 import pymongo
 import pprint
-mongo = pymongo.MongoClient("mongodb://something:something")
+mongo = pymongo.MongoClient("mongodb://localhost:27017")
 ```
 {: .language-python}
 
 <br/>
-#### Select a database and a collection
+#### Select a database
 
-If database or collection does not exist, will be created with the first data write (eg. insert line)
+If database does not exist, will be created with the first data write (eg. insert line)
 
 ```
 db = mongo["mydatabase"]
-customers = db["customers"]
 ```
 {: .language-python}
 
 <br/>
-#### List collections stored in the database
+#### Create a collection
+
 ```
-db.list_collection_names()
+customers = db["laszlo_sallo"]
 ```
 {: .language-python}
+
+
 
 <br/>
 #### Insert a document
@@ -218,13 +225,25 @@ customers.count_documents({"name": "John"})
 {: .language-python}
 
 <br/>
+
+
 #### Distinct
 
-Find the customers called "John" which address starts with "Boston" and print out distinct addresses.
+Insert a row with another John into the new collection and then 
+find the customers called "John" which address starts with "Bos" and print out distinct addresses.
 
 ```
+id = customers.insert_one({ "name": "John", "address": "Boole 01" }).inserted_id
+
 for customer in customers.find({"name":"John","address": {"$regex": "^Boston"}}).distinct("address"):
     pprint.pprint(customer)
+```
+{: .language-python}
+
+<br/>
+#### List collections stored in the database
+```
+db.list_collection_names()
 ```
 {: .language-python}
 
@@ -246,6 +265,8 @@ for listing in airbnb.find({ "address.country": "Spain" }).limit(10):
     pprint.pprint(listing['address']['government_area'])
 ```
 {: .language-python}
+
+<br/>
 
 > ## MONGO Exercise 
 > COUNT HOW MANY AIRBNB LISTINGS WE HAVE IN THE SAMPLE DATABASE HAVING "COUNTRY_CODE" "US" OR "ADDRESS.MARKET" STARTWITH "M" (USE MONGODB DOCUMENTATION)
@@ -272,7 +293,9 @@ for listing in airbnb.find({ "address.country": "Spain" }).limit(10):
 
 <br/>
 
-#### Exercise interface: [http://34.243.146.179:8081/solr/#/flightdelays/query](http://34.243.146.179:8081/solr/#/flightdelays/query)
+#### Exercise interface: [http://solr.ceudsd.com/solr/#/flightdelays/query](http://solr.ceudsd.com/solr/#/flightdelays/query)
+#### [Exercise notebook]({{ page.root }}/artifacts/nosql/solr_class.ipynb) 
+
 
 <br/><br/>
 
@@ -282,7 +305,7 @@ SOLR has different connectors to programming languages. For simple query testing
 
 The simplest query (the result is limited by default to 10):
 ```
-http://34.243.146.179:8081/solr/flightdelays/select?q=*:*
+http://solr.ceudsd.com/solr/flightdelays/select?q=*:*
 ```
 {: .output}
 
@@ -301,7 +324,7 @@ List records from the last 10 years where tail number is N520JB:
 
 
 ```
-http://34.243.146.179:8081/solr/flightdelays/select?fl=DISTANCE,ORIG_CITY,DEST_CITY&q=TAIL_NUMBER:N838UA AND DATE:[NOW-10YEARS TO *]&sort=DISTANCE desc&rows=5
+http://solr.ceudsd.com/solr/flightdelays/select?fl=DISTANCE,ORIG_CITY,DEST_CITY&q=TAIL_NUMBER:N838UA AND DATE:[NOW-10YEARS TO *]&sort=DISTANCE desc&rows=5
 ```
 {: .output}
 
@@ -319,7 +342,7 @@ SELECT distance,orig_city,dest_city FROM flightdelays
 #### String search / Fuzzy search
 List records where tail numbers starting with any character, followed by “2”, followed by 2 any character, followed by "jb". Display only tail number in the result set:
 ```
-http://34.243.146.179:8081/solr/flightdelays/select?fl=TAIL_NUMBER&q=TAIL_NUMBER:?8???a
+http://solr.ceudsd.com/solr/flightdelays/select?fl=TAIL_NUMBER&q=TAIL_NUMBER:?8???a
 ```
 {: .output}
 
@@ -327,7 +350,7 @@ Fuzzy searches is based on the Damerau-Levenshtein Distance or Edit Distance alg
 
 In the next example we list records with destination city close to "columbas" by distance of 2. The distance referred to here is the number of term movements needed to match the specified phrase.
 ```
-http://34.243.146.179:8081/solr/flightdelays/select?fl=DEST_CITY&q=DEST_CITY:kolumbas~2
+http://solr.ceudsd.com/solr/flightdelays/select?fl=DEST_CITY&q=DEST_CITY:kolumbas~2
 ```
 {: .output}
 
@@ -336,7 +359,7 @@ http://34.243.146.179:8081/solr/flightdelays/select?fl=DEST_CITY&q=DEST_CITY:kol
 
 Same as before, but this time return back distinct destination cities as well:
 ```
-http://34.243.146.179:8081/solr/flightdelays/select?q=DEST_CITY:Boise~3&facet.field=DEST_CITY_str&facet=on&rows=0
+http://solr.ceudsd.com/solr/flightdelays/select?q=DEST_CITY:Boise~3&facet.field=DEST_CITY_str&facet=on&rows=0
 ```
 {: .output}
 
@@ -358,13 +381,50 @@ SELECT dest_city, COUNT(*) FROM flightdelays
 Return back records within a circle defined by center point of 39.85,-104.66 [lat,lon] and diameter of 2 kilometer. Display only ORIG_CITY and ORIG_LOCATION_p in the result set and facests for ORIG_CITY_str.
 
 ```
-http://34.243.146.179:8081/solr/flightdelays/select?d=2&facet.field=ORIG_CITY_str&facet=on&fl=ORIG_CITY,ORIG_LOCATION_p,&fq={!geofilt}&pt=39.85,-104.66&q=*:*&sfield=ORIG_LOCATION_p
+http://solr.ceudsd.com/solr/flightdelays/select?d=2&facet.field=ORIG_CITY_str&facet=on&fl=ORIG_CITY,ORIG_LOCATION_p,&fq={!geofilt}&pt=39.85,-104.66&q=*:*&sfield=ORIG_LOCATION_p
 ```
 {: .output}
+
+<br/>
 
 > ## SOLR Exercise 
 > HOW MANY FLIGHTS ARRIVED IN SAN FRANCISCO WITH NO DELAY ALTHOUGH THEY DEPARTED AT LEAST 50 MINS BEHIND THE SCHEDULE?
 {: .challenge}
+
+<br/><br/>
+
+#### Connect to SOLR with Python 
+
+```
+import pysolr
+from requests.auth import HTTPBasicAuth
+import pprint
+
+solr = pysolr.Solr('http://localhost:8081/solr/flightdelays',auth=HTTPBasicAuth('xxx','xxx'))
+```
+{: .language-python}
+
+<br/>
+#### Query the first 10 records
+
+```
+results = solr.search('*:*')
+for result in results:
+    pprint.pprint(result)
+```
+{: .language-python}
+
+<br/>
+#### A more complicated query
+
+List records from the last 10 years where tail number is N520JB:
+
+```
+results = solr.search('TAIL_NUMBER:N838UA AND DATE:[NOW-10YEARS TO *]',fl="DISTANCE,ORIG_CITY,DEST_CITY",sort="DISTANCE desc",rows=10)
+for result in results:
+    pprint.pp(result,width=50)
+```
+{: .language-python}
 
 
 
@@ -374,16 +434,22 @@ http://34.243.146.179:8081/solr/flightdelays/select?d=2&facet.field=ORIG_CITY_st
 
 #### Links to help you
 
-(https://neo4j.com/developer/cypher-query-language/)
+[https://neo4j.com/developer/cypher-query-language/](https://neo4j.com/developer/cypher-query-language/)
 
-(http://neo4j.com/docs/developer-manual/current/cypher/)
+[http://neo4j.com/docs/developer-manual/current/cypher/](http://neo4j.com/docs/developer-manual/current/cypher/)
 
-(https://cloudfront-files-1.publicintegrity.org/offshoreleaks/neo4j/guide/index.html)
+[https://neo4j.com/blog/analyzing-paradise-papers-neo4j/](https://neo4j.com/blog/analyzing-paradise-papers-neo4j/)
 
- <br/>
+
+<br/>
 #### Exercise interface: [https://sandbox.neo4j.com/](https://sandbox.neo4j.com/)
 
+<br/>
 Register and start a sandbox with "Paradise Papers by ICIJ"
+
+
+#### [Exercise notebook]({{ page.root }}/artifacts/nosql/neo4j_class.ipynb) 
+
 
 <br/><br/>
 
@@ -422,7 +488,7 @@ SELECT o.countries FROM officer AS o WHERE o.countries LIKE '%Hungary%';
 {: .language-sql}
 
 
-
+<br/>
 
 > ## NEO4J Exercise 1 
 > RETURN THE FIRST 10 ADDRESS NODES
@@ -500,9 +566,49 @@ LIMIT 10
 ```
 {: .language-cypher}
 
+<br/>
 > ## NEO4J Exercise 5 
 > LIST THE NAME AND NUMBER CONNECTIONS OF THE TOP 10 MOST CONNECTED OFFICERS FROM BULGARIA.WHO IS THE NO1?
 {: .challenge}
+
+
+<br/><br/>
+
+#### Connect to neo4j with Python 
+
+```
+from neo4j import GraphDatabase, basic_auth
+
+driver = GraphDatabase.driver("neo4j://18.208.109.82:7687", auth=basic_auth("neo4j", "overlays-consoles-regulations"))
+```
+{: .language-python}
+
+<br/>
+#### Query and display
+
+```
+cypher_query = '''
+MATCH (o:Officer)
+WHERE o.countries CONTAINS $country
+RETURN o.name as name
+LIMIT 10
+'''
+
+with driver.session(database="neo4j") as session:
+  results = session.execute_read(lambda tx: tx.run(cypher_query,country="Hungary").data())
+    
+  for record in results:
+    print(record['name'])
+```
+{: .language-python}
+
+<br/>
+#### Close connection
+
+```
+driver.close()
+```
+{: .language-python}
 
 
 
