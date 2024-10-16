@@ -13,7 +13,7 @@ objectives:
 - Understanding SQL VS NoSQL
 - Understanding NoSQL families 
 - Introducing Key-Value Stores
-- Introducing Apache Zeppelin
+- Introducing Jupyter Notebook
 - Practice with Redis
 - Introducing Time Series DBMS 
 - Introducing Document Stores
@@ -27,7 +27,7 @@ objectives:
 keypoints:
 - \#BASE
 - \#NOSQL FAMILIES
-- \#APACHE ZEPPELIN
+- \#JUPYTER NOTEBOOK
 - \#REDIS
 - \#MONGO
 - \#SOLR
