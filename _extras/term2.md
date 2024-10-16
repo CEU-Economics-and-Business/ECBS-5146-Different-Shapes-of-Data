@@ -66,7 +66,9 @@ Extra points:
 
 4th December - Every material should be committed to GitHub. Submit the GitHub link to Moodle when you are ready. 
 
-6th December (17:00 - 20:00) - Teams will present their results online on Teams:
+6th December (17:00 - 20:00) 
+- We will start the session with a 10 mins quiz
+- After quiz, teams will present their results online on Teams:
 * The order of presentation will be by team number
 * Every team will have 7 minutes for presentations, followed by 7 minutes Q&A
 
