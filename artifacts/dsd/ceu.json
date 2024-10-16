@@ -1,0 +1,34 @@
+
+
+{
+    people:
+        [
+            {
+                name:
+                    {
+                    "first_name":"laszlo",
+                    "last_name":"sallo"
+                    },
+                birth:
+                    {
+                    "year":1976,
+                    "location":"szekelyudvarhely"
+                    },
+                married:true
+
+            },
+            {
+            name:
+                    {
+                    "first_name":"sandor",
+                    "last_name":"budai"
+                    },
+                birth:
+                    {
+                    "year":1983,
+                    "location":"budapest"
+                    }
+            }
+
+        ]
+}
