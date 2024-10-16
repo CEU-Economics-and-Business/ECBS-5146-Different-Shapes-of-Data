@@ -27,7 +27,7 @@ The term project will delivered in [teams](https://docs.google.com/spreadsheets/
 ### Delivery
 The project artifacts should be stored and handed over in a folder "Term2" in a GitHub repo (One repo of a team member)
 
-The main artifact submitted is a 4-6 page report (including figures and data citation), with the following requirements:
+The main artifact submitted is a 1-2 page report (including figures and data citation), with the following requirements:
 * document the solution provided
 * document the technical choices made
 * document the data model (ER diagram for RDBMS)
@@ -35,12 +35,11 @@ The main artifact submitted is a 4-6 page report (including figures and data cit
 
 
 Artifacts to be submitted:
-* Term project report
-* Powerpoint presentation - material for a few minutes of presentation
+* Term project report 
+* Powerpoint presentation (or similar) - material for a few minutes of presentation
 * Knime workflow file
-* Source files 
-* Script (or instructions) of data persistence (sql file in case of a RDBMS)
-  
+* Additional artifacts to run the workflow (with description)
+    
 Reproducibility: the project should be reproducible in a straightforward manner. In other words, we should be able to run your code and obtain the same outcome as you. 
 
 ### Grading criteria
