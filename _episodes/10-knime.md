@@ -64,16 +64,7 @@ keypoints:
 
 >## End-to-end example
 > [Source file (fips.csv)]({{ page.root }}/artifacts/knime/fips.csv)
->
-> [NOAA Climate Data Online API](https://www.ncdc.noaa.gov/cdo-web/webservices/v2)
->* List datasets of this API:
->* [https://www.ncdc.noaa.gov/cdo-web/api/v2/datasets](https://www.ncdc.noaa.gov/cdo-web/api/v2/datasets)
->* Weather in 1763:
->* [https://www.ncdc.noaa.gov/cdo-web/api/v2/data?datasetid=GHCND&startdate=1763-03-01&enddate=1763-03-01&units=metric](https://www.ncdc.noaa.gov/cdo-web/api/v2/data?datasetid=GHCND&startdate=1763-03-01&enddate=1763-03-01&units=metric)
->* Precipitation in Hawai on 1999-11-01:
->* [https://www.ncdc.noaa.gov/cdo-web/api/v2/data?datasetid=GHCND&units=metric&startdate=1999-11-01&enddate=1999-11-01&locationid=FIPS:15&limit=1000&datatypeid=PRCP](https://www.ncdc.noaa.gov/cdo-web/api/v2/data?datasetid=GHCND&units=metric&startdate=1999-11-01&enddate=1999-11-01&locationid=FIPS:15&limit=1000&datatypeid=PRCP)
->* Wind in Utah on 2000-03-03:
->* [https://www.ncdc.noaa.gov/cdo-web/api/v2/data?datasetid=GHCND&datatypeid=AWND&limit=1&startdate=2000-03-03&enddate=2000-03-03&locationid=FIPS:49](https://www.ncdc.noaa.gov/cdo-web/api/v2/data?datasetid=GHCND&datatypeid=AWND&limit=1&startdate=2000-03-03&enddate=2000-03-03&locationid=FIPS:49)
+> We will be using the NOAA CDO API (see [Chapter 7](https://ceu-economics-and-business.github.io/ECBS-5146-Different-Shapes-of-Data/08-dsd/index.html))
 >
 <!-- > [Final KNIME Workflow]({{ page.root }}/artifacts/knime/weather-ver2022.knwf) -->
 >
