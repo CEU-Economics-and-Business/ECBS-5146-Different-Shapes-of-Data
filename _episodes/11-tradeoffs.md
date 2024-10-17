@@ -52,8 +52,8 @@ Getting insights in AWS cloud, has to major goals:
 from mysql.connector import (connection)
 
 connection = connection.MySQLConnection(
-    user='zeppelin', 
-    password='ceudsd666',
+    user='xxx', 
+    password='xxx',
     host='localhost',
     database='birdstrikes', 
     auth_plugin = 'mysql_native_password')
