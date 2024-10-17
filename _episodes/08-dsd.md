@@ -30,7 +30,10 @@ keypoints:
 >[JSON](#json)  
 >[Anatomy of a URL](#url)  
 >[Getting data from internet](#internet)  
->[Using Eurostat API](#euro)   
+>[Eurostat API](#euro)
+>[Worldbank API](#worldbank)
+>[NOAA Climate Data Online API](#noaa) 
+>  
 {: .discussion}
 
 
@@ -405,8 +408,9 @@ keypoints:
 {:.callout}
 
 
-<br/><br/><br/>
+<br/>
 
+<a name="worldbank"/>
 ## Worldbank API 
 
 >## `Exercise 3` - Worldbank API
@@ -417,18 +421,22 @@ keypoints:
 > * More details in the API you can find [here](https://datahelpdesk.worldbank.org/knowledgebase/articles/898581-api-basic-call-structures)
 {: .challenge} 
 
-<br/><br/>
+<br/>
 >## `Exercise 4` - Worldbank API Advanced
 > Using World Bank Data API, request "CO2 emissions (metric tons per capita)" between 2000 and 2002 for EU,Hungary, USA and China. 
 {: .challenge}
 
 <br/>
 
-<a name="euro"/>
+<a name="noaa"/>
 ## NOAA Climate Data Online API 
 
 >## Example - CDO API 
->NOAA CDO API offers various global weather information. You can find the API description here: [https://www.ncdc.noaa.gov/cdo-web/webservices/v2](https://www.ncdc.noaa.gov/cdo-web/webservices/v2)
+>NOAA CDO API offers various global weather information.
+>You can find the API description here: [https://www.ncdc.noaa.gov/cdo-web/webservices/v2](https://www.ncdc.noaa.gov/cdo-web/webservices/v2)
+>In order to access this API you need to request a token here: [https://www.ncdc.noaa.gov/cdo-web/token](https://www.ncdc.noaa.gov/cdo-web/token)
+>Use this token in Postman adding to header.
+>
 >* To list datasets of this API:
 >* [https://www.ncdc.noaa.gov/cdo-web/api/v2/datasets](https://www.ncdc.noaa.gov/cdo-web/api/v2/datasets)
 >* Weather in 1763:
