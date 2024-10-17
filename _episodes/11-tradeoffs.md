@@ -45,6 +45,8 @@ Getting insights in AWS cloud, has to major goals:
 * A data system in cloud enables collaboration during the execution of your term project
 * Introducing cloud in practice, helps students to understand the next lecture
 
+As practice we will install a MySQL in AWS using Amazon RDS and then we will access it through MySQL Workbench and then Python. 
+
 ## Access MYSQL from Python
 
 #### Select a database
