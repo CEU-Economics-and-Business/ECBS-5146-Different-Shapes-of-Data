@@ -3,7 +3,7 @@ title: Term project 2
 ---
 
 ### Format
-The term project will delivered in [teams]({{ page.root }}/artifacts/groups.xlsx), consisting 4 students each. 
+The term project will delivered in [teams](https://docs.google.com/spreadsheets/d/1wX6jej0qF4ZmeDZDAHclCaTftKjYiAq8LUpAyDT1Fac/edit?usp=sharing), consisting 4 students each. 
 
 ### Goal
 
@@ -27,7 +27,7 @@ The term project will delivered in [teams]({{ page.root }}/artifacts/groups.xlsx
 ### Delivery
 The project artifacts should be stored and handed over in a folder "Term2" in a GitHub repo (One repo of a team member)
 
-The main artifact submitted is a 4-6 page report (including figures and data citation), with the following requirements:
+The main artifact submitted is a 1-2 page report (including figures and data citation), with the following requirements:
 * document the solution provided
 * document the technical choices made
 * document the data model (ER diagram for RDBMS)
@@ -35,12 +35,11 @@ The main artifact submitted is a 4-6 page report (including figures and data cit
 
 
 Artifacts to be submitted:
-* Term project report
-* Powerpoint presentation - material for a few minutes of presentation
+* Term project report 
+* Powerpoint presentation (or similar) - material for a few minutes of presentation
 * Knime workflow file
-* Source files 
-* Script (or instructions) of data persistence (sql file in case of a RDBMS)
-  
+* Additional artifacts to run the workflow (with description)
+    
 Reproducibility: the project should be reproducible in a straightforward manner. In other words, we should be able to run your code and obtain the same outcome as you. 
 
 ### Grading criteria
@@ -64,9 +63,11 @@ Extra points:
 
 ### Submission and deadlines
 
-5th December - Every material should be committed to GitHub. Submit the GitHub link to Moodle when you are ready. 
+4th December - Every material should be committed to GitHub. Submit the GitHub link to Moodle when you are ready. 
 
-7th December (17:00 - 20:00) - Teams will present their results online on Zoom:
+6th December (17:00 - 20:00) 
+- We will start the session with a 10 mins quiz (Questions from the course, only the topics we discussed)
+- After quiz, teams will present their results online on Teams
 * The order of presentation will be by team number
 * Every team will have 7 minutes for presentations, followed by 7 minutes Q&A
 

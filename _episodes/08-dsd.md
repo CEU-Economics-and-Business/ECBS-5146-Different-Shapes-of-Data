@@ -19,6 +19,7 @@ keypoints:
 - \#POSTMAN
 - \#EUROSTAT API
 - \#WORLDBANK API
+- \#NOAA CLIMATE DATA API
 
 ---
 
@@ -30,7 +31,13 @@ keypoints:
 >[JSON](#json)  
 >[Anatomy of a URL](#url)  
 >[Getting data from internet](#internet)  
->[Using Eurostat API](#euro)   
+>[Eurostat API](#euro)
+> 
+> 
+>[Worldbank API](#worldbank)
+> 
+>[NOAA Climate Data Online API](#noaa) 
+>  
 {: .discussion}
 
 
@@ -388,6 +395,8 @@ keypoints:
 
 <br/>
 <a name="euro"/>
+## Eurostat API 
+
 >## Example - Eurostat API 
 >Eurostat is offering a wide range of databases: [https://ec.europa.eu/eurostat/web/main/data/database](https://ec.europa.eu/eurostat/web/main/data/database)
 >* Navigate to: Data navigation tree > Detailed datasets > General and regional statistics	> City statistics (urb) > Cities and greater cities (urb_cgc) > Population on 1 January by age groups and sex - cities and greater cities (urb_cpop1)
@@ -403,7 +412,11 @@ keypoints:
 {:.callout}
 
 
-<br/><br/><br/>
+<br/>
+
+<a name="worldbank"/>
+## Worldbank API 
+
 >## `Exercise 3` - Worldbank API
 > Using World Bank Data API, request "GDP per capita, PPP (current international $)" [indicator:NY.GDP.PCAP.PP.CD] for all 266 countries and regions.  
 >
@@ -412,10 +425,32 @@ keypoints:
 > * More details in the API you can find [here](https://datahelpdesk.worldbank.org/knowledgebase/articles/898581-api-basic-call-structures)
 {: .challenge} 
 
-<br/><br/>
+<br/>
 >## `Exercise 4` - Worldbank API Advanced
 > Using World Bank Data API, request "CO2 emissions (metric tons per capita)" between 2000 and 2002 for EU,Hungary, USA and China. 
-{: .challenge} 
+{: .challenge}
+
+<br/>
+
+<a name="noaa"/>
+## NOAA Climate Data Online API 
+
+>## Example - CDO API 
+>NOAA CDO API offers various global weather information.
+><br/>You can find the API description here: [https://www.ncdc.noaa.gov/cdo-web/webservices/v2](https://www.ncdc.noaa.gov/cdo-web/webservices/v2)
+><br/>In order to access this API you need to request a token here: [https://www.ncdc.noaa.gov/cdo-web/token](https://www.ncdc.noaa.gov/cdo-web/token)
+><br/>Use this token in Postman adding to header.
+>
+>* To list datasets of this API:
+>* [https://www.ncdc.noaa.gov/cdo-web/api/v2/datasets](https://www.ncdc.noaa.gov/cdo-web/api/v2/datasets)
+>* Weather in 1763:
+>* [https://www.ncdc.noaa.gov/cdo-web/api/v2/data?datasetid=GHCND&startdate=1763-03-01&enddate=1763-03-01&units=metric](https://www.ncdc.noaa.gov/cdo-web/api/v2/data?datasetid=GHCND&startdate=1763-03-01&enddate=1763-03-01&units=metric)
+>* Precipitation in Hawai on 1999-11-01:
+>* [https://www.ncdc.noaa.gov/cdo-web/api/v2/data?datasetid=GHCND&units=metric&startdate=1999-11-01&enddate=1999-11-01&locationid=FIPS:15&limit=1000&datatypeid=PRCP](https://www.ncdc.noaa.gov/cdo-web/api/v2/data?datasetid=GHCND&units=metric&startdate=1999-11-01&enddate=1999-11-01&locationid=FIPS:15&limit=1000&datatypeid=PRCP)
+>* Wind in Utah on 2000-03-03:
+>* [https://www.ncdc.noaa.gov/cdo-web/api/v2/data?datasetid=GHCND&datatypeid=AWND&limit=1&startdate=2000-03-03&enddate=2000-03-03&locationid=FIPS:49](https://www.ncdc.noaa.gov/cdo-web/api/v2/data?datasetid=GHCND&datatypeid=AWND&limit=1&startdate=2000-03-03&enddate=2000-03-03&locationid=FIPS:49)
+>
+{:.callout}
 
 
 

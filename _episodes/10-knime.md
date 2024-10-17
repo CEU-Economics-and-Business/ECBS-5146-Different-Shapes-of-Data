@@ -65,9 +65,9 @@ keypoints:
 >## End-to-end example
 > [Source file (fips.csv)]({{ page.root }}/artifacts/knime/fips.csv)
 >
-> [Source API](https://www.ncdc.noaa.gov/cdo-web/webservices/v2)
+>We will be using the NOAA CDO API (see [Chapter 7](https://ceu-economics-and-business.github.io/ECBS-5146-Different-Shapes-of-Data/08-dsd/index.html#noaa))
 >
-> [Final KNIME Workflow]({{ page.root }}/artifacts/knime/weather-ver2022.knwf)
+<!-- > [Final KNIME Workflow]({{ page.root }}/artifacts/knime/weather-ver2022.knwf) -->
 >
 {: .challenge}
 
