@@ -32,7 +32,10 @@ keypoints:
 >[Anatomy of a URL](#url)  
 >[Getting data from internet](#internet)  
 >[Eurostat API](#euro)
+> 
+> 
 >[Worldbank API](#worldbank)
+> 
 >[NOAA Climate Data Online API](#noaa) 
 >  
 {: .discussion}
