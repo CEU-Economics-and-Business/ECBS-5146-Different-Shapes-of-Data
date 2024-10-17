@@ -19,6 +19,7 @@ keypoints:
 - \#POSTMAN
 - \#EUROSTAT API
 - \#WORLDBANK API
+- \#NOAA CLIMATE DATA API
 
 ---
 
@@ -433,9 +434,9 @@ keypoints:
 
 >## Example - CDO API 
 >NOAA CDO API offers various global weather information.
->You can find the API description here: [https://www.ncdc.noaa.gov/cdo-web/webservices/v2](https://www.ncdc.noaa.gov/cdo-web/webservices/v2)
->In order to access this API you need to request a token here: [https://www.ncdc.noaa.gov/cdo-web/token](https://www.ncdc.noaa.gov/cdo-web/token)
->Use this token in Postman adding to header.
+><br/>You can find the API description here: [https://www.ncdc.noaa.gov/cdo-web/webservices/v2](https://www.ncdc.noaa.gov/cdo-web/webservices/v2)
+><br/>In order to access this API you need to request a token here: [https://www.ncdc.noaa.gov/cdo-web/token](https://www.ncdc.noaa.gov/cdo-web/token)
+><br/>Use this token in Postman adding to header.
 >
 >* To list datasets of this API:
 >* [https://www.ncdc.noaa.gov/cdo-web/api/v2/datasets](https://www.ncdc.noaa.gov/cdo-web/api/v2/datasets)
