@@ -56,7 +56,6 @@ Extra points:
 
 ### Submission 
 Before you really start working on the project, submit your planned data set [here](https://docs.google.com/spreadsheets/d/1wU-aBzTvght0PcEXVVetB2hRi0ujVJjLzXaiuCcprF0/edit?usp=sharing). You can start working on it when the Instructure gives you ok in the right column. 
-
 <br/>
-
 Submit the GitHub link to Moodle when you are ready (don't forget to set the repository to public or give us access!) The deadline for the term project is 04th of November, EOD. 
+<br/>
