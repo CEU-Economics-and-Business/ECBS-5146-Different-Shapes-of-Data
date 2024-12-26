@@ -32,7 +32,7 @@ Tipicaplly you don't need more then the course material and expercises published
 ### Delivery
 The project artifacts should be stored and handed over in a folder "Term1" on your GitHub repo.
 
-For the rest, I will give you the freedom of choosing naming conventions and structure, since this was not covered implicitly in the course. Yet, I would encourage you, to find some reading over the internet and whatever you choose, be consistent and commens of codding convensions.  
+For the rest, I will give you the freedom of choosing naming conventions and structure, unless it was covered implicitly in the course (Star Schema, Database modeling and documenting with Enhanced Entity-Relationship (EER) diagrams etc). Yet, I would encourage you, to find some reading over the internet and whatever you choose, be consistent and commens of coding convensions.  
 
 Testing is optional, for the same reason, we have not covered during the course. Yet, be aware that this is important part of a project delivery. 
 Documentation: use the possibilities offered by GIT markdown and comments in the sql files. 
