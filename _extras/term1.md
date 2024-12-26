@@ -12,11 +12,13 @@ The term project will delivered individually.
 * Learning the format of delivering such a project (naming, packaging, versioning, documenting, testing etc.)
 
 ### High level requirements
+
+Use thw whole course, but expecially >this as starting point]({{ page.root }}/artifacts/dw/dw.pptx) 
 **OPERATIONAL LAYER:** Create an operational data layer in MySQL. Import a relational data set of your choosing into your local instance. Find a data which makes sense to be transformed in analytical data layer for further analytics. In ideal case, you can use the outcome of HW1.
 
 **ANALYTICS:** Create a short plan of what kind of analytics can be potentially executed with this data set.  Plan how the analytical data layer, ETL, Data Mart would look like to support these analytics. (Remember ProductSales example during the class). 
 
-**ANALYTICAL LAYER:** Design a denormalized data structure using the operational layer. Create table in MySQL for this structure. 
+**ANALYTICAL LAYER:** Design a denormalized data structure based on your operational layer. Create the tables in MySQL for this structure. 
 
 **ETL PIPLINE:** Create an ETL pipeline using Triggers, Stored procedures. Make sure to demonstrate every element of ETL (Extract, Transform, Load)
 
