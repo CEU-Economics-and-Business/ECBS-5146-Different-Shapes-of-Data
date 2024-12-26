@@ -5,6 +5,9 @@ title: Term project 1
 ### Format
 The term project will delivered individually. 
 
+### What to use as template / guiding material
+Tipicaplly you don't need more then the course material and expercises published here, especially the the Data warehouse architectures chapters. 
+
 ### Goal
 * Linking the bit and pieces learnt during the course, so that students can see how all these fits together
 * Exercise once more the SQL statements covered in the course
@@ -12,8 +15,6 @@ The term project will delivered individually.
 * Learning the format of delivering such a project (naming, packaging, versioning, documenting, testing etc.)
 
 ### High level requirements
-
-Use the whole course, but expecially the Data warehouse architectures chapters. 
 
 **OPERATIONAL LAYER:** Create an operational data layer in MySQL. Import a relational data set of your choosing into your local instance. Find a data which makes sense to be transformed in analytical data layer for further analytics. In ideal case, you can use the outcome of HW1.
 
