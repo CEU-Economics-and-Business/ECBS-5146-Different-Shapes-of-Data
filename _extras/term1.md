@@ -32,7 +32,7 @@ Typically, the course material and exercises provided here suffice, particularly
 ### Delivery
 Store and submit project artifacts in a folder named "Term1" on your GitHub repo.
 
-For naming conventions and structure, you have the freedom to choose unless it was implicitly covered in the course (Database modeling and documenting with Enhanced Entity-Relationship (EER) diagrams or Analytical layer modeling and documentation using Star Schema). However, I encourage you to research online and maintain consistency and coding conventions.  
+For naming conventions and structure, you have the freedom to choose unless it was implicitly covered in the course (Database modeling and documenting with Enhanced Entity-Relationship (EER) diagrams or Analytical layer modeling and documentation using Star Schema). I encourage you to research online and maintain consistency and coding conventions.  
 
 Testing is optional, as it was not covered in the course. However, be aware that testing is a crucial part of project delivery. 
 Documentation: utilize GIT markdown and comments in SQL files for documentation. 
