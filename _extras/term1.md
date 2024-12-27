@@ -11,7 +11,7 @@ Typically, the course material and exercises provided here suffice, particularly
 ### Goal
 * Synthesize the various concepts learned throughout the course to illustrate how they integrate
 * Revisit SQL statements discussed in the course
-* Extend beyond the course material. Depending on the scope chosen by the student, additional knowledge may be required
+* Extend beyond the course material. Depending on the scope chosen by the student, additional knowledge may be aquired
 * Understand the process of delivering such a project (naming, packaging, versioning, documenting, testing, etc.)
 
 ### High level requirements
