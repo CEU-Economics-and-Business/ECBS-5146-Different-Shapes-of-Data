@@ -30,14 +30,14 @@ Typically, the course material and exercises provided here suffice, particularly
 
 
 ### Delivery
-Store and submit project artifacts in a folder named **"Term1" on your GitHub repo.**
-<br/>
+Store and submit project artifacts in a folder named **"Term1"** on your **GitHub** repo.
+<br/><br/>
 For **naming conventions** and structure, you have the freedom to choose unless it was implicitly covered in the course (Database modeling and documenting with Enhanced Entity-Relationship (EER) diagrams or Analytical layer modeling and documentation using Star Schema). I encourage you to research online and maintain consistency and coding conventions.  
-<br/>
+<br/><br/>
 **Testing** is optional, as it was not covered in the course. However, be aware that testing is a crucial part of project delivery. 
-<br/>
+<br/><br/>
 **For documentation** utilize GIT markdown and comments in SQL files or other coding artifactifacts
-<br/>
+<br/><br/>
 The project should be **reproducible** in a straightforward manner. In other words, any reviewer with github link should be able to run your code and achieve the same results as you. 
 
 ### Grading criteria
