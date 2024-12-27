@@ -57,10 +57,10 @@ Extra points **10 pts max**
 - Triggers
 - Testing
 - Materialized Views 
-- Anything special not covered during the course but makes sense in the project context
+- Anything special not covered during the course and makes sense in the project context
 
 ### Submission 
 Before you begin the project, submit your planned dataset [here](https://docs.google.com/spreadsheets/d/1wU-aBzTvght0PcEXVVetB2hRi0ujVJjLzXaiuCcprF0/edit?usp=sharing). You may start once the Instructor approves it in the right column. 
 <br/>
-Submit the GitHub link to Moodle when you are finished (ensure the repository is public or grant access to us!) The deadline for the term project is November 6th, EOD. 
+Submit your GitHub link (and nothing else) to Moodle when you are finished (ensure the repository is public!) The deadline for the term project is November 6th, EOD. 
 <br/>
