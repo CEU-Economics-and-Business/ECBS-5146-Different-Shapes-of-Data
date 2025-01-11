@@ -53,7 +53,7 @@ The project should be **reproducible** in a straightforward manner. In other wor
 -	Delivery: Documentation **10 pts max**
 -	Reproducibility **10 pts max**
 
-Extra points **10 pts max** [Please explicitly highlight if you introduced something extra into your project]
+Extra points **10 pts max** [Please explicitly highlight in your documentation and code comments, if you introduced something extra into your project]
 - Triggers
 - Testing
 - Materialized Views 
