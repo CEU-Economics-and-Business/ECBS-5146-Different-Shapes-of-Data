@@ -32,7 +32,7 @@ Typically, the course material and exercises provided here suffice, particularly
 ### Delivery
 Store and submit project artifacts in a folder named **"Term1"** in your dedicated DE1 **GitHub** repo. (You can store here your HW results and other artifacts as well.)
 <br/><br/>
-For **naming conventions** and structure, you have the freedom to make your own choices unless it was implicitly covered in the course (Database modeling and documenting with Enhanced Entity-Relationship (EER) diagrams or Analytical layer modeling and documentation using Star Schema). I encourage you to research online and maintain consistency and coding conventions.  
+For **naming conventions** and structure, you have the freedom to make your own choices unless it was implicitly covered in the course (Operational layer data modeling and documenting with Enhanced Entity-Relationship (EER) diagrams or Analytical layer modeling and documentation using Star Schema). I encourage you to research online and maintain consistency and coding conventions.  
 <br/>
 **Testing** is optional, as it was not covered in the course. However, be aware that testing might be crucial part of real world enterprise project delivery. 
 <br/><br/>
