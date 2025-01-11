@@ -38,7 +38,7 @@ For **naming conventions** and structure, you have the freedom to make your own 
 <br/><br/>
 **For documentation** utilize GIT markdown and comments in SQL files or other coding artifactifacts
 <br/><br/>
-The project should be **reproducible** in a straightforward manner. In other words, any reviewer with github link should be able to run your code and achieve the same results as you. 
+The project should be **reproducible** in a straightforward manner. In other words, any reviewer with github link should be able to run your code and achieve the same results as you without changing the code.
 
 ### Grading criteria
 
